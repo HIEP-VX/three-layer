@@ -55,5 +55,10 @@ namespace GUI
                 MessageBox.Show("Logged is successfully");
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit(); 
+        }
     }
 }
