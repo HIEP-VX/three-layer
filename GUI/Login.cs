@@ -52,8 +52,15 @@ namespace GUI
 
             if (isValid)
             {
-                MessageBox.Show("Logged is successfully");
+                MainForm mf = new MainForm();
+                mf.Show();
+                this.Hide();
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
