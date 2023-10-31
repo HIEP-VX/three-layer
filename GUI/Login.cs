@@ -60,11 +60,7 @@ namespace GUI
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            Application.Exit();
-=======
             Application.Exit(); 
->>>>>>> 017ab4919ca979d5d317a0b3657a2001953186a4
         }
     }
 }
