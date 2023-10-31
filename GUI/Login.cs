@@ -52,8 +52,8 @@ namespace GUI
 
             if (isValid)
             {
-                MainForm mf = new MainForm();
-                mf.Show();
+                FormMain2 fm = new FormMain2();
+                fm.Show();
                 this.Hide();
             }
         }
@@ -61,6 +61,11 @@ namespace GUI
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit(); 
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
