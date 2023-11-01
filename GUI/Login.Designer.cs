@@ -41,53 +41,53 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(174, 21);
+            this.lblTitle.Location = new System.Drawing.Point(148, 21);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(57, 24);
+            this.lblTitle.Size = new System.Drawing.Size(122, 24);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Login";
+            this.lblTitle.Text = "ĐĂNG NHẬP";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(45, 86);
+            this.lblUsername.Location = new System.Drawing.Point(32, 75);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(70, 16);
+            this.lblUsername.Size = new System.Drawing.Size(100, 16);
             this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "Username";
+            this.lblUsername.Text = "Tên người dùng";
             // 
             // lblpassword
             // 
             this.lblpassword.AutoSize = true;
             this.lblpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpassword.Location = new System.Drawing.Point(45, 129);
+            this.lblpassword.Location = new System.Drawing.Point(32, 118);
             this.lblpassword.Name = "lblpassword";
-            this.lblpassword.Size = new System.Drawing.Size(67, 16);
+            this.lblpassword.Size = new System.Drawing.Size(61, 16);
             this.lblpassword.TabIndex = 2;
-            this.lblpassword.Text = "Password";
+            this.lblpassword.Text = "Mật khẩu";
             // 
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(174, 174);
+            this.btnSubmit.Location = new System.Drawing.Point(146, 168);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(108, 32);
             this.btnSubmit.TabIndex = 3;
-            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.Text = "Đăng nhập";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txtusername
             // 
-            this.txtusername.Location = new System.Drawing.Point(178, 86);
+            this.txtusername.Location = new System.Drawing.Point(165, 75);
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(237, 20);
             this.txtusername.TabIndex = 4;
             // 
             // txtpassword
             // 
-            this.txtpassword.Location = new System.Drawing.Point(178, 126);
+            this.txtpassword.Location = new System.Drawing.Point(165, 115);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Size = new System.Drawing.Size(237, 20);
             this.txtpassword.TabIndex = 5;
@@ -95,11 +95,11 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(316, 174);
+            this.btnExit.Location = new System.Drawing.Point(288, 168);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(108, 32);
             this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "Exit";
+            this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -115,8 +115,11 @@
             this.Controls.Add(this.lblpassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblTitle);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Login";
-            this.Text = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ĐĂNG NHẬP";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

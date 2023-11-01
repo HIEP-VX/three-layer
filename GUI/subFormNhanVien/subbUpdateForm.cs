@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,40 +8,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DTO;
-using BLL;
-using DAL;
 
 namespace GUI
 {
-    public partial class subAddForm : Form
+    public partial class subbUpdateForm : Form
     {
 
         public bool isExit = true;
         public event EventHandler Logout;
         public event Action DataAdded;
 
-        public subAddForm()
+        public subbUpdateForm()
         {
             InitializeComponent();
         }
 
-        #region Event
+        private void subbUpdateForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Logout(this, new EventArgs());
         }
-        #endregion
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string query = @"INSERT INTO NhanVien (maNV, tenNV, soDT) values ('" + txtmaNV.Text + "','" + txttenNV.Text + "','" + txtsoDT.Text + "')";
+            string sql = "update NhanVien set TENNV = N'" + txttenNV.Text + "',soDT = '" + txtsoDT.Text + "' where maNV = " + txtMa.Text ;
             try
             {
-                AccessData.execQuery(query);
-                MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AccessData.execQuery(sql);
+                MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

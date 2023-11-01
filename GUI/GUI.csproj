@@ -65,6 +65,18 @@
     <Compile Include="FormMain2.Designer.cs">
       <DependentUpon>FormMain2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDongHo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDongHo.Designer.cs">
+      <DependentUpon>frmDongHo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHopDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHopDong.Designer.cs">
+      <DependentUpon>frmHopDong.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,14 +96,43 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyCungCapNuocSachDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="subAddForm.cs">
+    <Compile Include="QuanLyCungCapNuocSachDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="subAddDH.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="subAddForm.Designer.cs">
+    <Compile Include="subAddDH.Designer.cs">
+      <DependentUpon>subAddDH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subFormNhanVien\subbUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormNhanVien\subbUpdateForm.Designer.cs">
+      <DependentUpon>subbUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subFormNhanVien\subAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormNhanVien\subAddForm.Designer.cs">
       <DependentUpon>subAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subFormNhanVien\subDelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormNhanVien\subDelForm.Designer.cs">
+      <DependentUpon>subDelForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormMain2.resx">
       <DependentUpon>FormMain2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDongHo.resx">
+      <DependentUpon>frmDongHo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHopDong.resx">
+      <DependentUpon>frmHopDong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
@@ -104,8 +145,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="subAddForm.resx">
+    <EmbeddedResource Include="subAddDH.resx">
+      <DependentUpon>subAddDH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subFormNhanVien\subbUpdateForm.resx">
+      <DependentUpon>subbUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subFormNhanVien\subAddForm.resx">
       <DependentUpon>subAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subFormNhanVien\subDelForm.resx">
+      <DependentUpon>subDelForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -132,6 +182,17 @@
     <None Include="QuanLyCungCapNuocSachDataSet.xss">
       <DependentUpon>QuanLyCungCapNuocSachDataSet.xsd</DependentUpon>
     </None>
+    <None Include="QuanLyCungCapNuocSachDataSet1.xsc">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyCungCapNuocSachDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet1.xss">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -152,6 +213,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="subFormDongHo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
