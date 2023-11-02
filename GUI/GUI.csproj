@@ -65,11 +65,23 @@
     <Compile Include="FormMain2.Designer.cs">
       <DependentUpon>FormMain2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDHNuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDHNuoc.Designer.cs">
+      <DependentUpon>frmDHNuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDongHo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDongHo.Designer.cs">
       <DependentUpon>frmDongHo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoaDon.Designer.cs">
+      <DependentUpon>frmHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHopDong.cs">
       <SubType>Form</SubType>
@@ -77,11 +89,35 @@
     <Compile Include="frmHopDong.Designer.cs">
       <DependentUpon>frmHopDong.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKhachHang.Designer.cs">
+      <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLKH.Designer.cs">
+      <DependentUpon>frmLKH.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmNhanVien.Designer.cs">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTieuThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTieuThu.Designer.cs">
+      <DependentUpon>frmTieuThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXuPhat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXuPhat.Designer.cs">
+      <DependentUpon>frmXuPhat.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -105,6 +141,36 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyCungCapNuocSachDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyCungCapNuocSachDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCungCapNuocSachDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyCungCapNuocSachDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCungCapNuocSachDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyCungCapNuocSachDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCungCapNuocSachDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyCungCapNuocSachDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCungCapNuocSachDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyCungCapNuocSachDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCungCapNuocSachDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyCungCapNuocSachDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCungCapNuocSachDataSet8.xsd</DependentUpon>
     </Compile>
     <Compile Include="subAddDH.cs">
       <SubType>Form</SubType>
@@ -151,14 +217,32 @@
     <EmbeddedResource Include="FormMain2.resx">
       <DependentUpon>FormMain2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDHNuoc.resx">
+      <DependentUpon>frmDHNuoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDongHo.resx">
       <DependentUpon>frmDongHo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoaDon.resx">
+      <DependentUpon>frmHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHopDong.resx">
       <DependentUpon>frmHopDong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmKhachHang.resx">
+      <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLKH.resx">
+      <DependentUpon>frmLKH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTieuThu.resx">
+      <DependentUpon>frmTieuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXuPhat.resx">
+      <DependentUpon>frmXuPhat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -235,6 +319,72 @@
     </None>
     <None Include="QuanLyCungCapNuocSachDataSet2.xss">
       <DependentUpon>QuanLyCungCapNuocSachDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet3.xsc">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyCungCapNuocSachDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet3.xss">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet4.xsc">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyCungCapNuocSachDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet4.xss">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet5.xsc">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyCungCapNuocSachDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet5.xss">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet6.xsc">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyCungCapNuocSachDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet6.xss">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet7.xsc">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyCungCapNuocSachDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet7.xss">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet8.xsc">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyCungCapNuocSachDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet8.xss">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet8.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
