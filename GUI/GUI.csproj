@@ -101,11 +101,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyCungCapNuocSachDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCungCapNuocSachDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="subAddDH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="subAddDH.Designer.cs">
       <DependentUpon>subAddDH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subFormHopDong\subAddHopD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormHopDong\subAddHopD.Designer.cs">
+      <DependentUpon>subAddHopD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subFormHopDong\subDelHopD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormHopDong\subDelHopD.Designer.cs">
+      <DependentUpon>subDelHopD.cs</DependentUpon>
     </Compile>
     <Compile Include="subFormNhanVien\subbUpdateForm.cs">
       <SubType>Form</SubType>
@@ -124,6 +141,12 @@
     </Compile>
     <Compile Include="subFormNhanVien\subDelForm.Designer.cs">
       <DependentUpon>subDelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subFormHopDong\subUpdateHopD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormHopDong\subUpdateHopD.Designer.cs">
+      <DependentUpon>subUpdateHopD.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormMain2.resx">
       <DependentUpon>FormMain2.cs</DependentUpon>
@@ -148,6 +171,12 @@
     <EmbeddedResource Include="subAddDH.resx">
       <DependentUpon>subAddDH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="subFormHopDong\subAddHopD.resx">
+      <DependentUpon>subAddHopD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subFormHopDong\subDelHopD.resx">
+      <DependentUpon>subDelHopD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="subFormNhanVien\subbUpdateForm.resx">
       <DependentUpon>subbUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="subFormNhanVien\subDelForm.resx">
       <DependentUpon>subDelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subFormHopDong\subUpdateHopD.resx">
+      <DependentUpon>subUpdateHopD.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -192,6 +224,17 @@
     </None>
     <None Include="QuanLyCungCapNuocSachDataSet1.xss">
       <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet2.xsc">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyCungCapNuocSachDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyCungCapNuocSachDataSet2.xss">
+      <DependentUpon>QuanLyCungCapNuocSachDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

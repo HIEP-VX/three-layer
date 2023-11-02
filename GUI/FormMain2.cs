@@ -156,29 +156,24 @@ namespace GUI
             childForm.Show();
         }
 
-        private void btnQuanLyNhanVien_Click(object sender, EventArgs e)
+        private void btnHopDong_Click(object sender, EventArgs e)
         {
-            OpenFormChild(new frmNhanVien());
-        }
-
-        private void btnQuanLyDongHo_Click(object sender, EventArgs e)
-        {
-            OpenFormChild(new frmDongHo());
-        }
-
-        private void btnQuanLyHopDong_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnQuanLyKhachHang_Click(object sender, EventArgs e)
-        {
-
+            OpenFormChild(new frmHopDong());
         }
 
         private void btnLoaiKhachHang_Click(object sender, EventArgs e)
         {
+            OpenFormChild(new frmLKH());
+        }
 
+        private void btnKhachHang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDongHo_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmDongHo());
         }
 
         private void btnTieuThu_Click(object sender, EventArgs e)
@@ -194,6 +189,11 @@ namespace GUI
         private void btnXuPhat_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmNhanVien());
         }
     }
 }
