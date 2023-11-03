@@ -35,7 +35,7 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvDongho = new System.Windows.Forms.DataGridView();
-            this.quanLyCungCapNuocSachDataSet1 = new GUI.QuanLyCungCapNuocSachDataSet1();
+            this.quanLyCungCapNuocSachDataSet1 = new GUI.dataDongHo();
             this.dongHoNuocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dongHoNuocTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet1TableAdapters.DongHoNuocTableAdapter();
             this.maDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -192,7 +192,7 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvDongho;
-        private QuanLyCungCapNuocSachDataSet1 quanLyCungCapNuocSachDataSet1;
+        private dataDongHo quanLyCungCapNuocSachDataSet1;
         private System.Windows.Forms.BindingSource dongHoNuocBindingSource;
         private QuanLyCungCapNuocSachDataSet1TableAdapters.DongHoNuocTableAdapter dongHoNuocTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn maDHNDataGridViewTextBoxColumn;

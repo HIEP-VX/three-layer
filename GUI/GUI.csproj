@@ -59,17 +59,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dataDHN1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataDHN1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormMain2.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain2.Designer.cs">
       <DependentUpon>FormMain2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDHNuoc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDHNuoc.Designer.cs">
-      <DependentUpon>frmDHNuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDongHo.cs">
       <SubType>Form</SubType>
@@ -107,6 +106,12 @@
     <Compile Include="frmNhanVien.Designer.cs">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThemHopDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemHopDong.Designer.cs">
+      <DependentUpon>frmThemHopDong.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTieuThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,15 +132,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyCungCapNuocSachDataSet.Designer.cs">
+    <Compile Include="dataNhanVien.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet.xsd</DependentUpon>
+      <DependentUpon>dataNhanVien.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet1.Designer.cs">
+    <Compile Include="dataDongHo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
+      <DependentUpon>dataDongHo.xsd</DependentUpon>
     </Compile>
     <Compile Include="QuanLyCungCapNuocSachDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -172,11 +177,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyCungCapNuocSachDataSet8.xsd</DependentUpon>
     </Compile>
-    <Compile Include="subAddDH.cs">
+    <Compile Include="subFormLKH\subAddLKH.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="subAddDH.Designer.cs">
-      <DependentUpon>subAddDH.cs</DependentUpon>
+    <Compile Include="subFormLKH\subAddLKH.Designer.cs">
+      <DependentUpon>subAddLKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subFormLKH\subDelLKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormLKH\subDelLKH.Designer.cs">
+      <DependentUpon>subDelLKH.cs</DependentUpon>
     </Compile>
     <Compile Include="subFormHopDong\subAddHopD.cs">
       <SubType>Form</SubType>
@@ -214,11 +225,14 @@
     <Compile Include="subFormHopDong\subUpdateHopD.Designer.cs">
       <DependentUpon>subUpdateHopD.cs</DependentUpon>
     </Compile>
+    <Compile Include="subFormLKH\subUpdateLKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormLKH\subUpdateLKH.Designer.cs">
+      <DependentUpon>subUpdateLKH.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormMain2.resx">
       <DependentUpon>FormMain2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDHNuoc.resx">
-      <DependentUpon>frmDHNuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDongHo.resx">
       <DependentUpon>frmDongHo.cs</DependentUpon>
@@ -238,6 +252,9 @@
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmThemHopDong.resx">
+      <DependentUpon>frmThemHopDong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTieuThu.resx">
       <DependentUpon>frmTieuThu.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,8 +269,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="subAddDH.resx">
-      <DependentUpon>subAddDH.cs</DependentUpon>
+    <EmbeddedResource Include="subFormLKH\subAddLKH.resx">
+      <DependentUpon>subAddLKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subFormLKH\subDelLKH.resx">
+      <DependentUpon>subDelLKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="subFormHopDong\subAddHopD.resx">
       <DependentUpon>subAddHopD.cs</DependentUpon>
@@ -273,6 +293,20 @@
     <EmbeddedResource Include="subFormHopDong\subUpdateHopD.resx">
       <DependentUpon>subUpdateHopD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="subFormLKH\subUpdateLKH.resx">
+      <DependentUpon>subUpdateLKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dataDHN1.xsc">
+      <DependentUpon>dataDHN1.xsd</DependentUpon>
+    </None>
+    <None Include="dataDHN1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataDHN1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dataDHN1.xss">
+      <DependentUpon>dataDHN1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -287,27 +321,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QuanLyCungCapNuocSachDataSet.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet.xsd</DependentUpon>
+    <None Include="dataNhanVien.xsc">
+      <DependentUpon>dataNhanVien.xsd</DependentUpon>
     </None>
-    <None Include="QuanLyCungCapNuocSachDataSet.xsd">
+    <None Include="dataNhanVien.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>dataNhanVien.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="QuanLyCungCapNuocSachDataSet.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet.xsd</DependentUpon>
+    <None Include="dataNhanVien.xss">
+      <DependentUpon>dataNhanVien.xsd</DependentUpon>
     </None>
-    <None Include="QuanLyCungCapNuocSachDataSet1.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
+    <None Include="dataDongHo.xsc">
+      <DependentUpon>dataDongHo.xsd</DependentUpon>
     </None>
-    <None Include="QuanLyCungCapNuocSachDataSet1.xsd">
+    <None Include="dataDongHo.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>dataDongHo.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="QuanLyCungCapNuocSachDataSet1.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
+    <None Include="dataDongHo.xss">
+      <DependentUpon>dataDongHo.xsd</DependentUpon>
     </None>
     <None Include="QuanLyCungCapNuocSachDataSet2.xsc">
       <DependentUpon>QuanLyCungCapNuocSachDataSet2.xsd</DependentUpon>

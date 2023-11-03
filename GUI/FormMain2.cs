@@ -21,6 +21,7 @@ namespace GUI
         bool isCollapsed = true;
         bool isCollapsed2 = true;
         bool homeExpand = true;
+        bool hopDongExpand = true;
 
 
         public FormMain2()
@@ -158,6 +159,16 @@ namespace GUI
 
         private void btnHopDong_Click(object sender, EventArgs e)
         {
+            timerHopDong.Start();
+        }
+
+        private void btnThemHopDong_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmThemHopDong());
+        }
+
+        private void btnDanhSachHopDong_Click(object sender, EventArgs e)
+        {
             OpenFormChild(new frmHopDong());
         }
 
@@ -168,7 +179,7 @@ namespace GUI
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-
+            OpenFormChild(new frmKhachHang());
         }
 
         private void btnDongHo_Click(object sender, EventArgs e)
@@ -195,5 +206,28 @@ namespace GUI
         {
             OpenFormChild(new frmNhanVien());
         }
+
+        private void timerHopDong_Tick(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                panelHopDong.Height += 10;
+                if (panelHopDong.Size == panelHopDong.MaximumSize)
+                {
+                    timerHopDong.Stop();
+                    isCollapsed = false;
+                }
+            }
+            else
+            {
+                panelHopDong.Height -= 10;
+                if (panelHopDong.Size == panelHopDong.MinimumSize)
+                {
+                    timerHopDong.Stop();
+                    isCollapsed = true;
+                }
+            }
+        }
+
     }
 }

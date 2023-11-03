@@ -30,31 +30,30 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelTool = new System.Windows.Forms.Panel();
-            this.btnTimKiem = new System.Windows.Forms.Button();
-            this.btnCapNhat = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.dgvHopDong = new System.Windows.Forms.DataGridView();
-            this.quanLyCungCapNuocSachDataSet2 = new GUI.QuanLyCungCapNuocSachDataSet2();
-            this.hopDongBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hopDongTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet2TableAdapters.HopDongTableAdapter();
-            this.maHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngayLamHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noiLamHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimeNL = new System.Windows.Forms.DateTimePicker();
             this.btnHopTimKiem = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNL = new System.Windows.Forms.TextBox();
-            this.dateTimeNL = new System.Windows.Forms.DateTimePicker();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.dgvHopDong = new System.Windows.Forms.DataGridView();
+            this.maHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngayLamHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noiLamHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hopDongBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanLyCungCapNuocSachDataSet2 = new GUI.QuanLyCungCapNuocSachDataSet2();
+            this.hopDongTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet2TableAdapters.HopDongTableAdapter();
             this.timerHopD = new System.Windows.Forms.Timer(this.components);
             this.panelTool.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hopDongBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hopDongBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTool
@@ -63,7 +62,6 @@
             this.panelTool.Controls.Add(this.btnTimKiem);
             this.panelTool.Controls.Add(this.btnCapNhat);
             this.panelTool.Controls.Add(this.btnXoa);
-            this.panelTool.Controls.Add(this.btnAdd);
             this.panelTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTool.Location = new System.Drawing.Point(0, 0);
             this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
@@ -71,95 +69,6 @@
             this.panelTool.Name = "panelTool";
             this.panelTool.Size = new System.Drawing.Size(800, 168);
             this.panelTool.TabIndex = 0;
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.Location = new System.Drawing.Point(249, 3);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
-            this.btnTimKiem.TabIndex = 7;
-            this.btnTimKiem.Text = "Tìm kiếm";
-            this.btnTimKiem.UseVisualStyleBackColor = true;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Location = new System.Drawing.Point(169, 3);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
-            this.btnCapNhat.TabIndex = 6;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(88, 3);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXoa.TabIndex = 5;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(7, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // dgvHopDong
-            // 
-            this.dgvHopDong.AutoGenerateColumns = false;
-            this.dgvHopDong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvHopDong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHopDong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maHDDataGridViewTextBoxColumn,
-            this.ngayLamHDDataGridViewTextBoxColumn,
-            this.noiLamHDDataGridViewTextBoxColumn});
-            this.dgvHopDong.DataSource = this.hopDongBindingSource;
-            this.dgvHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHopDong.Location = new System.Drawing.Point(0, 168);
-            this.dgvHopDong.Name = "dgvHopDong";
-            this.dgvHopDong.Size = new System.Drawing.Size(800, 346);
-            this.dgvHopDong.TabIndex = 1;
-            // 
-            // quanLyCungCapNuocSachDataSet2
-            // 
-            this.quanLyCungCapNuocSachDataSet2.DataSetName = "QuanLyCungCapNuocSachDataSet2";
-            this.quanLyCungCapNuocSachDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hopDongBindingSource
-            // 
-            this.hopDongBindingSource.DataMember = "HopDong";
-            this.hopDongBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet2;
-            // 
-            // hopDongTableAdapter
-            // 
-            this.hopDongTableAdapter.ClearBeforeFill = true;
-            // 
-            // maHDDataGridViewTextBoxColumn
-            // 
-            this.maHDDataGridViewTextBoxColumn.DataPropertyName = "maHD";
-            this.maHDDataGridViewTextBoxColumn.HeaderText = "maHD";
-            this.maHDDataGridViewTextBoxColumn.Name = "maHDDataGridViewTextBoxColumn";
-            this.maHDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ngayLamHDDataGridViewTextBoxColumn
-            // 
-            this.ngayLamHDDataGridViewTextBoxColumn.DataPropertyName = "ngayLamHD";
-            this.ngayLamHDDataGridViewTextBoxColumn.HeaderText = "ngayLamHD";
-            this.ngayLamHDDataGridViewTextBoxColumn.Name = "ngayLamHDDataGridViewTextBoxColumn";
-            // 
-            // noiLamHDDataGridViewTextBoxColumn
-            // 
-            this.noiLamHDDataGridViewTextBoxColumn.DataPropertyName = "noiLamHD";
-            this.noiLamHDDataGridViewTextBoxColumn.HeaderText = "noiLamHD";
-            this.noiLamHDDataGridViewTextBoxColumn.Name = "noiLamHDDataGridViewTextBoxColumn";
             // 
             // groupBox1
             // 
@@ -176,6 +85,14 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
+            // 
+            // dateTimeNL
+            // 
+            this.dateTimeNL.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimeNL.Location = new System.Drawing.Point(88, 56);
+            this.dateTimeNL.Name = "dateTimeNL";
+            this.dateTimeNL.Size = new System.Drawing.Size(209, 20);
+            this.dateTimeNL.TabIndex = 34;
             // 
             // btnHopTimKiem
             // 
@@ -232,13 +149,84 @@
             this.txtNL.Size = new System.Drawing.Size(209, 20);
             this.txtNL.TabIndex = 30;
             // 
-            // dateTimeNL
+            // btnTimKiem
             // 
-            this.dateTimeNL.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeNL.Location = new System.Drawing.Point(88, 56);
-            this.dateTimeNL.Name = "dateTimeNL";
-            this.dateTimeNL.Size = new System.Drawing.Size(209, 20);
-            this.dateTimeNL.TabIndex = 34;
+            this.btnTimKiem.Location = new System.Drawing.Point(249, 3);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiem.TabIndex = 7;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Location = new System.Drawing.Point(169, 3);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
+            this.btnCapNhat.TabIndex = 6;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(88, 3);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.TabIndex = 5;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // dgvHopDong
+            // 
+            this.dgvHopDong.AutoGenerateColumns = false;
+            this.dgvHopDong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHopDong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHopDong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maHDDataGridViewTextBoxColumn,
+            this.ngayLamHDDataGridViewTextBoxColumn,
+            this.noiLamHDDataGridViewTextBoxColumn});
+            this.dgvHopDong.DataSource = this.hopDongBindingSource;
+            this.dgvHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHopDong.Location = new System.Drawing.Point(0, 168);
+            this.dgvHopDong.Name = "dgvHopDong";
+            this.dgvHopDong.Size = new System.Drawing.Size(800, 346);
+            this.dgvHopDong.TabIndex = 1;
+            // 
+            // maHDDataGridViewTextBoxColumn
+            // 
+            this.maHDDataGridViewTextBoxColumn.DataPropertyName = "maHD";
+            this.maHDDataGridViewTextBoxColumn.HeaderText = "maHD";
+            this.maHDDataGridViewTextBoxColumn.Name = "maHDDataGridViewTextBoxColumn";
+            this.maHDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ngayLamHDDataGridViewTextBoxColumn
+            // 
+            this.ngayLamHDDataGridViewTextBoxColumn.DataPropertyName = "ngayLamHD";
+            this.ngayLamHDDataGridViewTextBoxColumn.HeaderText = "ngayLamHD";
+            this.ngayLamHDDataGridViewTextBoxColumn.Name = "ngayLamHDDataGridViewTextBoxColumn";
+            // 
+            // noiLamHDDataGridViewTextBoxColumn
+            // 
+            this.noiLamHDDataGridViewTextBoxColumn.DataPropertyName = "noiLamHD";
+            this.noiLamHDDataGridViewTextBoxColumn.HeaderText = "noiLamHD";
+            this.noiLamHDDataGridViewTextBoxColumn.Name = "noiLamHDDataGridViewTextBoxColumn";
+            // 
+            // hopDongBindingSource
+            // 
+            this.hopDongBindingSource.DataMember = "HopDong";
+            this.hopDongBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet2;
+            // 
+            // quanLyCungCapNuocSachDataSet2
+            // 
+            this.quanLyCungCapNuocSachDataSet2.DataSetName = "QuanLyCungCapNuocSachDataSet2";
+            this.quanLyCungCapNuocSachDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // hopDongTableAdapter
+            // 
+            this.hopDongTableAdapter.ClearBeforeFill = true;
             // 
             // timerHopD
             // 
@@ -256,11 +244,11 @@
             this.Text = "frmHopDong";
             this.Load += new System.EventHandler(this.frmHopDong_Load);
             this.panelTool.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hopDongBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hopDongBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -271,7 +259,6 @@
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvHopDong;
         private QuanLyCungCapNuocSachDataSet2 quanLyCungCapNuocSachDataSet2;
         private System.Windows.Forms.BindingSource hopDongBindingSource;

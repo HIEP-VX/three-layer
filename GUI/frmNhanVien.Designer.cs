@@ -47,7 +47,7 @@
             this.tenNVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyCungCapNuocSachDataSet = new GUI.QuanLyCungCapNuocSachDataSet();
+            this.quanLyCungCapNuocSachDataSet = new GUI.dataNhanVien();
             this.nhanVienTableAdapter = new GUI.QuanLyCungCapNuocSachDataSetTableAdapters.NhanVienTableAdapter();
             this.timKiemTimer = new System.Windows.Forms.Timer(this.components);
             this.panelTool.SuspendLayout();
@@ -275,7 +275,7 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvNhanVien;
-        private QuanLyCungCapNuocSachDataSet quanLyCungCapNuocSachDataSet;
+        private dataNhanVien quanLyCungCapNuocSachDataSet;
         private System.Windows.Forms.BindingSource nhanVienBindingSource;
         private QuanLyCungCapNuocSachDataSetTableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn maNVDataGridViewTextBoxColumn;

@@ -31,7 +31,6 @@ namespace GUI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             subAddForm sb = new subAddForm();
-            // thu chạy showDialog
             sb.Show();
             
             sb.Logout += addForm_Logout;
