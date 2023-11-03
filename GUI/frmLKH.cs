@@ -25,6 +25,14 @@ namespace GUI
             this.loaiKhachHangTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet3.loaiKhachHang);
             this.Refresh();
             panelTool.Size = panelTool.MinimumSize;
+            try
+            {
+                string query = "select * from loaiKhachHang";
+                dgvLKH.DataSource = AccessData.getData(query);
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

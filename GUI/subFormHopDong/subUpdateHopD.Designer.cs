@@ -135,7 +135,9 @@
             this.Controls.Add(this.txtNL);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "subUpdateHopD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "subUpdateHopD";
             this.ResumeLayout(false);
             this.PerformLayout();

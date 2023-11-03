@@ -20,6 +20,7 @@ namespace GUI
         public Login()
         {
             InitializeComponent();
+            this.AcceptButton = btnSubmit;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -66,6 +67,14 @@ namespace GUI
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSubmit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnSubmit.PerformClick();
+            }
         }
     }
 }

@@ -135,7 +135,9 @@
             this.Controls.Add(this.txtNL);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "subDelHopD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "subDelHopD";
             this.Load += new System.EventHandler(this.subDelHopD_Load);
             this.ResumeLayout(false);

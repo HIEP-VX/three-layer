@@ -178,7 +178,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "subAddLKH";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "subAddLKH";
             this.Load += new System.EventHandler(this.subAddLKH_Load);
             this.ResumeLayout(false);

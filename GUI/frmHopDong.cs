@@ -27,34 +27,6 @@ namespace GUI
             panelTool.Size = panelTool.MinimumSize;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            subAddHopD sb = new subAddHopD();
-            // thu chạy showDialog
-            sb.Show();
-
-            sb.Logout += addForm_Logout;
-
-            sb.DataAdded += () =>
-            {
-                try
-                {
-                    string query = "select * from HopDong";
-                    dgvHopDong.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            };
-        }
-        private void addForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subAddHopD).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subAddHopD).Close();
-            this.Show();
-        }
-
         private void delForm_Logout(object sender, EventArgs e)
         {
             (sender as subDelHopD).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi

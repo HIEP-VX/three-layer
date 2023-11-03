@@ -77,6 +77,7 @@
             this.btnSubmit.Text = "Đăng nhập";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.btnSubmit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSubmit_KeyDown);
             // 
             // txtusername
             // 

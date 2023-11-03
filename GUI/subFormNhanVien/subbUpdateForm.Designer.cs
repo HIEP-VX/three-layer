@@ -136,7 +136,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "subbUpdateForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "subbUpdateForm";
             this.Load += new System.EventHandler(this.subbUpdateForm_Load);
             this.ResumeLayout(false);

@@ -62,6 +62,7 @@
             this.button13 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.timerHopDong = new System.Windows.Forms.Timer(this.components);
+            this.lblTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.panelMain.SuspendLayout();
@@ -74,6 +75,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(83)))));
+            this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -239,7 +241,7 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.Control;
-            this.button10.Location = new System.Drawing.Point(0, 430);
+            this.button10.Location = new System.Drawing.Point(0, 370);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(200, 40);
             this.button10.TabIndex = 9;
@@ -254,7 +256,7 @@
             this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhanVien.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhanVien.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnNhanVien.Location = new System.Drawing.Point(0, 390);
+            this.btnNhanVien.Location = new System.Drawing.Point(0, 330);
             this.btnNhanVien.Name = "btnNhanVien";
             this.btnNhanVien.Size = new System.Drawing.Size(200, 40);
             this.btnNhanVien.TabIndex = 8;
@@ -270,7 +272,7 @@
             this.btnXuPhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXuPhat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXuPhat.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnXuPhat.Location = new System.Drawing.Point(0, 350);
+            this.btnXuPhat.Location = new System.Drawing.Point(0, 290);
             this.btnXuPhat.Name = "btnXuPhat";
             this.btnXuPhat.Size = new System.Drawing.Size(200, 40);
             this.btnXuPhat.TabIndex = 7;
@@ -286,7 +288,7 @@
             this.btnHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHoaDon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHoaDon.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnHoaDon.Location = new System.Drawing.Point(0, 310);
+            this.btnHoaDon.Location = new System.Drawing.Point(0, 250);
             this.btnHoaDon.Name = "btnHoaDon";
             this.btnHoaDon.Size = new System.Drawing.Size(200, 40);
             this.btnHoaDon.TabIndex = 6;
@@ -302,7 +304,7 @@
             this.btnTieuThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTieuThu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTieuThu.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnTieuThu.Location = new System.Drawing.Point(0, 270);
+            this.btnTieuThu.Location = new System.Drawing.Point(0, 210);
             this.btnTieuThu.Name = "btnTieuThu";
             this.btnTieuThu.Size = new System.Drawing.Size(200, 40);
             this.btnTieuThu.TabIndex = 5;
@@ -318,7 +320,7 @@
             this.btnKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKhachHang.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKhachHang.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnKhachHang.Location = new System.Drawing.Point(0, 230);
+            this.btnKhachHang.Location = new System.Drawing.Point(0, 170);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.Size = new System.Drawing.Size(200, 40);
             this.btnKhachHang.TabIndex = 3;
@@ -334,7 +336,7 @@
             this.btnLoaiKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoaiKhachHang.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoaiKhachHang.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLoaiKhachHang.Location = new System.Drawing.Point(0, 190);
+            this.btnLoaiKhachHang.Location = new System.Drawing.Point(0, 130);
             this.btnLoaiKhachHang.Name = "btnLoaiKhachHang";
             this.btnLoaiKhachHang.Size = new System.Drawing.Size(200, 40);
             this.btnLoaiKhachHang.TabIndex = 2;
@@ -350,7 +352,7 @@
             this.btnDongHo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDongHo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDongHo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDongHo.Location = new System.Drawing.Point(0, 150);
+            this.btnDongHo.Location = new System.Drawing.Point(0, 90);
             this.btnDongHo.Name = "btnDongHo";
             this.btnDongHo.Size = new System.Drawing.Size(200, 40);
             this.btnDongHo.TabIndex = 4;
@@ -369,7 +371,7 @@
             this.panelHopDong.MaximumSize = new System.Drawing.Size(200, 100);
             this.panelHopDong.MinimumSize = new System.Drawing.Size(200, 40);
             this.panelHopDong.Name = "panelHopDong";
-            this.panelHopDong.Size = new System.Drawing.Size(200, 100);
+            this.panelHopDong.Size = new System.Drawing.Size(200, 40);
             this.panelHopDong.TabIndex = 3;
             // 
             // btnDanhSachHopDong
@@ -511,6 +513,17 @@
             this.timerHopDong.Interval = 20;
             this.timerHopDong.Tick += new System.EventHandler(this.timerHopDong_Tick);
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTitle.Location = new System.Drawing.Point(210, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(80, 20);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Trang chủ";
+            // 
             // FormMain2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,6 +540,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain2_FormClosed);
             this.Load += new System.EventHandler(this.FormMain2_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelHeThong.ResumeLayout(false);
@@ -572,5 +586,6 @@
         private System.Windows.Forms.Button btnDanhSachHopDong;
         private System.Windows.Forms.Button btnThemHopDong;
         private System.Windows.Forms.Timer timerHopDong;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

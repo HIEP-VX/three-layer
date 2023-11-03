@@ -11,23 +11,24 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class subDelForm : Form
+    public partial class subDelDongHo : Form
     {
+
         public bool isExit = true;
         public event EventHandler Logout;
         public event Action DataAdded;
 
-        public subDelForm()
+        public subDelDongHo()
         {
             InitializeComponent();
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa đồng hồ này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                string sql = "Delete from NhanVien where MANV = '" + txtMa.Text + "'";
+                string sql = "Delete from DongHoNuoc where maDHN = '" + txtMa.Text + "'";
                 try
                 {
                     AccessData.execQuery(sql);
@@ -42,14 +43,9 @@ namespace GUI
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             Logout(this, new EventArgs());
-        }
-
-        private void subDelForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

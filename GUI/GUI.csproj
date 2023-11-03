@@ -177,6 +177,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyCungCapNuocSachDataSet8.xsd</DependentUpon>
     </Compile>
+    <Compile Include="subFormKH\subUpdateKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormKH\subUpdateKH.Designer.cs">
+      <DependentUpon>subUpdateKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subFormDongHo\subAddDongHo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormDongHo\subAddDongHo.Designer.cs">
+      <DependentUpon>subAddDongHo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subFormDongHo\subDelDongHo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormDongHo\subDelDongHo.Designer.cs">
+      <DependentUpon>subDelDongHo.cs</DependentUpon>
+    </Compile>
     <Compile Include="subFormLKH\subAddLKH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,12 +206,6 @@
     </Compile>
     <Compile Include="subFormLKH\subDelLKH.Designer.cs">
       <DependentUpon>subDelLKH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="subFormHopDong\subAddHopD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="subFormHopDong\subAddHopD.Designer.cs">
-      <DependentUpon>subAddHopD.cs</DependentUpon>
     </Compile>
     <Compile Include="subFormHopDong\subDelHopD.cs">
       <SubType>Form</SubType>
@@ -230,6 +242,12 @@
     </Compile>
     <Compile Include="subFormLKH\subUpdateLKH.Designer.cs">
       <DependentUpon>subUpdateLKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subFormDongHo\subUpdateDongHo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subFormDongHo\subUpdateDongHo.Designer.cs">
+      <DependentUpon>subUpdateDongHo.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormMain2.resx">
       <DependentUpon>FormMain2.cs</DependentUpon>
@@ -269,14 +287,20 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="subFormKH\subUpdateKH.resx">
+      <DependentUpon>subUpdateKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subFormDongHo\subAddDongHo.resx">
+      <DependentUpon>subAddDongHo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subFormDongHo\subDelDongHo.resx">
+      <DependentUpon>subDelDongHo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="subFormLKH\subAddLKH.resx">
       <DependentUpon>subAddLKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="subFormLKH\subDelLKH.resx">
       <DependentUpon>subDelLKH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="subFormHopDong\subAddHopD.resx">
-      <DependentUpon>subAddHopD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="subFormHopDong\subDelHopD.resx">
       <DependentUpon>subDelHopD.cs</DependentUpon>
@@ -295,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="subFormLKH\subUpdateLKH.resx">
       <DependentUpon>subUpdateLKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subFormDongHo\subUpdateDongHo.resx">
+      <DependentUpon>subUpdateDongHo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dataDHN1.xsc">
       <DependentUpon>dataDHN1.xsd</DependentUpon>
@@ -441,8 +468,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="subFormDongHo\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

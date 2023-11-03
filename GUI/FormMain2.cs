@@ -165,26 +165,31 @@ namespace GUI
         private void btnThemHopDong_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmThemHopDong());
+            lblTitle.Text = btnThemHopDong.Text;
         }
 
         private void btnDanhSachHopDong_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmHopDong());
+            lblTitle.Text = btnDanhSachHopDong.Text;
         }
 
         private void btnLoaiKhachHang_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmLKH());
+            lblTitle.Text = btnLoaiKhachHang.Text;
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmKhachHang());
+            lblTitle.Text = btnKhachHang.Text;
         }
 
         private void btnDongHo_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmDongHo());
+            lblTitle.Text = btnDongHo.Text;
         }
 
         private void btnTieuThu_Click(object sender, EventArgs e)
@@ -205,6 +210,7 @@ namespace GUI
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmNhanVien());
+            lblTitle.Text = btnNhanVien.Text;
         }
 
         private void timerHopDong_Tick(object sender, EventArgs e)

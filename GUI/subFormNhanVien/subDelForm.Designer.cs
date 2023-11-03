@@ -120,6 +120,7 @@
             this.Name = "subDelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "subDelForm";
+            this.Load += new System.EventHandler(this.subDelForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

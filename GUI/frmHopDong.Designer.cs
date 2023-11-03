@@ -151,7 +151,8 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(249, 3);
+            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Location = new System.Drawing.Point(171, 3);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
             this.btnTimKiem.TabIndex = 7;
@@ -161,7 +162,8 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(169, 3);
+            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhat.Location = new System.Drawing.Point(91, 3);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
             this.btnCapNhat.TabIndex = 6;
@@ -171,7 +173,8 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(88, 3);
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Location = new System.Drawing.Point(10, 3);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 5;
@@ -192,26 +195,27 @@
             this.dgvHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHopDong.Location = new System.Drawing.Point(0, 168);
             this.dgvHopDong.Name = "dgvHopDong";
+            this.dgvHopDong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHopDong.Size = new System.Drawing.Size(800, 346);
             this.dgvHopDong.TabIndex = 1;
             // 
             // maHDDataGridViewTextBoxColumn
             // 
             this.maHDDataGridViewTextBoxColumn.DataPropertyName = "maHD";
-            this.maHDDataGridViewTextBoxColumn.HeaderText = "maHD";
+            this.maHDDataGridViewTextBoxColumn.HeaderText = "Mã ";
             this.maHDDataGridViewTextBoxColumn.Name = "maHDDataGridViewTextBoxColumn";
             this.maHDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ngayLamHDDataGridViewTextBoxColumn
             // 
             this.ngayLamHDDataGridViewTextBoxColumn.DataPropertyName = "ngayLamHD";
-            this.ngayLamHDDataGridViewTextBoxColumn.HeaderText = "ngayLamHD";
+            this.ngayLamHDDataGridViewTextBoxColumn.HeaderText = "Ngày lập";
             this.ngayLamHDDataGridViewTextBoxColumn.Name = "ngayLamHDDataGridViewTextBoxColumn";
             // 
             // noiLamHDDataGridViewTextBoxColumn
             // 
             this.noiLamHDDataGridViewTextBoxColumn.DataPropertyName = "noiLamHD";
-            this.noiLamHDDataGridViewTextBoxColumn.HeaderText = "noiLamHD";
+            this.noiLamHDDataGridViewTextBoxColumn.HeaderText = "Nơi lập";
             this.noiLamHDDataGridViewTextBoxColumn.Name = "noiLamHDDataGridViewTextBoxColumn";
             // 
             // hopDongBindingSource
@@ -263,9 +267,6 @@
         private QuanLyCungCapNuocSachDataSet2 quanLyCungCapNuocSachDataSet2;
         private System.Windows.Forms.BindingSource hopDongBindingSource;
         private QuanLyCungCapNuocSachDataSet2TableAdapters.HopDongTableAdapter hopDongTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maHDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngayLamHDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noiLamHDDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnHopTimKiem;
         private System.Windows.Forms.Label label2;
@@ -275,5 +276,8 @@
         private System.Windows.Forms.TextBox txtNL;
         private System.Windows.Forms.DateTimePicker dateTimeNL;
         private System.Windows.Forms.Timer timerHopD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maHDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngayLamHDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noiLamHDDataGridViewTextBoxColumn;
     }
 }
