@@ -29,27 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDon));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.quanLyCungCapNuocSachDataSet7 = new GUI.QuanLyCungCapNuocSachDataSet7();
-            this.hoaDonBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hoaDonTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet7TableAdapters.HoaDonTableAdapter();
             this.maHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maTTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maNVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chiSoCuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thoiGianDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoaDonBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanLyCungCapNuocSachDataSet7 = new GUI.QuanLyCungCapNuocSachDataSet7();
+            this.hoaDonTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet7TableAdapters.HoaDonTableAdapter();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoaDonBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet7)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnCapNhat);
+            this.panel1.Controls.Add(this.btnXoa);
+            this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 29);
+            this.panel1.Size = new System.Drawing.Size(800, 38);
             this.panel1.TabIndex = 3;
             // 
             // dataGridView1
@@ -65,24 +73,10 @@
             this.thoiGianDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.hoaDonBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 29);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 38);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 421);
+            this.dataGridView1.Size = new System.Drawing.Size(800, 412);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // quanLyCungCapNuocSachDataSet7
-            // 
-            this.quanLyCungCapNuocSachDataSet7.DataSetName = "QuanLyCungCapNuocSachDataSet7";
-            this.quanLyCungCapNuocSachDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hoaDonBindingSource
-            // 
-            this.hoaDonBindingSource.DataMember = "HoaDon";
-            this.hoaDonBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet7;
-            // 
-            // hoaDonTableAdapter
-            // 
-            this.hoaDonTableAdapter.ClearBeforeFill = true;
             // 
             // maHDDataGridViewTextBoxColumn
             // 
@@ -115,6 +109,59 @@
             this.thoiGianDataGridViewTextBoxColumn.HeaderText = "thoiGian";
             this.thoiGianDataGridViewTextBoxColumn.Name = "thoiGianDataGridViewTextBoxColumn";
             // 
+            // hoaDonBindingSource
+            // 
+            this.hoaDonBindingSource.DataMember = "HoaDon";
+            this.hoaDonBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet7;
+            // 
+            // quanLyCungCapNuocSachDataSet7
+            // 
+            this.quanLyCungCapNuocSachDataSet7.DataSetName = "QuanLyCungCapNuocSachDataSet7";
+            this.quanLyCungCapNuocSachDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // hoaDonTableAdapter
+            // 
+            this.hoaDonTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
+            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCapNhat.Location = new System.Drawing.Point(455, 5);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
+            this.btnCapNhat.TabIndex = 39;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(358, 5);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(69, 28);
+            this.btnXoa.TabIndex = 38;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(261, 5);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(69, 28);
+            this.btnAdd.TabIndex = 37;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
             // frmHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,9 +172,10 @@
             this.Name = "frmHoaDon";
             this.Text = "frmHoaDon";
             this.Load += new System.EventHandler(this.frmHoaDon_Load);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoaDonBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -144,5 +192,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maNVDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chiSoCuDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

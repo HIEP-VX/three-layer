@@ -59,22 +59,17 @@ namespace GUI
             }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit(); 
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSubmit_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
             {
                 btnSubmit.PerformClick();
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKhachHang));
             this.panelTool = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,7 +51,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txttenNV = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.btnCapNhat = new System.Windows.Forms.Button();
             this.dgvKH = new System.Windows.Forms.DataGridView();
             this.maKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,9 +73,9 @@
             // 
             // panelTool
             // 
+            this.panelTool.Controls.Add(this.button1);
             this.panelTool.Controls.Add(this.groupBox1);
             this.panelTool.Controls.Add(this.btnTimKiem);
-            this.panelTool.Controls.Add(this.btnCapNhat);
             this.panelTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTool.Location = new System.Drawing.Point(0, 0);
             this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
@@ -82,6 +83,19 @@
             this.panelTool.Name = "panelTool";
             this.panelTool.Size = new System.Drawing.Size(800, 168);
             this.panelTool.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(183, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(84, 28);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "Cập nhật";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -260,24 +274,13 @@
             // btnTimKiem
             // 
             this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(129, 3);
+            this.btnTimKiem.Location = new System.Drawing.Point(313, 3);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
             this.btnTimKiem.TabIndex = 11;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhat.Location = new System.Drawing.Point(16, 3);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
-            this.btnCapNhat.TabIndex = 10;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // dgvKH
             // 
@@ -397,7 +400,6 @@
         private System.Windows.Forms.BindingSource khachHangBindingSource;
         private QuanLyCungCapNuocSachDataSet4TableAdapters.KhachHangTableAdapter khachHangTableAdapter;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox1;
@@ -425,5 +427,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maHDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maDHNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maLKHDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button1;
     }
 }

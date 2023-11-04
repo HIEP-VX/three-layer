@@ -98,5 +98,10 @@ namespace GUI
                 }
             }
         }
+
+        private void grpTTKH_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

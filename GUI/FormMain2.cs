@@ -20,6 +20,7 @@ namespace GUI
 
         bool isCollapsed = true;
         bool isCollapsed2 = true;
+        bool isCollapsed3 = true;
         bool homeExpand = true;
         bool hopDongExpand = true;
 
@@ -50,6 +51,7 @@ namespace GUI
                 {
                     timer1.Stop();
                     isCollapsed= false;
+                    
                 }
             }else
             {
@@ -90,6 +92,11 @@ namespace GUI
 
             timer1.Start();
             timer2.Start();
+
+            if(panelMain.Width == 53)
+            {
+                homeTimer.Start();
+            }
         }
 
         private void btnHeThong_Click(object sender, EventArgs e)
@@ -98,6 +105,11 @@ namespace GUI
 
             timer1.Start();
             timer2.Start();
+
+            if (panelMain.Width == 53)
+            {
+                homeTimer.Start();
+            }
         }
 
         private void homeTimer_Tick(object sender, EventArgs e)
@@ -109,6 +121,7 @@ namespace GUI
                 {
                     homeExpand = false;
                     homeTimer.Stop();
+                    
                 }
             }
             else
@@ -118,6 +131,7 @@ namespace GUI
                 {
                     homeExpand = true;
                     homeTimer.Stop();
+                    
                 }
             }
         }
@@ -125,6 +139,12 @@ namespace GUI
         private void btnHome_Click(object sender, EventArgs e)
         {
             homeTimer.Start();
+            isCollapsed = false;
+            isCollapsed2 = false;
+
+            timer1.Start();
+            timer2.Start();
+
         }
 
         private void FormMain2_FormClosing(object sender, FormClosingEventArgs e)
@@ -155,6 +175,22 @@ namespace GUI
             panel_body.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void CloseAllChildForms()
+        {
+            foreach(Control control in panel_body.Controls)
+    {
+                if (control is Form form)
+                {
+                    form.Hide();
+                    form.Dispose();
+                }
+            }
+
+            // Xóa các form con khỏi panel_body
+            panel_body.Controls.OfType<Form>().ToList().ForEach(c => c.Dispose());
+            currentFormChild = null;
         }
 
         private void btnHopDong_Click(object sender, EventArgs e)
@@ -215,7 +251,7 @@ namespace GUI
 
         private void timerHopDong_Tick(object sender, EventArgs e)
         {
-            if (isCollapsed)
+            if (isCollapsed3)
             {
                 panelHopDong.Height += 10;
                 if (panelHopDong.Size == panelHopDong.MaximumSize)
@@ -235,5 +271,21 @@ namespace GUI
             }
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForms();
+            lblTitle.Text = "Trang chủ";
+        }
+
+        private void pitureDanhMuc_Click(object sender, EventArgs e)
+        {
+            // Gọi sự kiện Click của nút btnDanhMuc
+            btnDanhMuc.PerformClick();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            btnHeThong.PerformClick();
+        }
     }
 }

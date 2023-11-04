@@ -39,8 +39,7 @@ namespace GUI
                                "WHEN tinhTrang = 0 THEN N'chưa sử dụng'\n" +
                                "WHEN tinhTrang = 1 THEN N'đã sử dụng'\n" +
                                "END AS tinhTrang\n" +
-                               "FROM DongHoNuoc\n" +
-                               "WHERE tinhTrang = 0;";
+                               "FROM DongHoNuoc\n";
                 dgvDongho.DataSource = AccessData.getData(query);
             }
             catch (Exception ex)

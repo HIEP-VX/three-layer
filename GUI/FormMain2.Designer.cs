@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain2));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelHeThong = new System.Windows.Forms.Panel();
@@ -41,6 +43,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.btnHeThong = new System.Windows.Forms.Button();
             this.panelDanhMuc = new System.Windows.Forms.Panel();
+            this.pitureDanhMuc = new System.Windows.Forms.PictureBox();
             this.button10 = new System.Windows.Forms.Button();
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.btnXuPhat = new System.Windows.Forms.Button();
@@ -62,19 +65,23 @@
             this.button13 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.timerHopDong = new System.Windows.Forms.Timer(this.components);
-            this.lblTitle = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelHeThong.SuspendLayout();
             this.panelDanhMuc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pitureDanhMuc)).BeginInit();
             this.panelHopDong.SuspendLayout();
             this.panel_body.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(83)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -83,10 +90,34 @@
             this.panel1.Size = new System.Drawing.Size(964, 38);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(49, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTitle.Location = new System.Drawing.Point(458, 7);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(93, 23);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Trang chủ";
+            // 
             // btnHome
             // 
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.Location = new System.Drawing.Point(3, 6);
+            this.btnHome.Location = new System.Drawing.Point(5, 6);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(41, 25);
             this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -101,21 +132,25 @@
             this.panelMain.Controls.Add(this.panelDanhMuc);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMain.Location = new System.Drawing.Point(0, 38);
+            this.panelMain.MaximumSize = new System.Drawing.Size(200, 668);
+            this.panelMain.MinimumSize = new System.Drawing.Size(53, 668);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(200, 668);
+            this.panelMain.Size = new System.Drawing.Size(53, 668);
             this.panelMain.TabIndex = 1;
             // 
             // panelHeThong
             // 
             this.panelHeThong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(83)))));
+            this.panelHeThong.Controls.Add(this.pictureBox2);
             this.panelHeThong.Controls.Add(this.button12);
             this.panelHeThong.Controls.Add(this.button11);
             this.panelHeThong.Controls.Add(this.button5);
             this.panelHeThong.Controls.Add(this.button6);
             this.panelHeThong.Controls.Add(this.button7);
             this.panelHeThong.Controls.Add(this.btnHeThong);
+            this.panelHeThong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelHeThong.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeThong.Location = new System.Drawing.Point(0, 410);
+            this.panelHeThong.Location = new System.Drawing.Point(0, 50);
             this.panelHeThong.MaximumSize = new System.Drawing.Size(200, 250);
             this.panelHeThong.MinimumSize = new System.Drawing.Size(200, 50);
             this.panelHeThong.Name = "panelHeThong";
@@ -215,6 +250,7 @@
             // panelDanhMuc
             // 
             this.panelDanhMuc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(83)))));
+            this.panelDanhMuc.Controls.Add(this.pitureDanhMuc);
             this.panelDanhMuc.Controls.Add(this.button10);
             this.panelDanhMuc.Controls.Add(this.btnNhanVien);
             this.panelDanhMuc.Controls.Add(this.btnXuPhat);
@@ -225,13 +261,26 @@
             this.panelDanhMuc.Controls.Add(this.btnDongHo);
             this.panelDanhMuc.Controls.Add(this.panelHopDong);
             this.panelDanhMuc.Controls.Add(this.btnDanhMuc);
+            this.panelDanhMuc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelDanhMuc.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDanhMuc.Location = new System.Drawing.Point(0, 0);
             this.panelDanhMuc.MaximumSize = new System.Drawing.Size(200, 410);
             this.panelDanhMuc.MinimumSize = new System.Drawing.Size(200, 50);
             this.panelDanhMuc.Name = "panelDanhMuc";
-            this.panelDanhMuc.Size = new System.Drawing.Size(200, 410);
+            this.panelDanhMuc.Size = new System.Drawing.Size(200, 50);
             this.panelDanhMuc.TabIndex = 2;
+            // 
+            // pitureDanhMuc
+            // 
+            this.pitureDanhMuc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pitureDanhMuc.Image = ((System.Drawing.Image)(resources.GetObject("pitureDanhMuc.Image")));
+            this.pitureDanhMuc.Location = new System.Drawing.Point(0, 0);
+            this.pitureDanhMuc.Name = "pitureDanhMuc";
+            this.pitureDanhMuc.Size = new System.Drawing.Size(50, 50);
+            this.pitureDanhMuc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pitureDanhMuc.TabIndex = 10;
+            this.pitureDanhMuc.TabStop = false;
+            this.pitureDanhMuc.Click += new System.EventHandler(this.pitureDanhMuc_Click);
             // 
             // button10
             // 
@@ -433,9 +482,10 @@
             this.btnDanhMuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDanhMuc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDanhMuc.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDanhMuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDanhMuc.Location = new System.Drawing.Point(0, 0);
             this.btnDanhMuc.Name = "btnDanhMuc";
-            this.btnDanhMuc.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.btnDanhMuc.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
             this.btnDanhMuc.Size = new System.Drawing.Size(200, 50);
             this.btnDanhMuc.TabIndex = 0;
             this.btnDanhMuc.Text = "Danh mục quản lý";
@@ -449,7 +499,7 @@
             // 
             // timer2
             // 
-            this.timer2.Interval = 20;
+            this.timer2.Interval = 15;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // homeTimer
@@ -465,9 +515,9 @@
             this.panel_body.Controls.Add(this.button13);
             this.panel_body.Controls.Add(this.label1);
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(200, 38);
+            this.panel_body.Location = new System.Drawing.Point(53, 38);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(764, 668);
+            this.panel_body.Size = new System.Drawing.Size(911, 668);
             this.panel_body.TabIndex = 2;
             // 
             // button14
@@ -476,7 +526,7 @@
             this.button14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(102)))), ((int)(((byte)(219)))));
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(413, 433);
+            this.button14.Location = new System.Drawing.Point(486, 433);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(165, 50);
             this.button14.TabIndex = 2;
@@ -487,9 +537,10 @@
             // 
             this.button13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(102)))), ((int)(((byte)(219)))));
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.SystemColors.Control;
-            this.button13.Location = new System.Drawing.Point(196, 433);
+            this.button13.Location = new System.Drawing.Point(269, 433);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(165, 50);
             this.button13.TabIndex = 1;
@@ -502,7 +553,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(39)))), ((int)(((byte)(19)))));
-            this.label1.Location = new System.Drawing.Point(146, 213);
+            this.label1.Location = new System.Drawing.Point(219, 213);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(488, 33);
             this.label1.TabIndex = 0;
@@ -513,16 +564,17 @@
             this.timerHopDong.Interval = 20;
             this.timerHopDong.Tick += new System.EventHandler(this.timerHopDong_Tick);
             // 
-            // lblTitle
+            // pictureBox2
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTitle.Location = new System.Drawing.Point(210, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(80, 20);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Trang chủ";
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // FormMain2
             // 
@@ -541,13 +593,16 @@
             this.Load += new System.EventHandler(this.FormMain2_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelHeThong.ResumeLayout(false);
             this.panelDanhMuc.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pitureDanhMuc)).EndInit();
             this.panelHopDong.ResumeLayout(false);
             this.panel_body.ResumeLayout(false);
             this.panel_body.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -587,5 +642,8 @@
         private System.Windows.Forms.Button btnThemHopDong;
         private System.Windows.Forms.Timer timerHopDong;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pitureDanhMuc;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDongHo));
             this.panelTool = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,7 +57,6 @@
             this.quanLyCungCapNuocSachDataSet1 = new GUI.dataDongHo();
             this.dongHoNuocTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet1TableAdapters.DongHoNuocTableAdapter();
             this.timerTimKiem = new System.Windows.Forms.Timer(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDongho)).BeginInit();
@@ -91,12 +92,23 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtsoDT);
             this.groupBox1.Controls.Add(this.txttenNV);
-            this.groupBox1.Location = new System.Drawing.Point(58, 32);
+            this.groupBox1.Location = new System.Drawing.Point(58, 35);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(689, 129);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "0-Chưa sử dụng",
+            "1-Đã sử dụng"});
+            this.comboBox1.Location = new System.Drawing.Point(399, 74);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(152, 21);
+            this.comboBox1.TabIndex = 39;
             // 
             // textBox2
             // 
@@ -127,12 +139,13 @@
             // 
             // btnHopTimKiem
             // 
+            this.btnHopTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHopTimKiem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHopTimKiem.Location = new System.Drawing.Point(586, 43);
+            this.btnHopTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnHopTimKiem.Image")));
+            this.btnHopTimKiem.Location = new System.Drawing.Point(588, 50);
             this.btnHopTimKiem.Name = "btnHopTimKiem";
-            this.btnHopTimKiem.Size = new System.Drawing.Size(75, 51);
+            this.btnHopTimKiem.Size = new System.Drawing.Size(56, 36);
             this.btnHopTimKiem.TabIndex = 33;
-            this.btnHopTimKiem.Text = "TÌM";
             this.btnHopTimKiem.UseVisualStyleBackColor = true;
             this.btnHopTimKiem.Click += new System.EventHandler(this.btnHopTimKiem_Click);
             // 
@@ -190,9 +203,9 @@
             // btnTimKiem
             // 
             this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(250, 3);
+            this.btnTimKiem.Location = new System.Drawing.Point(315, 3);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
             this.btnTimKiem.TabIndex = 37;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
@@ -201,33 +214,42 @@
             // btnCapNhat
             // 
             this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhat.Location = new System.Drawing.Point(170, 3);
+            this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
+            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCapNhat.Location = new System.Drawing.Point(201, 3);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
+            this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
             this.btnCapNhat.TabIndex = 36;
             this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(89, 3);
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(104, 3);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.Size = new System.Drawing.Size(69, 28);
             this.btnXoa.TabIndex = 35;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.Location = new System.Drawing.Point(7, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(69, 28);
             this.btnAdd.TabIndex = 34;
             this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -235,6 +257,7 @@
             // 
             this.dgvDongho.AutoGenerateColumns = false;
             this.dgvDongho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDongho.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDongho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDongho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maDHNDataGridViewTextBoxColumn,
@@ -299,17 +322,6 @@
             // 
             this.timerTimKiem.Interval = 15;
             this.timerTimKiem.Tick += new System.EventHandler(this.timerTimKiem_Tick);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "0-Chưa sử dụng",
-            "1-Đã sử dụng"});
-            this.comboBox1.Location = new System.Drawing.Point(399, 74);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 21);
-            this.comboBox1.TabIndex = 39;
             // 
             // frmDongHo
             // 

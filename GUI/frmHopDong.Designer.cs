@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHopDong));
             this.panelTool = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimeNL = new System.Windows.Forms.DateTimePicker();
@@ -39,8 +40,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtNL = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.btnCapNhat = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.dgvHopDong = new System.Windows.Forms.DataGridView();
             this.maHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayLamHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +48,8 @@
             this.quanLyCungCapNuocSachDataSet2 = new GUI.QuanLyCungCapNuocSachDataSet2();
             this.hopDongTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet2TableAdapters.HopDongTableAdapter();
             this.timerHopD = new System.Windows.Forms.Timer(this.components);
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).BeginInit();
@@ -58,10 +59,10 @@
             // 
             // panelTool
             // 
-            this.panelTool.Controls.Add(this.groupBox1);
-            this.panelTool.Controls.Add(this.btnTimKiem);
             this.panelTool.Controls.Add(this.btnCapNhat);
             this.panelTool.Controls.Add(this.btnXoa);
+            this.panelTool.Controls.Add(this.groupBox1);
+            this.panelTool.Controls.Add(this.btnTimKiem);
             this.panelTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTool.Location = new System.Drawing.Point(0, 0);
             this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
@@ -152,35 +153,13 @@
             // btnTimKiem
             // 
             this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(171, 3);
+            this.btnTimKiem.Location = new System.Drawing.Point(221, 3);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
             this.btnTimKiem.TabIndex = 7;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhat.Location = new System.Drawing.Point(91, 3);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
-            this.btnCapNhat.TabIndex = 6;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(10, 3);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXoa.TabIndex = 5;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // dgvHopDong
             // 
@@ -237,6 +216,32 @@
             this.timerHopD.Interval = 15;
             this.timerHopD.Tick += new System.EventHandler(this.timerHopD_Tick);
             // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
+            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCapNhat.Location = new System.Drawing.Point(108, 3);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
+            this.btnCapNhat.TabIndex = 39;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(12, 3);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(69, 28);
+            this.btnXoa.TabIndex = 38;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.UseVisualStyleBackColor = true;
+            // 
             // frmHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,8 +266,6 @@
 
         private System.Windows.Forms.Panel panelTool;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Button btnCapNhat;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.DataGridView dgvHopDong;
         private QuanLyCungCapNuocSachDataSet2 quanLyCungCapNuocSachDataSet2;
         private System.Windows.Forms.BindingSource hopDongBindingSource;
@@ -279,5 +282,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maHDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayLamHDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noiLamHDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.Button btnXoa;
     }
 }

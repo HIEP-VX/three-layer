@@ -91,6 +91,7 @@
             this.grpTTKH.TabIndex = 0;
             this.grpTTKH.TabStop = false;
             this.grpTTKH.Text = "Thông tin khách hàng";
+            this.grpTTKH.Enter += new System.EventHandler(this.grpTTKH_Enter);
             // 
             // txtLKH
             // 
@@ -276,7 +277,7 @@
             this.dgvDH_HD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDH_HD.Size = new System.Drawing.Size(993, 402);
             this.dgvDH_HD.TabIndex = 0;
-           // 
+            // 
             // maDHNDataGridViewTextBoxColumn
             // 
             this.maDHNDataGridViewTextBoxColumn.DataPropertyName = "maDHN";
