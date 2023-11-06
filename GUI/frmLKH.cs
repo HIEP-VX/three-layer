@@ -14,6 +14,7 @@ namespace GUI
 {
     public partial class frmLKH : Form
     {
+        bool isCollapsed = true;
         public frmLKH()
         {
             InitializeComponent();
@@ -35,26 +36,6 @@ namespace GUI
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            subAddLKH sb = new subAddLKH();
-            sb.Show();
-
-            sb.Logout += addForm_Logout;
-
-            sb.DataAdded += () =>
-            {
-                try
-                {
-                    string query = "select * from loaiKhachHang";
-                    dgvLKH.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            };
-        }
         private void addForm_Logout(object sender, EventArgs e)
         {
             (sender as subAddLKH).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
@@ -74,7 +55,28 @@ namespace GUI
             this.Show();
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
+        {
+            subAddLKH sb = new subAddLKH();
+            sb.Show();
+
+            sb.Logout += addForm_Logout;
+
+            sb.DataAdded += () =>
+            {
+                try
+                {
+                    string query = "select * from loaiKhachHang";
+                    dgvLKH.DataSource = AccessData.getData(query);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            };
+        }
+
+        private void btnXoa_Click_1(object sender, EventArgs e)
         {
             subDelLKH sb = new subDelLKH();
             sb.Show();
@@ -95,7 +97,7 @@ namespace GUI
             };
         }
 
-        private void btnCapNhat_Click(object sender, EventArgs e)
+        private void btnCapNhat_Click_1(object sender, EventArgs e)
         {
             subUpdateLKH sb = new subUpdateLKH();
             sb.Show();
@@ -115,8 +117,8 @@ namespace GUI
                 }
             };
         }
-
-        private void btnTimKiem_Click(object sender, EventArgs e)
+        
+        private void btnTimKiem_Click_1(object sender, EventArgs e)
         {
             timerLKH.Start();
         }
@@ -146,8 +148,7 @@ namespace GUI
                 MessageBox.Show("Không tìm thấy nhân viên này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        bool isCollapsed = true;
-
+       
         private void timerLKH_Tick(object sender, EventArgs e)
         {
             if (isCollapsed)
@@ -169,5 +170,6 @@ namespace GUI
                 }
             }
         }
+
     }
 }

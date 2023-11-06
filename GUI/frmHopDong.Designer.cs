@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHopDong));
             this.panelTool = new System.Windows.Forms.Panel();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimeNL = new System.Windows.Forms.DateTimePicker();
             this.btnHopTimKiem = new System.Windows.Forms.Button();
@@ -48,13 +50,13 @@
             this.quanLyCungCapNuocSachDataSet2 = new GUI.QuanLyCungCapNuocSachDataSet2();
             this.hopDongTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet2TableAdapters.HopDongTableAdapter();
             this.timerHopD = new System.Windows.Forms.Timer(this.components);
-            this.btnCapNhat = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
+            this.panelHopDong = new System.Windows.Forms.Panel();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hopDongBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet2)).BeginInit();
+            this.panelHopDong.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTool
@@ -71,6 +73,34 @@
             this.panelTool.Size = new System.Drawing.Size(800, 168);
             this.panelTool.TabIndex = 0;
             // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
+            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCapNhat.Location = new System.Drawing.Point(108, 3);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
+            this.btnCapNhat.TabIndex = 39;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click_1);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(12, 3);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(69, 28);
+            this.btnXoa.TabIndex = 38;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click_1);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dateTimeNL);
@@ -80,9 +110,10 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtNL);
-            this.groupBox1.Location = new System.Drawing.Point(131, 32);
+            this.groupBox1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 42);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(419, 129);
+            this.groupBox1.Size = new System.Drawing.Size(744, 114);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
@@ -90,17 +121,17 @@
             // dateTimeNL
             // 
             this.dateTimeNL.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeNL.Location = new System.Drawing.Point(88, 56);
+            this.dateTimeNL.Location = new System.Drawing.Point(253, 20);
             this.dateTimeNL.Name = "dateTimeNL";
-            this.dateTimeNL.Size = new System.Drawing.Size(209, 20);
+            this.dateTimeNL.Size = new System.Drawing.Size(81, 23);
             this.dateTimeNL.TabIndex = 34;
             // 
             // btnHopTimKiem
             // 
             this.btnHopTimKiem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHopTimKiem.Location = new System.Drawing.Point(320, 45);
+            this.btnHopTimKiem.Location = new System.Drawing.Point(16, 69);
             this.btnHopTimKiem.Name = "btnHopTimKiem";
-            this.btnHopTimKiem.Size = new System.Drawing.Size(75, 42);
+            this.btnHopTimKiem.Size = new System.Drawing.Size(722, 31);
             this.btnHopTimKiem.TabIndex = 33;
             this.btnHopTimKiem.Text = "TÌM";
             this.btnHopTimKiem.UseVisualStyleBackColor = true;
@@ -110,7 +141,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 16);
+            this.label2.Location = new System.Drawing.Point(13, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 18);
             this.label2.TabIndex = 31;
@@ -118,16 +149,16 @@
             // 
             // txtMa
             // 
-            this.txtMa.Location = new System.Drawing.Point(88, 17);
+            this.txtMa.Location = new System.Drawing.Point(52, 20);
             this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(209, 20);
+            this.txtMa.Size = new System.Drawing.Size(109, 23);
             this.txtMa.TabIndex = 32;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 56);
+            this.label3.Location = new System.Drawing.Point(178, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 18);
             this.label3.TabIndex = 27;
@@ -137,7 +168,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 96);
+            this.label4.Location = new System.Drawing.Point(359, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 18);
             this.label4.TabIndex = 28;
@@ -145,14 +176,15 @@
             // 
             // txtNL
             // 
-            this.txtNL.Location = new System.Drawing.Point(88, 96);
+            this.txtNL.Location = new System.Drawing.Point(431, 20);
+            this.txtNL.Multiline = true;
             this.txtNL.Name = "txtNL";
-            this.txtNL.Size = new System.Drawing.Size(209, 20);
+            this.txtNL.Size = new System.Drawing.Size(307, 43);
             this.txtNL.TabIndex = 30;
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimKiem.Location = new System.Drawing.Point(221, 3);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
@@ -172,7 +204,7 @@
             this.noiLamHDDataGridViewTextBoxColumn});
             this.dgvHopDong.DataSource = this.hopDongBindingSource;
             this.dgvHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHopDong.Location = new System.Drawing.Point(0, 168);
+            this.dgvHopDong.Location = new System.Drawing.Point(0, 0);
             this.dgvHopDong.Name = "dgvHopDong";
             this.dgvHopDong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHopDong.Size = new System.Drawing.Size(800, 346);
@@ -216,38 +248,22 @@
             this.timerHopD.Interval = 15;
             this.timerHopD.Tick += new System.EventHandler(this.timerHopD_Tick);
             // 
-            // btnCapNhat
+            // panelHopDong
             // 
-            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
-            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(108, 3);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
-            this.btnCapNhat.TabIndex = 39;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(12, 3);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(69, 28);
-            this.btnXoa.TabIndex = 38;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXoa.UseVisualStyleBackColor = true;
+            this.panelHopDong.Controls.Add(this.dgvHopDong);
+            this.panelHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelHopDong.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelHopDong.Location = new System.Drawing.Point(0, 168);
+            this.panelHopDong.Name = "panelHopDong";
+            this.panelHopDong.Size = new System.Drawing.Size(800, 346);
+            this.panelHopDong.TabIndex = 1;
             // 
             // frmHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 514);
-            this.Controls.Add(this.dgvHopDong);
+            this.Controls.Add(this.panelHopDong);
             this.Controls.Add(this.panelTool);
             this.Name = "frmHopDong";
             this.Text = "frmHopDong";
@@ -258,6 +274,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hopDongBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet2)).EndInit();
+            this.panelHopDong.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -284,5 +301,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn noiLamHDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Panel panelHopDong;
     }
 }

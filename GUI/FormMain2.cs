@@ -24,12 +24,10 @@ namespace GUI
         bool homeExpand = true;
         bool hopDongExpand = true;
 
-
         public FormMain2()
         {
             InitializeComponent();
         }
-
         #region Event
 
 
@@ -42,6 +40,8 @@ namespace GUI
             panelHeThong.Size = panelHeThong.MinimumSize;
         }
 
+        // bắt đầu timer
+        // bắt thời gian đóng mở panelDanhMuc
         private void timer1_Tick(object sender, EventArgs e)
         {
             if(isCollapsed)
@@ -51,7 +51,6 @@ namespace GUI
                 {
                     timer1.Stop();
                     isCollapsed= false;
-                    
                 }
             }else
             {
@@ -64,6 +63,7 @@ namespace GUI
             }
         }
 
+        // Bắt thời gian đóng mở panelHeThong
         private void timer2_Tick(object sender, EventArgs e)
         {
             if (isCollapsed2)
@@ -85,6 +85,52 @@ namespace GUI
                 }
             }
         }
+        // bắt thời gian mở panelMain
+        private void homeTimer_Tick(object sender, EventArgs e)
+        {
+            if (homeExpand)
+            {
+                panelMain.Width -= 10;
+                if (panelMain.Width <= 53)
+                {
+                    homeExpand = false;
+                    homeTimer.Stop();
+                }
+            }
+            else
+            {
+                panelMain.Width += 10;
+                if (panelMain.Width >= 200)
+                {
+                    homeExpand = true;
+                    homeTimer.Stop();
+                }
+            }
+        }
+        // bắt thời gian mở panelHopDong
+        private void timerHopDong_Tick(object sender, EventArgs e)
+        {
+            if (hopDongExpand)
+            {
+                panelHopDong.Height += 10;
+                if (panelHopDong.Size == panelHopDong.MaximumSize)
+                {
+                    timerHopDong.Stop();
+                    hopDongExpand = false;
+                }
+            }
+            else
+            {
+                panelHopDong.Height -= 10;
+                if (panelHopDong.Size == panelHopDong.MinimumSize)
+                {
+                    timerHopDong.Stop();
+                    hopDongExpand = true;
+                }
+            }
+        }
+
+        // kết thúc timer
 
         private void btnDanhMuc_Click(object sender, EventArgs e)
         {
@@ -94,9 +140,7 @@ namespace GUI
             timer2.Start();
 
             if(panelMain.Width == 53)
-            {
                 homeTimer.Start();
-            }
         }
 
         private void btnHeThong_Click(object sender, EventArgs e)
@@ -107,33 +151,7 @@ namespace GUI
             timer2.Start();
 
             if (panelMain.Width == 53)
-            {
                 homeTimer.Start();
-            }
-        }
-
-        private void homeTimer_Tick(object sender, EventArgs e)
-        {
-            if (homeExpand)
-            {
-                panelMain.Width -= 10;
-                if (panelMain.Width <= 53)
-                {
-                    homeExpand = false;
-                    homeTimer.Stop();
-                    
-                }
-            }
-            else
-            {
-                panelMain.Width += 10;
-                if (panelMain.Width >= 200)
-                {
-                    homeExpand = true;
-                    homeTimer.Stop();
-                    
-                }
-            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -144,7 +162,6 @@ namespace GUI
 
             timer1.Start();
             timer2.Start();
-
         }
 
         private void FormMain2_FormClosing(object sender, FormClosingEventArgs e)
@@ -161,12 +178,12 @@ namespace GUI
 
         private Form currentFormChild;
 
+        // mở form con
         private void OpenFormChild(Form childForm)
         {
             if(currentFormChild != null)
-            {
                 currentFormChild.Close();
-            }
+            
             currentFormChild= childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -177,6 +194,7 @@ namespace GUI
             childForm.Show();
         }
 
+        // trở về trang chủ 
         private void CloseAllChildForms()
         {
             foreach(Control control in panel_body.Controls)
@@ -214,18 +232,24 @@ namespace GUI
         {
             OpenFormChild(new frmLKH());
             lblTitle.Text = btnLoaiKhachHang.Text;
+            hopDongExpand = false;
+            timerHopDong.Start();
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmKhachHang());
             lblTitle.Text = btnKhachHang.Text;
+            hopDongExpand = false;
+            timerHopDong.Start();
         }
 
         private void btnDongHo_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmDongHo());
             lblTitle.Text = btnDongHo.Text;
+            hopDongExpand = false;
+            timerHopDong.Start();
         }
 
         private void btnTieuThu_Click(object sender, EventArgs e)
@@ -247,28 +271,8 @@ namespace GUI
         {
             OpenFormChild(new frmNhanVien());
             lblTitle.Text = btnNhanVien.Text;
-        }
-
-        private void timerHopDong_Tick(object sender, EventArgs e)
-        {
-            if (isCollapsed3)
-            {
-                panelHopDong.Height += 10;
-                if (panelHopDong.Size == panelHopDong.MaximumSize)
-                {
-                    timerHopDong.Stop();
-                    isCollapsed = false;
-                }
-            }
-            else
-            {
-                panelHopDong.Height -= 10;
-                if (panelHopDong.Size == panelHopDong.MinimumSize)
-                {
-                    timerHopDong.Stop();
-                    isCollapsed = true;
-                }
-            }
+            hopDongExpand = false;
+            timerHopDong.Start();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -285,6 +289,7 @@ namespace GUI
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            // Gọi sự kiện Click của nút btnHeThong
             btnHeThong.PerformClick();
         }
     }

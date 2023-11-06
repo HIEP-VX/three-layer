@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLKH));
             this.panelTool = new System.Windows.Forms.Panel();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -44,35 +49,33 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtsoDT = new System.Windows.Forms.TextBox();
             this.txttenNV = new System.Windows.Forms.TextBox();
-            this.btnTimKiem = new System.Windows.Forms.Button();
-            this.btnCapNhat = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.dgvLKH = new System.Windows.Forms.DataGridView();
+            this.loaiKhachHangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanLyCungCapNuocSachDataSet3 = new GUI.QuanLyCungCapNuocSachDataSet3();
+            this.loaiKhachHangTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet3TableAdapters.loaiKhachHangTableAdapter();
+            this.timerLKH = new System.Windows.Forms.Timer(this.components);
+            this.panelDgvLKH = new System.Windows.Forms.Panel();
             this.maLKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenLoaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.giaBac1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.giaBac2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.giaBac3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.giaBac4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loaiKhachHangBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyCungCapNuocSachDataSet3 = new GUI.QuanLyCungCapNuocSachDataSet3();
-            this.loaiKhachHangTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet3TableAdapters.loaiKhachHangTableAdapter();
-            this.timerLKH = new System.Windows.Forms.Timer(this.components);
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loaiKhachHangBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet3)).BeginInit();
+            this.panelDgvLKH.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTool
             // 
-            this.panelTool.Controls.Add(this.groupBox1);
             this.panelTool.Controls.Add(this.btnTimKiem);
             this.panelTool.Controls.Add(this.btnCapNhat);
             this.panelTool.Controls.Add(this.btnXoa);
             this.panelTool.Controls.Add(this.btnAdd);
+            this.panelTool.Controls.Add(this.groupBox1);
             this.panelTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTool.Location = new System.Drawing.Point(0, 0);
             this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
@@ -80,6 +83,59 @@
             this.panelTool.Name = "panelTool";
             this.panelTool.Size = new System.Drawing.Size(800, 168);
             this.panelTool.TabIndex = 0;
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Location = new System.Drawing.Point(552, 2);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
+            this.btnTimKiem.TabIndex = 41;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click_1);
+            // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
+            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCapNhat.Location = new System.Drawing.Point(397, 2);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
+            this.btnCapNhat.TabIndex = 40;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click_1);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(257, 2);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(69, 28);
+            this.btnXoa.TabIndex = 39;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click_1);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(122, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(69, 28);
+            this.btnAdd.TabIndex = 38;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
             // 
             // groupBox1
             // 
@@ -216,46 +272,6 @@
             this.txttenNV.Size = new System.Drawing.Size(152, 20);
             this.txttenNV.TabIndex = 29;
             // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.Location = new System.Drawing.Point(247, 3);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
-            this.btnTimKiem.TabIndex = 7;
-            this.btnTimKiem.Text = "Tìm kiếm";
-            this.btnTimKiem.UseVisualStyleBackColor = true;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Location = new System.Drawing.Point(167, 3);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
-            this.btnCapNhat.TabIndex = 6;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(86, 3);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXoa.TabIndex = 5;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(7, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // dgvLKH
             // 
             this.dgvLKH.AutoGenerateColumns = false;
@@ -270,47 +286,11 @@
             this.giaBac4DataGridViewTextBoxColumn});
             this.dgvLKH.DataSource = this.loaiKhachHangBindingSource;
             this.dgvLKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvLKH.Location = new System.Drawing.Point(0, 168);
+            this.dgvLKH.Location = new System.Drawing.Point(0, 0);
             this.dgvLKH.Name = "dgvLKH";
+            this.dgvLKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLKH.Size = new System.Drawing.Size(800, 282);
             this.dgvLKH.TabIndex = 1;
-            // 
-            // maLKHDataGridViewTextBoxColumn
-            // 
-            this.maLKHDataGridViewTextBoxColumn.DataPropertyName = "maLKH";
-            this.maLKHDataGridViewTextBoxColumn.HeaderText = "maLKH";
-            this.maLKHDataGridViewTextBoxColumn.Name = "maLKHDataGridViewTextBoxColumn";
-            this.maLKHDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tenLoaiDataGridViewTextBoxColumn
-            // 
-            this.tenLoaiDataGridViewTextBoxColumn.DataPropertyName = "tenLoai";
-            this.tenLoaiDataGridViewTextBoxColumn.HeaderText = "tenLoai";
-            this.tenLoaiDataGridViewTextBoxColumn.Name = "tenLoaiDataGridViewTextBoxColumn";
-            // 
-            // giaBac1DataGridViewTextBoxColumn
-            // 
-            this.giaBac1DataGridViewTextBoxColumn.DataPropertyName = "giaBac1";
-            this.giaBac1DataGridViewTextBoxColumn.HeaderText = "giaBac1";
-            this.giaBac1DataGridViewTextBoxColumn.Name = "giaBac1DataGridViewTextBoxColumn";
-            // 
-            // giaBac2DataGridViewTextBoxColumn
-            // 
-            this.giaBac2DataGridViewTextBoxColumn.DataPropertyName = "giaBac2";
-            this.giaBac2DataGridViewTextBoxColumn.HeaderText = "giaBac2";
-            this.giaBac2DataGridViewTextBoxColumn.Name = "giaBac2DataGridViewTextBoxColumn";
-            // 
-            // giaBac3DataGridViewTextBoxColumn
-            // 
-            this.giaBac3DataGridViewTextBoxColumn.DataPropertyName = "giaBac3";
-            this.giaBac3DataGridViewTextBoxColumn.HeaderText = "giaBac3";
-            this.giaBac3DataGridViewTextBoxColumn.Name = "giaBac3DataGridViewTextBoxColumn";
-            // 
-            // giaBac4DataGridViewTextBoxColumn
-            // 
-            this.giaBac4DataGridViewTextBoxColumn.DataPropertyName = "giaBac4";
-            this.giaBac4DataGridViewTextBoxColumn.HeaderText = "giaBac4";
-            this.giaBac4DataGridViewTextBoxColumn.Name = "giaBac4DataGridViewTextBoxColumn";
             // 
             // loaiKhachHangBindingSource
             // 
@@ -331,12 +311,59 @@
             this.timerLKH.Interval = 15;
             this.timerLKH.Tick += new System.EventHandler(this.timerLKH_Tick);
             // 
+            // panelDgvLKH
+            // 
+            this.panelDgvLKH.Controls.Add(this.dgvLKH);
+            this.panelDgvLKH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDgvLKH.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelDgvLKH.Location = new System.Drawing.Point(0, 168);
+            this.panelDgvLKH.Name = "panelDgvLKH";
+            this.panelDgvLKH.Size = new System.Drawing.Size(800, 282);
+            this.panelDgvLKH.TabIndex = 1;
+            // 
+            // maLKHDataGridViewTextBoxColumn
+            // 
+            this.maLKHDataGridViewTextBoxColumn.DataPropertyName = "maLKH";
+            this.maLKHDataGridViewTextBoxColumn.HeaderText = "Mã";
+            this.maLKHDataGridViewTextBoxColumn.Name = "maLKHDataGridViewTextBoxColumn";
+            this.maLKHDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tenLoaiDataGridViewTextBoxColumn
+            // 
+            this.tenLoaiDataGridViewTextBoxColumn.DataPropertyName = "tenLoai";
+            this.tenLoaiDataGridViewTextBoxColumn.HeaderText = "Tên loại";
+            this.tenLoaiDataGridViewTextBoxColumn.Name = "tenLoaiDataGridViewTextBoxColumn";
+            // 
+            // giaBac1DataGridViewTextBoxColumn
+            // 
+            this.giaBac1DataGridViewTextBoxColumn.DataPropertyName = "giaBac1";
+            this.giaBac1DataGridViewTextBoxColumn.HeaderText = "Giá bậc 1";
+            this.giaBac1DataGridViewTextBoxColumn.Name = "giaBac1DataGridViewTextBoxColumn";
+            // 
+            // giaBac2DataGridViewTextBoxColumn
+            // 
+            this.giaBac2DataGridViewTextBoxColumn.DataPropertyName = "giaBac2";
+            this.giaBac2DataGridViewTextBoxColumn.HeaderText = "Giá bậc 2";
+            this.giaBac2DataGridViewTextBoxColumn.Name = "giaBac2DataGridViewTextBoxColumn";
+            // 
+            // giaBac3DataGridViewTextBoxColumn
+            // 
+            this.giaBac3DataGridViewTextBoxColumn.DataPropertyName = "giaBac3";
+            this.giaBac3DataGridViewTextBoxColumn.HeaderText = "Giá bậc 3";
+            this.giaBac3DataGridViewTextBoxColumn.Name = "giaBac3DataGridViewTextBoxColumn";
+            // 
+            // giaBac4DataGridViewTextBoxColumn
+            // 
+            this.giaBac4DataGridViewTextBoxColumn.DataPropertyName = "giaBac4";
+            this.giaBac4DataGridViewTextBoxColumn.HeaderText = "Giá bậc 4";
+            this.giaBac4DataGridViewTextBoxColumn.Name = "giaBac4DataGridViewTextBoxColumn";
+            // 
             // frmLKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvLKH);
+            this.Controls.Add(this.panelDgvLKH);
             this.Controls.Add(this.panelTool);
             this.Name = "frmLKH";
             this.Text = "Quản lý loại khách hàng";
@@ -347,6 +374,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loaiKhachHangBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet3)).EndInit();
+            this.panelDgvLKH.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -354,20 +382,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panelTool;
-        private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Button btnCapNhat;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvLKH;
         private QuanLyCungCapNuocSachDataSet3 quanLyCungCapNuocSachDataSet3;
         private System.Windows.Forms.BindingSource loaiKhachHangBindingSource;
         private QuanLyCungCapNuocSachDataSet3TableAdapters.loaiKhachHangTableAdapter loaiKhachHangTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maLKHDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn giaBac1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn giaBac2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn giaBac3DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn giaBac4DataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnHopTimKiem;
         private System.Windows.Forms.Label label2;
@@ -383,5 +401,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maLKHDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giaBac1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giaBac2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giaBac3DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giaBac4DataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panelDgvLKH;
     }
 }

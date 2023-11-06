@@ -23,6 +23,34 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (txtMa.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập mã khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMa.Focus();
+                return;
+            }
+
+            if (txtHT.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtHT.Focus();
+                return;
+            }
+
+            if (txtDC.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập địa chỉ khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDC.Focus();
+                return;
+            }
+
+            if (txtSoDT.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMa.Focus();
+                return;
+            }
+
             string sql = "update KhachHang set tenKH = N'" + txtHT.Text + "',ngaySinh = '" + dateNS.Value + "', diaChi = N'" + txtDC.Text + "',soDT = '" + txtSoDT.Text + "' where maKH = " + txtMa.Text;
             try
             {
@@ -41,5 +69,6 @@ namespace GUI
         {
             Logout(this, new EventArgs());
         }
+
     }
 }

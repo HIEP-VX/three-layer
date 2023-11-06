@@ -57,11 +57,13 @@
             this.quanLyCungCapNuocSachDataSet1 = new GUI.dataDongHo();
             this.dongHoNuocTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet1TableAdapters.DongHoNuocTableAdapter();
             this.timerTimKiem = new System.Windows.Forms.Timer(this.components);
+            this.panelDgvDH = new System.Windows.Forms.Panel();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDongho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dongHoNuocBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet1)).BeginInit();
+            this.panelDgvDH.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTool
@@ -92,6 +94,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtsoDT);
             this.groupBox1.Controls.Add(this.txttenNV);
+            this.groupBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(58, 35);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(689, 129);
@@ -107,14 +110,14 @@
             "1-Đã sử dụng"});
             this.comboBox1.Location = new System.Drawing.Point(399, 74);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 21);
+            this.comboBox1.Size = new System.Drawing.Size(152, 24);
             this.comboBox1.TabIndex = 39;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(399, 43);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 20);
+            this.textBox2.Size = new System.Drawing.Size(152, 23);
             this.textBox2.TabIndex = 37;
             // 
             // label1
@@ -163,7 +166,7 @@
             // 
             this.txtMa.Location = new System.Drawing.Point(115, 32);
             this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(152, 20);
+            this.txtMa.Size = new System.Drawing.Size(152, 23);
             this.txtMa.TabIndex = 32;
             // 
             // label3
@@ -190,20 +193,20 @@
             // 
             this.txtsoDT.Location = new System.Drawing.Point(115, 86);
             this.txtsoDT.Name = "txtsoDT";
-            this.txtsoDT.Size = new System.Drawing.Size(152, 20);
+            this.txtsoDT.Size = new System.Drawing.Size(152, 23);
             this.txtsoDT.TabIndex = 30;
             // 
             // txttenNV
             // 
             this.txttenNV.Location = new System.Drawing.Point(115, 59);
             this.txttenNV.Name = "txttenNV";
-            this.txttenNV.Size = new System.Drawing.Size(152, 20);
+            this.txttenNV.Size = new System.Drawing.Size(152, 23);
             this.txttenNV.TabIndex = 29;
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(315, 3);
+            this.btnTimKiem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Location = new System.Drawing.Point(479, 2);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
             this.btnTimKiem.TabIndex = 37;
@@ -213,10 +216,10 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
             this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(201, 3);
+            this.btnCapNhat.Location = new System.Drawing.Point(324, 2);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
             this.btnCapNhat.TabIndex = 36;
@@ -227,10 +230,10 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(104, 3);
+            this.btnXoa.Location = new System.Drawing.Point(184, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(69, 28);
             this.btnXoa.TabIndex = 35;
@@ -241,10 +244,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(7, 3);
+            this.btnAdd.Location = new System.Drawing.Point(49, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(69, 28);
             this.btnAdd.TabIndex = 34;
@@ -267,7 +270,7 @@
             this.tinhTrangDataGridViewTextBoxColumn});
             this.dgvDongho.DataSource = this.dongHoNuocBindingSource;
             this.dgvDongho.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDongho.Location = new System.Drawing.Point(0, 168);
+            this.dgvDongho.Location = new System.Drawing.Point(0, 0);
             this.dgvDongho.Name = "dgvDongho";
             this.dgvDongho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDongho.Size = new System.Drawing.Size(800, 282);
@@ -323,12 +326,22 @@
             this.timerTimKiem.Interval = 15;
             this.timerTimKiem.Tick += new System.EventHandler(this.timerTimKiem_Tick);
             // 
+            // panelDgvDH
+            // 
+            this.panelDgvDH.Controls.Add(this.dgvDongho);
+            this.panelDgvDH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDgvDH.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelDgvDH.Location = new System.Drawing.Point(0, 168);
+            this.panelDgvDH.Name = "panelDgvDH";
+            this.panelDgvDH.Size = new System.Drawing.Size(800, 282);
+            this.panelDgvDH.TabIndex = 1;
+            // 
             // frmDongHo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvDongho);
+            this.Controls.Add(this.panelDgvDH);
             this.Controls.Add(this.panelTool);
             this.Name = "frmDongHo";
             this.Text = "Quản lý đồng hồ";
@@ -339,6 +352,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDongho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dongHoNuocBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet1)).EndInit();
+            this.panelDgvDH.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -372,5 +386,6 @@
         private System.Windows.Forms.TextBox txttenNV;
         private System.Windows.Forms.Timer timerTimKiem;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Panel panelDgvDH;
     }
 }

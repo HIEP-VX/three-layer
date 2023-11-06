@@ -61,6 +61,46 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string query;
+
+            if(txtHT.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập họ tên khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtHT.Focus();
+                return;
+            }
+
+            if (txtLKH.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập loại khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtLKH.Focus();
+                return;
+            }
+
+            if (txtDC.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải địa chỉ khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDC.Focus();
+                return;
+            }
+
+            if (txtNL.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập nơi lập hợp đồng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNL.Focus();
+                return;
+            }
+
+            if (txtSODT.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại của khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSODT.Focus();
+                return;
+            }
+
+            bool atLeastOneChecked = false;
+
+
             // Lấy mục được chọn
             string selectedItem = txtLKH.SelectedItem as string;
             string selectedValue = "";
@@ -76,7 +116,7 @@ namespace GUI
                 bool select1 = Convert.ToBoolean(row.Cells["selectColumn"].Value);
                 if (row.Cells[5].Value != null && select1)
                 {
-                    string query = "insert into HopDong (ngayLamHD, noiLamHD) values ('" + datetimeNL.Value + "',N'" + txtNL.Text + "')\n" +
+                    query = "insert into HopDong (ngayLamHD, noiLamHD) values ('" + datetimeNL.Value + "',N'" + txtNL.Text + "')\n" +
 
                                      "DECLARE @hopDongID INT\nSET @hopDongID = SCOPE_IDENTITY();\n" +
 
@@ -95,13 +135,28 @@ namespace GUI
                     {
                         MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    atLeastOneChecked= true;
+                    break;
                 }
             }
+
+            if (atLeastOneChecked)
+                MessageBox.Show("Thêm hợp đồng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Hãy chọn một đồng hồ cho khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void grpTTKH_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
         }
     }
 }

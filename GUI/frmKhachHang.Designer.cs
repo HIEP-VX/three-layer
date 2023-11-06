@@ -64,11 +64,13 @@
             this.quanLyCungCapNuocSachDataSet4 = new GUI.QuanLyCungCapNuocSachDataSet4();
             this.khachHangTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.KhachHangTableAdapter();
             this.timerTimKiem = new System.Windows.Forms.Timer(this.components);
+            this.panelDgvKH = new System.Windows.Forms.Panel();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).BeginInit();
+            this.panelDgvKH.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTool
@@ -96,6 +98,7 @@
             this.button1.Text = "Cập nhật";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
@@ -116,6 +119,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txttenNV);
+            this.groupBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(5, 32);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(792, 129);
@@ -127,7 +131,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(627, 75);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(96, 20);
+            this.textBox5.Size = new System.Drawing.Size(96, 23);
             this.textBox5.TabIndex = 44;
             // 
             // label8
@@ -144,7 +148,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(627, 47);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(96, 20);
+            this.textBox4.Size = new System.Drawing.Size(96, 23);
             this.textBox4.TabIndex = 42;
             // 
             // label7
@@ -162,28 +166,28 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(104, 88);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(132, 23);
             this.dateTimePicker1.TabIndex = 40;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(358, 85);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(152, 20);
+            this.textBox3.Size = new System.Drawing.Size(152, 23);
             this.textBox3.TabIndex = 39;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(358, 59);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 20);
+            this.textBox1.Size = new System.Drawing.Size(152, 23);
             this.textBox1.TabIndex = 38;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(358, 33);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 20);
+            this.textBox2.Size = new System.Drawing.Size(152, 23);
             this.textBox2.TabIndex = 37;
             // 
             // label1
@@ -241,7 +245,7 @@
             // 
             this.txtMa.Location = new System.Drawing.Point(104, 32);
             this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(132, 20);
+            this.txtMa.Size = new System.Drawing.Size(132, 23);
             this.txtMa.TabIndex = 32;
             // 
             // label3
@@ -268,7 +272,7 @@
             // 
             this.txttenNV.Location = new System.Drawing.Point(104, 59);
             this.txttenNV.Name = "txttenNV";
-            this.txttenNV.Size = new System.Drawing.Size(132, 20);
+            this.txttenNV.Size = new System.Drawing.Size(132, 23);
             this.txttenNV.TabIndex = 29;
             // 
             // btnTimKiem
@@ -298,7 +302,7 @@
             this.maLKHDataGridViewTextBoxColumn});
             this.dgvKH.DataSource = this.khachHangBindingSource;
             this.dgvKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvKH.Location = new System.Drawing.Point(0, 168);
+            this.dgvKH.Location = new System.Drawing.Point(0, 0);
             this.dgvKH.Name = "dgvKH";
             this.dgvKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKH.Size = new System.Drawing.Size(801, 282);
@@ -372,12 +376,22 @@
             this.timerTimKiem.Interval = 20;
             this.timerTimKiem.Tick += new System.EventHandler(this.timerTimKiem_Tick);
             // 
+            // panelDgvKH
+            // 
+            this.panelDgvKH.Controls.Add(this.dgvKH);
+            this.panelDgvKH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDgvKH.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelDgvKH.Location = new System.Drawing.Point(0, 168);
+            this.panelDgvKH.Name = "panelDgvKH";
+            this.panelDgvKH.Size = new System.Drawing.Size(801, 282);
+            this.panelDgvKH.TabIndex = 2;
+            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 450);
-            this.Controls.Add(this.dgvKH);
+            this.Controls.Add(this.panelDgvKH);
             this.Controls.Add(this.panelTool);
             this.Name = "frmKhachHang";
             this.Text = "frmKhachHang";
@@ -388,6 +402,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).EndInit();
+            this.panelDgvKH.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -428,5 +443,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maDHNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maLKHDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panelDgvKH;
     }
 }

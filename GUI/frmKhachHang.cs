@@ -14,6 +14,7 @@ namespace GUI
 {
     public partial class frmKhachHang : Form
     {
+        bool isCollapsed = true;
         public frmKhachHang()
         {
             InitializeComponent();
@@ -37,19 +38,19 @@ namespace GUI
 
         }
 
-        private void delForm_Logout(object sender, EventArgs e)
+        private void UpForm_Logout(object sender, EventArgs e)
         {
             (sender as subUpdateKH).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
             (sender as subUpdateKH).Close();
             this.Show();
         }
 
-        private void btnCapNhat_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             subUpdateKH sb = new subUpdateKH();
             sb.Show();
 
-            sb.Logout += delForm_Logout;
+            sb.Logout += UpForm_Logout;
 
             sb.DataAdded += () =>
             {
@@ -96,8 +97,6 @@ namespace GUI
             }
         }
 
-        bool isCollapsed = true;
-
         private void timerTimKiem_Tick(object sender, EventArgs e)
         {
             if (isCollapsed)
@@ -119,5 +118,7 @@ namespace GUI
                 }
             }
         }
+
+        
     }
 }

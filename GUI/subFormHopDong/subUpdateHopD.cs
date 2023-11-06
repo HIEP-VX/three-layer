@@ -25,6 +25,13 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (txtMa.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập mã hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMa.Focus();
+                return;
+            }
+
             string sql = "update HopDong set ngayLamHD = '" + dateTimeNL.Value + "',noiLamHD = N'" + txtNL.Text + "' where maHD = " + txtMa.Text;
             try
             {
