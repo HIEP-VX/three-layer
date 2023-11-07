@@ -23,7 +23,14 @@ namespace GUI
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (txtMa.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập mã loại khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMa.Focus();
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa loại khách hàng này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 string sql = "Delete from loaiKhachHang where maLKH = '" + txtMa.Text + "'";

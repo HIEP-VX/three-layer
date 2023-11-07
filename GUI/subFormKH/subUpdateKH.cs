@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -51,18 +52,29 @@ namespace GUI
                 return;
             }
 
-            string sql = "update KhachHang set tenKH = N'" + txtHT.Text + "',ngaySinh = '" + dateNS.Value + "', diaChi = N'" + txtDC.Text + "',soDT = '" + txtSoDT.Text + "' where maKH = " + txtMa.Text;
-            try
+            string sql = "update KhachHang set tenKH = @tenKH, ngaySinh = @ngaySinh, diaChi = @diaChi, soDT = @soDT where maKH = @maKH";
+            using (SqlConnection conn = SqlConnectionData.connect())
             {
-                AccessData.execQuery(sql);
-                MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@tenKH", SqlDbType.NVarChar).Value = txtHT.Text;
+                cmd.Parameters.AddWithValue("@ngaySinh", SqlDbType.DateTime).Value = dateNS.Value;
+                cmd.Parameters.AddWithValue("@diaChi", SqlDbType.NVarChar).Value = txtDC.Text;
+                cmd.Parameters.AddWithValue("@soDT", SqlDbType.Char).Value = txtSoDT.Text;
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                this.Close();
+                DataAdded?.Invoke();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.Close();
-            DataAdded?.Invoke();
         }
 
         private void button2_Click(object sender, EventArgs e)

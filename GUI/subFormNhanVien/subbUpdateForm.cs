@@ -35,6 +35,29 @@ namespace GUI
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (txtMa.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập mã nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMa.Focus();
+                return;
+            }
+
+            if (txttenNV.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txttenNV.Focus();
+                return;
+            }
+
+            txtMa.Visible = 
+
+            if (txtsoDT.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtsoDT.Focus();
+                return;
+            }
+
             string sql = "update NhanVien set TENNV = N'" + txttenNV.Text + "',soDT = '" + txtsoDT.Text + "' where maNV = " + txtMa.Text ;
             try
             {

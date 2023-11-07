@@ -64,12 +64,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dataDHN1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormMain2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,9 +249,6 @@
     <Compile Include="subFormDongHo\subUpdateDongHo.Designer.cs">
       <DependentUpon>subUpdateDongHo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormMain2.resx">
       <DependentUpon>FormMain2.cs</DependentUpon>
     </EmbeddedResource>

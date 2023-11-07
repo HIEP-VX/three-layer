@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -64,28 +65,35 @@ namespace GUI
                 selectedValue = parts[0].Trim();
 
 
-            string query = "INSERT INTO DongHoNuoc (hangDHN, chiSoDau, soCongTo, tinhTrang) values (N'" + txtHang.Text + "'," + txtChiSoDau.Text + "," + txtSoCongTo.Text + "," + selectedValue + ")";
-            try
+            //string query = "INSERT INTO DongHoNuoc (hangDHN, chiSoDau, soCongTo, tinhTrang) values (N'" + txtHang.Text + "'," + txtChiSoDau.Text + "," + txtSoCongTo.Text + "," + selectedValue + ")";
+            string query = "INSERT INTO DongHoNuoc (hangDHN, chiSoDau, soCongTo, tinhTrang) values (@hangDHN, @chiSoDau, @soCongTo, @tinhTrang)";
+            using  (SqlConnection conn = SqlConnectionData.connect())
             {
-                AccessData.execQuery(query);
-                MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@hangDHN", SqlDbType.NVarChar).Value = txtHang.Text;
+                cmd.Parameters.AddWithValue("@chiSoDau", txtChiSoDau.Text);
+                cmd.Parameters.AddWithValue("@soCongTo", txtSoCongTo.Text);
+                cmd.Parameters.AddWithValue("@tinhTrang", selectedValue);
+
+                try
+                {
+                   cmd.ExecuteNonQuery();
+                   MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                this.Close();
+                DataAdded?.Invoke();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.Close();
-            DataAdded?.Invoke();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Logout(this, new EventArgs());
-        }
-
-        private void subAddDongHo_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

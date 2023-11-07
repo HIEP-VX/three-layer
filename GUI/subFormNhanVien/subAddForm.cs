@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DTO;
 using BLL;
 using DAL;
+using System.Data.SqlClient;
 
 namespace GUI
 {
@@ -34,18 +35,41 @@ namespace GUI
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string query = @"INSERT INTO NhanVien (tenNV, soDT) values (N'" + txttenNV.Text + "','" + txtsoDT.Text + "')";
-            try
+            if (txttenNV.Text.Trim().Length == 0)
             {
-                AccessData.execQuery(query);
-                MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn phải nhập tên nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txttenNV.Focus();
+                return;
             }
-            catch(Exception ex)
+
+            if (txtsoDT.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Bạn phải nhập số điện thoại nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtsoDT.Focus();
+                return;
             }
-            this.Close();
-            DataAdded?.Invoke();
+
+            string query = @"INSERT INTO NhanVien (tenNV, soDT) values (@tenNV, @soDT)";
+            using (SqlConnection conn = SqlConnectionData.connect())
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@tenNV", SqlDbType.NVarChar).Value = txttenNV.Text;
+                cmd.Parameters.AddWithValue("@soDT", SqlDbType.Char).Value = txtsoDT.Text;
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                this.Close();
+                DataAdded?.Invoke();
+            }
         }
 
         private void subAddForm_Load(object sender, EventArgs e)
