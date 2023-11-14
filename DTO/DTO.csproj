@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="account.cs" />
-    <Compile Include="permission.cs" />
+    <Compile Include="ConstVariable.cs" />
+    <Compile Include="listAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

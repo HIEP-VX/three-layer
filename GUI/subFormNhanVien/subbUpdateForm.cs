@@ -49,8 +49,6 @@ namespace GUI
                 return;
             }
 
-            txtMa.Visible = 
-
             if (txtsoDT.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập số điện thoại nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

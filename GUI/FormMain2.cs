@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace GUI
 {
     public partial class FormMain2 : Form
     {
-
+        account ac = new account();
         public bool isExit = true;
 
         public event EventHandler Logout;
@@ -28,6 +29,15 @@ namespace GUI
         {
             InitializeComponent();
         }
+        void phanQuyen()
+        {
+            if (user.currentUser == "admin2")
+            {
+                btnHopDong1.Enabled = false;
+
+            }
+        }
+
         #region Event
 
 
@@ -36,8 +46,10 @@ namespace GUI
 
         private void FormMain2_Load(object sender, EventArgs e)
         {
+            phanQuyen();
             panelDanhMuc.Size = panelDanhMuc.MinimumSize;
             panelHeThong.Size = panelHeThong.MinimumSize;
+            labelWelcome.Text += user.currentUser;
         }
 
         // bắt đầu timer
@@ -254,7 +266,10 @@ namespace GUI
 
         private void btnTieuThu_Click(object sender, EventArgs e)
         {
-
+            OpenFormChild(new frmTieuThu());
+            lblTitle.Text = btnTieuThu.Text;
+            hopDongExpand = false;
+            timerHopDong.Start();
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
@@ -292,5 +307,6 @@ namespace GUI
             // Gọi sự kiện Click của nút btnHeThong
             btnHeThong.PerformClick();
         }
+
     }
 }

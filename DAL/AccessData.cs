@@ -35,7 +35,7 @@ namespace DAL
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@user", acc.User_name);
             cmd.Parameters.AddWithValue("@pass", acc.Password);
-            // neu kiem tra quyen thi them 1 cai param o day
+            
 
             cmd.Connection = conn;
             SqlDataReader reader= cmd.ExecuteReader();
