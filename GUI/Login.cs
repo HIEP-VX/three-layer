@@ -83,7 +83,7 @@ namespace GUI
                 this.Hide();
             }*/
            DataTable dt = new DataTable();
-            dt = AccessData.getData("select * from taiKhoan where user_name = '" + txtusername.Text + "'and  password = '" + txtpassword.Text + "'");
+            dt = AccessData.getData("select * from nhanVien where taiKhoan = '" + txtusername.Text + "'and  matKhau = '" + txtpassword.Text + "'");
             if(dt.Rows.Count > 0)
             {
                 user.currentUser = txtusername.Text;
