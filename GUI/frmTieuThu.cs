@@ -51,18 +51,10 @@ namespace GUI
         private DataTable LoadDataByMonth(int selectedMonth)
         {
             // Thực hiện truy vấn SQL để lấy dữ liệu từ cơ sở dữ liệu dựa trên tháng
-            // Ví dụ:
             string query = $"SELECT * FROM TieuThu WHERE MONTH(ThoiGian) = {selectedMonth} AND YEAR(ThoiGian) = YEAR(GETDATE())";
             // Thực hiện truy vấn và trả về dữ liệu dưới dạng DataTable
             DataTable dataTable = AccessData.getData(query);
             return dataTable;
-        }
-
-        
-        
-        private void btnImport_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

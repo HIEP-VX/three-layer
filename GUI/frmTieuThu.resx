@@ -130,19 +130,11 @@
         cocdYGAAADwKHPuxhzNtAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAACX
-        KwAAlysBI034/wAAASxJREFUOE+tlbEOgjAQhhtdfCsirK5EYyUuTk6+gPENGN2Muwkpg5MOOrjrKxjx
-        KRz0/toCwonE8CdfQnp3v7Z3FMHJOYw7XRUEXjyKXCWvnpIP4Mb0TGuIIcekV8uNRwMvlgkVPquRCXJN
-        WVn+xm/TP1jyxd9BDWqNTaZ/zCx0LEtj89Z7m3wy6G0nGi5mSbePw6VfuHNJlvC80nCxDJk4a2qU6SaT
-        kBFeyJDgYnngJeghKgaK1DUkIjQDs8UFU+oaYmaFHtrcotzNUgPL/nbSFNeRm6+FV/OGzW+56aY0PjYY
-        xl+XQS1DZQYbcqPqV296nGu4WIoK+trMCi84m1iD0uUALZ6L1j+mqEGtsSlL3zx0HlzxB5SDozJl1cLh
-        dtWQui+/fwJsAz4kxAuzyheXy9MImAAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="tieuThuBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>255, 17</value>
+  </metadata>
+  <metadata name="quanLyCungCapNuocSachDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <metadata name="quanLyCungCapNuocSachDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

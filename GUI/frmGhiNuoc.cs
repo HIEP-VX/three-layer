@@ -30,6 +30,25 @@ namespace GUI
         {
             conn.Open();
 
+            string address = "19/97 Đường Trường Chinh, Phường Bà Triệu, thành phố Nam Định, Nam Định";
+
+            // Tìm vị trí của dấu ',' thứ nhất và thứ hai
+            int firstCommaIndex = address.IndexOf(',');
+            int secondCommaIndex = address.IndexOf(',', firstCommaIndex + 1);
+
+            // Kiểm tra xem có tìm thấy dấu ',' thứ hai hay không
+            if (firstCommaIndex != -1 && secondCommaIndex != -1)
+            {
+                // Tách chuỗi từ sau dấu ',' thứ nhất đến dấu ',' thứ hai
+                string result = address.Substring(firstCommaIndex + 1, secondCommaIndex - firstCommaIndex - 1).Trim();
+
+                // In kết quả
+                Console.WriteLine(result);
+            }
+            else
+                Console.WriteLine("Không tìm thấy dấu ',' thứ nhất hoặc thứ hai trong chuỗi.");
+
+
             SqlCommand cmd = new SqlCommand("Select maKH, thoiGian, chiSoMoi, luongNuoc from TieuThu", conn);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();

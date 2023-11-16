@@ -32,10 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTieuThu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbThang = new System.Windows.Forms.ComboBox();
-            this.btnImport = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.tieuThuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quanLyCungCapNuocSachDataSet = new GUI.QuanLyCungCapNuocSachDataSet();
             this.tieuThuTableAdapter = new GUI.QuanLyCungCapNuocSachDataSetTableAdapters.TieuThuTableAdapter();
@@ -61,10 +60,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.cbThang);
-            this.panel1.Controls.Add(this.btnImport);
+            this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.btnTimKiem);
             this.panel1.Controls.Add(this.btnCapNhat);
-            this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -82,16 +80,15 @@
             this.cbThang.Text = "Tháng";
             this.cbThang.SelectedIndexChanged += new System.EventHandler(this.cbThang_SelectedIndexChanged);
             // 
-            // btnImport
+            // btnExport
             // 
-            this.btnImport.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.Location = new System.Drawing.Point(329, 1);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(75, 28);
-            this.btnImport.TabIndex = 42;
-            this.btnImport.Text = "Thêm file";
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            this.btnExport.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Location = new System.Drawing.Point(329, 1);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 28);
+            this.btnExport.TabIndex = 42;
+            this.btnExport.Text = "Xuất file";
+            this.btnExport.UseVisualStyleBackColor = true;
             // 
             // btnTimKiem
             // 
@@ -115,19 +112,6 @@
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCapNhat.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(19, 1);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(69, 28);
-            this.btnAdd.TabIndex = 38;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // tieuThuBindingSource
             // 
@@ -262,9 +246,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnCapNhat;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox cbThang;
-        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button btnExport;
         private QuanLyCungCapNuocSachDataSet quanLyCungCapNuocSachDataSet;
         private System.Windows.Forms.BindingSource tieuThuBindingSource;
         private QuanLyCungCapNuocSachDataSetTableAdapters.TieuThuTableAdapter tieuThuTableAdapter;
