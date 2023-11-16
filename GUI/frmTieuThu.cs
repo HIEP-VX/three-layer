@@ -5,10 +5,15 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using xls =  Microsoft.Office.Interop.Excel;
+using System.IO;
+using OfficeOpenXml;
+using System.Data.SqlClient;
 
 namespace GUI
 {
@@ -28,12 +33,19 @@ namespace GUI
                 cbThang.Items.Add(i);
             }
 
+            // hiển thị thông tin những khách hàng tiêu thụ trong tháng hiện tại
+            DateTime currentDate = DateTime.Now;
+            int currentMonth = currentDate.Month;
+            int currentYear = currentDate.Year;
+
+            string query = $"SELECT maTT, maKH, CONVERT(VARCHAR, GETDATE(), 103) AS ThoiGian, chiSoMoi, luongNuoc, tienNuoc, thueGT, thueBVMT, tongTien, tinhTrang FROM TieuThu WHERE MONTH(ThoiGian) = {currentMonth} AND YEAR(ThoiGian) = {currentYear}";
+            dgvTieuThu.DataSource = AccessData.getData(query);
         }
 
         private void cbThang_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedMonth = Convert.ToInt32(cbThang.SelectedItem);
-            dataGridView1.DataSource = LoadDataByMonth(selectedMonth);
+            dgvTieuThu.DataSource = LoadDataByMonth(selectedMonth);
         }
 
         private DataTable LoadDataByMonth(int selectedMonth)
@@ -46,5 +58,11 @@ namespace GUI
             return dataTable;
         }
 
+        
+        
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

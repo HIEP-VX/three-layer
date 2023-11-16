@@ -171,6 +171,7 @@
             this.Name = "subAddDongHo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "subAddDongHo";
+            this.Load += new System.EventHandler(this.subAddDongHo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

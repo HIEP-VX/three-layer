@@ -308,5 +308,12 @@ namespace GUI
             btnHeThong.PerformClick();
         }
 
+        private void btnGhiNuoc_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmGhiNuoc());
+            lblTitle.Text = btnGhiNuoc.Text;
+            hopDongExpand = false;
+            timerHopDong.Start();
+        }
     }
 }

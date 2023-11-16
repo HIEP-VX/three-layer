@@ -95,5 +95,10 @@ namespace GUI
         {
             Logout(this, new EventArgs());
         }
+
+        private void subAddDongHo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace GUI
                 string query = "SELECT maDHN, hangDHN, chiSoDau, soCongTo,\n" +
                                "CASE\n" +
                                "WHEN tinhTrang = 0 THEN N'chưa sử dụng'\n" +
-                               "WHEN tinhTrang = 1 THEN N'đã sử dụng'\n" +
+                               "WHEN tinhTrang = 1 THEN N'đã sử  dụng'\n" +
                                "END AS tinhTrang\n" +
                                "FROM DongHoNuoc\n";
                 dgvDongho.DataSource = AccessData.getData(query);
