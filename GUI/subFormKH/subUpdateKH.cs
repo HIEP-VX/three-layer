@@ -82,5 +82,9 @@ namespace GUI
             Logout(this, new EventArgs());
         }
 
+        private void subUpdateKH_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

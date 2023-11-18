@@ -44,16 +44,18 @@ namespace GUI
                 txtLuongNuoc.Focus();
                 return;
             }
-            string query = "INSERT INTO tieuThu (maKH, ThoiGian, chiSoMoi, luongNuoc) values (@maKH, @ThoiGian,@chiSoMoi, @luongNuoc)";
+            string query = "INSERT INTO tieuThu (maKH, chiSoMoi, luongNuoc, ThoiGianDau, ThoiGianCuoi, maNV) values (@maKH,@chiSoMoi, @luongNuoc, @ThoiGianDau, @ThoiGianCuoi, @maNV)";
             using (SqlConnection conn = SqlConnectionData.connect())
             {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@maKH", txtMaKH.Text);
-                cmd.Parameters.AddWithValue("@ThoiGian", dateTimeGhiNuoc.Value);
                 cmd.Parameters.AddWithValue("@chiSoMoi", txtChiSoMoi.Text);
                 cmd.Parameters.AddWithValue("@luongNuoc", txtLuongNuoc.Text);
+                cmd.Parameters.AddWithValue("@ThoiGianDau", dateThoiGianDau.Value);
+                cmd.Parameters.AddWithValue("@ThoiGianCuoi", dateThoiGianCuoi.Value);
+                cmd.Parameters.AddWithValue("@maNV", txtMaNV.Text);
 
                 try
                 {
@@ -72,6 +74,11 @@ namespace GUI
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Logout(this, new EventArgs());
+        }
+
+        private void addGhiNuoc_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

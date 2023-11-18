@@ -51,26 +51,27 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txttenNV = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
+            this.timerTimKiem = new System.Windows.Forms.Timer(this.components);
+            this.panelDgvKH = new System.Windows.Forms.Panel();
             this.dgvKH = new System.Windows.Forms.DataGridView();
             this.maKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngaySinhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phuongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diaChiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maLKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.khachHangBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyCungCapNuocSachDataSet4 = new GUI.QuanLyCungCapNuocSachDataSet4();
-            this.khachHangTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.KhachHangTableAdapter();
-            this.timerTimKiem = new System.Windows.Forms.Timer(this.components);
-            this.panelDgvKH = new System.Windows.Forms.Panel();
+            this.quanLyCungCapNuocSachDataSet1 = new GUI.QuanLyCungCapNuocSachDataSet1();
+            this.khachHangTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet1TableAdapters.KhachHangTableAdapter();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panelDgvKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).BeginInit();
-            this.panelDgvKH.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTool
@@ -286,91 +287,6 @@
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // dgvKH
-            // 
-            this.dgvKH.AutoGenerateColumns = false;
-            this.dgvKH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maKHDataGridViewTextBoxColumn,
-            this.tenKHDataGridViewTextBoxColumn,
-            this.ngaySinhDataGridViewTextBoxColumn,
-            this.diaChiDataGridViewTextBoxColumn,
-            this.soDTDataGridViewTextBoxColumn,
-            this.maHDDataGridViewTextBoxColumn,
-            this.maDHNDataGridViewTextBoxColumn,
-            this.maLKHDataGridViewTextBoxColumn});
-            this.dgvKH.DataSource = this.khachHangBindingSource;
-            this.dgvKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvKH.Location = new System.Drawing.Point(0, 0);
-            this.dgvKH.Name = "dgvKH";
-            this.dgvKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKH.Size = new System.Drawing.Size(801, 282);
-            this.dgvKH.TabIndex = 1;
-            // 
-            // maKHDataGridViewTextBoxColumn
-            // 
-            this.maKHDataGridViewTextBoxColumn.DataPropertyName = "maKH";
-            this.maKHDataGridViewTextBoxColumn.HeaderText = "Mã khách hàng";
-            this.maKHDataGridViewTextBoxColumn.Name = "maKHDataGridViewTextBoxColumn";
-            this.maKHDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tenKHDataGridViewTextBoxColumn
-            // 
-            this.tenKHDataGridViewTextBoxColumn.DataPropertyName = "tenKH";
-            this.tenKHDataGridViewTextBoxColumn.HeaderText = "Họ và tên";
-            this.tenKHDataGridViewTextBoxColumn.Name = "tenKHDataGridViewTextBoxColumn";
-            // 
-            // ngaySinhDataGridViewTextBoxColumn
-            // 
-            this.ngaySinhDataGridViewTextBoxColumn.DataPropertyName = "ngaySinh";
-            this.ngaySinhDataGridViewTextBoxColumn.HeaderText = "Ngày sinh";
-            this.ngaySinhDataGridViewTextBoxColumn.Name = "ngaySinhDataGridViewTextBoxColumn";
-            // 
-            // diaChiDataGridViewTextBoxColumn
-            // 
-            this.diaChiDataGridViewTextBoxColumn.DataPropertyName = "diaChi";
-            this.diaChiDataGridViewTextBoxColumn.HeaderText = "Địa chỉ";
-            this.diaChiDataGridViewTextBoxColumn.Name = "diaChiDataGridViewTextBoxColumn";
-            // 
-            // soDTDataGridViewTextBoxColumn
-            // 
-            this.soDTDataGridViewTextBoxColumn.DataPropertyName = "soDT";
-            this.soDTDataGridViewTextBoxColumn.HeaderText = "Số điện thoại";
-            this.soDTDataGridViewTextBoxColumn.Name = "soDTDataGridViewTextBoxColumn";
-            // 
-            // maHDDataGridViewTextBoxColumn
-            // 
-            this.maHDDataGridViewTextBoxColumn.DataPropertyName = "maHD";
-            this.maHDDataGridViewTextBoxColumn.HeaderText = "Mã hợp đồng";
-            this.maHDDataGridViewTextBoxColumn.Name = "maHDDataGridViewTextBoxColumn";
-            // 
-            // maDHNDataGridViewTextBoxColumn
-            // 
-            this.maDHNDataGridViewTextBoxColumn.DataPropertyName = "maDHN";
-            this.maDHNDataGridViewTextBoxColumn.HeaderText = "Mã đồng hồ";
-            this.maDHNDataGridViewTextBoxColumn.Name = "maDHNDataGridViewTextBoxColumn";
-            // 
-            // maLKHDataGridViewTextBoxColumn
-            // 
-            this.maLKHDataGridViewTextBoxColumn.DataPropertyName = "maLKH";
-            this.maLKHDataGridViewTextBoxColumn.HeaderText = "Mã loại khách hàng";
-            this.maLKHDataGridViewTextBoxColumn.Name = "maLKHDataGridViewTextBoxColumn";
-            // 
-            // khachHangBindingSource
-            // 
-            this.khachHangBindingSource.DataMember = "KhachHang";
-            this.khachHangBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet4;
-            // 
-            // quanLyCungCapNuocSachDataSet4
-            // 
-            this.quanLyCungCapNuocSachDataSet4.DataSetName = "QuanLyCungCapNuocSachDataSet4";
-            this.quanLyCungCapNuocSachDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // khachHangTableAdapter
-            // 
-            this.khachHangTableAdapter.ClearBeforeFill = true;
-            // 
             // timerTimKiem
             // 
             this.timerTimKiem.Interval = 20;
@@ -386,6 +302,107 @@
             this.panelDgvKH.Size = new System.Drawing.Size(801, 282);
             this.panelDgvKH.TabIndex = 2;
             // 
+            // dgvKH
+            // 
+            this.dgvKH.AutoGenerateColumns = false;
+            this.dgvKH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maKHDataGridViewTextBoxColumn,
+            this.tenKHDataGridViewTextBoxColumn,
+            this.ngaySinhDataGridViewTextBoxColumn,
+            this.phuongDataGridViewTextBoxColumn,
+            this.diaChiDataGridViewTextBoxColumn,
+            this.soDTDataGridViewTextBoxColumn,
+            this.maHDDataGridViewTextBoxColumn,
+            this.maLKHDataGridViewTextBoxColumn,
+            this.maDHNDataGridViewTextBoxColumn});
+            this.dgvKH.DataSource = this.khachHangBindingSource;
+            this.dgvKH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvKH.Location = new System.Drawing.Point(0, 0);
+            this.dgvKH.Name = "dgvKH";
+            this.dgvKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvKH.Size = new System.Drawing.Size(801, 282);
+            this.dgvKH.TabIndex = 45;
+            // 
+            // maKHDataGridViewTextBoxColumn
+            // 
+            this.maKHDataGridViewTextBoxColumn.DataPropertyName = "maKH";
+            this.maKHDataGridViewTextBoxColumn.FillWeight = 91.37057F;
+            this.maKHDataGridViewTextBoxColumn.HeaderText = "Mã";
+            this.maKHDataGridViewTextBoxColumn.Name = "maKHDataGridViewTextBoxColumn";
+            this.maKHDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tenKHDataGridViewTextBoxColumn
+            // 
+            this.tenKHDataGridViewTextBoxColumn.DataPropertyName = "tenKH";
+            this.tenKHDataGridViewTextBoxColumn.FillWeight = 101.0787F;
+            this.tenKHDataGridViewTextBoxColumn.HeaderText = "Họ và tên";
+            this.tenKHDataGridViewTextBoxColumn.Name = "tenKHDataGridViewTextBoxColumn";
+            // 
+            // ngaySinhDataGridViewTextBoxColumn
+            // 
+            this.ngaySinhDataGridViewTextBoxColumn.DataPropertyName = "ngaySinh";
+            this.ngaySinhDataGridViewTextBoxColumn.FillWeight = 101.0787F;
+            this.ngaySinhDataGridViewTextBoxColumn.HeaderText = "Ngày sinh";
+            this.ngaySinhDataGridViewTextBoxColumn.Name = "ngaySinhDataGridViewTextBoxColumn";
+            // 
+            // phuongDataGridViewTextBoxColumn
+            // 
+            this.phuongDataGridViewTextBoxColumn.DataPropertyName = "phuong";
+            this.phuongDataGridViewTextBoxColumn.FillWeight = 101.0787F;
+            this.phuongDataGridViewTextBoxColumn.HeaderText = "Phường";
+            this.phuongDataGridViewTextBoxColumn.Name = "phuongDataGridViewTextBoxColumn";
+            // 
+            // diaChiDataGridViewTextBoxColumn
+            // 
+            this.diaChiDataGridViewTextBoxColumn.DataPropertyName = "diaChi";
+            this.diaChiDataGridViewTextBoxColumn.FillWeight = 101.0787F;
+            this.diaChiDataGridViewTextBoxColumn.HeaderText = "Địa Chỉ";
+            this.diaChiDataGridViewTextBoxColumn.Name = "diaChiDataGridViewTextBoxColumn";
+            // 
+            // soDTDataGridViewTextBoxColumn
+            // 
+            this.soDTDataGridViewTextBoxColumn.DataPropertyName = "soDT";
+            this.soDTDataGridViewTextBoxColumn.FillWeight = 101.0787F;
+            this.soDTDataGridViewTextBoxColumn.HeaderText = "Số DT";
+            this.soDTDataGridViewTextBoxColumn.Name = "soDTDataGridViewTextBoxColumn";
+            // 
+            // maHDDataGridViewTextBoxColumn
+            // 
+            this.maHDDataGridViewTextBoxColumn.DataPropertyName = "maHD";
+            this.maHDDataGridViewTextBoxColumn.FillWeight = 101.0787F;
+            this.maHDDataGridViewTextBoxColumn.HeaderText = "Mã hợp đồng";
+            this.maHDDataGridViewTextBoxColumn.Name = "maHDDataGridViewTextBoxColumn";
+            // 
+            // maLKHDataGridViewTextBoxColumn
+            // 
+            this.maLKHDataGridViewTextBoxColumn.DataPropertyName = "maLKH";
+            this.maLKHDataGridViewTextBoxColumn.FillWeight = 101.0787F;
+            this.maLKHDataGridViewTextBoxColumn.HeaderText = "Mã loại KH";
+            this.maLKHDataGridViewTextBoxColumn.Name = "maLKHDataGridViewTextBoxColumn";
+            // 
+            // maDHNDataGridViewTextBoxColumn
+            // 
+            this.maDHNDataGridViewTextBoxColumn.DataPropertyName = "maDHN";
+            this.maDHNDataGridViewTextBoxColumn.FillWeight = 101.0787F;
+            this.maDHNDataGridViewTextBoxColumn.HeaderText = "Mã đồng hồ";
+            this.maDHNDataGridViewTextBoxColumn.Name = "maDHNDataGridViewTextBoxColumn";
+            // 
+            // khachHangBindingSource
+            // 
+            this.khachHangBindingSource.DataMember = "KhachHang";
+            this.khachHangBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet1;
+            // 
+            // quanLyCungCapNuocSachDataSet1
+            // 
+            this.quanLyCungCapNuocSachDataSet1.DataSetName = "QuanLyCungCapNuocSachDataSet1";
+            this.quanLyCungCapNuocSachDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // khachHangTableAdapter
+            // 
+            this.khachHangTableAdapter.ClearBeforeFill = true;
+            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,10 +416,10 @@
             this.panelTool.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panelDgvKH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).EndInit();
-            this.panelDgvKH.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -410,10 +427,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelTool;
-        private System.Windows.Forms.DataGridView dgvKH;
-        private QuanLyCungCapNuocSachDataSet4 quanLyCungCapNuocSachDataSet4;
-        private System.Windows.Forms.BindingSource khachHangBindingSource;
-        private QuanLyCungCapNuocSachDataSet4TableAdapters.KhachHangTableAdapter khachHangTableAdapter;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox3;
@@ -434,15 +447,20 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panelDgvKH;
+        private System.Windows.Forms.DataGridView dgvKH;
+        private QuanLyCungCapNuocSachDataSet1 quanLyCungCapNuocSachDataSet1;
+        private System.Windows.Forms.BindingSource khachHangBindingSource;
+        private QuanLyCungCapNuocSachDataSet1TableAdapters.KhachHangTableAdapter khachHangTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn maKHDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenKHDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaySinhDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phuongDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn diaChiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn soDTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maHDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maDHNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maLKHDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panelDgvKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maDHNDataGridViewTextBoxColumn;
     }
 }

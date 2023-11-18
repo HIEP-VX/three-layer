@@ -127,13 +127,16 @@
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSubmit.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(40, 284);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(106, 33);
             this.btnSubmit.TabIndex = 26;
-            this.btnSubmit.Text = "Thêm";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Text = "Xóa";
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // label3

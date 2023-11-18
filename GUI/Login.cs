@@ -8,107 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
-using BLL;
 using DAL;
+using System.Data.SqlClient;
 
 namespace GUI
 {
     public partial class Login : Form
     {
-        account acc = new account();
-        accountBLL accBLL = new accountBLL();
-        List<account> list = listAccount.Instance.accounts;
-
         public Login()
         {
             InitializeComponent();
-            this.AcceptButton = btnSubmit;
+            this.AcceptButton = btnAccept;
         }
-
-        bool KiemTraDangNhap(string tenDangNhap, string matKhau)
-        {
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (tenDangNhap == list[i].User_name && matKhau == list[i].Password)
-                {
-                    // trả kết quả là loại tài khoản này là loại tài khoản gì
-                    ConstVariable.loaiTaiKhoan = list[i].TypeAccount;
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            /*string textA = txtusername.Text;
-            string textB = txtpassword.Text;*/
-            /*if (KiemTraDangNhap(txtusername.Text, txtpassword.Text) && textA != "" && textB != "")
-            {
-                MainForm f = new MainForm();
-                f.Show();
-                this.Hide();
-                f.Logout += F_Logout;
-            }*/
-           /* acc.User_name = txtusername.Text;
-            acc.Password = txtpassword.Text;
-
-            string getUser = accBLL.checkLogin(acc);
-
-            bool isValid = true; // bien kiem tra hop le
-            
-            // the hien tra lai ket qua neu nghiep vu khong dung
-            switch(getUser)
-            {
-                case "required_account":
-                    MessageBox.Show("The account cannot be empty!");
-                    isValid = false;
-                    break;
-                case "required_password":
-                    MessageBox.Show("The password cannot be empty!");
-                    isValid = false;
-                    break;
-                case "Username or password is incorrect.":
-                    MessageBox.Show("Username or password is incorrect.");
-                    isValid = false;
-                    break;
-            }
-
-            // den doan nay la tai khoan va mat khau da dung
-            //  && KiemTraDangNhap(txtusername.Text, txtpassword.Text) && textA != "" && textB != ""
-            if (isValid)
-            {
-                FormMain2 fm = new FormMain2();
-                fm.Show();
-                this.Hide();
-            }*/
-           DataTable dt = new DataTable();
-            dt = AccessData.getData("select * from nhanVien where taiKhoan = '" + txtusername.Text + "'and  matKhau = '" + txtpassword.Text + "'");
-            if(dt.Rows.Count > 0)
-            {
-                user.currentUser = txtusername.Text;
-                FormMain2 fm = new FormMain2();
-                fm.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Username or password is incorrect.");
-            }
-
-            
-        }
-
-        
-
-        private void btnSubmit_KeyDown(object sender, KeyEventArgs e)
+        private void btnAccept_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
-            {
-                btnSubmit.PerformClick();
-            }
+                btnAccept.PerformClick();
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -117,6 +33,64 @@ namespace GUI
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            dt = AccessData.getData("select * from nhanvien where taiKhoan = '" + txtusername.Text + "'and  matkhau = '" + txtpassword.Text + "'");
+            if (dt.Rows.Count > 0)
+            {
+                using (SqlConnection connection = SqlConnectionData.connect())
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT nv.maNV, nv.tenNV, nv.chucVu, nv.taiKhoan, nv.matKhau, nv.quyenHan FROM nhanvien nv WHERE nv.taiKhoan = @TaiKhoan AND nv.matKhau = @MatKhau";
+
+                    using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                    {
+                        // Thêm tham số vào câu lệnh SQL
+                        command.Parameters.AddWithValue("@TaiKhoan", txtusername.Text);
+                        command.Parameters.AddWithValue("@MatKhau", txtpassword.Text);
+
+                        // Thực thi câu lệnh SQL và đọc giá trị
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Đọc giá trị tên nhân viên từ cột đầu tiên
+                                string maNhanVien = reader["maNV"].ToString();
+                                user.id = int.Parse(maNhanVien);
+
+                                // Đọc giá trị tên nhân viên từ cột đầu tiên
+                                string tenNhanVien = reader["tenNV"].ToString();
+                                user.user_name = tenNhanVien;
+
+                                // Đọc giá trị quyền hạn từ cột thứ hai
+                                string chucVu = reader["chucVu"].ToString();
+                                user.position = chucVu;
+
+                                // Đọc giá trị quyền hạn từ cột thứ ba
+                                string taiKhoan = reader["taiKhoan"].ToString();
+                                user.account = taiKhoan;
+
+                                // Đọc giá trị quyền hạn từ cột thứ bon
+                                string matKhau = reader["matKhau"].ToString();
+                                user.password = matKhau;
+
+                                // Đọc giá trị quyền hạn từ cột thứ nam
+                                string quyenHan = reader["quyenHan"].ToString();
+                                user.permission = quyenHan;
+                            }
+                        }
+                    }
+                }
+                FormMain2 fm = new FormMain2();
+                fm.Show();
+
+                this.Hide();
+            }
+            else
+                MessageBox.Show("Username or password is incorrect.");
         }
     }
 }

@@ -26,6 +26,7 @@ namespace GUI
             txtHT.Text = "";
             txtSODT.Text = "";
             txtDC.Text = "";
+            cbPhuong.Text = "";
             txtLKH.Text = "";
             txtNL.Text = "";
             datetimeNS.Value = DateTime.Now;
@@ -34,6 +35,8 @@ namespace GUI
 
         private void frmThemHopDong_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet4.diaChi' table. You can move, or remove it, as needed.
+            this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
             // TODO: This line of code loads data into the 'dataDHN1.DongHoNuoc' table. You can move, or remove it, as needed.
             this.dongHoNuocTableAdapter.Fill(this.dataDHN1.DongHoNuoc);
             this.refresh();
@@ -77,9 +80,16 @@ namespace GUI
                 return;
             }
 
+            if (cbPhuong.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập phường của khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cbPhuong.Focus();
+                return;
+            }
+
             if (txtDC.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải địa chỉ khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn phải nhập địa chỉ khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDC.Focus();
                 return;
             }
@@ -120,7 +130,7 @@ namespace GUI
 
                                      "DECLARE @hopDongID INT\nSET @hopDongID = SCOPE_IDENTITY();\n" +
 
-                                     "insert into KhachHang(tenKH, ngaySinh, diaChi, soDT, maHD, maLKH, maDHN) values (N'" + txtHT.Text + "','" + datetimeNS.Value + "',N'" + txtDC.Text + "','" + txtSODT.Text + "', @hopDongID," + selectedValue + "," + row.Cells[0].Value + ")"
+                                     "insert into KhachHang(tenKH, ngaySinh,phuong, diaChi, soDT, maHD, maLKH, maDHN) values (N'" + txtHT.Text + "','" + datetimeNS.Value + "',N'" + cbPhuong.Text + "',N'" + txtDC.Text + "','" +  txtSODT.Text + "', @hopDongID," + selectedValue + "," + row.Cells[0].Value + ")"
                                     + "update DongHoNuoc set tinhTrang = 1 where maDHN =  " + row.Cells[0].Value;
              
                     string query2 = "select * from DongHoNuoc where tinhTrang = 0";

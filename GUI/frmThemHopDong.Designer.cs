@@ -47,6 +47,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.grpTTDH = new System.Windows.Forms.GroupBox();
             this.dgvDH_HD = new System.Windows.Forms.DataGridView();
+            this.maDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hangDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chiSoDauDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soCongToDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tinhTrangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.selectColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dongHoNuocBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataDHN1 = new GUI.dataDHN1();
             this.dongHoNuocBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -54,12 +60,11 @@
             this.dataDongHo = new GUI.dataDongHo();
             this.button1 = new System.Windows.Forms.Button();
             this.dongHoNuocTableAdapter = new GUI.dataDHN1TableAdapters.DongHoNuocTableAdapter();
-            this.maDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hangDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chiSoDauDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soCongToDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tinhTrangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.selectColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cbPhuong = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.quanLyCungCapNuocSachDataSet4 = new GUI.QuanLyCungCapNuocSachDataSet4();
+            this.diaChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
             this.grpTTKH.SuspendLayout();
             this.grpTTHD.SuspendLayout();
             this.grpTTDH.SuspendLayout();
@@ -69,10 +74,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dongHoNuocBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDongHoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDongHo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // grpTTKH
             // 
+            this.grpTTKH.Controls.Add(this.label8);
+            this.grpTTKH.Controls.Add(this.cbPhuong);
             this.grpTTKH.Controls.Add(this.txtLKH);
             this.grpTTKH.Controls.Add(this.label7);
             this.grpTTKH.Controls.Add(this.txtSODT);
@@ -102,7 +111,7 @@
             "3-Cơ quan hành chính",
             "4-Hoạt động sản xuất",
             "5-Kinh doanh dịch vụ"});
-            this.txtLKH.Location = new System.Drawing.Point(169, 110);
+            this.txtLKH.Location = new System.Drawing.Point(169, 102);
             this.txtLKH.Name = "txtLKH";
             this.txtLKH.Size = new System.Drawing.Size(186, 26);
             this.txtLKH.TabIndex = 9;
@@ -111,7 +120,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(45, 112);
+            this.label7.Location = new System.Drawing.Point(45, 104);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 17);
             this.label7.TabIndex = 8;
@@ -120,7 +129,7 @@
             // txtSODT
             // 
             this.txtSODT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSODT.Location = new System.Drawing.Point(706, 32);
+            this.txtSODT.Location = new System.Drawing.Point(706, 23);
             this.txtSODT.Name = "txtSODT";
             this.txtSODT.Size = new System.Drawing.Size(140, 26);
             this.txtSODT.TabIndex = 7;
@@ -128,15 +137,15 @@
             // txtDC
             // 
             this.txtDC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDC.Location = new System.Drawing.Point(706, 70);
+            this.txtDC.Location = new System.Drawing.Point(706, 92);
             this.txtDC.Multiline = true;
             this.txtDC.Name = "txtDC";
-            this.txtDC.Size = new System.Drawing.Size(245, 64);
+            this.txtDC.Size = new System.Drawing.Size(281, 50);
             this.txtDC.TabIndex = 6;
             // 
             // txtHT
             // 
-            this.txtHT.Location = new System.Drawing.Point(167, 33);
+            this.txtHT.Location = new System.Drawing.Point(167, 28);
             this.txtHT.Name = "txtHT";
             this.txtHT.Size = new System.Drawing.Size(188, 26);
             this.txtHT.TabIndex = 5;
@@ -146,7 +155,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(592, 35);
+            this.label4.Location = new System.Drawing.Point(592, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 17);
             this.label4.TabIndex = 4;
@@ -157,7 +166,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(592, 73);
+            this.label3.Location = new System.Drawing.Point(592, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 17);
             this.label3.TabIndex = 3;
@@ -167,7 +176,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 73);
+            this.label2.Location = new System.Drawing.Point(46, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 2;
@@ -176,7 +185,7 @@
             // datetimeNS
             // 
             this.datetimeNS.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datetimeNS.Location = new System.Drawing.Point(169, 70);
+            this.datetimeNS.Location = new System.Drawing.Point(169, 65);
             this.datetimeNS.Name = "datetimeNS";
             this.datetimeNS.Size = new System.Drawing.Size(186, 26);
             this.datetimeNS.TabIndex = 1;
@@ -185,7 +194,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 34);
+            this.label1.Location = new System.Drawing.Point(46, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 0;
@@ -278,6 +287,46 @@
             this.dgvDH_HD.Size = new System.Drawing.Size(993, 398);
             this.dgvDH_HD.TabIndex = 0;
             // 
+            // maDHNDataGridViewTextBoxColumn
+            // 
+            this.maDHNDataGridViewTextBoxColumn.DataPropertyName = "maDHN";
+            this.maDHNDataGridViewTextBoxColumn.HeaderText = "Mã";
+            this.maDHNDataGridViewTextBoxColumn.Name = "maDHNDataGridViewTextBoxColumn";
+            this.maDHNDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hangDHNDataGridViewTextBoxColumn
+            // 
+            this.hangDHNDataGridViewTextBoxColumn.DataPropertyName = "hangDHN";
+            this.hangDHNDataGridViewTextBoxColumn.HeaderText = "Hãng";
+            this.hangDHNDataGridViewTextBoxColumn.Name = "hangDHNDataGridViewTextBoxColumn";
+            this.hangDHNDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // chiSoDauDataGridViewTextBoxColumn
+            // 
+            this.chiSoDauDataGridViewTextBoxColumn.DataPropertyName = "chiSoDau";
+            this.chiSoDauDataGridViewTextBoxColumn.HeaderText = "Chỉ số đầu";
+            this.chiSoDauDataGridViewTextBoxColumn.Name = "chiSoDauDataGridViewTextBoxColumn";
+            this.chiSoDauDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // soCongToDataGridViewTextBoxColumn
+            // 
+            this.soCongToDataGridViewTextBoxColumn.DataPropertyName = "soCongTo";
+            this.soCongToDataGridViewTextBoxColumn.HeaderText = "Số công tơ";
+            this.soCongToDataGridViewTextBoxColumn.Name = "soCongToDataGridViewTextBoxColumn";
+            this.soCongToDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tinhTrangDataGridViewTextBoxColumn
+            // 
+            this.tinhTrangDataGridViewTextBoxColumn.DataPropertyName = "tinhTrang";
+            this.tinhTrangDataGridViewTextBoxColumn.HeaderText = "Tình trạng";
+            this.tinhTrangDataGridViewTextBoxColumn.Name = "tinhTrangDataGridViewTextBoxColumn";
+            this.tinhTrangDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // selectColumn
+            // 
+            this.selectColumn.HeaderText = "Chọn đồng hồ";
+            this.selectColumn.Name = "selectColumn";
+            // 
             // dongHoNuocBindingSource1
             // 
             this.dongHoNuocBindingSource1.DataMember = "DongHoNuoc";
@@ -320,45 +369,41 @@
             // 
             this.dongHoNuocTableAdapter.ClearBeforeFill = true;
             // 
-            // maDHNDataGridViewTextBoxColumn
+            // cbPhuong
             // 
-            this.maDHNDataGridViewTextBoxColumn.DataPropertyName = "maDHN";
-            this.maDHNDataGridViewTextBoxColumn.HeaderText = "Mã";
-            this.maDHNDataGridViewTextBoxColumn.Name = "maDHNDataGridViewTextBoxColumn";
-            this.maDHNDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cbPhuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbPhuong.DataSource = this.diaChiBindingSource;
+            this.cbPhuong.FormattingEnabled = true;
+            this.cbPhuong.Location = new System.Drawing.Point(706, 58);
+            this.cbPhuong.Name = "cbPhuong";
+            this.cbPhuong.Size = new System.Drawing.Size(220, 26);
+            this.cbPhuong.TabIndex = 10;
+            this.cbPhuong.ValueMember = "phuong";
             // 
-            // hangDHNDataGridViewTextBoxColumn
+            // label8
             // 
-            this.hangDHNDataGridViewTextBoxColumn.DataPropertyName = "hangDHN";
-            this.hangDHNDataGridViewTextBoxColumn.HeaderText = "Hãng";
-            this.hangDHNDataGridViewTextBoxColumn.Name = "hangDHNDataGridViewTextBoxColumn";
-            this.hangDHNDataGridViewTextBoxColumn.ReadOnly = true;
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(592, 65);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 17);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Phường";
             // 
-            // chiSoDauDataGridViewTextBoxColumn
+            // quanLyCungCapNuocSachDataSet4
             // 
-            this.chiSoDauDataGridViewTextBoxColumn.DataPropertyName = "chiSoDau";
-            this.chiSoDauDataGridViewTextBoxColumn.HeaderText = "Chỉ số đầu";
-            this.chiSoDauDataGridViewTextBoxColumn.Name = "chiSoDauDataGridViewTextBoxColumn";
-            this.chiSoDauDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quanLyCungCapNuocSachDataSet4.DataSetName = "QuanLyCungCapNuocSachDataSet4";
+            this.quanLyCungCapNuocSachDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // soCongToDataGridViewTextBoxColumn
+            // diaChiBindingSource
             // 
-            this.soCongToDataGridViewTextBoxColumn.DataPropertyName = "soCongTo";
-            this.soCongToDataGridViewTextBoxColumn.HeaderText = "Số công tơ";
-            this.soCongToDataGridViewTextBoxColumn.Name = "soCongToDataGridViewTextBoxColumn";
-            this.soCongToDataGridViewTextBoxColumn.ReadOnly = true;
+            this.diaChiBindingSource.DataMember = "diaChi";
+            this.diaChiBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet4;
             // 
-            // tinhTrangDataGridViewTextBoxColumn
+            // diaChiTableAdapter
             // 
-            this.tinhTrangDataGridViewTextBoxColumn.DataPropertyName = "tinhTrang";
-            this.tinhTrangDataGridViewTextBoxColumn.HeaderText = "Tình trạng";
-            this.tinhTrangDataGridViewTextBoxColumn.Name = "tinhTrangDataGridViewTextBoxColumn";
-            this.tinhTrangDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // selectColumn
-            // 
-            this.selectColumn.HeaderText = "Chọn đồng hồ";
-            this.selectColumn.Name = "selectColumn";
+            this.diaChiTableAdapter.ClearBeforeFill = true;
             // 
             // frmThemHopDong
             // 
@@ -383,6 +428,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dongHoNuocBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDongHoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDongHo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -421,5 +468,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn soCongToDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tinhTrangDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selectColumn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbPhuong;
+        private QuanLyCungCapNuocSachDataSet4 quanLyCungCapNuocSachDataSet4;
+        private System.Windows.Forms.BindingSource diaChiBindingSource;
+        private QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter diaChiTableAdapter;
     }
 }

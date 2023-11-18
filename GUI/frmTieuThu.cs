@@ -26,8 +26,8 @@ namespace GUI
 
         private void frmTieuThu_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet.TieuThu' table. You can move, or remove it, as needed.
-            this.tieuThuTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet.TieuThu);
+            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet11.TieuThu' table. You can move, or remove it, as needed.
+            this.tieuThuTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet11.TieuThu);
             for (int i = 1; i <= 12; i++)
             {
                 cbThang.Items.Add(i);
@@ -38,7 +38,7 @@ namespace GUI
             int currentMonth = currentDate.Month;
             int currentYear = currentDate.Year;
 
-            string query = $"SELECT maTT, maKH, CONVERT(VARCHAR, GETDATE(), 103) AS ThoiGian, chiSoMoi, luongNuoc, tienNuoc, thueGT, thueBVMT, tongTien, tinhTrang FROM TieuThu WHERE MONTH(ThoiGian) = {currentMonth} AND YEAR(ThoiGian) = {currentYear}";
+            string query = $"SELECT maTT, maKH, chiSoMoi, luongNuoc,ThoiGianDau, CONVERT(VARCHAR, GETDATE(), 103) AS ThoiGianCuoi, maNV FROM TieuThu WHERE MONTH(ThoiGianCuoi) = {currentMonth} AND YEAR(ThoiGianCuoi) = {currentYear}";
             dgvTieuThu.DataSource = AccessData.getData(query);
         }
 
@@ -51,7 +51,7 @@ namespace GUI
         private DataTable LoadDataByMonth(int selectedMonth)
         {
             // Thực hiện truy vấn SQL để lấy dữ liệu từ cơ sở dữ liệu dựa trên tháng
-            string query = $"SELECT * FROM TieuThu WHERE MONTH(ThoiGian) = {selectedMonth} AND YEAR(ThoiGian) = YEAR(GETDATE())";
+            string query = $"SELECT * FROM TieuThu WHERE MONTH(ThoiGianCuoi) = {selectedMonth} AND YEAR(ThoiGianCuoi) = YEAR(GETDATE())";
             // Thực hiện truy vấn và trả về dữ liệu dưới dạng DataTable
             DataTable dataTable = AccessData.getData(query);
             return dataTable;

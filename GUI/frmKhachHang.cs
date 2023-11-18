@@ -22,8 +22,8 @@ namespace GUI
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet4.KhachHang' table. You can move, or remove it, as needed.
-            this.khachHangTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.KhachHang);
+            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet1.KhachHang' table. You can move, or remove it, as needed.
+            this.khachHangTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet1.KhachHang);
             this.Refresh();
             panelTool.Size = panelTool.MinimumSize;
             try
@@ -35,7 +35,6 @@ namespace GUI
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
         }
 
         private void UpForm_Logout(object sender, EventArgs e)
@@ -118,7 +117,5 @@ namespace GUI
                 }
             }
         }
-
-        
     }
 }

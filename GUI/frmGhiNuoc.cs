@@ -13,6 +13,7 @@ using OfficeOpenXml;
 using System.Data.SqlClient;
 using DAL;
 using DevExpress.Xpo.DB.Helpers;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical;
 
 namespace GUI
 {
@@ -29,27 +30,7 @@ namespace GUI
         public void LoadRecords()
         {
             conn.Open();
-
-            string address = "19/97 Đường Trường Chinh, Phường Bà Triệu, thành phố Nam Định, Nam Định";
-
-            // Tìm vị trí của dấu ',' thứ nhất và thứ hai
-            int firstCommaIndex = address.IndexOf(',');
-            int secondCommaIndex = address.IndexOf(',', firstCommaIndex + 1);
-
-            // Kiểm tra xem có tìm thấy dấu ',' thứ hai hay không
-            if (firstCommaIndex != -1 && secondCommaIndex != -1)
-            {
-                // Tách chuỗi từ sau dấu ',' thứ nhất đến dấu ',' thứ hai
-                string result = address.Substring(firstCommaIndex + 1, secondCommaIndex - firstCommaIndex - 1).Trim();
-
-                // In kết quả
-                Console.WriteLine(result);
-            }
-            else
-                Console.WriteLine("Không tìm thấy dấu ',' thứ nhất hoặc thứ hai trong chuỗi.");
-
-
-            SqlCommand cmd = new SqlCommand("Select maKH, thoiGian, chiSoMoi, luongNuoc from TieuThu", conn);
+            SqlCommand cmd = new SqlCommand("Select tt.maKH, chiSoMoi ,luongNuoc , ThoiGianDau, ThoiGianCuoi, maNV, kh.tenKH, kh.diaChi from TieuThu tt join khachhang kh on kh.maKH = tt.maKH", conn);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
@@ -59,24 +40,71 @@ namespace GUI
             if (bindingSource == null)
                 bindingSource = new BindingSource();
             
-
             // Gán DataTable làm nguồn dữ liệu cho BindingSource
             bindingSource.DataSource = dataTable;
 
             // Gán BindingSource làm nguồn dữ liệu cho DataGridView
             dgvGhiNuoc.DataSource = bindingSource;
+
+            //btnSave.Enabled = false;
+            //btnThemExcel.Enabled = false;
         }
 
         private void frmGhiNuoc_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet.TieuThu' table. You can move, or remove it, as needed.
-            this.tieuThuTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet.TieuThu);
+            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet12.diaChi' table. You can move, or remove it, as needed.
+            this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet12.diaChi);
+            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet10.TieuThu' table. You can move, or remove it, as needed.
+            this.tieuThuTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet10.TieuThu);
 
-            /*DateTime currentDate = DateTime.Now;
+            DateTime currentDate = DateTime.Now;
             int currentMonth = currentDate.Month;
             int currentYear = currentDate.Year;
-            string query = $"SELECT maKH, CONVERT(VARCHAR, GETDATE(), 103) AS ThoiGian, chiSoMoi, luongNuoc FROM TieuThu WHERE MONTH(ThoiGian) = {currentMonth} AND YEAR(ThoiGian) = {currentYear}";
-            dgvGhiNuoc.DataSource = AccessData.getData(query);*/
+
+            /*
+            DataSet dataSet = new DataSet();
+                conn.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM TieuThu", conn);
+                adapter.Fill(dataSet, "TieuThu");
+
+                adapter = new SqlDataAdapter("SELECT * FROM KhachHang", conn);
+                adapter.Fill(dataSet, "KhachHang");
+            
+
+            // Kết hợp dữ liệu từ hai DataTable trong DataSet
+            DataRelation relation = new DataRelation("TieuThu_KhachHang_Relation", dataSet.Tables["KhachHang"].Columns["maKH"], dataSet.Tables["TieuThu"].Columns["maKH"]);
+            dataSet.Relations.Add(relation);*/
+
+             
+            string query = $"Select tt.maKH, chiSoMoi , luongNuoc , ThoiGianDau, CONVERT(VARCHAR, GETDATE(), 103) AS ThoiGianCuoi, maNV, kh.tenKH, kh.diaChi from tieuthu tt join khachhang kh on kh.maKH = tt.maKH WHERE MONTH(ThoiGianCuoi) = {currentMonth} AND YEAR(ThoiGianCuoi) = {currentYear}";
+            dgvGhiNuoc.DataSource = AccessData.getData(query);
+            
+            /*
+            DataSet dataSet = new DataSet();
+
+            
+                conn.Open();
+
+                // Lấy dữ liệu từ bảng TieuThu
+                SqlDataAdapter adapterTieuThu = new SqlDataAdapter("SELECT * FROM TieuThu", conn);
+                adapterTieuThu.Fill(dataSet, "TieuThu");
+
+                // Lấy dữ liệu từ bảng KhachHang
+                SqlDataAdapter adapterKhachHang = new SqlDataAdapter("SELECT * FROM KhachHang", conn);
+                adapterKhachHang.Fill(dataSet, "KhachHang");
+            
+
+            // Kết hợp dữ liệu từ hai DataTable trong DataSet
+            DataRelation relation = new DataRelation("TieuThu_KhachHang_Relation", dataSet.Tables["KhachHang"].Columns["maKH"], dataSet.Tables["TieuThu"].Columns["maKH"]);
+            dataSet.Relations.Add(relation);
+
+            // Lấy dữ liệu từ bảng TieuThu và thêm cột mới là "ThoiGianCuoi" vào bảng
+            string query = $"SELECT T.maKH, chiSoMoi, luongNuoc, ThoiGianDau, CONVERT(VARCHAR, GETDATE(), 103) AS ThoiGianCuoi, maNV, K.tenKH, K.diaChi FROM TieuThu T JOIN KhachHang K ON K.maKH = T.maKH WHERE MONTH(ThoiGianCuoi) = {currentMonth} AND YEAR(ThoiGianCuoi) = { currentYear}";
+            DataTable dataTable = AccessData.getData(query);
+
+            // Đặt DataSource của DataGridView là DataTable mới
+            dgvGhiNuoc.DataSource = dataTable;*/
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -88,7 +116,7 @@ namespace GUI
             {
                 try
                 {
-                    string query = "select maKH, ThoiGian, chiSoMoi, luongNuoc from TieuThu";
+                    string query = "Select tt.maKH, tt.chiSoMoi ,  tt.luongNuoc , tt.ThoiGianDau,  CONVERT(VARCHAR, GETDATE(), 103) AS ThoiGianCuoi, tt.maNV, kh.tenKH, kh.diaChi from TieuThu tt join khachhang kh on kh.maKH = tt.maKH";
                     dgvGhiNuoc.DataSource = AccessData.getData(query);
                 }
                 catch (Exception ex)
@@ -124,12 +152,12 @@ namespace GUI
                     for (int row = worksheet.Dimension.Start.Row + 1; row <= worksheet.Dimension.End.Row; row++)
                     {
                         DataRow dataRow = dt.Rows.Add();
-                        for (int col = 1; col <= 4; col++)
+                        //worksheet.Dimension.End.Column
+                        for (int col = 1; col <= 6; col++)
                         {
                             dataRow[col - 1] = worksheet.Cells[row, col].Value;
                         }
                     }
-
                     dgvGhiNuoc.DataSource = dt;
                 }
             }
@@ -160,16 +188,19 @@ namespace GUI
                 for (int i = 0; i < dgvGhiNuoc.Rows.Count; i++)
                 {
                     if (dgvGhiNuoc.Rows[i].Cells[0].Value != null && !string.IsNullOrWhiteSpace(dgvGhiNuoc.Rows[i].Cells[0].Value.ToString()) &&
-                        dgvGhiNuoc.Rows[i].Cells[1].Value != null &&
+                        dgvGhiNuoc.Rows[i].Cells[1].Value != null && !string.IsNullOrWhiteSpace(dgvGhiNuoc.Rows[i].Cells[1].Value.ToString()) &&
                         dgvGhiNuoc.Rows[i].Cells[2].Value != null && !string.IsNullOrWhiteSpace(dgvGhiNuoc.Rows[i].Cells[2].Value.ToString()) &&
-                        dgvGhiNuoc.Rows[i].Cells[3].Value != null && !string.IsNullOrWhiteSpace(dgvGhiNuoc.Rows[i].Cells[3].Value.ToString()))
+                        dgvGhiNuoc.Rows[i].Cells[3].Value != null && dgvGhiNuoc.Rows[i].Cells[4].Value != null &&
+                        dgvGhiNuoc.Rows[i].Cells[5].Value != null && !string.IsNullOrWhiteSpace(dgvGhiNuoc.Rows[i].Cells[5].Value.ToString()))
                     {
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO TieuThu (maKH, ThoiGian, chiSoMoi, luongNuoc) values (@maKH, @ThoiGian, @chiSoMoi, @luongNuoc)", conn))
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO TieuThu (maKH, chiSoMoi, luongNuoc, ThoiGianDau, ThoiGianCuoi, maNV) values (@maKH, @chiSoMoi, @luongNuoc, @ThoiGianDau, @ThoiGianCuoi, @maNV)", conn))
                         {
                             cmd.Parameters.AddWithValue("@maKH", dgvGhiNuoc.Rows[i].Cells[0].Value.ToString());
-                            cmd.Parameters.AddWithValue("@ThoiGian", dgvGhiNuoc.Rows[i].Cells[1].Value);
-                            cmd.Parameters.AddWithValue("@chiSoMoi", dgvGhiNuoc.Rows[i].Cells[2].Value.ToString());
-                            cmd.Parameters.AddWithValue("@luongNuoc", dgvGhiNuoc.Rows[i].Cells[3].Value.ToString());
+                            cmd.Parameters.AddWithValue("@chiSoMoi", dgvGhiNuoc.Rows[i].Cells[1].Value.ToString());
+                            cmd.Parameters.AddWithValue("@luongNuoc", dgvGhiNuoc.Rows[i].Cells[2].Value.ToString());
+                            cmd.Parameters.AddWithValue("@ThoiGianDau", dgvGhiNuoc.Rows[i].Cells[3].Value);
+                            cmd.Parameters.AddWithValue("@ThoiGianCuoi", dgvGhiNuoc.Rows[i].Cells[4].Value);
+                            cmd.Parameters.AddWithValue("@maNV", dgvGhiNuoc.Rows[i].Cells[5].Value.ToString());
 
                             try
                             {
@@ -190,6 +221,14 @@ namespace GUI
             }
             LoadRecords();
             conn.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == -1) return;
+            string x=comboBox1.SelectedItem.ToString();
+            string query = "select * form ";
+            
         }
     }
 }

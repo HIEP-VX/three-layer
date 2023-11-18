@@ -14,7 +14,6 @@ namespace GUI
 {
     public partial class FormMain2 : Form
     {
-        account ac = new account();
         public bool isExit = true;
 
         public event EventHandler Logout;
@@ -28,13 +27,14 @@ namespace GUI
         public FormMain2()
         {
             InitializeComponent();
+            labelWelcome.Text += user.user_name;
         }
+
         void phanQuyen()
         {
-            if (user.currentUser == "admin2")
+            if (user.permission == "admin")
             {
-                btnHopDong1.Enabled = false;
-
+                //btnHopDong1.Enabled = false;
             }
         }
 
@@ -49,7 +49,7 @@ namespace GUI
             phanQuyen();
             panelDanhMuc.Size = panelDanhMuc.MinimumSize;
             panelHeThong.Size = panelHeThong.MinimumSize;
-            labelWelcome.Text += user.currentUser;
+            
         }
 
         // bắt đầu timer
@@ -274,7 +274,10 @@ namespace GUI
 
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-
+            OpenFormChild(new frmHoaDon());
+            lblTitle.Text = btnHoaDon.Text;
+            hopDongExpand = false;
+            timerHopDong.Start();
         }
 
         private void btnXuPhat_Click(object sender, EventArgs e)
@@ -312,6 +315,14 @@ namespace GUI
         {
             OpenFormChild(new frmGhiNuoc());
             lblTitle.Text = btnGhiNuoc.Text;
+            hopDongExpand = false;
+            timerHopDong.Start();
+        }
+
+        private void btnCapNhatTaiKhoan_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmUpdateTaiKhoan());
+            lblTitle.Text = btnCapNhatTaiKhoan.Text;
             hopDongExpand = false;
             timerHopDong.Start();
         }

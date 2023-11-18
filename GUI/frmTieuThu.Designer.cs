@@ -35,26 +35,23 @@
             this.btnExport = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
-            this.tieuThuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyCungCapNuocSachDataSet = new GUI.QuanLyCungCapNuocSachDataSet();
-            this.tieuThuTableAdapter = new GUI.QuanLyCungCapNuocSachDataSetTableAdapters.TieuThuTableAdapter();
+            this.panelDataTieuThu = new System.Windows.Forms.Panel();
             this.dgvTieuThu = new System.Windows.Forms.DataGridView();
+            this.quanLyCungCapNuocSachDataSet11 = new GUI.QuanLyCungCapNuocSachDataSet11();
+            this.tieuThuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tieuThuTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet11TableAdapters.TieuThuTableAdapter();
             this.maTTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thoiGianDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chiSoMoiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.luongNuocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tienNuocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thueGTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thueBVMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongTienDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tinhTrangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelDataTieuThu = new System.Windows.Forms.Panel();
+            this.thoiGianDauDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thoiGianCuoiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maNVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tieuThuBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTieuThu)).BeginInit();
             this.panelDataTieuThu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTieuThu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tieuThuBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -113,19 +110,15 @@
             this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCapNhat.UseVisualStyleBackColor = true;
             // 
-            // tieuThuBindingSource
+            // panelDataTieuThu
             // 
-            this.tieuThuBindingSource.DataMember = "TieuThu";
-            this.tieuThuBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet;
-            // 
-            // quanLyCungCapNuocSachDataSet
-            // 
-            this.quanLyCungCapNuocSachDataSet.DataSetName = "QuanLyCungCapNuocSachDataSet";
-            this.quanLyCungCapNuocSachDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tieuThuTableAdapter
-            // 
-            this.tieuThuTableAdapter.ClearBeforeFill = true;
+            this.panelDataTieuThu.Controls.Add(this.dgvTieuThu);
+            this.panelDataTieuThu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDataTieuThu.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelDataTieuThu.Location = new System.Drawing.Point(0, 29);
+            this.panelDataTieuThu.Name = "panelDataTieuThu";
+            this.panelDataTieuThu.Size = new System.Drawing.Size(800, 421);
+            this.panelDataTieuThu.TabIndex = 4;
             // 
             // dgvTieuThu
             // 
@@ -135,21 +128,32 @@
             this.dgvTieuThu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maTTDataGridViewTextBoxColumn,
             this.maKHDataGridViewTextBoxColumn,
-            this.thoiGianDataGridViewTextBoxColumn,
             this.chiSoMoiDataGridViewTextBoxColumn,
             this.luongNuocDataGridViewTextBoxColumn,
-            this.tienNuocDataGridViewTextBoxColumn,
-            this.thueGTDataGridViewTextBoxColumn,
-            this.thueBVMTDataGridViewTextBoxColumn,
-            this.tongTienDataGridViewTextBoxColumn,
-            this.tinhTrangDataGridViewTextBoxColumn});
+            this.thoiGianDauDataGridViewTextBoxColumn,
+            this.thoiGianCuoiDataGridViewTextBoxColumn,
+            this.maNVDataGridViewTextBoxColumn});
             this.dgvTieuThu.DataSource = this.tieuThuBindingSource;
             this.dgvTieuThu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTieuThu.Location = new System.Drawing.Point(0, 0);
             this.dgvTieuThu.Name = "dgvTieuThu";
             this.dgvTieuThu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTieuThu.Size = new System.Drawing.Size(800, 421);
-            this.dgvTieuThu.TabIndex = 3;
+            this.dgvTieuThu.TabIndex = 0;
+            // 
+            // quanLyCungCapNuocSachDataSet11
+            // 
+            this.quanLyCungCapNuocSachDataSet11.DataSetName = "QuanLyCungCapNuocSachDataSet11";
+            this.quanLyCungCapNuocSachDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tieuThuBindingSource
+            // 
+            this.tieuThuBindingSource.DataMember = "TieuThu";
+            this.tieuThuBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet11;
+            // 
+            // tieuThuTableAdapter
+            // 
+            this.tieuThuTableAdapter.ClearBeforeFill = true;
             // 
             // maTTDataGridViewTextBoxColumn
             // 
@@ -164,12 +168,6 @@
             this.maKHDataGridViewTextBoxColumn.HeaderText = "maKH";
             this.maKHDataGridViewTextBoxColumn.Name = "maKHDataGridViewTextBoxColumn";
             // 
-            // thoiGianDataGridViewTextBoxColumn
-            // 
-            this.thoiGianDataGridViewTextBoxColumn.DataPropertyName = "ThoiGian";
-            this.thoiGianDataGridViewTextBoxColumn.HeaderText = "ThoiGian";
-            this.thoiGianDataGridViewTextBoxColumn.Name = "thoiGianDataGridViewTextBoxColumn";
-            // 
             // chiSoMoiDataGridViewTextBoxColumn
             // 
             this.chiSoMoiDataGridViewTextBoxColumn.DataPropertyName = "chiSoMoi";
@@ -182,45 +180,23 @@
             this.luongNuocDataGridViewTextBoxColumn.HeaderText = "luongNuoc";
             this.luongNuocDataGridViewTextBoxColumn.Name = "luongNuocDataGridViewTextBoxColumn";
             // 
-            // tienNuocDataGridViewTextBoxColumn
+            // thoiGianDauDataGridViewTextBoxColumn
             // 
-            this.tienNuocDataGridViewTextBoxColumn.DataPropertyName = "tienNuoc";
-            this.tienNuocDataGridViewTextBoxColumn.HeaderText = "tienNuoc";
-            this.tienNuocDataGridViewTextBoxColumn.Name = "tienNuocDataGridViewTextBoxColumn";
+            this.thoiGianDauDataGridViewTextBoxColumn.DataPropertyName = "ThoiGianDau";
+            this.thoiGianDauDataGridViewTextBoxColumn.HeaderText = "ThoiGianDau";
+            this.thoiGianDauDataGridViewTextBoxColumn.Name = "thoiGianDauDataGridViewTextBoxColumn";
             // 
-            // thueGTDataGridViewTextBoxColumn
+            // thoiGianCuoiDataGridViewTextBoxColumn
             // 
-            this.thueGTDataGridViewTextBoxColumn.DataPropertyName = "thueGT";
-            this.thueGTDataGridViewTextBoxColumn.HeaderText = "thueGT";
-            this.thueGTDataGridViewTextBoxColumn.Name = "thueGTDataGridViewTextBoxColumn";
+            this.thoiGianCuoiDataGridViewTextBoxColumn.DataPropertyName = "ThoiGianCuoi";
+            this.thoiGianCuoiDataGridViewTextBoxColumn.HeaderText = "ThoiGianCuoi";
+            this.thoiGianCuoiDataGridViewTextBoxColumn.Name = "thoiGianCuoiDataGridViewTextBoxColumn";
             // 
-            // thueBVMTDataGridViewTextBoxColumn
+            // maNVDataGridViewTextBoxColumn
             // 
-            this.thueBVMTDataGridViewTextBoxColumn.DataPropertyName = "thueBVMT";
-            this.thueBVMTDataGridViewTextBoxColumn.HeaderText = "thueBVMT";
-            this.thueBVMTDataGridViewTextBoxColumn.Name = "thueBVMTDataGridViewTextBoxColumn";
-            // 
-            // tongTienDataGridViewTextBoxColumn
-            // 
-            this.tongTienDataGridViewTextBoxColumn.DataPropertyName = "tongTien";
-            this.tongTienDataGridViewTextBoxColumn.HeaderText = "tongTien";
-            this.tongTienDataGridViewTextBoxColumn.Name = "tongTienDataGridViewTextBoxColumn";
-            // 
-            // tinhTrangDataGridViewTextBoxColumn
-            // 
-            this.tinhTrangDataGridViewTextBoxColumn.DataPropertyName = "tinhTrang";
-            this.tinhTrangDataGridViewTextBoxColumn.HeaderText = "tinhTrang";
-            this.tinhTrangDataGridViewTextBoxColumn.Name = "tinhTrangDataGridViewTextBoxColumn";
-            // 
-            // panelDataTieuThu
-            // 
-            this.panelDataTieuThu.Controls.Add(this.dgvTieuThu);
-            this.panelDataTieuThu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDataTieuThu.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDataTieuThu.Location = new System.Drawing.Point(0, 29);
-            this.panelDataTieuThu.Name = "panelDataTieuThu";
-            this.panelDataTieuThu.Size = new System.Drawing.Size(800, 421);
-            this.panelDataTieuThu.TabIndex = 4;
+            this.maNVDataGridViewTextBoxColumn.DataPropertyName = "maNV";
+            this.maNVDataGridViewTextBoxColumn.HeaderText = "maNV";
+            this.maNVDataGridViewTextBoxColumn.Name = "maNVDataGridViewTextBoxColumn";
             // 
             // frmTieuThu
             // 
@@ -233,10 +209,10 @@
             this.Text = "frmTieuThu";
             this.Load += new System.EventHandler(this.frmTieuThu_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tieuThuBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTieuThu)).EndInit();
             this.panelDataTieuThu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTieuThu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tieuThuBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,20 +224,17 @@
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.ComboBox cbThang;
         private System.Windows.Forms.Button btnExport;
-        private QuanLyCungCapNuocSachDataSet quanLyCungCapNuocSachDataSet;
-        private System.Windows.Forms.BindingSource tieuThuBindingSource;
-        private QuanLyCungCapNuocSachDataSetTableAdapters.TieuThuTableAdapter tieuThuTableAdapter;
-        private System.Windows.Forms.DataGridView dgvTieuThu;
         private System.Windows.Forms.Panel panelDataTieuThu;
+        private System.Windows.Forms.DataGridView dgvTieuThu;
+        private QuanLyCungCapNuocSachDataSet11 quanLyCungCapNuocSachDataSet11;
+        private System.Windows.Forms.BindingSource tieuThuBindingSource;
+        private QuanLyCungCapNuocSachDataSet11TableAdapters.TieuThuTableAdapter tieuThuTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn maTTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maKHDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chiSoMoiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn luongNuocDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tienNuocDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thueGTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thueBVMTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tongTienDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tinhTrangDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianDauDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianCuoiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maNVDataGridViewTextBoxColumn;
     }
 }

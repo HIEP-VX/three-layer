@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="accessAccount.cs" />
     <Compile Include="AccessData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

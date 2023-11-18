@@ -24,41 +24,6 @@ namespace DAL
 
     public class AccessData
     {
-        public static string checkLoginDTO(account acc)
-        {
-            string user = null;
-
-            // ham connect toi co so du lieu
-            SqlConnection conn = SqlConnectionData.connect();
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("proc_logic", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@user", acc.User_name);
-            cmd.Parameters.AddWithValue("@pass", acc.Password);
-            
-
-            cmd.Connection = conn;
-            SqlDataReader reader= cmd.ExecuteReader();
-
-
-            if (reader.HasRows)
-            {
-                while(reader.Read())
-                {
-                    user = reader.GetString(0);
-                    return user;
-                }
-                reader.Close();
-                conn.Close();
-            }
-            else
-            {
-                return "Username or password is incorrect.";
-            }
-
-            return user;
-        }
-
         // ham do du lieu vao datable
         public static DataTable getData(string query)
         {

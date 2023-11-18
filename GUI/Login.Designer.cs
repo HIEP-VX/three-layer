@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnAccept = new System.Windows.Forms.Button();
             this.txtusername = new System.Windows.Forms.TextBox();
             this.txtpassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,22 +48,22 @@
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnSubmit
+            // btnAccept
             // 
-            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(114)))), ((int)(((byte)(177)))));
-            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSubmit.FlatAppearance.BorderSize = 0;
-            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(38, 311);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(310, 43);
-            this.btnSubmit.TabIndex = 3;
-            this.btnSubmit.Text = "ĐĂNG NHẬP";
-            this.btnSubmit.UseVisualStyleBackColor = false;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            this.btnSubmit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSubmit_KeyDown);
+            this.btnAccept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(114)))), ((int)(((byte)(177)))));
+            this.btnAccept.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAccept.FlatAppearance.BorderSize = 0;
+            this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccept.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccept.ForeColor = System.Drawing.Color.White;
+            this.btnAccept.Location = new System.Drawing.Point(38, 311);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(310, 43);
+            this.btnAccept.TabIndex = 3;
+            this.btnAccept.Text = "ĐĂNG NHẬP";
+            this.btnAccept.UseVisualStyleBackColor = false;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            this.btnAccept.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnAccept_KeyDown);
             // 
             // txtusername
             // 
@@ -190,7 +190,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtpassword);
             this.Controls.Add(this.txtusername);
-            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.btnAccept);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -209,7 +209,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.TextBox txtusername;
         private System.Windows.Forms.TextBox txtpassword;
         private System.Windows.Forms.PictureBox pictureBox1;

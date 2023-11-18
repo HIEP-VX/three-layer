@@ -37,14 +37,18 @@
             this.lblChiSo = new System.Windows.Forms.Label();
             this.lblHang = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.dateTimeGhiNuoc = new System.Windows.Forms.DateTimePicker();
+            this.dateThoiGianDau = new System.Windows.Forms.DateTimePicker();
             this.txtLuongNuoc = new System.Windows.Forms.TextBox();
+            this.dateThoiGianCuoi = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMaNV = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(210, 222);
+            this.btnThoat.Location = new System.Drawing.Point(210, 286);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(101, 36);
             this.btnThoat.TabIndex = 21;
@@ -55,7 +59,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(81, 222);
+            this.btnThem.Location = new System.Drawing.Point(81, 286);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(101, 36);
             this.btnThem.TabIndex = 20;
@@ -66,7 +70,7 @@
             // txtChiSoMoi
             // 
             this.txtChiSoMoi.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChiSoMoi.Location = new System.Drawing.Point(125, 136);
+            this.txtChiSoMoi.Location = new System.Drawing.Point(125, 94);
             this.txtChiSoMoi.Name = "txtChiSoMoi";
             this.txtChiSoMoi.Size = new System.Drawing.Size(225, 23);
             this.txtChiSoMoi.TabIndex = 19;
@@ -83,7 +87,7 @@
             // 
             this.lblTinhTrang.AutoSize = true;
             this.lblTinhTrang.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTinhTrang.Location = new System.Drawing.Point(24, 181);
+            this.lblTinhTrang.Location = new System.Drawing.Point(24, 139);
             this.lblTinhTrang.Name = "lblTinhTrang";
             this.lblTinhTrang.Size = new System.Drawing.Size(86, 18);
             this.lblTinhTrang.TabIndex = 16;
@@ -93,7 +97,7 @@
             // 
             this.lblSoCongTo.AutoSize = true;
             this.lblSoCongTo.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoCongTo.Location = new System.Drawing.Point(24, 137);
+            this.lblSoCongTo.Location = new System.Drawing.Point(24, 95);
             this.lblSoCongTo.Name = "lblSoCongTo";
             this.lblSoCongTo.Size = new System.Drawing.Size(78, 18);
             this.lblSoCongTo.TabIndex = 15;
@@ -103,11 +107,11 @@
             // 
             this.lblChiSo.AutoSize = true;
             this.lblChiSo.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChiSo.Location = new System.Drawing.Point(24, 95);
+            this.lblChiSo.Location = new System.Drawing.Point(23, 177);
             this.lblChiSo.Name = "lblChiSo";
-            this.lblChiSo.Size = new System.Drawing.Size(67, 18);
+            this.lblChiSo.Size = new System.Drawing.Size(95, 18);
             this.lblChiSo.TabIndex = 14;
-            this.lblChiSo.Text = "Thời gian";
+            this.lblChiSo.Text = "Thời gian đầu";
             // 
             // lblHang
             // 
@@ -131,31 +135,72 @@
             this.lblTitle.Text = "GHI SỐ NƯỚC";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // dateTimeGhiNuoc
+            // dateThoiGianDau
             // 
-            this.dateTimeGhiNuoc.CalendarFont = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeGhiNuoc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeGhiNuoc.Location = new System.Drawing.Point(125, 95);
-            this.dateTimeGhiNuoc.Name = "dateTimeGhiNuoc";
-            this.dateTimeGhiNuoc.Size = new System.Drawing.Size(225, 20);
-            this.dateTimeGhiNuoc.TabIndex = 23;
+            this.dateThoiGianDau.CalendarFont = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateThoiGianDau.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateThoiGianDau.Location = new System.Drawing.Point(124, 176);
+            this.dateThoiGianDau.Name = "dateThoiGianDau";
+            this.dateThoiGianDau.Size = new System.Drawing.Size(225, 20);
+            this.dateThoiGianDau.TabIndex = 23;
             // 
             // txtLuongNuoc
             // 
             this.txtLuongNuoc.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLuongNuoc.Location = new System.Drawing.Point(124, 179);
+            this.txtLuongNuoc.Location = new System.Drawing.Point(124, 137);
             this.txtLuongNuoc.Multiline = true;
             this.txtLuongNuoc.Name = "txtLuongNuoc";
             this.txtLuongNuoc.Size = new System.Drawing.Size(225, 23);
             this.txtLuongNuoc.TabIndex = 24;
             // 
+            // dateThoiGianCuoi
+            // 
+            this.dateThoiGianCuoi.CalendarFont = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateThoiGianCuoi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateThoiGianCuoi.Location = new System.Drawing.Point(123, 215);
+            this.dateThoiGianCuoi.Name = "dateThoiGianCuoi";
+            this.dateThoiGianCuoi.Size = new System.Drawing.Size(225, 20);
+            this.dateThoiGianCuoi.TabIndex = 26;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 18);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Thời gian cuối";
+            // 
+            // txtMaNV
+            // 
+            this.txtMaNV.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaNV.Location = new System.Drawing.Point(123, 248);
+            this.txtMaNV.Name = "txtMaNV";
+            this.txtMaNV.Size = new System.Drawing.Size(225, 23);
+            this.txtMaNV.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(24, 249);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 18);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Mã nhân viên";
+            // 
             // addGhiNuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 271);
+            this.ClientSize = new System.Drawing.Size(379, 355);
+            this.Controls.Add(this.txtMaNV);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dateThoiGianCuoi);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLuongNuoc);
-            this.Controls.Add(this.dateTimeGhiNuoc);
+            this.Controls.Add(this.dateThoiGianDau);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.txtChiSoMoi);
@@ -167,6 +212,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "addGhiNuoc";
             this.Text = "addGhiNuoc";
+            this.Load += new System.EventHandler(this.addGhiNuoc_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +228,11 @@
         private System.Windows.Forms.Label lblChiSo;
         private System.Windows.Forms.Label lblHang;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.DateTimePicker dateTimeGhiNuoc;
+        private System.Windows.Forms.DateTimePicker dateThoiGianDau;
         private System.Windows.Forms.TextBox txtLuongNuoc;
+        private System.Windows.Forms.DateTimePicker dateThoiGianCuoi;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMaNV;
+        private System.Windows.Forms.Label label2;
     }
 }

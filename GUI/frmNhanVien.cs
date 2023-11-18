@@ -14,16 +14,15 @@ namespace GUI
 {
     public partial class frmNhanVien : Form
     {
-
-        public frmNhanVien()
+       public frmNhanVien()
         {
             InitializeComponent();
         }
 
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet.NhanVien);
+            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet9.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter3.Fill(this.quanLyCungCapNuocSachDataSet9.NhanVien);
             this.Refresh();
             panelTool.Size = panelTool.MinimumSize;
         }

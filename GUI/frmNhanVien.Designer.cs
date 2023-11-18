@@ -43,21 +43,25 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtsoDT = new System.Windows.Forms.TextBox();
             this.txttenNV = new System.Windows.Forms.TextBox();
-            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.maNVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenNVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyCungCapNuocSachDataSet = new GUI.dataNhanVien();
-            this.nhanVienTableAdapter = new GUI.QuanLyCungCapNuocSachDataSetTableAdapters.NhanVienTableAdapter();
             this.timKiemTimer = new System.Windows.Forms.Timer(this.components);
             this.panelDgvNV = new System.Windows.Forms.Panel();
+            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanLyCungCapNuocSachDataSet9 = new GUI.QuanLyCungCapNuocSachDataSet9();
+            this.nhanVienTableAdapter3 = new GUI.QuanLyCungCapNuocSachDataSet9TableAdapters.NhanVienTableAdapter();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panelDgvNV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet)).BeginInit();
-            this.panelDgvNV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet9)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTool
@@ -206,59 +210,6 @@
             this.txttenNV.Size = new System.Drawing.Size(152, 20);
             this.txttenNV.TabIndex = 29;
             // 
-            // dgvNhanVien
-            // 
-            this.dgvNhanVien.AutoGenerateColumns = false;
-            this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maNVDataGridViewTextBoxColumn,
-            this.tenNVDataGridViewTextBoxColumn,
-            this.soDTDataGridViewTextBoxColumn});
-            this.dgvNhanVien.DataSource = this.nhanVienBindingSource;
-            this.dgvNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvNhanVien.Location = new System.Drawing.Point(0, 0);
-            this.dgvNhanVien.Name = "dgvNhanVien";
-            this.dgvNhanVien.ReadOnly = true;
-            this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNhanVien.Size = new System.Drawing.Size(800, 282);
-            this.dgvNhanVien.TabIndex = 1;
-            // 
-            // maNVDataGridViewTextBoxColumn
-            // 
-            this.maNVDataGridViewTextBoxColumn.DataPropertyName = "maNV";
-            this.maNVDataGridViewTextBoxColumn.HeaderText = "Mã nhân viên";
-            this.maNVDataGridViewTextBoxColumn.Name = "maNVDataGridViewTextBoxColumn";
-            this.maNVDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tenNVDataGridViewTextBoxColumn
-            // 
-            this.tenNVDataGridViewTextBoxColumn.DataPropertyName = "tenNV";
-            this.tenNVDataGridViewTextBoxColumn.HeaderText = "Tên nhân viên";
-            this.tenNVDataGridViewTextBoxColumn.Name = "tenNVDataGridViewTextBoxColumn";
-            this.tenNVDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // soDTDataGridViewTextBoxColumn
-            // 
-            this.soDTDataGridViewTextBoxColumn.DataPropertyName = "soDT";
-            this.soDTDataGridViewTextBoxColumn.HeaderText = "Số điện thoại";
-            this.soDTDataGridViewTextBoxColumn.Name = "soDTDataGridViewTextBoxColumn";
-            this.soDTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nhanVienBindingSource
-            // 
-            this.nhanVienBindingSource.DataMember = "NhanVien";
-            this.nhanVienBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet;
-            // 
-            // quanLyCungCapNuocSachDataSet
-            // 
-            this.quanLyCungCapNuocSachDataSet.DataSetName = "QuanLyCungCapNuocSachDataSet";
-            this.quanLyCungCapNuocSachDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nhanVienTableAdapter
-            // 
-            this.nhanVienTableAdapter.ClearBeforeFill = true;
-            // 
             // timKiemTimer
             // 
             this.timKiemTimer.Interval = 20;
@@ -274,6 +225,84 @@
             this.panelDgvNV.Size = new System.Drawing.Size(800, 282);
             this.panelDgvNV.TabIndex = 1;
             // 
+            // dgvNhanVien
+            // 
+            this.dgvNhanVien.AutoGenerateColumns = false;
+            this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14});
+            this.dgvNhanVien.DataSource = this.nhanVienBindingSource;
+            this.dgvNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvNhanVien.Location = new System.Drawing.Point(0, 0);
+            this.dgvNhanVien.Name = "dgvNhanVien";
+            this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNhanVien.Size = new System.Drawing.Size(800, 282);
+            this.dgvNhanVien.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "maNV";
+            this.dataGridViewTextBoxColumn8.HeaderText = "maNV";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "tenNV";
+            this.dataGridViewTextBoxColumn9.HeaderText = "tenNV";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "soDT";
+            this.dataGridViewTextBoxColumn10.HeaderText = "soDT";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "chucVu";
+            this.dataGridViewTextBoxColumn11.HeaderText = "chucVu";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "taiKhoan";
+            this.dataGridViewTextBoxColumn12.HeaderText = "taiKhoan";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "matKhau";
+            this.dataGridViewTextBoxColumn13.HeaderText = "matKhau";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "quyenHan";
+            this.dataGridViewTextBoxColumn14.HeaderText = "quyenHan";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // nhanVienBindingSource
+            // 
+            this.nhanVienBindingSource.DataMember = "NhanVien";
+            this.nhanVienBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet9;
+            // 
+            // quanLyCungCapNuocSachDataSet9
+            // 
+            this.quanLyCungCapNuocSachDataSet9.DataSetName = "QuanLyCungCapNuocSachDataSet9";
+            this.quanLyCungCapNuocSachDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nhanVienTableAdapter3
+            // 
+            this.nhanVienTableAdapter3.ClearBeforeFill = true;
+            // 
             // frmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,10 +316,10 @@
             this.panelTool.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panelDgvNV.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet)).EndInit();
-            this.panelDgvNV.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,13 +327,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelTool;
-        private System.Windows.Forms.DataGridView dgvNhanVien;
-        private dataNhanVien quanLyCungCapNuocSachDataSet;
-        private System.Windows.Forms.BindingSource nhanVienBindingSource;
-        private QuanLyCungCapNuocSachDataSetTableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maNVDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenNVDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soDTDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMa;
@@ -319,5 +341,36 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panelDgvNV;
+        private QuanLyCungCapNuocSachDataSet6 quanLyCungCapNuocSachDataSet6;
+        private QuanLyCungCapNuocSachDataSet6TableAdapters.NhanVienTableAdapter nhanVienTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maNVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenNVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soDTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chucVuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taiKhoanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matKhauDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quyenHanDataGridViewTextBoxColumn;
+        private QuanLyCungCapNuocSachDataSet6 quanLyCungCapNuocSachDataSet61;
+        private QuanLyCungCapNuocSachDataSet6TableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridView dgvNhanVien;
+        private QuanLyCungCapNuocSachDataSet6 quanLyCungCapNuocSachDataSet62;
+        private QuanLyCungCapNuocSachDataSet6TableAdapters.NhanVienTableAdapter nhanVienTableAdapter2;
+        private QuanLyCungCapNuocSachDataSet9 quanLyCungCapNuocSachDataSet9;
+        private System.Windows.Forms.BindingSource nhanVienBindingSource;
+        private QuanLyCungCapNuocSachDataSet9TableAdapters.NhanVienTableAdapter nhanVienTableAdapter3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
     }
 }
