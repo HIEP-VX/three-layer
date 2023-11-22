@@ -20,12 +20,8 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void frmKhachHang_Load(object sender, EventArgs e)
+        private void reload()
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet1.KhachHang' table. You can move, or remove it, as needed.
-            this.khachHangTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet1.KhachHang);
-            this.Refresh();
-            panelTool.Size = panelTool.MinimumSize;
             try
             {
                 string query = "select * from KhachHang";
@@ -35,6 +31,13 @@ namespace GUI
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void frmKhachHang_Load(object sender, EventArgs e)
+        {
+            this.Refresh();
+            panelTool.Size = panelTool.MinimumSize;
+            reload();
         }
 
         private void UpForm_Logout(object sender, EventArgs e)
@@ -53,15 +56,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from KhachHang";
-                    dgvKH.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
 

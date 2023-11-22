@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DTO;
 using DAL;
 using System.Data.SqlClient;
+using System.Drawing.Drawing2D;
 
 namespace GUI
 {
@@ -23,6 +24,7 @@ namespace GUI
         public subAddForm()
         {
             InitializeComponent();
+            SetLinearGradient(btnSubmit, "#56d8e4", "#9f01ea");
         }
 
         #region Event
@@ -74,6 +76,28 @@ namespace GUI
         private void subAddForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void SetLinearGradient(Button btn, string hexColor1, string hexColor2)
+        {
+            // Chuyển đổi mã màu hex thành đối tượng Color
+            Color color1 = ColorTranslator.FromHtml(hexColor1);
+            Color color2 = ColorTranslator.FromHtml(hexColor2);
+
+            // Tạo đối tượng LinearGradientBrush
+            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(
+                btn.ClientRectangle,
+                color1,
+                color2,
+                LinearGradientMode.Horizontal); // Có thể thay đổi hướng dải màu tại đây
+
+            // Thiết lập màu nền của Panel là dải màu linear
+            btn.BackColor = Color.Transparent; // Đặt màu nền trong suốt để thấy rõ dải màu
+            btn.BackgroundImage = new Bitmap(btn.Width, btn.Height);
+            using (Graphics g = Graphics.FromImage(btn.BackgroundImage))
+            {
+                g.FillRectangle(linearGradientBrush, btn.ClientRectangle);
+            }
         }
     }
 }

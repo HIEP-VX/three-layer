@@ -28,6 +28,7 @@ namespace GUI
         {
             InitializeComponent();
             labelWelcome.Text += user.user_name;
+            this.Refresh();
         }
 
         void phanQuyen()
@@ -49,7 +50,7 @@ namespace GUI
             phanQuyen();
             panelDanhMuc.Size = panelDanhMuc.MinimumSize;
             panelHeThong.Size = panelHeThong.MinimumSize;
-            
+            this.Refresh();
         }
 
         // bắt đầu timer
@@ -264,14 +265,6 @@ namespace GUI
             timerHopDong.Start();
         }
 
-        private void btnTieuThu_Click(object sender, EventArgs e)
-        {
-            OpenFormChild(new frmTieuThu());
-            lblTitle.Text = btnTieuThu.Text;
-            hopDongExpand = false;
-            timerHopDong.Start();
-        }
-
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmHoaDon());
@@ -313,7 +306,7 @@ namespace GUI
 
         private void btnGhiNuoc_Click(object sender, EventArgs e)
         {
-            OpenFormChild(new frmGhiNuoc());
+            OpenFormChild(new frmTieuThu());
             lblTitle.Text = btnGhiNuoc.Text;
             hopDongExpand = false;
             timerHopDong.Start();

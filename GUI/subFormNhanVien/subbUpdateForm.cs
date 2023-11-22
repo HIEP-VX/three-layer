@@ -33,6 +33,9 @@ namespace GUI
             Logout(this, new EventArgs());
         }
 
+        // làm thêm một cái checkbox kiểm tra, nếu quản lý chỉ muốn thay đổi những thông tin cần thiết thì không hiện 2 phần tài khoản và 
+        // mật khẩu, chỉ chèn bình thường như bên dưới. Ngược lại , nếu muốn cập nhật cả tk và mk thì bấm vào check box để nhập
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (txtMa.Text.Trim().Length == 0)

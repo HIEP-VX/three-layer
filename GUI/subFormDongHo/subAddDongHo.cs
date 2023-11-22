@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,6 @@ namespace GUI
 {
     public partial class subAddDongHo : Form
     {
-
         public bool isExit = true;
         public event EventHandler Logout;
         public event Action DataAdded;
@@ -22,6 +22,8 @@ namespace GUI
         public subAddDongHo()
         {
             InitializeComponent();
+            SetLinearGradient(button1, "#56d8e4", "#9f01ea");
+            txtSoLuong.KeyPress += txtSoLuong_KeyPress;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,30 +66,61 @@ namespace GUI
                 // Sử dụng giá trị (trong trường hợp này, "1")
                 selectedValue = parts[0].Trim();
 
-
-            //string query = "INSERT INTO DongHoNuoc (hangDHN, chiSoDau, soCongTo, tinhTrang) values (N'" + txtHang.Text + "'," + txtChiSoDau.Text + "," + txtSoCongTo.Text + "," + selectedValue + ")";
             string query = "INSERT INTO DongHoNuoc (hangDHN, chiSoDau, soCongTo, tinhTrang) values (@hangDHN, @chiSoDau, @soCongTo, @tinhTrang)";
-            using  (SqlConnection conn = SqlConnectionData.connect())
+            
+            
+            if(txtSoLuong.Text.Trim().Length == 0)
             {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@hangDHN", SqlDbType.NVarChar).Value = txtHang.Text;
-                cmd.Parameters.AddWithValue("@chiSoDau", txtChiSoDau.Text);
-                cmd.Parameters.AddWithValue("@soCongTo", txtSoCongTo.Text);
-                cmd.Parameters.AddWithValue("@tinhTrang", selectedValue);
-
-                try
+                using  (SqlConnection conn = SqlConnectionData.connect())
                 {
-                   cmd.ExecuteNonQuery();
-                   MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@hangDHN", SqlDbType.NVarChar).Value = txtHang.Text;
+                    cmd.Parameters.AddWithValue("@chiSoDau", txtChiSoDau.Text);
+                    cmd.Parameters.AddWithValue("@soCongTo", txtSoCongTo.Text);
+                    cmd.Parameters.AddWithValue("@tinhTrang", selectedValue);
+
+                    try
+                    {
+                       cmd.ExecuteNonQuery();
+                       MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    this.Close();
+                    DataAdded?.Invoke();
                 }
-                catch (Exception ex)
+            }else
+            {
+                int amount = int.Parse(txtSoLuong.Text);
+                using (SqlConnection conn = SqlConnectionData.connect())
                 {
-                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conn.Open();
+                    for(int i = 0; i < amount; i++)
+                    {
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@hangDHN", txtHang.Text);
+                            cmd.Parameters.AddWithValue("@chiSoDau", txtChiSoDau.Text);
+                            cmd.Parameters.AddWithValue("@soCongTo", txtSoCongTo.Text);
+                            cmd.Parameters.AddWithValue("@tinhTrang", selectedValue);
+                            try
+                            {
+                                cmd.ExecuteNonQuery();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                    DataAdded?.Invoke();
                 }
-                this.Close();
-                DataAdded?.Invoke();
             }
         }
 
@@ -96,9 +129,44 @@ namespace GUI
             Logout(this, new EventArgs());
         }
 
-        private void subAddDongHo_Load(object sender, EventArgs e)
+        private void SetLinearGradient(Button btn, string hexColor1, string hexColor2)
         {
+            // Chuyển đổi mã màu hex thành đối tượng Color
+            Color color1 = ColorTranslator.FromHtml(hexColor1);
+            Color color2 = ColorTranslator.FromHtml(hexColor2);
 
+            // Tạo đối tượng LinearGradientBrush
+            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(
+                btn.ClientRectangle,
+                color1,
+                color2,
+                LinearGradientMode.Horizontal); // Có thể thay đổi hướng dải màu tại đây
+
+            // Thiết lập màu nền của Panel là dải màu linear
+            btn.BackColor = Color.Transparent; // Đặt màu nền trong suốt để thấy rõ dải màu
+            btn.BackgroundImage = new Bitmap(btn.Width, btn.Height);
+            using (Graphics g = Graphics.FromImage(btn.BackgroundImage))
+            {
+                g.FillRectangle(linearGradientBrush, btn.ClientRectangle);
+            }
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Kiểm tra xem ký tự nhập vào có phải là số hay không
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Nếu không phải là số, không cho phép nhập
+                e.Handled = true;
+                MessageBox.Show("Nhập thông tin sai định dạng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (e.KeyChar == '0' && ((TextBox)sender).Text.Length == 0)
+            {
+                // Không cho phép nhập số 0 ở đầu tiên
+                e.Handled = true;
+                MessageBox.Show("Số lượng phải là số dương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

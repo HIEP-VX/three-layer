@@ -19,8 +19,6 @@ namespace GUI
 
         private void frmXuPhat_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet8.XuPhat' table. You can move, or remove it, as needed.
-            this.xuPhatTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet8.XuPhat);
 
         }
     }

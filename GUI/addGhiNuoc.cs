@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,52 +21,57 @@ namespace GUI
         public addGhiNuoc()
         {
             InitializeComponent();
+            SetLinearGradient(btnThem, "#56d8e4", "#9f01ea");
+        }
+        static string[] DataTableColumnToStringArray(DataTable dataTable, string columnName)
+        {
+            int rows = dataTable.Rows.Count;
+            string[] dataArray = new string[rows];
+
+            for (int i = 0; i < rows; i++)
+                dataArray[i] = dataTable.Rows[i][columnName].ToString();
+            
+            return dataArray;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtMaKH.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập mã khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaKH.Focus();
-                return;
-            }
-
-            if (txtChiSoMoi.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập chỉ số mới.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtChiSoMoi.Focus();
-                return;
-            }
-
-            if (txtLuongNuoc.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập lượng nước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtLuongNuoc.Focus();
-                return;
-            }
-            string query = "INSERT INTO tieuThu (maKH, chiSoMoi, luongNuoc, ThoiGianDau, ThoiGianCuoi, maNV) values (@maKH,@chiSoMoi, @luongNuoc, @ThoiGianDau, @ThoiGianCuoi, @maNV)";
+            string query = "select makh from khachhang ";
+            DataTable dataTable = AccessData.getData(query);
+            
             using (SqlConnection conn = SqlConnectionData.connect())
             {
                 conn.Open();
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@maKH", txtMaKH.Text);
-                cmd.Parameters.AddWithValue("@chiSoMoi", txtChiSoMoi.Text);
-                cmd.Parameters.AddWithValue("@luongNuoc", txtLuongNuoc.Text);
-                cmd.Parameters.AddWithValue("@ThoiGianDau", dateThoiGianDau.Value);
-                cmd.Parameters.AddWithValue("@ThoiGianCuoi", dateThoiGianCuoi.Value);
-                cmd.Parameters.AddWithValue("@maNV", txtMaNV.Text);
-
-                try
+                string query1 = "INSERT INTO tieuThu (maKH, ThoiGianDau, ThoiGianCuoi, maNV) values (@maKH, @ThoiGianDau, @ThoiGianCuoi, @maNV)";
+                string[] maKHArray = DataTableColumnToStringArray(dataTable, "MaKH");
+                for (int i = 0; i < maKHArray.Length; i++)
                 {
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    using (SqlCommand cmd = new SqlCommand(query1, conn))
+                    {
+                        // Xóa parameters cũ nếu có
+                        cmd.Parameters.Clear();
+
+                        // Thêm parameters mới
+                        cmd.Parameters.AddWithValue("@maKH", dataTable.Rows[i]["MaKH"].ToString());
+                        cmd.Parameters.AddWithValue("@ThoiGianDau", dateThoiGianDau.Value);
+                        cmd.Parameters.AddWithValue("@ThoiGianCuoi", dateThoiGianCuoi.Value);
+                        cmd.Parameters.AddWithValue("@maNV", txtMaNV.Text);
+
+                        // Thực thi câu lệnh SQL
+                        cmd.ExecuteNonQuery();
+
+                        string query2 = "UPDATE TIEUTHU SET CHISOCU = (SELECT CHISODAU FROM DONGHONUOC dhn, KHACHHANG kh where dhn.MADHN = kh.MADHN and kh.MAKH = @maKH) where maKH = @maKH";
+
+                        using (SqlCommand cmd1 = new SqlCommand(query2, conn))
+                        {
+                            cmd1.Parameters.AddWithValue("@maKH", dataTable.Rows[i]["MaKH"].ToString());
+                            cmd1.ExecuteNonQuery();
+                        }
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+
+                MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 DataAdded?.Invoke();
             }
@@ -76,9 +82,26 @@ namespace GUI
             Logout(this, new EventArgs());
         }
 
-        private void addGhiNuoc_Load(object sender, EventArgs e)
+        private void SetLinearGradient(Button btn, string hexColor1, string hexColor2)
         {
+            // Chuyển đổi mã màu hex thành đối tượng Color
+            Color color1 = ColorTranslator.FromHtml(hexColor1);
+            Color color2 = ColorTranslator.FromHtml(hexColor2);
 
+            // Tạo đối tượng LinearGradientBrush
+            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(
+                btn.ClientRectangle,
+                color1,
+                color2,
+                LinearGradientMode.Horizontal); // Có thể thay đổi hướng dải màu tại đây
+
+            // Thiết lập màu nền của Panel là dải màu linear
+            btn.BackColor = Color.Transparent; // Đặt màu nền trong suốt để thấy rõ dải màu
+            btn.BackgroundImage = new Bitmap(btn.Width, btn.Height);
+            using (Graphics g = Graphics.FromImage(btn.BackgroundImage))
+            {
+                g.FillRectangle(linearGradientBrush, btn.ClientRectangle);
+            }
         }
     }
 }

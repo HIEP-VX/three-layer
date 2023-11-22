@@ -91,11 +91,11 @@
     <Compile Include="frmDongHo.Designer.cs">
       <DependentUpon>frmDongHo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGhiNuoc.cs">
+    <Compile Include="frmTieuThu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGhiNuoc.Designer.cs">
-      <DependentUpon>frmGhiNuoc.cs</DependentUpon>
+    <Compile Include="frmTieuThu.Designer.cs">
+      <DependentUpon>frmTieuThu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHoaDon.cs">
       <SubType>Form</SubType>
@@ -133,12 +133,6 @@
     <Compile Include="frmThemHopDong.Designer.cs">
       <DependentUpon>frmThemHopDong.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTieuThu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTieuThu.Designer.cs">
-      <DependentUpon>frmTieuThu.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmUpdateTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,80 +153,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="dataNhanVien.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dataNhanVien.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="dataDongHo.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dataDongHo.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet10.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet10.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet11.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet11.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet121.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet121.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet3.xsd</DependentUpon>
-    </Compile>
     <Compile Include="QuanLyCungCapNuocSachDataSet4.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyCungCapNuocSachDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet5.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet6.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet6.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet7.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet7.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet8.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet8.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyCungCapNuocSachDataSet9.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet9.xsd</DependentUpon>
     </Compile>
     <Compile Include="subFormKH\subUpdateKH.cs">
       <SubType>Form</SubType>
@@ -315,8 +239,8 @@
     <EmbeddedResource Include="frmDongHo.resx">
       <DependentUpon>frmDongHo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGhiNuoc.resx">
-      <DependentUpon>frmGhiNuoc.cs</DependentUpon>
+    <EmbeddedResource Include="frmTieuThu.resx">
+      <DependentUpon>frmTieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHoaDon.resx">
       <DependentUpon>frmHoaDon.cs</DependentUpon>
@@ -335,9 +259,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemHopDong.resx">
       <DependentUpon>frmThemHopDong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTieuThu.resx">
-      <DependentUpon>frmTieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateTaiKhoan.resx">
       <DependentUpon>frmUpdateTaiKhoan.cs</DependentUpon>
@@ -415,105 +336,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="dataNhanVien.xsc">
-      <DependentUpon>dataNhanVien.xsd</DependentUpon>
-    </None>
-    <None Include="dataNhanVien.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dataNhanVien.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dataNhanVien.xss">
-      <DependentUpon>dataNhanVien.xsd</DependentUpon>
-    </None>
-    <None Include="dataDongHo.xsc">
-      <DependentUpon>dataDongHo.xsd</DependentUpon>
-    </None>
-    <None Include="dataDongHo.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dataDongHo.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dataDongHo.xss">
-      <DependentUpon>dataDongHo.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet1.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet1.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet10.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet10.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet10.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet10.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet10.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet10.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet11.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet11.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet11.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet11.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet121.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet121.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet121.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet121.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet121.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet121.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet2.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet2.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet3.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet3.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet3.xsd</DependentUpon>
-    </None>
     <None Include="QuanLyCungCapNuocSachDataSet4.xsc">
       <DependentUpon>QuanLyCungCapNuocSachDataSet4.xsd</DependentUpon>
     </None>
@@ -524,61 +346,6 @@
     </None>
     <None Include="QuanLyCungCapNuocSachDataSet4.xss">
       <DependentUpon>QuanLyCungCapNuocSachDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet5.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet5.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet5.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet5.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet6.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet6.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet6.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet6.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet7.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet7.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet7.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet7.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet8.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet8.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet8.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet8.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet8.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet8.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet9.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet9.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet9.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet9.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet9.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet9.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

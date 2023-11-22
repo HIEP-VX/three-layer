@@ -121,7 +121,7 @@
   <data name="btnHopTimKiem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAgxJREFUOE+9lM9LVFEUx0cMs634L7hq06YUXAwDQiLpGONTVJyZd+9zJoSBJKk2
+        DQAACw0B7QfALAAAAgxJREFUOE+9lM9LVFEUx0cMs634L7hq06YUXAwDQiLpGONTVJyZd+9zJoSBJKk2
         NVKiuGjlJgd/QbiSbKMjTCX4M0EqokU7o3RRYQuh9I0jnL7nedz43uRP/MLh3jfvfj/vnnvOHd+FSWtd
         YpqmPxqNBjG/kUwmL8mrkwmAMoBeYsyZSpMZ6yA8E55/I5KGYVyRpUcLxirElnrQT3r0I1lTf8ia3ib9
         apPUwGsyOzoZvBqLxUrFkl+ysy3VNw7QX4qnt+nxnE29Szt0/+2OA7Ymf5HZ+Yihs7AU7DvziNNUD/sd
@@ -136,7 +136,7 @@
   <data name="btnCapNhat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAWFJREFUOE9jGL7A9uaWEvv9+1mgXMoB0MArtre27Da7tY0PKoQbWF3frg7UMM32
+        DQAACw0B7QfALAAAAWFJREFUOE9jGL7A9uaWEvv9+1mgXMoB0MArtre27Da7tY0PKoQbWF3frg7UMM32
         1uYTQPoMNix2qOWLxtlZ/4GGXrS4uVkaqhUT2N3e7Gdzc/N3oEKQYpxYcH/dT+XTU2D8hVDtqMDq+gYp
         m1tbPoMV3dzyF4gPAPEqbFjmWPc7nfPzQYats3i0ihNqBCqwvbm5Emrjf7ubW4KgwlgB0FBgGG6eyPC/
         ngkqhAlsbm0uAxq2G+QCqBBOYH1zcyCUORwAMd4BBstqaPCUQoWwgP//GYHh2AUKcKgIVmBze0soLPKA
@@ -148,7 +148,7 @@
   <data name="btnXoa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAZtJREFUOE9jGPpARkZLSE5ROwWEQWyoMGlAXV2d10/XqtpPz7LVVN1wg6+uVTsI
+        DQAACw0B7QfALAAAAZtJREFUOE9jGPpARkZLSE5ROwWEQWyoMGlAXV2d10/XqtpPz7LVVN1wg6+uVTsI
         A9nrQWIgOVEtLR6ocvzAW888M0DP8vQBv7j/xwPiMfDt0NT/ZwIT/wfrWZ8EqYVqww7k5bUkuu2932Az
         CBvusvN+DdID1Y4dyMlpusyJzPl5Iqf5Pz48JzL7J1CtM1QbbqCkpCe2Krb49ee6Gf/X+cT8v5nX9v9w
         dD4Y3ypo+7/eJ/o/SG5FbOFrFRUDUag2fCCUeWpoxkOQJpC3TqTV/D8enQvGd/JawWIguSnB6Q9BaqGa
@@ -169,16 +169,7 @@
         dtWQui+/fwJsAz4kxAuzyheXy9MImAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="dongHoNuocBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>262, 17</value>
-  </metadata>
-  <metadata name="quanLyCungCapNuocSachDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="dongHoNuocTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>466, 17</value>
-  </metadata>
   <metadata name="timerTimKiem.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>665, 17</value>
+    <value>22, 16</value>
   </metadata>
 </root>

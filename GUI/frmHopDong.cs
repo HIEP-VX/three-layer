@@ -18,15 +18,25 @@ namespace GUI
         {
             InitializeComponent();
         }
+        private void reload()
+        {
+            try
+            {
+                string query = "select * from HopDong";
+                dgvHopDong.DataSource = AccessData.getData(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
         private void frmHopDong_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet2.HopDong' table. You can move, or remove it, as needed.
-            this.hopDongTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet2.HopDong);
             this.Refresh();
-
             // Khi load form , item này sẽ hiển thị kích thước theo kích thước nhỏ nhất đã được cài đặt
             panelTool.Size = panelTool.MinimumSize;
+            reload();
         }
 
         private void delForm_Logout(object sender, EventArgs e)
@@ -105,15 +115,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from HopDong";
-                    dgvHopDong.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
 
@@ -126,16 +128,9 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from HopDong";
-                    dgvHopDong.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
+
     }
 }

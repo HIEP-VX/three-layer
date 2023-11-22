@@ -46,7 +46,7 @@
             // txtMa
             // 
             this.txtMa.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMa.Location = new System.Drawing.Point(122, 48);
+            this.txtMa.Location = new System.Drawing.Point(105, 48);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(225, 23);
             this.txtMa.TabIndex = 36;
@@ -64,9 +64,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(194, 256);
+            this.button2.Location = new System.Drawing.Point(190, 251);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 36);
+            this.button2.Size = new System.Drawing.Size(113, 36);
             this.button2.TabIndex = 34;
             this.button2.Text = "Thoát";
             this.button2.UseVisualStyleBackColor = true;
@@ -75,9 +75,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(65, 256);
+            this.button1.Location = new System.Drawing.Point(61, 251);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 36);
+            this.button1.Size = new System.Drawing.Size(113, 36);
             this.button1.TabIndex = 33;
             this.button1.Text = "Cập nhật";
             this.button1.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             // txtSoCongTo
             // 
             this.txtSoCongTo.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoCongTo.Location = new System.Drawing.Point(122, 169);
+            this.txtSoCongTo.Location = new System.Drawing.Point(105, 169);
             this.txtSoCongTo.Name = "txtSoCongTo";
             this.txtSoCongTo.Size = new System.Drawing.Size(225, 23);
             this.txtSoCongTo.TabIndex = 31;
@@ -94,7 +94,7 @@
             // txtChiSoDau
             // 
             this.txtChiSoDau.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChiSoDau.Location = new System.Drawing.Point(122, 128);
+            this.txtChiSoDau.Location = new System.Drawing.Point(105, 128);
             this.txtChiSoDau.Name = "txtChiSoDau";
             this.txtChiSoDau.Size = new System.Drawing.Size(225, 23);
             this.txtChiSoDau.TabIndex = 30;
@@ -102,7 +102,7 @@
             // txtHang
             // 
             this.txtHang.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHang.Location = new System.Drawing.Point(122, 87);
+            this.txtHang.Location = new System.Drawing.Point(105, 87);
             this.txtHang.Name = "txtHang";
             this.txtHang.Size = new System.Drawing.Size(225, 23);
             this.txtHang.TabIndex = 29;
@@ -111,7 +111,7 @@
             // 
             this.lblTinhTrang.AutoSize = true;
             this.lblTinhTrang.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTinhTrang.Location = new System.Drawing.Point(21, 214);
+            this.lblTinhTrang.Location = new System.Drawing.Point(21, 213);
             this.lblTinhTrang.Name = "lblTinhTrang";
             this.lblTinhTrang.Size = new System.Drawing.Size(74, 18);
             this.lblTinhTrang.TabIndex = 28;
@@ -152,7 +152,7 @@
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(98, 11);
+            this.lblTitle.Location = new System.Drawing.Point(90, 11);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(183, 23);
             this.lblTitle.TabIndex = 24;
@@ -163,7 +163,10 @@
             // 
             this.txtTinhTrang.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTinhTrang.FormattingEnabled = true;
-            this.txtTinhTrang.Location = new System.Drawing.Point(122, 210);
+            this.txtTinhTrang.Items.AddRange(new object[] {
+            "0-Chưa sử dụng",
+            "1-Đã sử dụng"});
+            this.txtTinhTrang.Location = new System.Drawing.Point(105, 209);
             this.txtTinhTrang.Name = "txtTinhTrang";
             this.txtTinhTrang.Size = new System.Drawing.Size(225, 24);
             this.txtTinhTrang.TabIndex = 37;
@@ -172,7 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 308);
+            this.ClientSize = new System.Drawing.Size(354, 308);
             this.Controls.Add(this.txtTinhTrang);
             this.Controls.Add(this.txtMa);
             this.Controls.Add(this.label1);

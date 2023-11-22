@@ -43,19 +43,17 @@
             this.txtNL = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.dgvHopDong = new System.Windows.Forms.DataGridView();
-            this.maHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngayLamHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noiLamHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hopDongBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyCungCapNuocSachDataSet2 = new GUI.QuanLyCungCapNuocSachDataSet2();
-            this.hopDongTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet2TableAdapters.HopDongTableAdapter();
             this.timerHopD = new System.Windows.Forms.Timer(this.components);
             this.panelHopDong = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hopDongBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet2)).BeginInit();
             this.panelHopDong.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +101,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dateTimeNL);
             this.groupBox1.Controls.Add(this.btnHopTimKiem);
             this.groupBox1.Controls.Add(this.label2);
@@ -111,9 +115,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtNL);
             this.groupBox1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 42);
+            this.groupBox1.Location = new System.Drawing.Point(12, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(744, 114);
+            this.groupBox1.Size = new System.Drawing.Size(776, 125);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
@@ -121,17 +125,17 @@
             // dateTimeNL
             // 
             this.dateTimeNL.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeNL.Location = new System.Drawing.Point(253, 20);
+            this.dateTimeNL.Location = new System.Drawing.Point(84, 51);
             this.dateTimeNL.Name = "dateTimeNL";
-            this.dateTimeNL.Size = new System.Drawing.Size(81, 23);
+            this.dateTimeNL.Size = new System.Drawing.Size(109, 23);
             this.dateTimeNL.TabIndex = 34;
             // 
             // btnHopTimKiem
             // 
-            this.btnHopTimKiem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHopTimKiem.Location = new System.Drawing.Point(16, 69);
+            this.btnHopTimKiem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHopTimKiem.Location = new System.Drawing.Point(695, 16);
             this.btnHopTimKiem.Name = "btnHopTimKiem";
-            this.btnHopTimKiem.Size = new System.Drawing.Size(722, 31);
+            this.btnHopTimKiem.Size = new System.Drawing.Size(75, 103);
             this.btnHopTimKiem.TabIndex = 33;
             this.btnHopTimKiem.Text = "TÌM";
             this.btnHopTimKiem.UseVisualStyleBackColor = true;
@@ -140,16 +144,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(13, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 18);
+            this.label2.Size = new System.Drawing.Size(30, 19);
             this.label2.TabIndex = 31;
             this.label2.Text = "Mã";
             // 
             // txtMa
             // 
-            this.txtMa.Location = new System.Drawing.Point(52, 20);
+            this.txtMa.Location = new System.Drawing.Point(84, 20);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(109, 23);
             this.txtMa.TabIndex = 32;
@@ -157,29 +161,29 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(178, 22);
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(13, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 18);
+            this.label3.Size = new System.Drawing.Size(73, 19);
             this.label3.TabIndex = 27;
             this.label3.Text = "Ngày lập";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(359, 22);
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 84);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 18);
+            this.label4.Size = new System.Drawing.Size(60, 19);
             this.label4.TabIndex = 28;
             this.label4.Text = "Nơi lập";
             // 
             // txtNL
             // 
-            this.txtNL.Location = new System.Drawing.Point(431, 20);
+            this.txtNL.Location = new System.Drawing.Point(84, 82);
             this.txtNL.Multiline = true;
             this.txtNL.Name = "txtNL";
-            this.txtNL.Size = new System.Drawing.Size(307, 43);
+            this.txtNL.Size = new System.Drawing.Size(200, 43);
             this.txtNL.TabIndex = 30;
             // 
             // btnTimKiem
@@ -195,53 +199,14 @@
             // 
             // dgvHopDong
             // 
-            this.dgvHopDong.AutoGenerateColumns = false;
             this.dgvHopDong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHopDong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHopDong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maHDDataGridViewTextBoxColumn,
-            this.ngayLamHDDataGridViewTextBoxColumn,
-            this.noiLamHDDataGridViewTextBoxColumn});
-            this.dgvHopDong.DataSource = this.hopDongBindingSource;
             this.dgvHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHopDong.Location = new System.Drawing.Point(0, 0);
             this.dgvHopDong.Name = "dgvHopDong";
             this.dgvHopDong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHopDong.Size = new System.Drawing.Size(800, 346);
             this.dgvHopDong.TabIndex = 1;
-            // 
-            // maHDDataGridViewTextBoxColumn
-            // 
-            this.maHDDataGridViewTextBoxColumn.DataPropertyName = "maHD";
-            this.maHDDataGridViewTextBoxColumn.HeaderText = "Mã ";
-            this.maHDDataGridViewTextBoxColumn.Name = "maHDDataGridViewTextBoxColumn";
-            this.maHDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ngayLamHDDataGridViewTextBoxColumn
-            // 
-            this.ngayLamHDDataGridViewTextBoxColumn.DataPropertyName = "ngayLamHD";
-            this.ngayLamHDDataGridViewTextBoxColumn.HeaderText = "Ngày lập";
-            this.ngayLamHDDataGridViewTextBoxColumn.Name = "ngayLamHDDataGridViewTextBoxColumn";
-            // 
-            // noiLamHDDataGridViewTextBoxColumn
-            // 
-            this.noiLamHDDataGridViewTextBoxColumn.DataPropertyName = "noiLamHD";
-            this.noiLamHDDataGridViewTextBoxColumn.HeaderText = "Nơi lập";
-            this.noiLamHDDataGridViewTextBoxColumn.Name = "noiLamHDDataGridViewTextBoxColumn";
-            // 
-            // hopDongBindingSource
-            // 
-            this.hopDongBindingSource.DataMember = "HopDong";
-            this.hopDongBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet2;
-            // 
-            // quanLyCungCapNuocSachDataSet2
-            // 
-            this.quanLyCungCapNuocSachDataSet2.DataSetName = "QuanLyCungCapNuocSachDataSet2";
-            this.quanLyCungCapNuocSachDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hopDongTableAdapter
-            // 
-            this.hopDongTableAdapter.ClearBeforeFill = true;
             // 
             // timerHopD
             // 
@@ -258,6 +223,59 @@
             this.panelHopDong.Size = new System.Drawing.Size(800, 346);
             this.panelHopDong.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(340, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 19);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Tiền làm HĐ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(340, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 19);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Lý do thu";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(340, 84);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 19);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Mã nhân viên";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(469, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 23);
+            this.textBox1.TabIndex = 38;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(469, 51);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(200, 23);
+            this.textBox2.TabIndex = 39;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(469, 82);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(200, 24);
+            this.comboBox1.TabIndex = 40;
+            // 
             // frmHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,8 +290,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hopDongBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet2)).EndInit();
             this.panelHopDong.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -284,9 +300,6 @@
         private System.Windows.Forms.Panel panelTool;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridView dgvHopDong;
-        private QuanLyCungCapNuocSachDataSet2 quanLyCungCapNuocSachDataSet2;
-        private System.Windows.Forms.BindingSource hopDongBindingSource;
-        private QuanLyCungCapNuocSachDataSet2TableAdapters.HopDongTableAdapter hopDongTableAdapter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnHopTimKiem;
         private System.Windows.Forms.Label label2;
@@ -296,11 +309,14 @@
         private System.Windows.Forms.TextBox txtNL;
         private System.Windows.Forms.DateTimePicker dateTimeNL;
         private System.Windows.Forms.Timer timerHopD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maHDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngayLamHDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noiLamHDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Panel panelHopDong;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
     }
 }

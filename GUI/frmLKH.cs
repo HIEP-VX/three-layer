@@ -20,20 +20,24 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void frmLKH_Load(object sender, EventArgs e)
+        private void reload()
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet3.loaiKhachHang' table. You can move, or remove it, as needed.
-            this.loaiKhachHangTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet3.loaiKhachHang);
-            this.Refresh();
-            panelTool.Size = panelTool.MinimumSize;
             try
             {
                 string query = "select * from loaiKhachHang";
                 dgvLKH.DataSource = AccessData.getData(query);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void frmLKH_Load(object sender, EventArgs e)
+        {
+            this.Refresh();
+            panelTool.Size = panelTool.MinimumSize;
+            reload();
         }
 
         private void addForm_Logout(object sender, EventArgs e)
@@ -64,15 +68,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from loaiKhachHang";
-                    dgvLKH.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
 
@@ -85,15 +81,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from loaiKhachHang";
-                    dgvLKH.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
 
@@ -106,15 +94,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from NhanVien";
-                    dgvLKH.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
         

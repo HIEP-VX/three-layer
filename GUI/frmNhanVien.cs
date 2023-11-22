@@ -18,11 +18,22 @@ namespace GUI
         {
             InitializeComponent();
         }
+        private void reload()
+        {
+            try
+            {
+                string query = "select * from NhanVien";
+                dgvNhanVien.DataSource = AccessData.getData(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet9.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter3.Fill(this.quanLyCungCapNuocSachDataSet9.NhanVien);
+            reload();
             this.Refresh();
             panelTool.Size = panelTool.MinimumSize;
         }
@@ -57,15 +68,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from NhanVien";
-                    dgvNhanVien.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
 
@@ -78,15 +81,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from NhanVien";
-                    dgvNhanVien.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
 
@@ -99,15 +94,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from NhanVien";
-                    dgvNhanVien.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
 

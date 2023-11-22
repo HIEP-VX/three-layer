@@ -39,6 +39,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txtTT = new System.Windows.Forms.ComboBox();
+            this.txtSoLuong = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -46,7 +48,7 @@
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(106, 14);
+            this.lblTitle.Location = new System.Drawing.Point(106, 12);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(143, 23);
             this.lblTitle.TabIndex = 0;
@@ -57,7 +59,7 @@
             // 
             this.lblHang.AutoSize = true;
             this.lblHang.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHang.Location = new System.Drawing.Point(17, 59);
+            this.lblHang.Location = new System.Drawing.Point(17, 48);
             this.lblHang.Name = "lblHang";
             this.lblHang.Size = new System.Drawing.Size(42, 18);
             this.lblHang.TabIndex = 1;
@@ -67,7 +69,7 @@
             // 
             this.lblChiSo.AutoSize = true;
             this.lblChiSo.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChiSo.Location = new System.Drawing.Point(17, 100);
+            this.lblChiSo.Location = new System.Drawing.Point(17, 89);
             this.lblChiSo.Name = "lblChiSo";
             this.lblChiSo.Size = new System.Drawing.Size(77, 18);
             this.lblChiSo.TabIndex = 2;
@@ -77,7 +79,7 @@
             // 
             this.lblSoCongTo.AutoSize = true;
             this.lblSoCongTo.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoCongTo.Location = new System.Drawing.Point(17, 142);
+            this.lblSoCongTo.Location = new System.Drawing.Point(17, 131);
             this.lblSoCongTo.Name = "lblSoCongTo";
             this.lblSoCongTo.Size = new System.Drawing.Size(77, 18);
             this.lblSoCongTo.TabIndex = 3;
@@ -87,7 +89,7 @@
             // 
             this.lblTinhTrang.AutoSize = true;
             this.lblTinhTrang.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTinhTrang.Location = new System.Drawing.Point(17, 186);
+            this.lblTinhTrang.Location = new System.Drawing.Point(17, 175);
             this.lblTinhTrang.Name = "lblTinhTrang";
             this.lblTinhTrang.Size = new System.Drawing.Size(74, 18);
             this.lblTinhTrang.TabIndex = 4;
@@ -96,7 +98,7 @@
             // txtHang
             // 
             this.txtHang.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHang.Location = new System.Drawing.Point(118, 59);
+            this.txtHang.Location = new System.Drawing.Point(118, 48);
             this.txtHang.Name = "txtHang";
             this.txtHang.Size = new System.Drawing.Size(225, 23);
             this.txtHang.TabIndex = 5;
@@ -104,7 +106,7 @@
             // txtChiSoDau
             // 
             this.txtChiSoDau.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChiSoDau.Location = new System.Drawing.Point(118, 100);
+            this.txtChiSoDau.Location = new System.Drawing.Point(118, 89);
             this.txtChiSoDau.Name = "txtChiSoDau";
             this.txtChiSoDau.Size = new System.Drawing.Size(225, 23);
             this.txtChiSoDau.TabIndex = 6;
@@ -112,17 +114,19 @@
             // txtSoCongTo
             // 
             this.txtSoCongTo.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoCongTo.Location = new System.Drawing.Point(118, 141);
+            this.txtSoCongTo.Location = new System.Drawing.Point(118, 131);
             this.txtSoCongTo.Name = "txtSoCongTo";
             this.txtSoCongTo.Size = new System.Drawing.Size(225, 23);
             this.txtSoCongTo.TabIndex = 7;
             // 
             // button1
             // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(74, 227);
+            this.button1.Location = new System.Drawing.Point(39, 260);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 36);
+            this.button1.Size = new System.Drawing.Size(135, 36);
             this.button1.TabIndex = 9;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
@@ -131,9 +135,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(203, 227);
+            this.button2.Location = new System.Drawing.Point(182, 260);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 36);
+            this.button2.Size = new System.Drawing.Size(135, 36);
             this.button2.TabIndex = 10;
             this.button2.Text = "Thoát";
             this.button2.UseVisualStyleBackColor = true;
@@ -146,16 +150,37 @@
             this.txtTT.Items.AddRange(new object[] {
             "0-Chưa sử dụng",
             "1-Đã sử dụng"});
-            this.txtTT.Location = new System.Drawing.Point(118, 185);
+            this.txtTT.Location = new System.Drawing.Point(118, 175);
             this.txtTT.Name = "txtTT";
             this.txtTT.Size = new System.Drawing.Size(225, 24);
             this.txtTT.TabIndex = 11;
+            // 
+            // txtSoLuong
+            // 
+            this.txtSoLuong.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoLuong.Location = new System.Drawing.Point(119, 220);
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.Size = new System.Drawing.Size(225, 23);
+            this.txtSoLuong.TabIndex = 13;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(18, 220);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 18);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Số lượng";
             // 
             // subAddDongHo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 297);
+            this.ClientSize = new System.Drawing.Size(368, 311);
+            this.Controls.Add(this.txtSoLuong);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTT);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -171,7 +196,6 @@
             this.Name = "subAddDongHo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "subAddDongHo";
-            this.Load += new System.EventHandler(this.subAddDongHo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +214,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox txtTT;
+        private System.Windows.Forms.TextBox txtSoLuong;
+        private System.Windows.Forms.Label label1;
     }
 }

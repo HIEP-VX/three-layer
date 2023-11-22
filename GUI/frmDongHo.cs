@@ -21,8 +21,6 @@ namespace GUI
 
         private void frmDongHo_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet1.DongHoNuoc' table. You can move, or remove it, as needed.
-            this.dongHoNuocTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet1.DongHoNuoc);
             this.Refresh();
             panelTool.Size = panelTool.MinimumSize;
             try

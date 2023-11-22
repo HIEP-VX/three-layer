@@ -48,21 +48,11 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvDongho = new System.Windows.Forms.DataGridView();
-            this.maDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hangDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chiSoDauDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soCongToDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tinhTrangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dongHoNuocBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyCungCapNuocSachDataSet1 = new GUI.dataDongHo();
-            this.dongHoNuocTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet1TableAdapters.DongHoNuocTableAdapter();
             this.timerTimKiem = new System.Windows.Forms.Timer(this.components);
             this.panelDgvDH = new System.Windows.Forms.Panel();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDongho)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dongHoNuocBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet1)).BeginInit();
             this.panelDgvDH.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,9 +85,9 @@
             this.groupBox1.Controls.Add(this.txtsoDT);
             this.groupBox1.Controls.Add(this.txttenNV);
             this.groupBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(58, 35);
+            this.groupBox1.Location = new System.Drawing.Point(24, 36);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(689, 129);
+            this.groupBox1.Size = new System.Drawing.Size(764, 119);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
@@ -258,68 +248,15 @@
             // 
             // dgvDongho
             // 
-            this.dgvDongho.AutoGenerateColumns = false;
             this.dgvDongho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDongho.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDongho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDongho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maDHNDataGridViewTextBoxColumn,
-            this.hangDHNDataGridViewTextBoxColumn,
-            this.chiSoDauDataGridViewTextBoxColumn,
-            this.soCongToDataGridViewTextBoxColumn,
-            this.tinhTrangDataGridViewTextBoxColumn});
-            this.dgvDongho.DataSource = this.dongHoNuocBindingSource;
             this.dgvDongho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDongho.Location = new System.Drawing.Point(0, 0);
             this.dgvDongho.Name = "dgvDongho";
             this.dgvDongho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDongho.Size = new System.Drawing.Size(800, 282);
             this.dgvDongho.TabIndex = 1;
-            // 
-            // maDHNDataGridViewTextBoxColumn
-            // 
-            this.maDHNDataGridViewTextBoxColumn.DataPropertyName = "maDHN";
-            this.maDHNDataGridViewTextBoxColumn.HeaderText = "Mã";
-            this.maDHNDataGridViewTextBoxColumn.Name = "maDHNDataGridViewTextBoxColumn";
-            this.maDHNDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // hangDHNDataGridViewTextBoxColumn
-            // 
-            this.hangDHNDataGridViewTextBoxColumn.DataPropertyName = "hangDHN";
-            this.hangDHNDataGridViewTextBoxColumn.HeaderText = "Hãng";
-            this.hangDHNDataGridViewTextBoxColumn.Name = "hangDHNDataGridViewTextBoxColumn";
-            // 
-            // chiSoDauDataGridViewTextBoxColumn
-            // 
-            this.chiSoDauDataGridViewTextBoxColumn.DataPropertyName = "chiSoDau";
-            this.chiSoDauDataGridViewTextBoxColumn.HeaderText = "Chỉ số đầu";
-            this.chiSoDauDataGridViewTextBoxColumn.Name = "chiSoDauDataGridViewTextBoxColumn";
-            // 
-            // soCongToDataGridViewTextBoxColumn
-            // 
-            this.soCongToDataGridViewTextBoxColumn.DataPropertyName = "soCongTo";
-            this.soCongToDataGridViewTextBoxColumn.HeaderText = "Số công tơ";
-            this.soCongToDataGridViewTextBoxColumn.Name = "soCongToDataGridViewTextBoxColumn";
-            // 
-            // tinhTrangDataGridViewTextBoxColumn
-            // 
-            this.tinhTrangDataGridViewTextBoxColumn.DataPropertyName = "tinhTrang";
-            this.tinhTrangDataGridViewTextBoxColumn.HeaderText = "Tình trạng";
-            this.tinhTrangDataGridViewTextBoxColumn.Name = "tinhTrangDataGridViewTextBoxColumn";
-            // 
-            // dongHoNuocBindingSource
-            // 
-            this.dongHoNuocBindingSource.DataMember = "DongHoNuoc";
-            this.dongHoNuocBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet1;
-            // 
-            // quanLyCungCapNuocSachDataSet1
-            // 
-            this.quanLyCungCapNuocSachDataSet1.DataSetName = "QuanLyCungCapNuocSachDataSet1";
-            this.quanLyCungCapNuocSachDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dongHoNuocTableAdapter
-            // 
-            this.dongHoNuocTableAdapter.ClearBeforeFill = true;
             // 
             // timerTimKiem
             // 
@@ -350,8 +287,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDongho)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dongHoNuocBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet1)).EndInit();
             this.panelDgvDH.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -365,14 +300,6 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvDongho;
-        private dataDongHo quanLyCungCapNuocSachDataSet1;
-        private System.Windows.Forms.BindingSource dongHoNuocBindingSource;
-        private QuanLyCungCapNuocSachDataSet1TableAdapters.DongHoNuocTableAdapter dongHoNuocTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maDHNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hangDHNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chiSoDauDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soCongToDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tinhTrangDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;

@@ -23,8 +23,6 @@ namespace GUI
 
         private void frmUpdateTaiKhoan_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet6.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet6.NhanVien);
             this.Refresh();
             string query = "SELECT maNV, tenNV, soDT, chucVu, taiKhoan, matKhau from nhanvien where taiKhoan = N'" + user.account + "' and matKhau = N'" + user.password + "'";
             
