@@ -24,8 +24,22 @@ namespace GUI
         {
             try
             {
-                string query = "select * from loaiKhachHang";
+                string query = "select maLKH, tenLoai, FORMAT(CAST(giaBac1 AS DECIMAL(18, 0)), 'N0') AS gb1 , FORMAT(CAST(giaBac2 AS DECIMAL(18, 0)), 'N0') AS gb2, FORMAT(CAST(giaBac3 AS DECIMAL(18, 0)), 'N0') AS gb3, FORMAT(CAST(giaBac4 AS DECIMAL(18, 0)), 'N0') AS gb4 from loaiKhachHang";
                 dgvLKH.DataSource = AccessData.getData(query);
+
+                dgvLKH.Columns[0].HeaderText = "Mã";
+                dgvLKH.Columns[1].HeaderText = "Loại";
+                dgvLKH.Columns[2].HeaderText = "Giá bậc 1";
+                dgvLKH.Columns[3].HeaderText = "Giá bậc 2";
+                dgvLKH.Columns[4].HeaderText = "Giá bậc 3";
+                dgvLKH.Columns[5].HeaderText = "Giá bậc 4";
+
+
+                foreach (DataGridViewColumn column in dgvLKH.Columns)
+                {
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
             }
             catch (Exception ex)
             {

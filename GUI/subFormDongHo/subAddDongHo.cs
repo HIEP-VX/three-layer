@@ -28,13 +28,6 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtHang.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập hãng đồng hồ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtHang.Focus();
-                return;
-            }
-
             if (txtChiSoDau.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập chỉ số đầu của đồng hồ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -66,7 +59,7 @@ namespace GUI
                 // Sử dụng giá trị (trong trường hợp này, "1")
                 selectedValue = parts[0].Trim();
 
-            string query = "INSERT INTO DongHoNuoc (hangDHN, chiSoDau, soCongTo, tinhTrang) values (@hangDHN, @chiSoDau, @soCongTo, @tinhTrang)";
+            string query = "INSERT INTO DongHoNuoc (chiSoDau, soCongTo, tinhTrang) values ( @chiSoDau, @soCongTo, @tinhTrang)";
             
             
             if(txtSoLuong.Text.Trim().Length == 0)
@@ -76,7 +69,6 @@ namespace GUI
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@hangDHN", SqlDbType.NVarChar).Value = txtHang.Text;
                     cmd.Parameters.AddWithValue("@chiSoDau", txtChiSoDau.Text);
                     cmd.Parameters.AddWithValue("@soCongTo", txtSoCongTo.Text);
                     cmd.Parameters.AddWithValue("@tinhTrang", selectedValue);
@@ -103,7 +95,6 @@ namespace GUI
                     {
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                            cmd.Parameters.AddWithValue("@hangDHN", txtHang.Text);
                             cmd.Parameters.AddWithValue("@chiSoDau", txtChiSoDau.Text);
                             cmd.Parameters.AddWithValue("@soCongTo", txtSoCongTo.Text);
                             cmd.Parameters.AddWithValue("@tinhTrang", selectedValue);
@@ -167,6 +158,11 @@ namespace GUI
                 e.Handled = true;
                 MessageBox.Show("Số lượng phải là số dương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void subAddDongHo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

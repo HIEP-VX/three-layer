@@ -25,7 +25,10 @@ namespace GUI
 
         private void subbUpdateForm_Load(object sender, EventArgs e)
         {
-
+            lblTK.Enabled = false;
+            lblMK.Enabled = false;
+            txtTK.Enabled = false;
+            txtMK.Enabled = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -38,6 +41,12 @@ namespace GUI
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            if(checkBoxUpdate.Checked)
+            {
+
+            }
+
+
             if (txtMa.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập mã nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -52,6 +61,31 @@ namespace GUI
                 return;
             }
 
+            if (txtsoDT.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtsoDT.Focus();
+                return;
+            }
+
+            if (txtChucVu.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập chức vụ của nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtsoDT.Focus();
+                return;
+            }
+            if (txtsoDT.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtsoDT.Focus();
+                return;
+            }
+            if (txtsoDT.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtsoDT.Focus();
+                return;
+            }
             if (txtsoDT.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập số điện thoại nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -37,21 +37,21 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMa = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtChucVu = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTK = new System.Windows.Forms.TextBox();
+            this.lblTK = new System.Windows.Forms.Label();
+            this.txtMK = new System.Windows.Forms.TextBox();
+            this.lblMK = new System.Windows.Forms.Label();
+            this.checkBoxUpdate = new System.Windows.Forms.CheckBox();
+            this.txtQuyenHan = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtsoDT
             // 
             this.txtsoDT.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsoDT.Location = new System.Drawing.Point(141, 130);
+            this.txtsoDT.Location = new System.Drawing.Point(141, 138);
             this.txtsoDT.Name = "txtsoDT";
             this.txtsoDT.Size = new System.Drawing.Size(231, 23);
             this.txtsoDT.TabIndex = 15;
@@ -59,7 +59,7 @@
             // txttenNV
             // 
             this.txttenNV.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttenNV.Location = new System.Drawing.Point(141, 95);
+            this.txttenNV.Location = new System.Drawing.Point(141, 97);
             this.txttenNV.Name = "txttenNV";
             this.txttenNV.Size = new System.Drawing.Size(231, 23);
             this.txttenNV.TabIndex = 14;
@@ -79,7 +79,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 130);
+            this.label4.Location = new System.Drawing.Point(19, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 19);
             this.label4.TabIndex = 12;
@@ -89,7 +89,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 95);
+            this.label3.Location = new System.Drawing.Point(19, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 19);
             this.label3.TabIndex = 11;
@@ -129,89 +129,89 @@
             // txtMa
             // 
             this.txtMa.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMa.Location = new System.Drawing.Point(141, 62);
+            this.txtMa.Location = new System.Drawing.Point(141, 61);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(231, 23);
             this.txtMa.TabIndex = 17;
             // 
-            // textBox1
+            // txtChucVu
             // 
-            this.textBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(141, 180);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 23);
-            this.textBox1.TabIndex = 19;
+            this.txtChucVu.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChucVu.Location = new System.Drawing.Point(141, 179);
+            this.txtChucVu.Name = "txtChucVu";
+            this.txtChucVu.Size = new System.Drawing.Size(231, 23);
+            this.txtChucVu.TabIndex = 19;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 180);
+            this.label5.Location = new System.Drawing.Point(19, 179);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 19);
             this.label5.TabIndex = 18;
             this.label5.Text = "Chức vụ";
             // 
-            // textBox2
+            // txtTK
             // 
-            this.textBox2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(141, 272);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(231, 23);
-            this.textBox2.TabIndex = 21;
+            this.txtTK.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTK.Location = new System.Drawing.Point(141, 271);
+            this.txtTK.Name = "txtTK";
+            this.txtTK.Size = new System.Drawing.Size(231, 23);
+            this.txtTK.TabIndex = 21;
             // 
-            // label6
+            // lblTK
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 272);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 19);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Tài khoản";
+            this.lblTK.AutoSize = true;
+            this.lblTK.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTK.Location = new System.Drawing.Point(19, 271);
+            this.lblTK.Name = "lblTK";
+            this.lblTK.Size = new System.Drawing.Size(77, 19);
+            this.lblTK.TabIndex = 20;
+            this.lblTK.Text = "Tài khoản";
             // 
-            // textBox3
+            // txtMK
             // 
-            this.textBox3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(141, 311);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(231, 23);
-            this.textBox3.TabIndex = 23;
+            this.txtMK.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMK.Location = new System.Drawing.Point(141, 310);
+            this.txtMK.Name = "txtMK";
+            this.txtMK.Size = new System.Drawing.Size(231, 23);
+            this.txtMK.TabIndex = 23;
             // 
-            // label7
+            // lblMK
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(19, 311);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 19);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Mật khẩu";
+            this.lblMK.AutoSize = true;
+            this.lblMK.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMK.Location = new System.Drawing.Point(19, 310);
+            this.lblMK.Name = "lblMK";
+            this.lblMK.Size = new System.Drawing.Size(74, 19);
+            this.lblMK.TabIndex = 22;
+            this.lblMK.Text = "Mật khẩu";
             // 
-            // checkBox1
+            // checkBoxUpdate
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(48, 249);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(282, 18);
-            this.checkBox1.TabIndex = 24;
-            this.checkBox1.Text = "Hãy chọn nếu cập nhật cả tài khoản và mật khẩu";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxUpdate.AutoSize = true;
+            this.checkBoxUpdate.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxUpdate.Location = new System.Drawing.Point(48, 249);
+            this.checkBoxUpdate.Name = "checkBoxUpdate";
+            this.checkBoxUpdate.Size = new System.Drawing.Size(282, 18);
+            this.checkBoxUpdate.TabIndex = 24;
+            this.checkBoxUpdate.Text = "Hãy chọn nếu cập nhật cả tài khoản và mật khẩu";
+            this.checkBoxUpdate.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // txtQuyenHan
             // 
-            this.textBox4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(141, 217);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(231, 23);
-            this.textBox4.TabIndex = 26;
+            this.txtQuyenHan.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuyenHan.Location = new System.Drawing.Point(141, 219);
+            this.txtQuyenHan.Name = "txtQuyenHan";
+            this.txtQuyenHan.Size = new System.Drawing.Size(231, 23);
+            this.txtQuyenHan.TabIndex = 26;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(19, 217);
+            this.label8.Location = new System.Drawing.Point(19, 219);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 19);
             this.label8.TabIndex = 25;
@@ -222,14 +222,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 401);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtQuyenHan);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.checkBoxUpdate);
+            this.Controls.Add(this.txtMK);
+            this.Controls.Add(this.lblMK);
+            this.Controls.Add(this.txtTK);
+            this.Controls.Add(this.lblTK);
+            this.Controls.Add(this.txtChucVu);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMa);
             this.Controls.Add(this.label2);
@@ -261,14 +261,14 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMa;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtChucVu;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTK;
+        private System.Windows.Forms.Label lblTK;
+        private System.Windows.Forms.TextBox txtMK;
+        private System.Windows.Forms.Label lblMK;
+        private System.Windows.Forms.CheckBox checkBoxUpdate;
+        private System.Windows.Forms.TextBox txtQuyenHan;
         private System.Windows.Forms.Label label8;
     }
 }

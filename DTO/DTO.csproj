@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="khachHang.cs" />
+    <Compile Include="loaiDongHo.cs" />
+    <Compile Include="phieuNhanHang.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="user.cs" />
   </ItemGroup>

@@ -20,7 +20,6 @@ namespace GUI
 
         bool isCollapsed = true;
         bool isCollapsed2 = true;
-        bool isCollapsed3 = true;
         bool homeExpand = true;
         bool hopDongExpand = true;
 
@@ -142,7 +141,6 @@ namespace GUI
                 }
             }
         }
-
         // kết thúc timer
 
         private void btnDanhMuc_Click(object sender, EventArgs e)
@@ -176,6 +174,7 @@ namespace GUI
             timer1.Start();
             timer2.Start();
         }
+
 
         private void FormMain2_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -223,11 +222,11 @@ namespace GUI
             panel_body.Controls.OfType<Form>().ToList().ForEach(c => c.Dispose());
             currentFormChild = null;
         }
-
         private void btnHopDong_Click(object sender, EventArgs e)
         {
             timerHopDong.Start();
         }
+
 
         private void btnThemHopDong_Click(object sender, EventArgs e)
         {
@@ -241,26 +240,18 @@ namespace GUI
             lblTitle.Text = btnDanhSachHopDong.Text;
         }
 
-        private void btnLoaiKhachHang_Click(object sender, EventArgs e)
+        private void btnKho_Click_1(object sender, EventArgs e)
         {
-            OpenFormChild(new frmLKH());
-            lblTitle.Text = btnLoaiKhachHang.Text;
+            OpenFormChild(new frmMuaHang());
+            lblTitle.Text = btnKho.Text;
             hopDongExpand = false;
             timerHopDong.Start();
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            OpenFormChild(new frmKhachHang());
+            OpenFormChild(new frmQuanLyKH());
             lblTitle.Text = btnKhachHang.Text;
-            hopDongExpand = false;
-            timerHopDong.Start();
-        }
-
-        private void btnDongHo_Click(object sender, EventArgs e)
-        {
-            OpenFormChild(new frmDongHo());
-            lblTitle.Text = btnDongHo.Text;
             hopDongExpand = false;
             timerHopDong.Start();
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,6 +42,13 @@
             this.dateNS = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMa = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbPhuong = new System.Windows.Forms.ComboBox();
+            this.quanLyCungCapNuocSachDataSet4 = new GUI.QuanLyCungCapNuocSachDataSet4();
+            this.diaChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +66,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 106);
+            this.label3.Location = new System.Drawing.Point(28, 101);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 16);
@@ -69,7 +77,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 145);
+            this.label4.Location = new System.Drawing.Point(28, 136);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 16);
@@ -80,7 +88,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 184);
+            this.label5.Location = new System.Drawing.Point(28, 205);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 16);
@@ -91,7 +99,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(28, 223);
+            this.label6.Location = new System.Drawing.Point(28, 240);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 16);
@@ -101,7 +109,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(64, 262);
+            this.button1.Location = new System.Drawing.Point(64, 274);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 37);
@@ -113,7 +121,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(212, 262);
+            this.button2.Location = new System.Drawing.Point(212, 274);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 37);
@@ -125,7 +133,7 @@
             // txtHT
             // 
             this.txtHT.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHT.Location = new System.Drawing.Point(158, 103);
+            this.txtHT.Location = new System.Drawing.Point(158, 101);
             this.txtHT.Margin = new System.Windows.Forms.Padding(4);
             this.txtHT.Name = "txtHT";
             this.txtHT.Size = new System.Drawing.Size(199, 23);
@@ -134,7 +142,7 @@
             // txtDC
             // 
             this.txtDC.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDC.Location = new System.Drawing.Point(158, 181);
+            this.txtDC.Location = new System.Drawing.Point(158, 205);
             this.txtDC.Margin = new System.Windows.Forms.Padding(4);
             this.txtDC.Name = "txtDC";
             this.txtDC.Size = new System.Drawing.Size(199, 23);
@@ -143,7 +151,7 @@
             // txtSoDT
             // 
             this.txtSoDT.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoDT.Location = new System.Drawing.Point(158, 220);
+            this.txtSoDT.Location = new System.Drawing.Point(158, 240);
             this.txtSoDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoDT.Name = "txtSoDT";
             this.txtSoDT.Size = new System.Drawing.Size(199, 23);
@@ -151,11 +159,12 @@
             // 
             // dateNS
             // 
-            this.dateNS.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateNS.CustomFormat = "dd/MM/yyyy";
+            this.dateNS.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateNS.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateNS.Location = new System.Drawing.Point(158, 142);
+            this.dateNS.Location = new System.Drawing.Point(158, 136);
             this.dateNS.Name = "dateNS";
-            this.dateNS.Size = new System.Drawing.Size(200, 23);
+            this.dateNS.Size = new System.Drawing.Size(200, 22);
             this.dateNS.TabIndex = 15;
             // 
             // label2
@@ -172,17 +181,55 @@
             // txtMa
             // 
             this.txtMa.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMa.Location = new System.Drawing.Point(158, 64);
+            this.txtMa.Location = new System.Drawing.Point(158, 67);
             this.txtMa.Margin = new System.Windows.Forms.Padding(4);
             this.txtMa.Name = "txtMa";
+            this.txtMa.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(199, 23);
             this.txtMa.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(28, 171);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 16);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Phường";
+            // 
+            // cbPhuong
+            // 
+            this.cbPhuong.DataSource = this.diaChiBindingSource;
+            this.cbPhuong.DisplayMember = "phuong";
+            this.cbPhuong.FormattingEnabled = true;
+            this.cbPhuong.Location = new System.Drawing.Point(158, 169);
+            this.cbPhuong.Name = "cbPhuong";
+            this.cbPhuong.Size = new System.Drawing.Size(199, 24);
+            this.cbPhuong.TabIndex = 17;
+            // 
+            // quanLyCungCapNuocSachDataSet4
+            // 
+            this.quanLyCungCapNuocSachDataSet4.DataSetName = "QuanLyCungCapNuocSachDataSet4";
+            this.quanLyCungCapNuocSachDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // diaChiBindingSource
+            // 
+            this.diaChiBindingSource.DataMember = "diaChi";
+            this.diaChiBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet4;
+            // 
+            // diaChiTableAdapter
+            // 
+            this.diaChiTableAdapter.ClearBeforeFill = true;
             // 
             // subUpdateKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 329);
+            this.Controls.Add(this.cbPhuong);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.dateNS);
             this.Controls.Add(this.txtSoDT);
             this.Controls.Add(this.txtDC);
@@ -203,6 +250,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "subDelKhachHang";
             this.Load += new System.EventHandler(this.subUpdateKH_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,5 +272,10 @@
         private System.Windows.Forms.DateTimePicker dateNS;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMa;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbPhuong;
+        private QuanLyCungCapNuocSachDataSet4 quanLyCungCapNuocSachDataSet4;
+        private System.Windows.Forms.BindingSource diaChiBindingSource;
+        private QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter diaChiTableAdapter;
     }
 }

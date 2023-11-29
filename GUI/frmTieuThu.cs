@@ -60,11 +60,11 @@ namespace GUI
         {
             try
             {
-                DateTime currentDate = DateTime.Now;
+                /*DateTime currentDate = DateTime.Now;
                 int currentMonth = currentDate.Month;
-                int currentYear = currentDate.Year;
-
-                string query = $"Select maTT, tt.maNV, tt.maKH, chiSoCu, chiSoMoi , luongNuoc ,  ThoiGianDau, CONVERT(VARCHAR, GETDATE(), 103) AS ThoiGianCuoi,kh.tenKH, kh.phuong, kh.diaChi, nv.tenNV from tieuthu tt join khachhang kh on kh.maKH = tt.maKH join nhanvien nv on nv.maNV = tt.maNV WHERE MONTH(ThoiGianCuoi) = {currentMonth} AND YEAR(ThoiGianCuoi) = {currentYear}";
+                int currentYear = currentDate.Year;*/
+                // CONVERT(VARCHAR, GETDATE(), 103) AS
+                string query = $"Select maTT, tt.maNV, tt.maKH, chiSoCu, chiSoMoi , luongNuoc ,  ThoiGianDau, ThoiGianCuoi,kh.tenKH, kh.phuong, kh.diaChi, nv.tenNV from tieuthu tt join khachhang kh on kh.maKH = tt.maKH join nhanvien nv on nv.maNV = tt.maNV";
                 dgvGhiNuoc.DataSource = AccessData.getData(query);
             }
             catch (Exception ex)
@@ -80,11 +80,10 @@ namespace GUI
             reload();
         }
 
-        private void btnImport_Click(object sender, EventArgs e)
+        private void btnGhiNuoc_Click(object sender, EventArgs e)
         {
-            addGhiNuoc sb = new addGhiNuoc();
-            sb.Show();
-            sb.Logout += addForm_Logout;
+            addGhiNuoc sb = new addGhiNuoc(this);
+            sb.ShowDialog();
             sb.DataAdded += () =>
             {
                 try
@@ -97,14 +96,12 @@ namespace GUI
                     MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             };
+        }
+
+        public void HandleAddButton()
+        {
             timerGhiNuoc.Start();
             grpChiSoNuoc.Visible = true;
-        }
-        private void addForm_Logout(object sender, EventArgs e)
-        {
-            (sender as addGhiNuoc).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as addGhiNuoc).Close();
-            this.Show();
         }
 
         private void importExcelData(string filePath)
@@ -203,13 +200,13 @@ namespace GUI
         private void button1_Click(object sender, EventArgs e)
         {
 
-            string query = "update tieuthu set chiSoMoi = " + txtChiSoNuoc.Text +"where maTT = " + label1.Text;
+            string query = "update tieuthu set chiSoMoi = " + txtChiSoNuoc.Text +"where maTT = " + txtMATT.Text;
             AccessData.execQuery(query);
 
-            string query2 = "update donghonuoc set chiSoDau = " + txtChiSoNuoc.Text + "where maDHN = (select madhn from khachhang kh , tieuthu tt where maTT = " + label1.Text +"and tt.maKH = kh.maKH)";
+            string query2 = "update donghonuoc set chiSoDau = " + txtChiSoNuoc.Text + "where maDHN = (select madhn from khachhang kh , tieuthu tt where maTT = " + txtMATT.Text +"and tt.maKH = kh.maKH)";
             AccessData.execQuery(query2);
 
-            string query3 = "Update tieuthu set luongNuoc = chisomoi - chiSoCu where maTT = " + label1.Text;
+            string query3 = "Update tieuthu set luongNuoc = chisomoi - chiSoCu where maTT = " + txtMATT.Text;
             AccessData.execQuery(query3);
 
             reload();
@@ -285,5 +282,6 @@ namespace GUI
                 g.FillRectangle(linearGradientBrush, btn.ClientRectangle);
             }
         }
+
     }
 }

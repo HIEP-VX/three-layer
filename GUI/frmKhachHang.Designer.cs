@@ -33,14 +33,18 @@
             this.panelTool = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbPhuong = new System.Windows.Forms.ComboBox();
+            this.diaChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanLyCungCapNuocSachDataSet4 = new GUI.QuanLyCungCapNuocSachDataSet4();
+            this.txtLKH = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtDH = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtmaHD = new System.Windows.Forms.TextBox();
+            this.txtSDT = new System.Windows.Forms.TextBox();
+            this.txtDC = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,13 +53,16 @@
             this.txtMa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txttenNV = new System.Windows.Forms.TextBox();
+            this.txttenKH = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.timerTimKiem = new System.Windows.Forms.Timer(this.components);
             this.panelDgvKH = new System.Windows.Forms.Panel();
             this.dgvKH = new System.Windows.Forms.DataGridView();
+            this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).BeginInit();
             this.panelDgvKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).BeginInit();
             this.SuspendLayout();
@@ -89,14 +96,16 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.cbPhuong);
+            this.groupBox1.Controls.Add(this.txtLKH);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtDH);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtmaHD);
+            this.groupBox1.Controls.Add(this.txtSDT);
+            this.groupBox1.Controls.Add(this.txtDC);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
@@ -105,7 +114,7 @@
             this.groupBox1.Controls.Add(this.txtMa);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txttenNV);
+            this.groupBox1.Controls.Add(this.txttenKH);
             this.groupBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(5, 32);
             this.groupBox1.Name = "groupBox1";
@@ -114,35 +123,65 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
             // 
-            // textBox5
+            // label9
             // 
-            this.textBox5.Location = new System.Drawing.Point(627, 75);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(96, 23);
-            this.textBox5.TabIndex = 44;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(254, 88);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 19);
+            this.label9.TabIndex = 46;
+            this.label9.Text = "Phường";
+            // 
+            // cbPhuong
+            // 
+            this.cbPhuong.DataSource = this.diaChiBindingSource;
+            this.cbPhuong.DisplayMember = "phuong";
+            this.cbPhuong.FormattingEnabled = true;
+            this.cbPhuong.Location = new System.Drawing.Point(358, 90);
+            this.cbPhuong.Name = "cbPhuong";
+            this.cbPhuong.Size = new System.Drawing.Size(152, 24);
+            this.cbPhuong.TabIndex = 45;
+            // 
+            // diaChiBindingSource
+            // 
+            this.diaChiBindingSource.DataMember = "diaChi";
+            this.diaChiBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet4;
+            // 
+            // quanLyCungCapNuocSachDataSet4
+            // 
+            this.quanLyCungCapNuocSachDataSet4.DataSetName = "QuanLyCungCapNuocSachDataSet4";
+            this.quanLyCungCapNuocSachDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // txtLKH
+            // 
+            this.txtLKH.Location = new System.Drawing.Point(627, 88);
+            this.txtLKH.Name = "txtLKH";
+            this.txtLKH.Size = new System.Drawing.Size(96, 23);
+            this.txtLKH.TabIndex = 44;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(525, 76);
+            this.label8.Location = new System.Drawing.Point(525, 88);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 19);
             this.label8.TabIndex = 43;
             this.label8.Text = "Mã loại KH";
             // 
-            // textBox4
+            // txtDH
             // 
-            this.textBox4.Location = new System.Drawing.Point(627, 47);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(96, 23);
-            this.textBox4.TabIndex = 42;
+            this.txtDH.Location = new System.Drawing.Point(627, 60);
+            this.txtDH.Name = "txtDH";
+            this.txtDH.Size = new System.Drawing.Size(96, 23);
+            this.txtDH.TabIndex = 42;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(524, 48);
+            this.label7.Location = new System.Drawing.Point(524, 59);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 19);
             this.label7.TabIndex = 41;
@@ -156,26 +195,26 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(132, 23);
             this.dateTimePicker1.TabIndex = 40;
             // 
-            // textBox3
+            // txtmaHD
             // 
-            this.textBox3.Location = new System.Drawing.Point(358, 85);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(152, 23);
-            this.textBox3.TabIndex = 39;
+            this.txtmaHD.Location = new System.Drawing.Point(627, 33);
+            this.txtmaHD.Name = "txtmaHD";
+            this.txtmaHD.Size = new System.Drawing.Size(96, 23);
+            this.txtmaHD.TabIndex = 39;
             // 
-            // textBox1
+            // txtSDT
             // 
-            this.textBox1.Location = new System.Drawing.Point(358, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 23);
-            this.textBox1.TabIndex = 38;
+            this.txtSDT.Location = new System.Drawing.Point(358, 59);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(152, 23);
+            this.txtSDT.TabIndex = 38;
             // 
-            // textBox2
+            // txtDC
             // 
-            this.textBox2.Location = new System.Drawing.Point(358, 33);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 23);
-            this.textBox2.TabIndex = 37;
+            this.txtDC.Location = new System.Drawing.Point(358, 33);
+            this.txtDC.Name = "txtDC";
+            this.txtDC.Size = new System.Drawing.Size(152, 23);
+            this.txtDC.TabIndex = 37;
             // 
             // label1
             // 
@@ -201,7 +240,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(254, 88);
+            this.label6.Location = new System.Drawing.Point(523, 31);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 19);
             this.label6.TabIndex = 35;
@@ -255,12 +294,12 @@
             this.label4.TabIndex = 28;
             this.label4.Text = "Ngày sinh";
             // 
-            // txttenNV
+            // txttenKH
             // 
-            this.txttenNV.Location = new System.Drawing.Point(104, 59);
-            this.txttenNV.Name = "txttenNV";
-            this.txttenNV.Size = new System.Drawing.Size(132, 23);
-            this.txttenNV.TabIndex = 29;
+            this.txttenKH.Location = new System.Drawing.Point(104, 59);
+            this.txttenKH.Name = "txttenKH";
+            this.txttenKH.Size = new System.Drawing.Size(132, 23);
+            this.txttenKH.TabIndex = 29;
             // 
             // btnTimKiem
             // 
@@ -298,6 +337,11 @@
             this.dgvKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKH.Size = new System.Drawing.Size(801, 282);
             this.dgvKH.TabIndex = 45;
+            this.dgvKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKH_CellClick);
+            // 
+            // diaChiTableAdapter
+            // 
+            this.diaChiTableAdapter.ClearBeforeFill = true;
             // 
             // frmKhachHang
             // 
@@ -312,6 +356,8 @@
             this.panelTool.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).EndInit();
             this.panelDgvKH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).EndInit();
             this.ResumeLayout(false);
@@ -323,9 +369,9 @@
         private System.Windows.Forms.Panel panelTool;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtmaHD;
+        private System.Windows.Forms.TextBox txtSDT;
+        private System.Windows.Forms.TextBox txtDC;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -334,15 +380,20 @@
         private System.Windows.Forms.TextBox txtMa;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txttenNV;
+        private System.Windows.Forms.TextBox txttenKH;
         private System.Windows.Forms.Timer timerTimKiem;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtLKH;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtDH;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelDgvKH;
         private System.Windows.Forms.DataGridView dgvKH;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbPhuong;
+        private QuanLyCungCapNuocSachDataSet4 quanLyCungCapNuocSachDataSet4;
+        private System.Windows.Forms.BindingSource diaChiBindingSource;
+        private QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter diaChiTableAdapter;
     }
 }

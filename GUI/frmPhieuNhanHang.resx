@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCapNhat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAWFJREFUOE9jGL7A9uaWEvv9+1mgXMoB0MArtre27Da7tY0PKoQbWF3frg7UMM32
@@ -130,16 +130,28 @@
         cocdYGAAADwKHPuxhzNtAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="diaChiBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>516, 15</value>
-  </metadata>
-  <metadata name="quanLyCungCapNuocSachDataSet4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>271, 15</value>
-  </metadata>
-  <metadata name="timerTimKiem.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>144, 15</value>
-  </metadata>
-  <metadata name="diaChiTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>681, 15</value>
-  </metadata>
+  <data name="btnXoa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAZtJREFUOE9jGPpARkZLSE5ROwWEQWyoMGlAXV2d10/XqtpPz7LVVN1wg6+uVTsI
+        A9nrQWIgOVEtLR6ocvzAW888M0DP8vQBv7j/xwPiMfDt0NT/ZwIT/wfrWZ8EqYVqww7k5bUkuu2932Az
+        CBvusvN+DdID1Y4dyMlpusyJzPl5Iqf5Pz48JzL7J1CtM1QbbqCkpCe2Krb49ee6Gf/X+cT8v5nX9v9w
+        dD4Y3ypo+7/eJ/o/SG5FbOFrFRUDUag2fCCUeWpoxkOQJpC3TqTV/D8enQvGd/JawWIguSnB6Q9BaqGa
+        8IOewJRr2Ay8hWRgb2DyVahywqDdL/4UNgPBbKiBbX4JJ6HKCYMGn5j9hAxs8I7ZB1VOGFR6RG5GN/BS
+        XBGKgZWeUZugygmDApfg5egGvk6vRjGwwDVkGVQ5YZDm4DcbpGmXb8z/C5kN/49G5YLx+az6/7uBYiC5
+        NAf/WVDlhEGguUvbq6op/+8XdYE1v6yYCMYgNkgMJAdSA1VOGKioqPBFWXnOyHUOWYwNR1t7TAepgSof
+        2YCBAQD/AFRYq7ViggAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAACX
+        KwAAlysBI034/wAAASxJREFUOE+tlbEOgjAQhhtdfCsirK5EYyUuTk6+gPENGN2Muwkpg5MOOrjrKxjx
+        KRz0/toCwonE8CdfQnp3v7Z3FMHJOYw7XRUEXjyKXCWvnpIP4Mb0TGuIIcekV8uNRwMvlgkVPquRCXJN
+        WVn+xm/TP1jyxd9BDWqNTaZ/zCx0LEtj89Z7m3wy6G0nGi5mSbePw6VfuHNJlvC80nCxDJk4a2qU6SaT
+        kBFeyJDgYnngJeghKgaK1DUkIjQDs8UFU+oaYmaFHtrcotzNUgPL/nbSFNeRm6+FV/OGzW+56aY0PjYY
+        xl+XQS1DZQYbcqPqV296nGu4WIoK+trMCi84m1iD0uUALZ6L1j+mqEGtsSlL3zx0HlzxB5SDozJl1cLh
+        dtWQui+/fwJsAz4kxAuzyheXy9MImAAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

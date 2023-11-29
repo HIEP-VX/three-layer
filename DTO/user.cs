@@ -8,12 +8,12 @@ namespace DTO
 {
     public class user
     {
-        public static int id;
-        public static string user_name;   // tên tài khoản
-        public static string permission;    // quyền hạn
-        public static string position;      // chức vụ
-        public static string account;       // tai khoan
-        public static string password;      // mat khau
-        public static string welcome;
+        public static int id { get; set; }
+        public static string user_name { get; set; }   // tên tài khoản
+        public static string permission { get; set; }    // quyền hạn
+        public static string position { get; set; }    // chức vụ
+        public static string account { get; set; }       // tai khoan
+        public static string password { get; set; }      // mat khau
+        public static string welcome { get; set; }
     }
 }

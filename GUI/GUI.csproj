@@ -74,22 +74,53 @@
     <Compile Include="addGhiNuoc.Designer.cs">
       <DependentUpon>addGhiNuoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="dataDHN1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dataDHN1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FormMain2.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain2.Designer.cs">
       <DependentUpon>FormMain2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmChiTietMuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietMuaHang.Designer.cs">
+      <DependentUpon>frmChiTietMuaHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDongHo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDongHo.Designer.cs">
       <DependentUpon>frmDongHo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoaDonMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoaDonMH.Designer.cs">
+      <DependentUpon>frmHoaDonMH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoaiDongHo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoaiDongHo.Designer.cs">
+      <DependentUpon>frmLoaiDongHo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMuaHang.Designer.cs">
+      <DependentUpon>frmMuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPhieuNhanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhieuNhanHang.Designer.cs">
+      <DependentUpon>frmPhieuNhanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyKH.Designer.cs">
+      <DependentUpon>frmQuanLyKH.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTieuThu.cs">
       <SubType>Form</SubType>
@@ -157,6 +188,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyCungCapNuocSachDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="subAddPhieuNH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subAddPhieuNH.Designer.cs">
+      <DependentUpon>subAddPhieuNH.cs</DependentUpon>
     </Compile>
     <Compile Include="subFormKH\subUpdateKH.cs">
       <SubType>Form</SubType>
@@ -230,14 +267,38 @@
     <Compile Include="subFormDongHo\subUpdateDongHo.Designer.cs">
       <DependentUpon>subUpdateDongHo.cs</DependentUpon>
     </Compile>
+    <Compile Include="subUpdateChiTietMuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subUpdateChiTietMuaHang.Designer.cs">
+      <DependentUpon>subUpdateChiTietMuaHang.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="addGhiNuoc.resx">
       <DependentUpon>addGhiNuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain2.resx">
       <DependentUpon>FormMain2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmChiTietMuaHang.resx">
+      <DependentUpon>frmChiTietMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDongHo.resx">
       <DependentUpon>frmDongHo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoaDonMH.resx">
+      <DependentUpon>frmHoaDonMH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoaiDongHo.resx">
+      <DependentUpon>frmLoaiDongHo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMuaHang.resx">
+      <DependentUpon>frmMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhieuNhanHang.resx">
+      <DependentUpon>frmPhieuNhanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyKH.resx">
+      <DependentUpon>frmQuanLyKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTieuThu.resx">
       <DependentUpon>frmTieuThu.cs</DependentUpon>
@@ -273,6 +334,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subAddPhieuNH.resx">
+      <DependentUpon>subAddPhieuNH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="subFormKH\subUpdateKH.resx">
       <DependentUpon>subUpdateKH.cs</DependentUpon>
@@ -310,17 +374,9 @@
     <EmbeddedResource Include="subFormDongHo\subUpdateDongHo.resx">
       <DependentUpon>subUpdateDongHo.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dataDHN1.xsc">
-      <DependentUpon>dataDHN1.xsd</DependentUpon>
-    </None>
-    <None Include="dataDHN1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dataDHN1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dataDHN1.xss">
-      <DependentUpon>dataDHN1.xsd</DependentUpon>
-    </None>
+    <EmbeddedResource Include="subUpdateChiTietMuaHang.resx">
+      <DependentUpon>subUpdateChiTietMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

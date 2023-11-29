@@ -52,15 +52,7 @@
             this.grpTTDH = new System.Windows.Forms.GroupBox();
             this.dgvDH_HD = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.dongHoNuocTableAdapter = new GUI.dataDHN1TableAdapters.DongHoNuocTableAdapter();
             this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
-            this.dataDHN1 = new GUI.dataDHN1();
-            this.dongHoNuocBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.maDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hangDHNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chiSoDauDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soCongToDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tinhTrangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.grpTTKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
@@ -68,8 +60,6 @@
             this.grpTTHD.SuspendLayout();
             this.grpTTDH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDH_HD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataDHN1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dongHoNuocBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // grpTTKH
@@ -294,17 +284,10 @@
             // 
             // dgvDH_HD
             // 
-            this.dgvDH_HD.AutoGenerateColumns = false;
             this.dgvDH_HD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDH_HD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDH_HD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maDHNDataGridViewTextBoxColumn,
-            this.hangDHNDataGridViewTextBoxColumn,
-            this.chiSoDauDataGridViewTextBoxColumn,
-            this.soCongToDataGridViewTextBoxColumn,
-            this.tinhTrangDataGridViewTextBoxColumn,
             this.selectColumn});
-            this.dgvDH_HD.DataSource = this.dongHoNuocBindingSource1;
             this.dgvDH_HD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDH_HD.Location = new System.Drawing.Point(3, 22);
             this.dgvDH_HD.Name = "dgvDH_HD";
@@ -327,53 +310,9 @@
             this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
             // 
-            // dongHoNuocTableAdapter
-            // 
-            this.dongHoNuocTableAdapter.ClearBeforeFill = true;
-            // 
             // diaChiTableAdapter
             // 
             this.diaChiTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataDHN1
-            // 
-            this.dataDHN1.DataSetName = "dataDHN1";
-            this.dataDHN1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dongHoNuocBindingSource1
-            // 
-            this.dongHoNuocBindingSource1.DataMember = "DongHoNuoc";
-            this.dongHoNuocBindingSource1.DataSource = this.dataDHN1;
-            // 
-            // maDHNDataGridViewTextBoxColumn
-            // 
-            this.maDHNDataGridViewTextBoxColumn.DataPropertyName = "maDHN";
-            this.maDHNDataGridViewTextBoxColumn.HeaderText = "maDHN";
-            this.maDHNDataGridViewTextBoxColumn.Name = "maDHNDataGridViewTextBoxColumn";
-            // 
-            // hangDHNDataGridViewTextBoxColumn
-            // 
-            this.hangDHNDataGridViewTextBoxColumn.DataPropertyName = "hangDHN";
-            this.hangDHNDataGridViewTextBoxColumn.HeaderText = "hangDHN";
-            this.hangDHNDataGridViewTextBoxColumn.Name = "hangDHNDataGridViewTextBoxColumn";
-            // 
-            // chiSoDauDataGridViewTextBoxColumn
-            // 
-            this.chiSoDauDataGridViewTextBoxColumn.DataPropertyName = "chiSoDau";
-            this.chiSoDauDataGridViewTextBoxColumn.HeaderText = "chiSoDau";
-            this.chiSoDauDataGridViewTextBoxColumn.Name = "chiSoDauDataGridViewTextBoxColumn";
-            // 
-            // soCongToDataGridViewTextBoxColumn
-            // 
-            this.soCongToDataGridViewTextBoxColumn.DataPropertyName = "soCongTo";
-            this.soCongToDataGridViewTextBoxColumn.HeaderText = "soCongTo";
-            this.soCongToDataGridViewTextBoxColumn.Name = "soCongToDataGridViewTextBoxColumn";
-            // 
-            // tinhTrangDataGridViewTextBoxColumn
-            // 
-            this.tinhTrangDataGridViewTextBoxColumn.DataPropertyName = "tinhTrang";
-            this.tinhTrangDataGridViewTextBoxColumn.HeaderText = "tinhTrang";
-            this.tinhTrangDataGridViewTextBoxColumn.Name = "tinhTrangDataGridViewTextBoxColumn";
             // 
             // selectColumn
             // 
@@ -400,8 +339,6 @@
             this.grpTTHD.PerformLayout();
             this.grpTTDH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDH_HD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataDHN1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dongHoNuocBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,7 +362,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvDH_HD;
-        private dataDHN1TableAdapters.DongHoNuocTableAdapter dongHoNuocTableAdapter;
         private System.Windows.Forms.Label label7;
         //private QuanLyCungCapNuocSachDataSet quanLyCungCapNuocSachDataSet;
         private System.Windows.Forms.ComboBox txtLKH;
@@ -434,13 +370,6 @@
         private QuanLyCungCapNuocSachDataSet4 quanLyCungCapNuocSachDataSet4;
         private System.Windows.Forms.BindingSource diaChiBindingSource;
         private QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter diaChiTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maDHNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hangDHNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chiSoDauDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soCongToDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tinhTrangDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selectColumn;
-        private System.Windows.Forms.BindingSource dongHoNuocBindingSource1;
-        private dataDHN1 dataDHN1;
     }
 }

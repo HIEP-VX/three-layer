@@ -49,10 +49,12 @@
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.timerXoa = new System.Windows.Forms.Timer(this.components);
             this.timerCapNhat = new System.Windows.Forms.Timer(this.components);
+            this.panelHoaDonThuTien = new System.Windows.Forms.Panel();
             this.panelTool.SuspendLayout();
             this.grpCapNhat.SuspendLayout();
             this.grpXoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
+            this.panelHoaDonThuTien.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTool
@@ -67,7 +69,7 @@
             this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
             this.panelTool.MinimumSize = new System.Drawing.Size(800, 31);
             this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(800, 168);
+            this.panelTool.Size = new System.Drawing.Size(800, 31);
             this.panelTool.TabIndex = 3;
             // 
             // grpCapNhat
@@ -243,9 +245,10 @@
             this.dgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHoaDon.Location = new System.Drawing.Point(0, 168);
+            this.dgvHoaDon.Location = new System.Drawing.Point(0, 0);
             this.dgvHoaDon.Name = "dgvHoaDon";
-            this.dgvHoaDon.Size = new System.Drawing.Size(800, 282);
+            this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHoaDon.Size = new System.Drawing.Size(800, 419);
             this.dgvHoaDon.TabIndex = 4;
             // 
             // timerXoa
@@ -258,12 +261,22 @@
             this.timerCapNhat.Interval = 20;
             this.timerCapNhat.Tick += new System.EventHandler(this.timerCapNhat_Tick);
             // 
+            // panelHoaDonThuTien
+            // 
+            this.panelHoaDonThuTien.Controls.Add(this.dgvHoaDon);
+            this.panelHoaDonThuTien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelHoaDonThuTien.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelHoaDonThuTien.Location = new System.Drawing.Point(0, 31);
+            this.panelHoaDonThuTien.Name = "panelHoaDonThuTien";
+            this.panelHoaDonThuTien.Size = new System.Drawing.Size(800, 419);
+            this.panelHoaDonThuTien.TabIndex = 4;
+            // 
             // frmHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvHoaDon);
+            this.Controls.Add(this.panelHoaDonThuTien);
             this.Controls.Add(this.panelTool);
             this.Name = "frmHoaDon";
             this.Text = "frmHoaDon";
@@ -274,6 +287,7 @@
             this.grpXoa.ResumeLayout(false);
             this.grpXoa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
+            this.panelHoaDonThuTien.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -299,5 +313,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtmaNV;
         private System.Windows.Forms.Timer timerCapNhat;
+        private System.Windows.Forms.Panel panelHoaDonThuTien;
     }
 }

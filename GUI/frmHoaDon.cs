@@ -26,7 +26,7 @@ namespace GUI
         {
             try
             {
-                string sql = "Select * from hoadon";
+                string sql = "Select maHD, maTT, maNV, luongNuoc, FORMAT(CAST(tienNuoc AS DECIMAL(18, 0)), 'N0') AS tienNuoc, FORMAT(CAST(thue AS DECIMAL(18, 0)), 'N0') AS tienThue, FORMAT(CAST(tongTien AS DECIMAL(18, 0)), 'N0') AS tongTien, thoiGian, tinhTrang from hoadon";
                 dgvHoaDon.DataSource = AccessData.getData(sql);
             }
             catch (Exception ex)

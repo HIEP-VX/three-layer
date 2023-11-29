@@ -19,17 +19,15 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void frmDongHo_Load(object sender, EventArgs e)
+        private void reload()
         {
-            this.Refresh();
-            panelTool.Size = panelTool.MinimumSize;
             try
             {
-                string query = "SELECT maDHN, hangDHN, chiSoDau, soCongTo,\n" +
+                string query = "SELECT maDHN as 'Mã',maPhieu as 'Mã phiếu', chiSoDau as 'Chỉ số đầu',\n" +
                                "CASE\n" +
                                "WHEN tinhTrang = 0 THEN N'chưa sử dụng'\n" +
-                               "WHEN tinhTrang = 1 THEN N'đã sử  dụng'\n" +
-                               "END AS tinhTrang\n" +
+                               "WHEN tinhTrang = 1 THEN N'đã sử dụng'\n" +
+                               "END AS 'Tình trạng'\n" +
                                "FROM DongHoNuoc\n";
                 dgvDongho.DataSource = AccessData.getData(query);
             }
@@ -37,6 +35,13 @@ namespace GUI
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void frmDongHo_Load(object sender, EventArgs e)
+        {
+            this.Refresh();
+            panelTool.Size = panelTool.MinimumSize;
+            reload();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -48,15 +53,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from DongHoNuoc";
-                    dgvDongho.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
 
@@ -88,15 +85,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from DongHoNuoc";
-                    dgvDongho.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
 
@@ -109,15 +98,7 @@ namespace GUI
 
             sb.DataAdded += () =>
             {
-                try
-                {
-                    string query = "select * from DongHoNuoc";
-                    dgvDongho.DataSource = AccessData.getData(query);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                reload();
             };
         }
 

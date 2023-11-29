@@ -39,7 +39,7 @@
             this.cbThang = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnThemExcel = new System.Windows.Forms.Button();
-            this.btnImport = new System.Windows.Forms.Button();
+            this.btnGhiNuoc = new System.Windows.Forms.Button();
             this.panelGhiNuoc = new System.Windows.Forms.Panel();
             this.dgvGhiNuoc = new System.Windows.Forms.DataGridView();
             this.openFD = new System.Windows.Forms.OpenFileDialog();
@@ -56,13 +56,13 @@
             this.panelTool.Controls.Add(this.cbThang);
             this.panelTool.Controls.Add(this.btnSave);
             this.panelTool.Controls.Add(this.btnThemExcel);
-            this.panelTool.Controls.Add(this.btnImport);
+            this.panelTool.Controls.Add(this.btnGhiNuoc);
             this.panelTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTool.Location = new System.Drawing.Point(0, 0);
             this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
             this.panelTool.MinimumSize = new System.Drawing.Size(800, 32);
             this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(800, 32);
+            this.panelTool.Size = new System.Drawing.Size(800, 168);
             this.panelTool.TabIndex = 1;
             // 
             // grpChiSoNuoc
@@ -158,25 +158,25 @@
             this.btnThemExcel.UseVisualStyleBackColor = true;
             this.btnThemExcel.Click += new System.EventHandler(this.btnThemExcel_Click);
             // 
-            // btnImport
+            // btnGhiNuoc
             // 
-            this.btnImport.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.Location = new System.Drawing.Point(105, 3);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(75, 28);
-            this.btnImport.TabIndex = 43;
-            this.btnImport.Text = "Ghi nước";
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            this.btnGhiNuoc.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGhiNuoc.Location = new System.Drawing.Point(105, 3);
+            this.btnGhiNuoc.Name = "btnGhiNuoc";
+            this.btnGhiNuoc.Size = new System.Drawing.Size(75, 28);
+            this.btnGhiNuoc.TabIndex = 43;
+            this.btnGhiNuoc.Text = "Ghi nước";
+            this.btnGhiNuoc.UseVisualStyleBackColor = true;
+            this.btnGhiNuoc.Click += new System.EventHandler(this.btnGhiNuoc_Click);
             // 
             // panelGhiNuoc
             // 
             this.panelGhiNuoc.Controls.Add(this.dgvGhiNuoc);
             this.panelGhiNuoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGhiNuoc.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelGhiNuoc.Location = new System.Drawing.Point(0, 32);
+            this.panelGhiNuoc.Location = new System.Drawing.Point(0, 168);
             this.panelGhiNuoc.Name = "panelGhiNuoc";
-            this.panelGhiNuoc.Size = new System.Drawing.Size(800, 418);
+            this.panelGhiNuoc.Size = new System.Drawing.Size(800, 282);
             this.panelGhiNuoc.TabIndex = 2;
             // 
             // dgvGhiNuoc
@@ -187,7 +187,7 @@
             this.dgvGhiNuoc.Location = new System.Drawing.Point(0, 0);
             this.dgvGhiNuoc.Name = "dgvGhiNuoc";
             this.dgvGhiNuoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGhiNuoc.Size = new System.Drawing.Size(800, 418);
+            this.dgvGhiNuoc.Size = new System.Drawing.Size(800, 282);
             this.dgvGhiNuoc.TabIndex = 0;
             this.dgvGhiNuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGhiNuoc_CellClick);
             // 
@@ -222,7 +222,7 @@
         #endregion
         private System.Windows.Forms.Panel panelTool;
         private System.Windows.Forms.Panel panelGhiNuoc;
-        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button btnGhiNuoc;
         private System.Windows.Forms.Button btnThemExcel;
         private System.Windows.Forms.OpenFileDialog openFD;
         private System.Windows.Forms.Button btnSave;

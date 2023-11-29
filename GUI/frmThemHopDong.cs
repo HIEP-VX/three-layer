@@ -35,14 +35,11 @@ namespace GUI
 
         private void frmThemHopDong_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet4.diaChi' table. You can move, or remove it, as needed.
             this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
-            // TODO: This line of code loads data into the 'dataDHN1.DongHoNuoc' table. You can move, or remove it, as needed.
-            this.dongHoNuocTableAdapter.Fill(this.dataDHN1.DongHoNuoc);
             this.refresh();
             try
             {
-                string query = "SELECT maDHN, hangDHN, chiSoDau, soCongTo,\n" +
+                string query = "SELECT maDHN, chiSoDau,\n" +
                                "CASE\n"+
                                "WHEN tinhTrang = 0 THEN N'chưa sử dụng'\n"+
                                "WHEN tinhTrang = 1 THEN N'đã sử dụng'\n"+
@@ -50,6 +47,16 @@ namespace GUI
                                "FROM DongHoNuoc\n"+
                                "WHERE tinhTrang = 0;";
                 dgvDH_HD.DataSource = AccessData.getData(query);
+
+                dgvDH_HD.Columns[1].HeaderText = "Mã";
+                dgvDH_HD.Columns[2].HeaderText = "Chỉ số đầu";
+                dgvDH_HD.Columns[3].HeaderText = "Tình trạng";
+
+                foreach (DataGridViewColumn column in dgvDH_HD.Columns)
+                {
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
             }
             catch (Exception ex)
             {

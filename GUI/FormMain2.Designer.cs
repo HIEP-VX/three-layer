@@ -45,14 +45,13 @@
             this.button7 = new System.Windows.Forms.Button();
             this.btnHeThong = new System.Windows.Forms.Button();
             this.panelDanhMuc = new System.Windows.Forms.Panel();
-            this.btnNhanVien = new System.Windows.Forms.Button();
-            this.btnXuPhat = new System.Windows.Forms.Button();
-            this.btnHoaDon = new System.Windows.Forms.Button();
             this.btnGhiNuoc = new System.Windows.Forms.Button();
+            this.btnHoaDon = new System.Windows.Forms.Button();
+            this.btnXuPhat = new System.Windows.Forms.Button();
+            this.btnNhanVien = new System.Windows.Forms.Button();
+            this.btnKho = new System.Windows.Forms.Button();
             this.pitureDanhMuc = new System.Windows.Forms.PictureBox();
             this.btnKhachHang = new System.Windows.Forms.Button();
-            this.btnLoaiKhachHang = new System.Windows.Forms.Button();
-            this.btnDongHo = new System.Windows.Forms.Button();
             this.panelHopDong = new System.Windows.Forms.Panel();
             this.btnDanhSachHopDong = new System.Windows.Forms.Button();
             this.btnThemHopDong = new System.Windows.Forms.Button();
@@ -88,7 +87,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(964, 38);
+            this.panel1.Size = new System.Drawing.Size(1155, 38);
             this.panel1.TabIndex = 0;
             // 
             // labelWelcome
@@ -97,7 +96,7 @@
             this.labelWelcome.AutoSize = true;
             this.labelWelcome.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWelcome.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelWelcome.Location = new System.Drawing.Point(688, 7);
+            this.labelWelcome.Location = new System.Drawing.Point(879, 7);
             this.labelWelcome.Name = "labelWelcome";
             this.labelWelcome.Size = new System.Drawing.Size(112, 23);
             this.labelWelcome.TabIndex = 3;
@@ -148,7 +147,7 @@
             this.panelMain.MaximumSize = new System.Drawing.Size(200, 720);
             this.panelMain.MinimumSize = new System.Drawing.Size(53, 668);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(200, 711);
+            this.panelMain.Size = new System.Drawing.Size(53, 711);
             this.panelMain.TabIndex = 1;
             // 
             // panelHeThong
@@ -163,7 +162,7 @@
             this.panelHeThong.Controls.Add(this.btnHeThong);
             this.panelHeThong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelHeThong.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeThong.Location = new System.Drawing.Point(0, 370);
+            this.panelHeThong.Location = new System.Drawing.Point(0, 50);
             this.panelHeThong.MaximumSize = new System.Drawing.Size(200, 250);
             this.panelHeThong.MinimumSize = new System.Drawing.Size(200, 50);
             this.panelHeThong.Name = "panelHeThong";
@@ -277,71 +276,22 @@
             // 
             this.panelDanhMuc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(83)))));
             this.panelDanhMuc.Controls.Add(this.btnNhanVien);
+            this.panelDanhMuc.Controls.Add(this.btnKho);
             this.panelDanhMuc.Controls.Add(this.btnXuPhat);
             this.panelDanhMuc.Controls.Add(this.btnHoaDon);
             this.panelDanhMuc.Controls.Add(this.btnGhiNuoc);
             this.panelDanhMuc.Controls.Add(this.pitureDanhMuc);
             this.panelDanhMuc.Controls.Add(this.btnKhachHang);
-            this.panelDanhMuc.Controls.Add(this.btnLoaiKhachHang);
-            this.panelDanhMuc.Controls.Add(this.btnDongHo);
             this.panelDanhMuc.Controls.Add(this.panelHopDong);
             this.panelDanhMuc.Controls.Add(this.btnDanhMuc);
             this.panelDanhMuc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelDanhMuc.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDanhMuc.Location = new System.Drawing.Point(0, 0);
-            this.panelDanhMuc.MaximumSize = new System.Drawing.Size(200, 370);
+            this.panelDanhMuc.MaximumSize = new System.Drawing.Size(200, 380);
             this.panelDanhMuc.MinimumSize = new System.Drawing.Size(200, 50);
             this.panelDanhMuc.Name = "panelDanhMuc";
-            this.panelDanhMuc.Size = new System.Drawing.Size(200, 370);
+            this.panelDanhMuc.Size = new System.Drawing.Size(200, 50);
             this.panelDanhMuc.TabIndex = 2;
-            // 
-            // btnNhanVien
-            // 
-            this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.btnNhanVien.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNhanVien.FlatAppearance.BorderSize = 0;
-            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhanVien.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhanVien.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnNhanVien.Location = new System.Drawing.Point(0, 330);
-            this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(200, 40);
-            this.btnNhanVien.TabIndex = 8;
-            this.btnNhanVien.Text = "Nhân viên";
-            this.btnNhanVien.UseVisualStyleBackColor = false;
-            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
-            // 
-            // btnXuPhat
-            // 
-            this.btnXuPhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.btnXuPhat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnXuPhat.FlatAppearance.BorderSize = 0;
-            this.btnXuPhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXuPhat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXuPhat.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnXuPhat.Location = new System.Drawing.Point(0, 290);
-            this.btnXuPhat.Name = "btnXuPhat";
-            this.btnXuPhat.Size = new System.Drawing.Size(200, 40);
-            this.btnXuPhat.TabIndex = 7;
-            this.btnXuPhat.Text = "Xử phạt";
-            this.btnXuPhat.UseVisualStyleBackColor = false;
-            this.btnXuPhat.Click += new System.EventHandler(this.btnXuPhat_Click);
-            // 
-            // btnHoaDon
-            // 
-            this.btnHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.btnHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHoaDon.FlatAppearance.BorderSize = 0;
-            this.btnHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHoaDon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHoaDon.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnHoaDon.Location = new System.Drawing.Point(0, 250);
-            this.btnHoaDon.Name = "btnHoaDon";
-            this.btnHoaDon.Size = new System.Drawing.Size(200, 40);
-            this.btnHoaDon.TabIndex = 6;
-            this.btnHoaDon.Text = "Hóa đơn";
-            this.btnHoaDon.UseVisualStyleBackColor = false;
-            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
             // 
             // btnGhiNuoc
             // 
@@ -351,13 +301,79 @@
             this.btnGhiNuoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGhiNuoc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGhiNuoc.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGhiNuoc.Location = new System.Drawing.Point(0, 210);
+            this.btnGhiNuoc.Location = new System.Drawing.Point(0, 130);
             this.btnGhiNuoc.Name = "btnGhiNuoc";
             this.btnGhiNuoc.Size = new System.Drawing.Size(200, 40);
             this.btnGhiNuoc.TabIndex = 9;
             this.btnGhiNuoc.Text = "Tiêu thụ";
             this.btnGhiNuoc.UseVisualStyleBackColor = false;
             this.btnGhiNuoc.Click += new System.EventHandler(this.btnGhiNuoc_Click);
+            // 
+            // btnHoaDon
+            // 
+            this.btnHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
+            this.btnHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHoaDon.FlatAppearance.BorderSize = 0;
+            this.btnHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoaDon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHoaDon.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHoaDon.Location = new System.Drawing.Point(0, 170);
+            this.btnHoaDon.Name = "btnHoaDon";
+            this.btnHoaDon.Size = new System.Drawing.Size(200, 40);
+            this.btnHoaDon.TabIndex = 6;
+            this.btnHoaDon.Text = "Hóa đơn";
+            this.btnHoaDon.UseVisualStyleBackColor = false;
+            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
+            // 
+            // btnXuPhat
+            // 
+            this.btnXuPhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
+            this.btnXuPhat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnXuPhat.FlatAppearance.BorderSize = 0;
+            this.btnXuPhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXuPhat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuPhat.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnXuPhat.Location = new System.Drawing.Point(0, 210);
+            this.btnXuPhat.Name = "btnXuPhat";
+            this.btnXuPhat.Size = new System.Drawing.Size(200, 40);
+            this.btnXuPhat.TabIndex = 7;
+            this.btnXuPhat.Text = "Xử phạt";
+            this.btnXuPhat.UseVisualStyleBackColor = false;
+            this.btnXuPhat.Click += new System.EventHandler(this.btnXuPhat_Click);
+            // 
+            // btnNhanVien
+            // 
+            this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
+            this.btnNhanVien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNhanVien.FlatAppearance.BorderSize = 0;
+            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhanVien.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhanVien.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnNhanVien.Location = new System.Drawing.Point(0, 290);
+            this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.Size = new System.Drawing.Size(200, 40);
+            this.btnNhanVien.TabIndex = 8;
+            this.btnNhanVien.Text = "Nhân viên";
+            this.btnNhanVien.UseVisualStyleBackColor = false;
+            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
+            // 
+            // btnKho
+            // 
+            this.btnKho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
+            this.btnKho.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnKho.FlatAppearance.BorderSize = 0;
+            this.btnKho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKho.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKho.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnKho.Location = new System.Drawing.Point(0, 250);
+            this.btnKho.MaximumSize = new System.Drawing.Size(200, 100);
+            this.btnKho.MinimumSize = new System.Drawing.Size(200, 40);
+            this.btnKho.Name = "btnKho";
+            this.btnKho.Size = new System.Drawing.Size(200, 40);
+            this.btnKho.TabIndex = 1;
+            this.btnKho.Text = "Kho";
+            this.btnKho.UseVisualStyleBackColor = false;
+            this.btnKho.Click += new System.EventHandler(this.btnKho_Click_1);
             // 
             // pitureDanhMuc
             // 
@@ -379,45 +395,13 @@
             this.btnKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKhachHang.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKhachHang.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnKhachHang.Location = new System.Drawing.Point(0, 170);
+            this.btnKhachHang.Location = new System.Drawing.Point(0, 90);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.Size = new System.Drawing.Size(200, 40);
             this.btnKhachHang.TabIndex = 3;
             this.btnKhachHang.Text = "Khách hàng";
             this.btnKhachHang.UseVisualStyleBackColor = false;
             this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
-            // 
-            // btnLoaiKhachHang
-            // 
-            this.btnLoaiKhachHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.btnLoaiKhachHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLoaiKhachHang.FlatAppearance.BorderSize = 0;
-            this.btnLoaiKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoaiKhachHang.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoaiKhachHang.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLoaiKhachHang.Location = new System.Drawing.Point(0, 130);
-            this.btnLoaiKhachHang.Name = "btnLoaiKhachHang";
-            this.btnLoaiKhachHang.Size = new System.Drawing.Size(200, 40);
-            this.btnLoaiKhachHang.TabIndex = 2;
-            this.btnLoaiKhachHang.Text = "Loại khách hàng";
-            this.btnLoaiKhachHang.UseVisualStyleBackColor = false;
-            this.btnLoaiKhachHang.Click += new System.EventHandler(this.btnLoaiKhachHang_Click);
-            // 
-            // btnDongHo
-            // 
-            this.btnDongHo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.btnDongHo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDongHo.FlatAppearance.BorderSize = 0;
-            this.btnDongHo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDongHo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDongHo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDongHo.Location = new System.Drawing.Point(0, 90);
-            this.btnDongHo.Name = "btnDongHo";
-            this.btnDongHo.Size = new System.Drawing.Size(200, 40);
-            this.btnDongHo.TabIndex = 4;
-            this.btnDongHo.Text = "Đồng hồ";
-            this.btnDongHo.UseVisualStyleBackColor = false;
-            this.btnDongHo.Click += new System.EventHandler(this.btnDongHo_Click);
             // 
             // panelHopDong
             // 
@@ -525,9 +509,9 @@
             this.panel_body.Controls.Add(this.button13);
             this.panel_body.Controls.Add(this.label1);
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(200, 38);
+            this.panel_body.Location = new System.Drawing.Point(53, 38);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(764, 711);
+            this.panel_body.Size = new System.Drawing.Size(1102, 711);
             this.panel_body.TabIndex = 2;
             // 
             // button14
@@ -536,7 +520,7 @@
             this.button14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(102)))), ((int)(((byte)(219)))));
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(413, 454);
+            this.button14.Location = new System.Drawing.Point(582, 454);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(165, 50);
             this.button14.TabIndex = 2;
@@ -550,7 +534,7 @@
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.SystemColors.Control;
-            this.button13.Location = new System.Drawing.Point(196, 454);
+            this.button13.Location = new System.Drawing.Point(365, 454);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(165, 50);
             this.button13.TabIndex = 1;
@@ -563,7 +547,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(39)))), ((int)(((byte)(19)))));
-            this.label1.Location = new System.Drawing.Point(146, 234);
+            this.label1.Location = new System.Drawing.Point(315, 234);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(488, 33);
             this.label1.TabIndex = 0;
@@ -578,7 +562,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 749);
+            this.ClientSize = new System.Drawing.Size(1155, 749);
             this.Controls.Add(this.panel_body);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel1);
@@ -611,7 +595,6 @@
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelDanhMuc;
         private System.Windows.Forms.Button btnKhachHang;
-        private System.Windows.Forms.Button btnLoaiKhachHang;
         private System.Windows.Forms.Button btnHopDong1;
         private System.Windows.Forms.Button btnDanhMuc;
         private System.Windows.Forms.Panel panelHeThong;
@@ -628,7 +611,6 @@
         private System.Windows.Forms.Button btnNhanVien;
         private System.Windows.Forms.Button btnXuPhat;
         private System.Windows.Forms.Button btnHoaDon;
-        private System.Windows.Forms.Button btnDongHo;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button14;
@@ -643,5 +625,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelWelcome;
+        private System.Windows.Forms.Button btnKho;
     }
 }

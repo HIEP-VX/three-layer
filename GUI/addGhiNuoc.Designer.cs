@@ -149,6 +149,7 @@
             this.Name = "addGhiNuoc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addGhiNuoc";
+            this.Load += new System.EventHandler(this.addGhiNuoc_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -84,7 +85,14 @@ namespace GUI
 
         private void subUpdateKH_Load(object sender, EventArgs e)
         {
-
+            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet4.diaChi' table. You can move, or remove it, as needed.
+            this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
+            txtMa.Text = khachHang.maKH.ToString();
+            txtHT.Text = khachHang.tenKH.ToString();
+            dateNS.Value = khachHang.ngaySinh;
+            cbPhuong.Text = khachHang.phuong.ToString();
+            txtDC.Text = khachHang.diaChi.ToString();
+            txtSoDT.Text = khachHang.soDT.ToString();
         }
     }
 }

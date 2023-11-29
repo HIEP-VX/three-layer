@@ -16,12 +16,14 @@ namespace GUI
     public partial class addGhiNuoc : Form
     {
         public bool isExit = true;
-        public event EventHandler Logout;
         public event Action DataAdded;
-        public addGhiNuoc()
+        private frmTieuThu fTT;
+
+        public addGhiNuoc(frmTieuThu fTT)
         {
             InitializeComponent();
             SetLinearGradient(btnThem, "#56d8e4", "#9f01ea");
+            this.fTT = fTT;
         }
         static string[] DataTableColumnToStringArray(DataTable dataTable, string columnName)
         {
@@ -74,12 +76,13 @@ namespace GUI
                 MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 DataAdded?.Invoke();
+                fTT.HandleAddButton();
             }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Logout(this, new EventArgs());
+            this.Close();
         }
 
         private void SetLinearGradient(Button btn, string hexColor1, string hexColor2)
@@ -102,6 +105,11 @@ namespace GUI
             {
                 g.FillRectangle(linearGradientBrush, btn.ClientRectangle);
             }
+        }
+
+        private void addGhiNuoc_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
