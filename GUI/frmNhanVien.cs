@@ -65,33 +65,10 @@ namespace GUI
 
         }
 
-        private void addForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subAddForm).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subAddForm).Close();
-            this.Show();
-        }
-
-        private void delForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subDelForm).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subDelForm).Close();
-            this.Show();
-        }
-
-        private void updateForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subbUpdateForm).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subbUpdateForm).Close();
-            this.Show();
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             subAddForm sb = new subAddForm();
-            sb.Show();
-
-            sb.Logout += addForm_Logout;
+            sb.ShowDialog();
 
             sb.DataAdded += () =>
             {
@@ -102,9 +79,7 @@ namespace GUI
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
             subDelForm sb = new subDelForm();
-            sb.Show();
-
-            sb.Logout += delForm_Logout;
+            sb.ShowDialog();
 
             sb.DataAdded += () =>
             {

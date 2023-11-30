@@ -32,17 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDongHo));
             this.panelTool = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cbTinhTrang = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnHopTimKiem = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtsoDT = new System.Windows.Forms.TextBox();
-            this.txttenNV = new System.Windows.Forms.TextBox();
+            this.txtChiSoDau = new System.Windows.Forms.TextBox();
+            this.txtMaPhieu = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -73,17 +71,15 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cbTinhTrang);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnHopTimKiem);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtMa);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtsoDT);
-            this.groupBox1.Controls.Add(this.txttenNV);
+            this.groupBox1.Controls.Add(this.txtChiSoDau);
+            this.groupBox1.Controls.Add(this.txtMaPhieu);
             this.groupBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(24, 36);
             this.groupBox1.Name = "groupBox1";
@@ -92,39 +88,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
             // 
-            // comboBox1
+            // cbTinhTrang
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbTinhTrang.FormattingEnabled = true;
+            this.cbTinhTrang.Items.AddRange(new object[] {
             "0-Chưa sử dụng",
             "1-Đã sử dụng"});
-            this.comboBox1.Location = new System.Drawing.Point(399, 74);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 24);
-            this.comboBox1.TabIndex = 39;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(399, 43);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 23);
-            this.textBox2.TabIndex = 37;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(309, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 18);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Số công tơ";
+            this.cbTinhTrang.Location = new System.Drawing.Point(399, 59);
+            this.cbTinhTrang.Name = "cbTinhTrang";
+            this.cbTinhTrang.Size = new System.Drawing.Size(152, 24);
+            this.cbTinhTrang.TabIndex = 39;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(309, 74);
+            this.label5.Location = new System.Drawing.Point(309, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 18);
             this.label5.TabIndex = 34;
@@ -135,7 +114,7 @@
             this.btnHopTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHopTimKiem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHopTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnHopTimKiem.Image")));
-            this.btnHopTimKiem.Location = new System.Drawing.Point(588, 50);
+            this.btnHopTimKiem.Location = new System.Drawing.Point(587, 22);
             this.btnHopTimKiem.Name = "btnHopTimKiem";
             this.btnHopTimKiem.Size = new System.Drawing.Size(56, 36);
             this.btnHopTimKiem.TabIndex = 33;
@@ -154,7 +133,7 @@
             // 
             // txtMa
             // 
-            this.txtMa.Location = new System.Drawing.Point(115, 32);
+            this.txtMa.Location = new System.Drawing.Point(115, 31);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(152, 23);
             this.txtMa.TabIndex = 32;
@@ -163,35 +142,35 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 58);
+            this.label3.Location = new System.Drawing.Point(22, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 18);
+            this.label3.Size = new System.Drawing.Size(72, 18);
             this.label3.TabIndex = 27;
-            this.label3.Text = "Hãng";
+            this.label3.Text = "Mã phiếu";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 88);
+            this.label4.Location = new System.Drawing.Point(306, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 18);
             this.label4.TabIndex = 28;
             this.label4.Text = "Chỉ số đầu";
             // 
-            // txtsoDT
+            // txtChiSoDau
             // 
-            this.txtsoDT.Location = new System.Drawing.Point(115, 86);
-            this.txtsoDT.Name = "txtsoDT";
-            this.txtsoDT.Size = new System.Drawing.Size(152, 23);
-            this.txtsoDT.TabIndex = 30;
+            this.txtChiSoDau.Location = new System.Drawing.Point(399, 31);
+            this.txtChiSoDau.Name = "txtChiSoDau";
+            this.txtChiSoDau.Size = new System.Drawing.Size(152, 23);
+            this.txtChiSoDau.TabIndex = 30;
             // 
-            // txttenNV
+            // txtMaPhieu
             // 
-            this.txttenNV.Location = new System.Drawing.Point(115, 59);
-            this.txttenNV.Name = "txttenNV";
-            this.txttenNV.Size = new System.Drawing.Size(152, 23);
-            this.txttenNV.TabIndex = 29;
+            this.txtMaPhieu.Location = new System.Drawing.Point(115, 59);
+            this.txtMaPhieu.Name = "txtMaPhieu";
+            this.txtMaPhieu.Size = new System.Drawing.Size(152, 23);
+            this.txtMaPhieu.TabIndex = 29;
             // 
             // btnTimKiem
             // 
@@ -254,6 +233,7 @@
             this.dgvDongho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDongho.Location = new System.Drawing.Point(0, 0);
             this.dgvDongho.Name = "dgvDongho";
+            this.dgvDongho.ReadOnly = true;
             this.dgvDongho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDongho.Size = new System.Drawing.Size(800, 282);
             this.dgvDongho.TabIndex = 1;
@@ -301,18 +281,16 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvDongho;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnHopTimKiem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMa;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtsoDT;
-        private System.Windows.Forms.TextBox txttenNV;
+        private System.Windows.Forms.TextBox txtChiSoDau;
+        private System.Windows.Forms.TextBox txtMaPhieu;
         private System.Windows.Forms.Timer timerTimKiem;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTinhTrang;
         private System.Windows.Forms.Panel panelDgvDH;
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvXuPhat = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvXuPhat)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -41,27 +41,27 @@
             this.panel1.Size = new System.Drawing.Size(800, 29);
             this.panel1.TabIndex = 4;
             // 
-            // dataGridView1
+            // dgvXuPhat
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 29);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 421);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvXuPhat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvXuPhat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvXuPhat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvXuPhat.Location = new System.Drawing.Point(0, 29);
+            this.dgvXuPhat.Name = "dgvXuPhat";
+            this.dgvXuPhat.Size = new System.Drawing.Size(800, 421);
+            this.dgvXuPhat.TabIndex = 5;
             // 
             // frmXuPhat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvXuPhat);
             this.Controls.Add(this.panel1);
             this.Name = "frmXuPhat";
             this.Text = "frmXuPhat";
             this.Load += new System.EventHandler(this.frmXuPhat_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvXuPhat)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -69,6 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvXuPhat;
     }
 }

@@ -18,7 +18,6 @@ namespace GUI
     {
 
         public bool isExit = true;
-        public event EventHandler Logout;
         public event Action DataAdded;
 
         public subAddForm()
@@ -30,7 +29,7 @@ namespace GUI
         #region Event
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Logout(this, new EventArgs());
+            this.Close();
         }
         #endregion
 

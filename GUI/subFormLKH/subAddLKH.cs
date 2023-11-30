@@ -17,7 +17,6 @@ namespace GUI
     public partial class subAddLKH : Form
     {
         public bool isExit = true;
-        public event EventHandler Logout;
         public event Action DataAdded;
         public subAddLKH()
         {
@@ -32,7 +31,7 @@ namespace GUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Logout(this, new EventArgs());
+            this.Close();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

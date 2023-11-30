@@ -69,7 +69,7 @@
             this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
             this.panelTool.MinimumSize = new System.Drawing.Size(800, 31);
             this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(800, 31);
+            this.panelTool.Size = new System.Drawing.Size(800, 168);
             this.panelTool.TabIndex = 3;
             // 
             // grpCapNhat
@@ -247,8 +247,9 @@
             this.dgvHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHoaDon.Location = new System.Drawing.Point(0, 0);
             this.dgvHoaDon.Name = "dgvHoaDon";
+            this.dgvHoaDon.ReadOnly = true;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(800, 419);
+            this.dgvHoaDon.Size = new System.Drawing.Size(800, 282);
             this.dgvHoaDon.TabIndex = 4;
             // 
             // timerXoa
@@ -266,9 +267,9 @@
             this.panelHoaDonThuTien.Controls.Add(this.dgvHoaDon);
             this.panelHoaDonThuTien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHoaDonThuTien.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelHoaDonThuTien.Location = new System.Drawing.Point(0, 31);
+            this.panelHoaDonThuTien.Location = new System.Drawing.Point(0, 168);
             this.panelHoaDonThuTien.Name = "panelHoaDonThuTien";
-            this.panelHoaDonThuTien.Size = new System.Drawing.Size(800, 419);
+            this.panelHoaDonThuTien.Size = new System.Drawing.Size(800, 282);
             this.panelHoaDonThuTien.TabIndex = 4;
             // 
             // frmHoaDon

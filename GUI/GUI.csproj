@@ -68,10 +68,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addGhiNuoc.cs">
+    <Compile Include="subFormTieuThu\addGhiNuoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="addGhiNuoc.Designer.cs">
+    <Compile Include="subFormTieuThu\addGhiNuoc.Designer.cs">
       <DependentUpon>addGhiNuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain2.cs">
@@ -231,12 +231,6 @@
     <Compile Include="subFormHopDong\subDelHopD.Designer.cs">
       <DependentUpon>subDelHopD.cs</DependentUpon>
     </Compile>
-    <Compile Include="subFormNhanVien\subbUpdateForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="subFormNhanVien\subbUpdateForm.Designer.cs">
-      <DependentUpon>subbUpdateForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="subFormNhanVien\subAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,7 +267,7 @@
     <Compile Include="subUpdateChiTietMuaHang.Designer.cs">
       <DependentUpon>subUpdateChiTietMuaHang.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="addGhiNuoc.resx">
+    <EmbeddedResource Include="subFormTieuThu\addGhiNuoc.resx">
       <DependentUpon>addGhiNuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain2.resx">
@@ -355,9 +349,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="subFormHopDong\subDelHopD.resx">
       <DependentUpon>subDelHopD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="subFormNhanVien\subbUpdateForm.resx">
-      <DependentUpon>subbUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="subFormNhanVien\subAddForm.resx">
       <DependentUpon>subAddForm.cs</DependentUpon>

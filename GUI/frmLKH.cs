@@ -54,31 +54,10 @@ namespace GUI
             reload();
         }
 
-        private void addForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subAddLKH).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subAddLKH).Close();
-            this.Show();
-        }
-        private void delForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subDelLKH).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subDelLKH).Close();
-            this.Show();
-        }
-        private void updForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subUpdateLKH).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subUpdateLKH).Close();
-            this.Show();
-        }
-
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
             subAddLKH sb = new subAddLKH();
-            sb.Show();
-
-            sb.Logout += addForm_Logout;
+            sb.ShowDialog();
 
             sb.DataAdded += () =>
             {
@@ -89,9 +68,7 @@ namespace GUI
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
             subDelLKH sb = new subDelLKH();
-            sb.Show();
-
-            sb.Logout += delForm_Logout;
+            sb.ShowDialog();
 
             sb.DataAdded += () =>
             {
@@ -102,9 +79,7 @@ namespace GUI
         private void btnCapNhat_Click_1(object sender, EventArgs e)
         {
             subUpdateLKH sb = new subUpdateLKH();
-            sb.Show();
-
-            sb.Logout += updForm_Logout;
+            sb.ShowDialog();
 
             sb.DataAdded += () =>
             {
@@ -164,6 +139,5 @@ namespace GUI
                 }
             }
         }
-
     }
 }

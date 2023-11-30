@@ -39,19 +39,6 @@ namespace GUI
             reload();
         }
 
-        private void delForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subDelHopD).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subDelHopD).Close();
-            this.Show();
-        }
-        private void updForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subUpdateHopD).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subUpdateHopD).Close();
-            this.Show();
-        }
-
         private void btnHopTimKiem_Click(object sender, EventArgs e)
         {
             string query = "";
@@ -109,9 +96,7 @@ namespace GUI
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
             subDelHopD sb = new subDelHopD();
-            sb.Show();
-
-            sb.Logout += delForm_Logout;
+            sb.ShowDialog();
 
             sb.DataAdded += () =>
             {
@@ -122,9 +107,7 @@ namespace GUI
         private void btnCapNhat_Click_1(object sender, EventArgs e)
         {
             subUpdateHopD sb = new subUpdateHopD();
-            sb.Show();
-
-            sb.Logout += updForm_Logout;
+            sb.ShowDialog();
 
             sb.DataAdded += () =>
             {

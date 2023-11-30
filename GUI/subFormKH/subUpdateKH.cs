@@ -16,7 +16,6 @@ namespace GUI
     public partial class subUpdateKH : Form
     {
         public bool isExit = true;
-        public event EventHandler Logout;
         public event Action DataAdded;
         public subUpdateKH()
         {
@@ -80,7 +79,7 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Logout(this, new EventArgs());
+            this.Close();
         }
 
         private void subUpdateKH_Load(object sender, EventArgs e)

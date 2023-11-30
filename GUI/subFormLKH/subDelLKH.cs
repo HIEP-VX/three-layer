@@ -14,7 +14,6 @@ namespace GUI
     public partial class subDelLKH : Form
     {
         public bool isExit = true;
-        public event EventHandler Logout;
         public event Action DataAdded;
         public subDelLKH()
         {
@@ -50,7 +49,7 @@ namespace GUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Logout(this, new EventArgs());
+            this.Close();
         }
     }
 }

@@ -69,13 +69,6 @@ namespace GUI
             reload();
         }
 
-        private void UpForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subUpdateKH).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subUpdateKH).Close();
-            this.Show();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if(index == -1)
@@ -85,9 +78,7 @@ namespace GUI
             else
             {
                 subUpdateKH sb = new subUpdateKH();
-                sb.Show();
-
-                sb.Logout += UpForm_Logout;
+                sb.ShowDialog();
 
                 sb.DataAdded += () =>
                 {
@@ -193,9 +184,6 @@ namespace GUI
                     MessageBox.Show("Vui lòng chọn một bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
-
-            
         }
     }
 }

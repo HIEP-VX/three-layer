@@ -266,7 +266,10 @@ namespace GUI
 
         private void btnXuPhat_Click(object sender, EventArgs e)
         {
-
+            OpenFormChild(new frmXuPhat());
+            lblTitle.Text = btnXuPhat.Text;
+            hopDongExpand = false;
+            timerHopDong.Start();
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)

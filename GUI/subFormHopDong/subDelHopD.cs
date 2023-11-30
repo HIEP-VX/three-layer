@@ -15,7 +15,6 @@ namespace GUI
     {
 
         public bool isExit = true;
-        public event EventHandler Logout;
         public event Action DataAdded;
 
         public subDelHopD()
@@ -57,7 +56,7 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Logout(this, new EventArgs());
+            this.Close();
         }
     }
 }

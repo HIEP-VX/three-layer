@@ -35,7 +35,7 @@ namespace GUI
         public void LoadRecords()
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("Select maTT, tt.maNV, tt.maKH, chiSoCu, chiSoMoi , luongNuoc ,  ThoiGianDau, CONVERT(VARCHAR, GETDATE(), 103) AS ThoiGianCuoi,kh.tenKH, kh.phuong, kh.diaChi, nv.tenNV from tieuthu tt join khachhang kh on kh.maKH = tt.maKH join nhanvien nv on nv.maNV = tt.maNV", conn);
+            SqlCommand cmd = new SqlCommand("Select maTT, tt.maNV, tt.maKH, chiSoCu, chiSoMoi , luongNuoc ,  ThoiGianDau, ThoiGianCuoi,kh.tenKH, kh.diaChi, kh.phuong, nv.tenNV from tieuthu tt join khachhang kh on kh.maKH = tt.maKH join nhanvien nv on nv.maNV = tt.maNV", conn);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
@@ -64,8 +64,38 @@ namespace GUI
                 int currentMonth = currentDate.Month;
                 int currentYear = currentDate.Year;*/
                 // CONVERT(VARCHAR, GETDATE(), 103) AS
-                string query = $"Select maTT, tt.maNV, tt.maKH, chiSoCu, chiSoMoi , luongNuoc ,  ThoiGianDau, ThoiGianCuoi,kh.tenKH, kh.phuong, kh.diaChi, nv.tenNV from tieuthu tt join khachhang kh on kh.maKH = tt.maKH join nhanvien nv on nv.maNV = tt.maNV";
+                string query = $"Select maTT, tt.maNV, tt.maKH, chiSoCu, chiSoMoi , luongNuoc ,  ThoiGianDau, ThoiGianCuoi,kh.tenKH, kh.diaChi, kh.phuong, nv.tenNV from tieuthu tt join khachhang kh on kh.maKH = tt.maKH join nhanvien nv on nv.maNV = tt.maNV";
                 dgvGhiNuoc.DataSource = AccessData.getData(query);
+
+                dgvGhiNuoc.Columns[0].HeaderText = "Mã tiêu thụ";
+                dgvGhiNuoc.Columns[1].HeaderText = "Mã nhân viên";
+                dgvGhiNuoc.Columns[2].HeaderText = "Mã khách hàng";
+                dgvGhiNuoc.Columns[3].HeaderText = "Chỉ số cũ";
+                dgvGhiNuoc.Columns[4].HeaderText = "Chỉ số mới";
+                dgvGhiNuoc.Columns[5].HeaderText = "Lượng nước";
+                dgvGhiNuoc.Columns[6].HeaderText = "Thời gian đầu";
+                dgvGhiNuoc.Columns[7].HeaderText = "Thời gian cuối";
+                dgvGhiNuoc.Columns[8].HeaderText = "Tên khách hàng";
+                dgvGhiNuoc.Columns[9].HeaderText = "Đường";
+                dgvGhiNuoc.Columns[10].HeaderText = "Phường";
+                dgvGhiNuoc.Columns[11].HeaderText = "Tên nhân viên";
+
+                dgvGhiNuoc.Columns[0].Width = 30;
+                dgvGhiNuoc.Columns[1].Width = 30;
+                dgvGhiNuoc.Columns[2].Width = 30;
+                dgvGhiNuoc.Columns[3].Width = 30;
+                dgvGhiNuoc.Columns[4].Width = 30;
+                dgvGhiNuoc.Columns[5].Width = 30;
+                dgvGhiNuoc.Columns[6].Width = 70;
+                dgvGhiNuoc.Columns[7].Width = 70;
+                dgvGhiNuoc.Columns[10].Width = 50;
+                dgvGhiNuoc.Columns[11].Width = 60;
+
+                foreach (DataGridViewColumn column in dgvGhiNuoc.Columns)
+                {
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
             }
             catch (Exception ex)
             {

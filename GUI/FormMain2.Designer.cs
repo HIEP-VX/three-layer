@@ -45,11 +45,11 @@
             this.button7 = new System.Windows.Forms.Button();
             this.btnHeThong = new System.Windows.Forms.Button();
             this.panelDanhMuc = new System.Windows.Forms.Panel();
-            this.btnGhiNuoc = new System.Windows.Forms.Button();
-            this.btnHoaDon = new System.Windows.Forms.Button();
-            this.btnXuPhat = new System.Windows.Forms.Button();
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.btnKho = new System.Windows.Forms.Button();
+            this.btnXuPhat = new System.Windows.Forms.Button();
+            this.btnHoaDon = new System.Windows.Forms.Button();
+            this.btnGhiNuoc = new System.Windows.Forms.Button();
             this.pitureDanhMuc = new System.Windows.Forms.PictureBox();
             this.btnKhachHang = new System.Windows.Forms.Button();
             this.panelHopDong = new System.Windows.Forms.Panel();
@@ -293,54 +293,6 @@
             this.panelDanhMuc.Size = new System.Drawing.Size(200, 50);
             this.panelDanhMuc.TabIndex = 2;
             // 
-            // btnGhiNuoc
-            // 
-            this.btnGhiNuoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.btnGhiNuoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGhiNuoc.FlatAppearance.BorderSize = 0;
-            this.btnGhiNuoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGhiNuoc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGhiNuoc.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGhiNuoc.Location = new System.Drawing.Point(0, 130);
-            this.btnGhiNuoc.Name = "btnGhiNuoc";
-            this.btnGhiNuoc.Size = new System.Drawing.Size(200, 40);
-            this.btnGhiNuoc.TabIndex = 9;
-            this.btnGhiNuoc.Text = "Tiêu thụ";
-            this.btnGhiNuoc.UseVisualStyleBackColor = false;
-            this.btnGhiNuoc.Click += new System.EventHandler(this.btnGhiNuoc_Click);
-            // 
-            // btnHoaDon
-            // 
-            this.btnHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.btnHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHoaDon.FlatAppearance.BorderSize = 0;
-            this.btnHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHoaDon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHoaDon.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnHoaDon.Location = new System.Drawing.Point(0, 170);
-            this.btnHoaDon.Name = "btnHoaDon";
-            this.btnHoaDon.Size = new System.Drawing.Size(200, 40);
-            this.btnHoaDon.TabIndex = 6;
-            this.btnHoaDon.Text = "Hóa đơn";
-            this.btnHoaDon.UseVisualStyleBackColor = false;
-            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
-            // 
-            // btnXuPhat
-            // 
-            this.btnXuPhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.btnXuPhat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnXuPhat.FlatAppearance.BorderSize = 0;
-            this.btnXuPhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXuPhat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXuPhat.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnXuPhat.Location = new System.Drawing.Point(0, 210);
-            this.btnXuPhat.Name = "btnXuPhat";
-            this.btnXuPhat.Size = new System.Drawing.Size(200, 40);
-            this.btnXuPhat.TabIndex = 7;
-            this.btnXuPhat.Text = "Xử phạt";
-            this.btnXuPhat.UseVisualStyleBackColor = false;
-            this.btnXuPhat.Click += new System.EventHandler(this.btnXuPhat_Click);
-            // 
             // btnNhanVien
             // 
             this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
@@ -374,6 +326,54 @@
             this.btnKho.Text = "Kho";
             this.btnKho.UseVisualStyleBackColor = false;
             this.btnKho.Click += new System.EventHandler(this.btnKho_Click_1);
+            // 
+            // btnXuPhat
+            // 
+            this.btnXuPhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
+            this.btnXuPhat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnXuPhat.FlatAppearance.BorderSize = 0;
+            this.btnXuPhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXuPhat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuPhat.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnXuPhat.Location = new System.Drawing.Point(0, 210);
+            this.btnXuPhat.Name = "btnXuPhat";
+            this.btnXuPhat.Size = new System.Drawing.Size(200, 40);
+            this.btnXuPhat.TabIndex = 7;
+            this.btnXuPhat.Text = "Xử phạt";
+            this.btnXuPhat.UseVisualStyleBackColor = false;
+            this.btnXuPhat.Click += new System.EventHandler(this.btnXuPhat_Click);
+            // 
+            // btnHoaDon
+            // 
+            this.btnHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
+            this.btnHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHoaDon.FlatAppearance.BorderSize = 0;
+            this.btnHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoaDon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHoaDon.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHoaDon.Location = new System.Drawing.Point(0, 170);
+            this.btnHoaDon.Name = "btnHoaDon";
+            this.btnHoaDon.Size = new System.Drawing.Size(200, 40);
+            this.btnHoaDon.TabIndex = 6;
+            this.btnHoaDon.Text = "Hóa đơn";
+            this.btnHoaDon.UseVisualStyleBackColor = false;
+            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
+            // 
+            // btnGhiNuoc
+            // 
+            this.btnGhiNuoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
+            this.btnGhiNuoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGhiNuoc.FlatAppearance.BorderSize = 0;
+            this.btnGhiNuoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGhiNuoc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGhiNuoc.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGhiNuoc.Location = new System.Drawing.Point(0, 130);
+            this.btnGhiNuoc.Name = "btnGhiNuoc";
+            this.btnGhiNuoc.Size = new System.Drawing.Size(200, 40);
+            this.btnGhiNuoc.TabIndex = 9;
+            this.btnGhiNuoc.Text = "Tiêu thụ";
+            this.btnGhiNuoc.UseVisualStyleBackColor = false;
+            this.btnGhiNuoc.Click += new System.EventHandler(this.btnGhiNuoc_Click);
             // 
             // pitureDanhMuc
             // 
@@ -498,7 +498,7 @@
             // 
             // homeTimer
             // 
-            this.homeTimer.Interval = 15;
+            this.homeTimer.Interval = 10;
             this.homeTimer.Tick += new System.EventHandler(this.homeTimer_Tick);
             // 
             // panel_body

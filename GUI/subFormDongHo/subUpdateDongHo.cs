@@ -16,7 +16,6 @@ namespace GUI
     public partial class subUpdateDongHo : Form
     {
         public bool isExit = true;
-        public event EventHandler Logout;
         public event Action DataAdded;
 
         public subUpdateDongHo()
@@ -98,7 +97,7 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Logout(this, new EventArgs());
+            this.Close();
         }
     }
 }

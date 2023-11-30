@@ -15,7 +15,6 @@ namespace GUI
     {
 
         public bool isExit = true;
-        public event EventHandler Logout;
         public event Action DataAdded;
 
         public subDelDongHo()
@@ -45,14 +44,14 @@ namespace GUI
                 {
                     MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                this.Close();
                 DataAdded?.Invoke();
+                this.Close();
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Logout(this, new EventArgs());
+            this.Close();
         }
     }
 }

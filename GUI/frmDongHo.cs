@@ -47,9 +47,8 @@ namespace GUI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             subAddDongHo sb = new subAddDongHo();
-            sb.Show();
 
-            sb.Logout += addForm_Logout;
+            sb.ShowDialog();
 
             sb.DataAdded += () =>
             {
@@ -57,31 +56,10 @@ namespace GUI
             };
         }
 
-        private void addForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subAddDongHo).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subAddDongHo).Close();
-            this.Show();
-        }
-        private void delForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subDelDongHo).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subDelDongHo).Close();
-            this.Show();
-        }
-        private void updForm_Logout(object sender, EventArgs e)
-        {
-            (sender as subUpdateDongHo).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
-            (sender as subUpdateDongHo).Close();
-            this.Show();
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             subDelDongHo sb = new subDelDongHo();
-            sb.Show();
-
-            sb.Logout += delForm_Logout;
+            sb.ShowDialog();
 
             sb.DataAdded += () =>
             {
@@ -92,9 +70,7 @@ namespace GUI
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             subUpdateDongHo sb = new subUpdateDongHo();
-            sb.Show();
-
-            sb.Logout += updForm_Logout;
+            sb.ShowDialog();
 
             sb.DataAdded += () =>
             {

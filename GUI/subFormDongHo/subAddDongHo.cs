@@ -16,7 +16,6 @@ namespace GUI
     public partial class subAddDongHo : Form
     {
         public bool isExit = true;
-        public event EventHandler Logout;
         public event Action DataAdded;
 
         public subAddDongHo()
@@ -117,7 +116,7 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Logout(this, new EventArgs());
+            this.Close();
         }
 
         private void SetLinearGradient(Button btn, string hexColor1, string hexColor2)
