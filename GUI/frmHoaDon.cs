@@ -60,56 +60,6 @@ namespace GUI
             }
         }
 
-        /*
-         * select tongtien from hoadon
-
-ngày hiện tại - ngày cuối cùng hóa đơn 2 ) * 0.5 * tongtien 2 hd + tongtien 2hd
-
-select * from hoadon
-
-DECLARE @tongTienHD1 MONEY, @tongTienHD2 MONEY, @tongHaiHD MONEY;
-
--- Sử dụng TOP 1 để chỉ lấy một giá trị
-SET @tongTienHD1 = (
-    SELECT TOP 1 hoadon.tongTien
-    FROM xuphat
-    INNER JOIN hoadon ON hoadon.maHD = xuphat.maHD1 
-    WHERE maXP = 7
-);
-
-SET @tongTienHD2 = (
-    SELECT TOP 1 hoadon.tongTien
-    FROM xuphat
-    INNER JOIN hoadon ON hoadon.maHD = xuphat.maHD2 
-    WHERE maXP = 7
-);
-
-SET @tongHaiHD = @tongTienHD1 + @tongTienHD2
-
-SELECT @tongTienHD1 AS TongTienHD1;
-SELECT @tongTienHD2 AS TongTienHD2;
-SELECT @tongHaiHD AS TongHaiHD;
-
-
-
-select hoadon.tongTien, hoadon.maHD from xuphat, hoadon
-where hoadon.maHD = XuPhat.maHD2
-and maXP = 7
-
-
-select hd.thoiGianCuoi from hoadon 
-join xuphat xp on xp.maHD2 = HoaDon.maHD
-where maXP = 7
-
-
-select * from xuphat
-
-(ABS(DATEDIFF(day, ngayCuoiCungHoaDon2, GETDATE())) * 0.5 * tongTien2HD) + tongTien2HD AS TienPhat
-
-declare @tienPhat INT;
-
-
-        */
         static string[] DataTableColumnToStringArray(DataTable dataTable, string columnName)
         {
             int rows = dataTable.Rows.Count;
@@ -193,9 +143,6 @@ declare @tienPhat INT;
                                                 cmd1.Parameters.AddWithValue("@MaHoaDon2", dt.Rows[1]["MaHD"].ToString());
 
                                                 cmd1.ExecuteNonQuery();
-
-                                                string query3 = "select tongTien from hoadon where maHD = " + dt.Rows[0]["MaHD"].ToString();
-                                                string query4 = "select tongTien from hoadon where maHD = " + dt.Rows[1]["MaHD"].ToString();
                                             }
                                         }
                                     }

@@ -47,9 +47,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.dgvXuPhat = new System.Windows.Forms.DataGridView();
+            this.panelXuPhat = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXuPhat)).BeginInit();
+            this.panelXuPhat.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -224,19 +226,30 @@
             this.dgvXuPhat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvXuPhat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvXuPhat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvXuPhat.Location = new System.Drawing.Point(0, 168);
+            this.dgvXuPhat.Location = new System.Drawing.Point(0, 0);
             this.dgvXuPhat.Name = "dgvXuPhat";
+            this.dgvXuPhat.ReadOnly = true;
             this.dgvXuPhat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvXuPhat.Size = new System.Drawing.Size(800, 282);
             this.dgvXuPhat.TabIndex = 5;
             this.dgvXuPhat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvXuPhat_CellClick);
+            // 
+            // panelXuPhat
+            // 
+            this.panelXuPhat.Controls.Add(this.dgvXuPhat);
+            this.panelXuPhat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelXuPhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelXuPhat.Location = new System.Drawing.Point(0, 168);
+            this.panelXuPhat.Name = "panelXuPhat";
+            this.panelXuPhat.Size = new System.Drawing.Size(800, 282);
+            this.panelXuPhat.TabIndex = 5;
             // 
             // frmXuPhat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvXuPhat);
+            this.Controls.Add(this.panelXuPhat);
             this.Controls.Add(this.panel1);
             this.Name = "frmXuPhat";
             this.Text = "frmXuPhat";
@@ -245,6 +258,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXuPhat)).EndInit();
+            this.panelXuPhat.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -269,5 +283,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelXuPhat;
     }
 }

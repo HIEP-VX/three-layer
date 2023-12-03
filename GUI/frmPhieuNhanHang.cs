@@ -59,15 +59,13 @@ namespace GUI
             {
                 reload();
             };
+            reload();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(phieuNhanHang.maMH.ToString());
             subUpdateChiTietMuaHang sb = new subUpdateChiTietMuaHang();
             sb.ShowDialog();
-            
-
         }
 
         private void dgvPhieuNhanHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -89,11 +87,6 @@ namespace GUI
 
                 }
             }
-        }
-
-        private void dgvPhieuNhanHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

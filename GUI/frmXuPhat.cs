@@ -25,7 +25,7 @@ namespace GUI
         private void reload()
         {
             txtMaNV.Text = user.id.ToString();
-            string query = "select maXP, thoiGian, TienPhat, maHD1, maHD2, maNV,\n" +
+            string query = "select maXP, thoiGian, FORMAT(CAST(TienPhat AS DECIMAL(18, 0)), 'N0') AS TienPhat, maHD1, maHD2, maNV,\n" +
                 "CASE\n" +
                 "WHEN trangThai = 1 THEN N'Cắt nước'\n" +
                 "WHEN trangThai = 2 THEN N'Đang sử dụng'\n" +
@@ -36,6 +36,52 @@ namespace GUI
 
         private void frmXuPhat_Load(object sender, EventArgs e)
         {
+            
+            int rowCount = dgvXuPhat.Rows.Count;
+            for (int i = 0; i < rowCount; i++)
+            {
+                DataGridViewRow row = dgvXuPhat.Rows[i];
+
+                if (row.IsNewRow)
+                    continue;
+
+                int maXP = int.Parse(row.Cells["maXP"].Value.ToString());
+
+                string updateQuery = "DECLARE @TienPhat MONEY, @tongTienHD1 MONEY, @tongTienHD2 MONEY, @tongTien2HD MONEY;\n"+
+
+                                    // --Lấy tổng tiền từ hóa đơn thứ nhất
+
+                                     "SELECT TOP 1 @tongTienHD1 = hoadon.tongTien FROM xuphat\n"+
+                                     "INNER JOIN hoadon ON hoadon.maHD = xuphat.maHD1 WHERE maXP = @maXP;\n"+
+
+                                     // -- Lấy tổng tiền từ hóa đơn thứ hai
+
+                                     "SELECT TOP 1 @tongTienHD2 = hoadon.tongTien FROM xuphat\n"+
+                                     "INNER JOIN hoadon ON hoadon.maHD = xuphat.maHD2 WHERE maXP = @maXP;\n"+
+
+                                     // --Tổng tiền của cả hai hóa đơn
+
+                                     "SET @tongTien2HD = @tongTienHD1 + @tongTienHD2;\n"+
+
+                                     // -- Tính tiền phạt và gán vào biến @TienPhat
+                                     "SELECT @TienPhat = ABS(DATEDIFF(day, subquery.thoiGianCuoi, GETDATE())) * 0.5 * @tongTien2HD + @tongTien2HD\n"+
+                                     "FROM ( SELECT tt.thoiGianCuoi FROM HoaDon hd\n"+
+                                     "JOIN xuphat xp ON xp.maHD2 = hd.maHD\n"+
+                                     "JOIN tieuthu tt ON tt.maTT = hd.maTT\n"+
+                                     "WHERE xp.maXP = @maXP) AS subquery;\n"+
+
+                                     "UPDATE XuPhat SET TienPhat = @TienPhat WHERE maXP = @maXP";
+
+                using (SqlConnection connection = SqlConnectionData.connect())
+                using (SqlCommand cmd1 = new SqlCommand(updateQuery, connection))
+                {
+                    connection.Open();
+
+                    cmd1.Parameters.AddWithValue("@MaXP", maXP);
+
+                    cmd1.ExecuteNonQuery();
+                }
+            }
             reload();
         }
 

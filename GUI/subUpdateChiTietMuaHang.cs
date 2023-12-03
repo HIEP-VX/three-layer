@@ -22,20 +22,8 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-        private void cbMASP_Leave(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-
             if (txtTenSP.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn cần nhập chi tiết mua hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -71,8 +59,6 @@ namespace GUI
                 return;
             }
 
-            
-
             DataTable dt = new DataTable();
             string query5 = "SELECT maSP FROM loaiDongHo WHERE tenSP = N'" + txtTenSP.Text + "' AND chiSoCongTo = " + txtChiSoCongTo.Text + " AND tenHangSX = N'" + txtHangSX.Text + "'";
             dt = AccessData.getData(query5);
@@ -80,19 +66,13 @@ namespace GUI
             if (dt.Rows.Count > 0)
             {
                 int ma = Convert.ToInt32(dt.Rows[0]["maSP"]);
-                txtChiSoCongTo.Text = ma.ToString();
 
-                string query1 = "DECLARE @Inserted_maCTMH INT,@Inserted_maSP INT,@Inserted_soLuong INT, @Inserted_tien MONEY;\n" +
-                                "INSERT INTO chiTietMuaHang (soLuong, tien) values (@soLuong, @tien)\n" +
-                                "SELECT @Inserted_maCTMH = SCOPE_IDENTITY(),@Inserted_soLuong = soLuong,@Inserted_tien = tien FROM chiTietMuaHang WHERE maChiTiet = SCOPE_IDENTITY();\n" +
-
-                                "update chiTietMuaHang set maMH = " + phieuNhanHang.maMH + " where maChiTiet = @Inserted_maCTMH\n" +
-                                "update chiTietMuaHang set maSP = " + ma + " where maChiTiet = @Inserted_maCTMH";
-
+                string query1 = "UPDATE chiTietMuaHang set soLuong = soLuong + @soLuong where maSP = " + ma +
+                                "UPDATE chiTietMuaHang set tien = tien + @tien where maSP = " + ma + "\n"+
+                                "UPDATE phieuNhanHang set tongTien = tongTien + (@tien * @soLuong) from phieuNhanHang join chiTietMuaHang ct on ct.maMH = phieuNhanHang.maMH";
 
                 using (SqlConnection conn = SqlConnectionData.connect())
                 {
-
                     conn.Open();
 
                     // Bắt đầu giao dịch
@@ -102,24 +82,19 @@ namespace GUI
                         {
                             using (SqlCommand cmd = new SqlCommand(query1, conn, transaction))
                             {
-                                // Thêm các tham số cho query
                                 cmd.Parameters.AddWithValue("@soLuong", txtSL.Text);
                                 cmd.Parameters.AddWithValue("@tien", txtTien.Text);
                                 cmd.Parameters.AddWithValue("@tenSP", txtTenSP.Text);
                                 cmd.Parameters.AddWithValue("@chiSoCongTo", txtChiSoCongTo.Text);
                                 cmd.Parameters.AddWithValue("@tenHangSX", txtHangSX.Text);
 
-                                // Thực hiện lệnh query
                                 cmd.ExecuteNonQuery();
                             }
-
-                            // Commit giao dịch nếu mọi thứ thành công
                             transaction.Commit();
                             MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
-                            // Nếu có lỗi, rollback giao dịch
                             transaction.Rollback();
                             MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -128,8 +103,7 @@ namespace GUI
                     try
                     {
                         string query3 = "Select ldh.maSP, ldh.tenSP, ldh.chiSoCongTo, ldh.tenHangSX, ct.soLuong, ct.tien from loaiDongHo ldh\n" +
-                                    "join chiTietMuaHang ct on ct.maSP = ldh.maSP\n" +
-                                    "where ct.maMH = " + phieuNhanHang.maMH;
+                                    "join chiTietMuaHang ct on ct.maSP = ldh.maSP where ct.maMH = " + phieuNhanHang.maMH;
                         dgvSP.DataSource = AccessData.getData(query3);
                     }
                     catch (Exception ex)
@@ -142,6 +116,7 @@ namespace GUI
             {
                 string query = "DECLARE @Inserted_maCTMH INT,@Inserted_maSP INT,@Inserted_soLuong INT, @Inserted_tien MONEY, @Inserted_tenSP NVARCHAR(MAX), @Inserted_chiSoCongTo INT, @Inserted_tenHangSX NVARCHAR(MAX)\n" +
                             "INSERT INTO chiTietMuaHang (soLuong, tien) values (@soLuong, @tien)\n" +
+
                             "SELECT @Inserted_maCTMH = SCOPE_IDENTITY(),@Inserted_soLuong = soLuong,@Inserted_tien = tien FROM chiTietMuaHang WHERE maChiTiet = SCOPE_IDENTITY();\n" +
 
                             "update chiTietMuaHang set maMH = " + phieuNhanHang.maMH + " where maChiTiet = @Inserted_maCTMH\n" +
@@ -181,7 +156,6 @@ namespace GUI
                         }
                         catch (Exception ex)
                         {
-                            // Nếu có lỗi, rollback giao dịch
                             transaction.Rollback();
                             MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -248,6 +222,16 @@ namespace GUI
                                     "join chiTietMuaHang ct on ct.maSP = ldh.maSP\n" +
                                     "where ct.maMH = " + phieuNhanHang.maMH;
             dgvSP.DataSource = AccessData.getData(query3);
+        }
+
+        private void btnThoat_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvSP_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
