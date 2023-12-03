@@ -86,11 +86,29 @@ namespace GUI
                 }
                 FormMain2 fm = new FormMain2();
                 fm.Show();
-
                 this.Hide();
+                fm.Logout += F_Logout;
             }
             else
                 MessageBox.Show("Username or password is incorrect.");
+        }
+
+        private void F_Logout(object sender, EventArgs e)
+        {
+            (sender as FormMain2).isExit = false;    // trường hợp này k tắt chương trình mà chỉ đăng xuất ra thôi
+            (sender as FormMain2).Close();
+            this.Show();
+            txtusername.Text = "";
+            txtpassword.Text = "";
+            checkShowPassword.Checked = false;
+        }
+
+        private void checkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkShowPassword.Checked)
+                txtpassword.PasswordChar = '\0';
+            else
+                txtpassword.PasswordChar = '*';
         }
     }
 }

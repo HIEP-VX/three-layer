@@ -39,7 +39,7 @@
             this.panelHeThong = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnCapNhatTaiKhoan = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -87,7 +87,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1155, 38);
+            this.panel1.Size = new System.Drawing.Size(1309, 38);
             this.panel1.TabIndex = 0;
             // 
             // labelWelcome
@@ -96,7 +96,7 @@
             this.labelWelcome.AutoSize = true;
             this.labelWelcome.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWelcome.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelWelcome.Location = new System.Drawing.Point(879, 7);
+            this.labelWelcome.Location = new System.Drawing.Point(1033, 7);
             this.labelWelcome.Name = "labelWelcome";
             this.labelWelcome.Size = new System.Drawing.Size(112, 23);
             this.labelWelcome.TabIndex = 3;
@@ -147,7 +147,7 @@
             this.panelMain.MaximumSize = new System.Drawing.Size(200, 720);
             this.panelMain.MinimumSize = new System.Drawing.Size(53, 668);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(53, 711);
+            this.panelMain.Size = new System.Drawing.Size(200, 668);
             this.panelMain.TabIndex = 1;
             // 
             // panelHeThong
@@ -155,7 +155,7 @@
             this.panelHeThong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(83)))));
             this.panelHeThong.Controls.Add(this.pictureBox2);
             this.panelHeThong.Controls.Add(this.button12);
-            this.panelHeThong.Controls.Add(this.button11);
+            this.panelHeThong.Controls.Add(this.btnDangXuat);
             this.panelHeThong.Controls.Add(this.btnCapNhatTaiKhoan);
             this.panelHeThong.Controls.Add(this.button6);
             this.panelHeThong.Controls.Add(this.button7);
@@ -196,20 +196,21 @@
             this.button12.Text = "...";
             this.button12.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // btnDangXuat
             // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.button11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.SystemColors.Control;
-            this.button11.Location = new System.Drawing.Point(0, 170);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(200, 40);
-            this.button11.TabIndex = 4;
-            this.button11.Text = "Đăng xuất";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
+            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDangXuat.FlatAppearance.BorderSize = 0;
+            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangXuat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 170);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(200, 40);
+            this.btnDangXuat.TabIndex = 4;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = false;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // btnCapNhatTaiKhoan
             // 
@@ -509,18 +510,19 @@
             this.panel_body.Controls.Add(this.button13);
             this.panel_body.Controls.Add(this.label1);
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(53, 38);
+            this.panel_body.Location = new System.Drawing.Point(200, 38);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1102, 711);
+            this.panel_body.Size = new System.Drawing.Size(1109, 644);
             this.panel_body.TabIndex = 2;
             // 
             // button14
             // 
             this.button14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(102)))), ((int)(((byte)(219)))));
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(582, 454);
+            this.button14.Location = new System.Drawing.Point(585, 421);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(165, 50);
             this.button14.TabIndex = 2;
@@ -531,10 +533,11 @@
             // 
             this.button13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(102)))), ((int)(((byte)(219)))));
+            this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.SystemColors.Control;
-            this.button13.Location = new System.Drawing.Point(365, 454);
+            this.button13.Location = new System.Drawing.Point(368, 421);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(165, 50);
             this.button13.TabIndex = 1;
@@ -547,7 +550,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(39)))), ((int)(((byte)(19)))));
-            this.label1.Location = new System.Drawing.Point(315, 234);
+            this.label1.Location = new System.Drawing.Point(318, 201);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(488, 33);
             this.label1.TabIndex = 0;
@@ -562,7 +565,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 749);
+            this.ClientSize = new System.Drawing.Size(1309, 682);
             this.Controls.Add(this.panel_body);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel1);
@@ -612,7 +615,7 @@
         private System.Windows.Forms.Button btnXuPhat;
         private System.Windows.Forms.Button btnHoaDon;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Panel panelHopDong;

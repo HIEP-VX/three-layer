@@ -17,5 +17,6 @@ namespace DTO
         public static int maHD { get; set; }
         public static int maLKH { get; set; }
         public static int maDHN { get; set; }
+        public static string tinhTrang { get; set; }
     }
 }

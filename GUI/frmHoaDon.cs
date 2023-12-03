@@ -28,6 +28,7 @@ namespace GUI
         {
             try
             {
+                txtmaNV.Text = user.id.ToString();
                 string sql = "Select maHD, maTT, maNV, luongNuoc, FORMAT(CAST(tienNuoc AS DECIMAL(18, 0)), 'N0') AS tienNuoc, FORMAT(CAST(thue AS DECIMAL(18, 0)), 'N0') AS tienThue, FORMAT(CAST(tongTien AS DECIMAL(18, 0)), 'N0') AS tongTien, thoiGian, \n"+
                              "CASE\n"+
                              "WHEN tinhTrang = 0 THEN N'chưa thanh toán'\n" +
@@ -36,7 +37,7 @@ namespace GUI
                              "from hoadon";
                 dgvHoaDon.DataSource = AccessData.getData(sql);
 
-                /*dgvHoaDon.Columns[0].HeaderText = "Mã hóa đơn";
+                dgvHoaDon.Columns[0].HeaderText = "Mã hóa đơn";
                 dgvHoaDon.Columns[1].HeaderText = "Mã tiêu thụ";
                 dgvHoaDon.Columns[2].HeaderText = "Mã nhân viên";
                 dgvHoaDon.Columns[3].HeaderText = "Lượng nước";
@@ -44,17 +45,7 @@ namespace GUI
                 dgvHoaDon.Columns[5].HeaderText = "Tiền thuế";
                 dgvHoaDon.Columns[6].HeaderText = "Tổng tiền";
                 dgvHoaDon.Columns[7].HeaderText = "Thời gian";
-                dgvHoaDon.Columns[8].HeaderText = "Tình trạng";*/
-
-                dgvHoaDon.Columns[0].Width = 30;
-                dgvHoaDon.Columns[1].Width = 30;
-                dgvHoaDon.Columns[2].Width = 30;
-                dgvHoaDon.Columns[3].Width = 30;
-                dgvHoaDon.Columns[4].Width = 60;
-                dgvHoaDon.Columns[5].Width = 60;
-                dgvHoaDon.Columns[6].Width = 60;
-                dgvHoaDon.Columns[7].Width = 60;
-                dgvHoaDon.Columns[8].Width = 80;
+                dgvHoaDon.Columns[8].HeaderText = "Tình trạng";
 
                 foreach (DataGridViewColumn column in dgvHoaDon.Columns)
                 {
@@ -69,6 +60,67 @@ namespace GUI
             }
         }
 
+        /*
+         * select tongtien from hoadon
+
+ngày hiện tại - ngày cuối cùng hóa đơn 2 ) * 0.5 * tongtien 2 hd + tongtien 2hd
+
+select * from hoadon
+
+DECLARE @tongTienHD1 MONEY, @tongTienHD2 MONEY, @tongHaiHD MONEY;
+
+-- Sử dụng TOP 1 để chỉ lấy một giá trị
+SET @tongTienHD1 = (
+    SELECT TOP 1 hoadon.tongTien
+    FROM xuphat
+    INNER JOIN hoadon ON hoadon.maHD = xuphat.maHD1 
+    WHERE maXP = 7
+);
+
+SET @tongTienHD2 = (
+    SELECT TOP 1 hoadon.tongTien
+    FROM xuphat
+    INNER JOIN hoadon ON hoadon.maHD = xuphat.maHD2 
+    WHERE maXP = 7
+);
+
+SET @tongHaiHD = @tongTienHD1 + @tongTienHD2
+
+SELECT @tongTienHD1 AS TongTienHD1;
+SELECT @tongTienHD2 AS TongTienHD2;
+SELECT @tongHaiHD AS TongHaiHD;
+
+
+
+select hoadon.tongTien, hoadon.maHD from xuphat, hoadon
+where hoadon.maHD = XuPhat.maHD2
+and maXP = 7
+
+
+select hd.thoiGianCuoi from hoadon 
+join xuphat xp on xp.maHD2 = HoaDon.maHD
+where maXP = 7
+
+
+select * from xuphat
+
+(ABS(DATEDIFF(day, ngayCuoiCungHoaDon2, GETDATE())) * 0.5 * tongTien2HD) + tongTien2HD AS TienPhat
+
+declare @tienPhat INT;
+
+
+        */
+        static string[] DataTableColumnToStringArray(DataTable dataTable, string columnName)
+        {
+            int rows = dataTable.Rows.Count;
+            string[] dataArray = new string[rows];
+
+            for (int i = 0; i < rows; i++)
+                dataArray[i] = dataTable.Rows[i][columnName].ToString();
+
+            return dataArray;
+        }
+
         private void frmHoaDon_Load(object sender, EventArgs e)
         {
             reload();
@@ -77,179 +129,6 @@ namespace GUI
 
             DateTime firstDayOfCurrentMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             DateTime firstDayOfPreviousMonth = firstDayOfCurrentMonth.AddMonths(-1);
-            /*
-            foreach (DataGridViewRow row in dgvHoaDon.Rows)
-            {
-                try
-                {
-                    
-                }catch(Exception ex)
-                {
-
-                }
-                if (row.Cells["tinhTrang"].Value != null && row.Cells["thoiGian"].Value != null && row.Cells["maTT"].Value != null)
-                {
-                    // Kiểm tra nếu tình trạng là "Chưa thanh toán" và thời gian là trước tháng hiện tại 1 tháng
-                    if (int.TryParse(row.Cells["tinhTrang"].Value.ToString(), out int tinhTrang) &&
-                        DateTime.TryParse(row.Cells["thoiGian"].Value.ToString(), out DateTime thoiGian) &&
-                        row.Cells["maTT"].Value != null)
-                    {
-                        string maTT1 = row.Cells["maTT"].Value.ToString();
-
-                        if (tinhTrang == 0 && thoiGian < firstDayOfCurrentMonth && thoiGian >= firstDayOfPreviousMonth)
-                        {
-                            // Thêm lệnh chèn vào bảng xử phạt ở đây
-                            string maHoaDon = row.Cells["MaHD"].Value.ToString();
-                            //string maTT2 = row.Cells["MaTT"].Value.ToString();
-
-                            // Tạo chuỗi truy vấn INSERT với tham số
-                            string insertQuery = "INSERT INTO xuPhat (MaHD1) VALUES (@MaHoaDon)\n";
-
-                            // Thực hiện kết nối đến cơ sở dữ liệu và thực hiện truy vấn INSERT
-                            using (SqlConnection connection = SqlConnectionData.connect())
-                            using (SqlCommand command = new SqlCommand(insertQuery, connection))
-                            {
-                                connection.Open();
-                                try
-                                {
-                                    // Thêm tham số vào truy vấn
-                                    //command.Parameters.AddWithValue("@maTT", maTT2);
-                                    command.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
-                                    command.ExecuteNonQuery();
-                                    MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lỗi rồi");
-                    }
-                }
-            }*/
-            /* foreach (DataGridViewRow row in dgvHoaDon.Rows)
-             {
-                 string tinhTrang = row.Cells["tinhTrang"].Value.ToString();
-                 MessageBox.Show(tinhTrang.ToString());
-                 break;
-             }*/
-            /*
-            foreach (DataGridViewRow row in dgvHoaDon.Rows)
-            {
-                // Lấy giá trị từ cột "Tình trạng" và "Thời gian"
-                string tinhTrang = row.Cells["tinhTrang"].Value.ToString();
-                DateTime thoiGian = Convert.ToDateTime(row.Cells["thoiGian"].Value);
-                string maTT1 = row.Cells["maTT"].Value.ToString();
-
-                // Kiểm tra nếu tình trạng là "Chưa thanh toán" và thời gian là trước tháng hiện tại 1 tháng
-                if (tinhTrang == "chưa thanh toán" && thoiGian < firstDayOfCurrentMonth && thoiGian >= firstDayOfPreviousMonth)
-                {
-                    // Thêm lệnh chèn vào bảng xử phạt ở đây
-                    string maHoaDon = row.Cells["MaHD"].Value.ToString();
-                    string maTT2 = row.Cells["MaTT"].Value.ToString();
-
-                    // Tạo chuỗi truy vấn INSERT với tham số
-                    string insertQuery = "INSERT INTO xuPhat (MaHD1) VALUES (@MaHoaDon)\n";
-                                         //"select maHD from hoaDon where maTT = " + maTT1;
-
-                    // Thực hiện kết nối đến cơ sở dữ liệu và thực hiện truy vấn INSERT
-                    using (SqlConnection connection = SqlConnectionData.connect())
-                        
-                    using (SqlCommand command = new SqlCommand(insertQuery, connection))
-                    {
-                        connection.Open();
-                        try
-                        {
-                            // Thêm tham số vào truy vấn
-                            //command.Parameters.AddWithValue("@maTT", maTT2);
-                            command.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
-                            command.ExecuteNonQuery();
-                            //string query = "UPDATE xuphat SET maHD2 = hd.maHD\n"+
-                                     //      "FROM xuphat JOIN hoadon hd ON xuphat.maTT = hd.maTT WHERE MONTH(hd.thoiGian) = MONTH(GETDATE()) AND DAY(hd.thoiGian) = DAY(GETDATE()) AND YEAR(hd.thoiGian) = YEAR(GETDATE());";
-                           // AccessData.execQuery(query);
-                            MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }*/
-
-
-            // chỉnh lại trigger trong sql , cập nhật tháng
-
-            /*foreach (DataGridViewRow row in dgvHoaDon.Rows)
-            {
-                // bỏ qua dòng mới
-                if (row.IsNewRow)
-                    continue;
-
-                string tinhTrang = row.Cells["tinhTrang"].Value.ToString();
-                DateTime thoiGian = Convert.ToDateTime(row.Cells["thoiGian"].Value);
-                //string maTT1 = row.Cells["maTT"].Value.ToString();
-                string maHoaDon1 = row.Cells["MaHD"].Value.ToString();
-                // Kiểm tra nếu tình trạng là "Chưa thanh toán" và thời gian là trước tháng hiện tại 1 tháng
-                if (tinhTrang == "chưa thanh toán" && thoiGian < firstDayOfCurrentMonth && thoiGian >= firstDayOfPreviousMonth)
-                {
-                    // Thêm lệnh kiểm tra trước khi chèn vào bảng xử phạt ở đây
-                    string maHoaDon = row.Cells["MaHD"].Value.ToString();
-                    MessageBox.Show(maHoaDon);
-                    //string maTT2 = row.Cells["MaTT"].Value.ToString();
-
-                    // Tạo chuỗi truy vấn SELECT để kiểm tra sự tồn tại
-                    string selectQuery = "SELECT COUNT(*) FROM xuPhat WHERE MaHD1 = @MaHoaDon";
-
-                    // Thực hiện kết nối đến cơ sở dữ liệu và thực hiện truy vấn SELECT
-                    using (SqlConnection connection = SqlConnectionData.connect())
-                    using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
-                    {
-                        connection.Open();
-
-                        selectCommand.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
-
-                        // Kiểm tra số lượng record có trong bảng xuPhat
-                        int count = (int)selectCommand.ExecuteScalar();
-
-                        // Nếu có ít nhất một record
-                        if (count > 0)
-                        {
-                            MessageBox.Show("Đã có record với mã hóa đơn này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            // Nếu không có record, thực hiện lệnh INSERT
-                            string insertQuery = "INSERT INTO xuPhat (MaHD1) VALUES (@MaHoaDon)\n"+
-                                                 "UPDATE xuPhat SET MaHD2 = @MaHoaDon1 from xuphat\n"+
-                                                 "join hoadon hd on hd.maHD = xuphat.maHD1\n"+
-                                                 "WHERE MONTH(hd.thoiGian) = MONTH(GETDATE()) AND DAY(hd.thoiGian) = DAY(GETDATE()) AND YEAR(hd.thoiGian) = YEAR(GETDATE());";
-
-
-                            using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
-                            {
-                                try
-                                {
-                                    // Thêm tham số vào truy vấn INSERT
-                                    insertCommand.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
-                                    insertCommand.Parameters.AddWithValue("@MaHoaDon", maHoaDon1);
-                                    insertCommand.ExecuteNonQuery();
-
-                                    MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show("Lỗi: " + ex.Message + "\nStack Trace:\n" + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                        }
-                    }
-                }
-            }*/
 
             int rowCount = dgvHoaDon.Rows.Count;
             for (int i = 0; i < rowCount; i++)
@@ -261,19 +140,16 @@ namespace GUI
 
                 string tinhTrang = row.Cells["tinhTrang"].Value.ToString();
                 DateTime thoiGian = Convert.ToDateTime(row.Cells["thoiGian"].Value);
-                string maHoaDon1 = row.Cells["MaHD"].Value.ToString();
-                MessageBox.Show(maHoaDon1.ToString());
+                DateTime ngayHienTaiThangTruoc = DateTime.Now.AddMonths(-1);
 
-                if (tinhTrang == "chưa thanh toán" && thoiGian < firstDayOfCurrentMonth && thoiGian >= firstDayOfPreviousMonth)
+                if (tinhTrang == "chưa thanh toán" && thoiGian < firstDayOfCurrentMonth && thoiGian >= firstDayOfPreviousMonth && thoiGian.Day == ngayHienTaiThangTruoc.Day)
                 {
-                    // Thêm lệnh kiểm tra trước khi chèn vào bảng xử phạt ở đây
                     string maHoaDon = row.Cells["MaHD"].Value.ToString();
-                    MessageBox.Show(maHoaDon);
-
+                    string sql3 = "update khachhang set tinhTrang = 2 where maKH = select tt.maKH from tieuthu tt join hoadon hd on hd.maTT = tt.maTT where hd.maHD = " + maHoaDon;
+                    AccessData.execQuery(sql3);
                     // Tạo chuỗi truy vấn SELECT để kiểm tra sự tồn tại
                     string selectQuery = "SELECT COUNT(*) FROM xuPhat WHERE MaHD1 = @MaHoaDon";
 
-                    // Thực hiện kết nối đến cơ sở dữ liệu và thực hiện truy vấn SELECT
                     using (SqlConnection connection = SqlConnectionData.connect())
                     using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
                     {
@@ -281,37 +157,50 @@ namespace GUI
 
                         selectCommand.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
 
+                        selectCommand.ExecuteNonQuery();
+
                         // Kiểm tra số lượng record có trong bảng xuPhat
                         int count = (int)selectCommand.ExecuteScalar();
 
-                        // Nếu có ít nhất một record
-                        if (count > 0)
+                        if (count < 0)
                         {
-                            MessageBox.Show("Đã có record với mã hóa đơn này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            // Nếu không có record, thực hiện lệnh INSERT
-                            string insertQuery = "INSERT INTO xuPhat (MaHD1) VALUES (@MaHoaDon)\n" +
-                                                 "UPDATE xuPhat SET MaHD2 = @MaHoaDon1 from xuphat\n" +
-                                                 "join hoadon hd on hd.maHD = xuphat.maHD1\n" +
-                                                 "WHERE MONTH(hd.thoiGian) = MONTH(GETDATE()) AND DAY(hd.thoiGian) = DAY(GETDATE()) AND YEAR(hd.thoiGian) = YEAR(GETDATE());";
+                            string query = "select makh from khachhang where tinhTrang = 1";
+                            DataTable dataTable = AccessData.getData(query);
 
-                            using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
+                            using (SqlConnection conn = SqlConnectionData.connect())
                             {
-                                try
+                                conn.Open();
+                                string query1 = "SELECT maHD\r\nFROM hoadon \r\nJOIN tieuthu tt ON tt.maTT = hoadon.maTT \r\nWHERE hoadon.tinhTrang = 0 \r\n      AND tt.maKH = ";
+                                string[] maKHArray = DataTableColumnToStringArray(dataTable, "MaKH");
+                                for (int j = 0; j < maKHArray.Length; j++)
                                 {
-                                    // Thêm tham số vào truy vấn INSERT
-                                    insertCommand.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
-                                    insertCommand.Parameters.AddWithValue("@MaHoaDon1", maHoaDon1);
-                                    insertCommand.ExecuteNonQuery();
+                                    
 
-                                    MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    DataTable dt = new DataTable();
+                                    string query5 = query1 + maKHArray[j];
+                                    dt = AccessData.getData(query5);
+                                    if (dt.Rows.Count == 2)
+                                    {
+                                        using (SqlCommand cmd = new SqlCommand(query5, conn))
+                                        {
+                                            // Xóa parameters cũ nếu có
+                                            cmd.Parameters.Clear();
+
+                                            string query2 = "INSERT INTO xuPhat (MaHD1, MaHD2) VALUES (@MaHoaDon1, @MaHoaDon2)";
+                                            using (SqlCommand cmd1 = new SqlCommand(query2, conn))
+                                            {
+                                                cmd1.Parameters.AddWithValue("@MaHoaDon1", dt.Rows[0]["MaHD"].ToString());
+                                                cmd1.Parameters.AddWithValue("@MaHoaDon2", dt.Rows[1]["MaHD"].ToString());
+
+                                                cmd1.ExecuteNonQuery();
+
+                                                string query3 = "select tongTien from hoadon where maHD = " + dt.Rows[0]["MaHD"].ToString();
+                                                string query4 = "select tongTien from hoadon where maHD = " + dt.Rows[1]["MaHD"].ToString();
+                                            }
+                                        }
+                                    }
                                 }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
+                                MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     }
@@ -466,6 +355,24 @@ namespace GUI
                     isCollapsed1 = true;
                 }
             }
+        }
+
+        private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if (index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            txtMa.Text = dgvHoaDon.Rows[index].Cells[0].Value.ToString();
+            txtMaHD.Text = dgvHoaDon.Rows[index].Cells[0].Value.ToString();
+
+        }
+
+        private void dgvHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

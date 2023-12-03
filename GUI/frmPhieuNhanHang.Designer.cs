@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuNhanHang));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnTimKiem);
             this.panel1.Controls.Add(this.btnCapNhat);
             this.panel1.Controls.Add(this.btnXoa);
@@ -54,6 +56,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 32);
             this.panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(173, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(77, 28);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Chi tiết";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnTimKiem
             // 
@@ -96,7 +112,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(148, 2);
+            this.btnAdd.Location = new System.Drawing.Point(83, 1);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(69, 28);
             this.btnAdd.TabIndex = 38;
@@ -125,6 +141,8 @@
             this.dgvPhieuNhanHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPhieuNhanHang.Size = new System.Drawing.Size(800, 418);
             this.dgvPhieuNhanHang.TabIndex = 0;
+            this.dgvPhieuNhanHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuNhanHang_CellClick);
+            this.dgvPhieuNhanHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuNhanHang_CellContentClick);
             // 
             // frmPhieuNhanHang
             // 
@@ -152,5 +170,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panelPhieuNhanHang;
         private System.Windows.Forms.DataGridView dgvPhieuNhanHang;
+        private System.Windows.Forms.Button button1;
     }
 }

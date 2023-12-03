@@ -24,6 +24,20 @@ namespace GUI
             {
                 string query = "select * from HopDong";
                 dgvHopDong.DataSource = AccessData.getData(query);
+                
+                dgvHopDong.Columns[0].HeaderText = "Mã";
+                dgvHopDong.Columns[1].HeaderText = "Ngày lập";
+                dgvHopDong.Columns[2].HeaderText = "Nơi lập";
+                dgvHopDong.Columns[3].HeaderText = "Tiền làm hợp đồng";
+                dgvHopDong.Columns[4].HeaderText = "Lý do thu";
+                dgvHopDong.Columns[5].HeaderText = "Mã nhân viên";
+
+
+                foreach (DataGridViewColumn column in dgvHopDong.Columns)
+                {
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
             }
             catch (Exception ex)
             {

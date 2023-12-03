@@ -168,14 +168,14 @@ namespace GUI
         private void btnHome_Click(object sender, EventArgs e)
         {
             homeTimer.Start();
-            isCollapsed = false;
+           isCollapsed = false;
             isCollapsed2 = false;
 
             timer1.Start();
             timer2.Start();
         }
 
-
+        #region Event
         private void FormMain2_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn thoát không ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
@@ -187,6 +187,13 @@ namespace GUI
             if (isExit)
                 Application.Exit();
         }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Logout(this, new EventArgs());
+        }
+
+        #endregion
 
         private Form currentFormChild;
 
@@ -313,5 +320,6 @@ namespace GUI
             hopDongExpand = false;
             timerHopDong.Start();
         }
+
     }
 }

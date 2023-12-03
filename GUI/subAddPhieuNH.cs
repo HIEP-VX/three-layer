@@ -55,7 +55,38 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            using (SqlConnection conn = SqlConnectionData.connect())
+            {
+                conn.Open();
+                try
+                {
+                    string query = "DECLARE @Inserted_maMH INT\n" +
+                           "INSERT INTO phieuNhanHang (nhaCC, ngayMua, maNV) values (@nhaCC, @ngayMua, @maNV)\n" +
+                           "SET @Inserted_maMH = SCOPE_IDENTITY();\n" +
+                           "SELECT @Inserted_maMH AS 'maMH'";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@nhaCC", txtNHACC.Text);
+                        cmd.Parameters.AddWithValue("@ngayMua", dateNgay.Value);
+                        cmd.Parameters.AddWithValue("@maNV", txtMANV.Text);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string maMH = reader["maMH"].ToString();
+                                phieuNhanHang.maMH = int.Parse(maMH);
+                            }
+                        }
+                    }
+                    MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                DataAdded?.Invoke();
+            }
         }
 
         private void btnChiTietMH_Click(object sender, EventArgs e)
@@ -131,41 +162,7 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtTenSP.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn cần nhập chi tiết mua hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTenSP.Focus();
-                return;
-            }
-
-            if (txtChiSoCongTo.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn cần nhập chỉ số công tơ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtChiSoCongTo.Focus();
-                return;
-            }
-
-            if (txtHangSX.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn cần nhập hãng sản xuất.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtHangSX.Focus();
-                return;
-            }
-
-            if (txtSL.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn cần nhập số lượng sản phẩm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtSL.Focus();
-                return;
-            }
-
-            if (txtTien.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn cần nhập đơn giá cho sản phẩm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTien.Focus();
-                return;
-            }
-
+            /*
             DataTable dt = new DataTable();
             string query5 = "SELECT maSP FROM loaiDongHo WHERE tenSP = N'" + txtTenSP.Text + "' AND chiSoCongTo = " + txtChiSoCongTo.Text + " AND tenHangSX = N'" + txtHangSX.Text + "'";
             dt = AccessData.getData(query5);
@@ -291,7 +288,7 @@ namespace GUI
                         MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
+            }*/
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

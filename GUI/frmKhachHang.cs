@@ -26,7 +26,13 @@ namespace GUI
         {
             try
             {
-                string query = "select * from KhachHang";
+                string query = "select maKH, tenKH, ngaySinh, phuong, diaChi, soDT, maHD, maLKH, maDHN,\n"+
+                               "CASE\n"+
+                               "WHEN tinhTrang = 1 THEN N'đang hoạt động'\n" +
+                               "WHEN tinhTrang = 2 THEN N'cắt nước'\n" +
+                               "WHEN tinhTrang = 3 THEN N'dừng hoạt động'\n" +
+                               "END AS 'Tình trạng'\n" +
+                               "from KhachHang";
                 dgvKH.DataSource = AccessData.getData(query);
 
                 dgvKH.Columns[0].HeaderText = "Mã";
@@ -38,14 +44,7 @@ namespace GUI
                 dgvKH.Columns[6].HeaderText = "Mã hợp đồng";
                 dgvKH.Columns[7].HeaderText = "Mã LKH";
                 dgvKH.Columns[8].HeaderText = "Mã đồng hồ";
-
-                dgvKH.Columns[0].Width = 30;
-                dgvKH.Columns[2].Width = 60;
-                dgvKH.Columns[3].Width = 50;
-                dgvKH.Columns[5].Width = 60;
-                dgvKH.Columns[6].Width = 60;
-                dgvKH.Columns[7].Width = 40;
-                dgvKH.Columns[8].Width = 60;
+                dgvKH.Columns[9].HeaderText = "Tình trạng";
 
                 foreach (DataGridViewColumn column in dgvKH.Columns)
                 {
@@ -62,7 +61,6 @@ namespace GUI
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet4.diaChi' table. You can move, or remove it, as needed.
             this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
             this.Refresh();
             panelTool.Size = panelTool.MinimumSize;
@@ -178,6 +176,9 @@ namespace GUI
 
                     txtDH.Text = dgvKH.Rows[index].Cells[8].Value.ToString();
                     khachHang.maDHN = int.Parse(txtDH.Text);
+
+                    txtTinhTrang.Text = dgvKH.Rows[index].Cells[9].Value.ToString();
+                    khachHang.tinhTrang = txtTinhTrang.Text;
                 }
                 else
                 {

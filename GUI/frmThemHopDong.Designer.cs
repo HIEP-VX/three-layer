@@ -51,9 +51,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.grpTTDH = new System.Windows.Forms.GroupBox();
             this.dgvDH_HD = new System.Windows.Forms.DataGridView();
+            this.selectColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
-            this.selectColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtTien = new System.Windows.Forms.TextBox();
+            this.txtLyDo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtMaNV = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.grpTTKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).BeginInit();
@@ -218,6 +224,12 @@
             // 
             // grpTTHD
             // 
+            this.grpTTHD.Controls.Add(this.label11);
+            this.grpTTHD.Controls.Add(this.label10);
+            this.grpTTHD.Controls.Add(this.label9);
+            this.grpTTHD.Controls.Add(this.txtMaNV);
+            this.grpTTHD.Controls.Add(this.txtLyDo);
+            this.grpTTHD.Controls.Add(this.txtTien);
             this.grpTTHD.Controls.Add(this.txtNL);
             this.grpTTHD.Controls.Add(this.datetimeNL);
             this.grpTTHD.Controls.Add(this.label6);
@@ -226,7 +238,7 @@
             this.grpTTHD.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTTHD.Location = new System.Drawing.Point(0, 150);
             this.grpTTHD.Name = "grpTTHD";
-            this.grpTTHD.Size = new System.Drawing.Size(1040, 83);
+            this.grpTTHD.Size = new System.Drawing.Size(1040, 109);
             this.grpTTHD.TabIndex = 1;
             this.grpTTHD.TabStop = false;
             this.grpTTHD.Text = "Thông tin hợp đồng";
@@ -234,7 +246,7 @@
             // txtNL
             // 
             this.txtNL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNL.Location = new System.Drawing.Point(753, 31);
+            this.txtNL.Location = new System.Drawing.Point(753, 20);
             this.txtNL.Name = "txtNL";
             this.txtNL.Size = new System.Drawing.Size(245, 26);
             this.txtNL.TabIndex = 3;
@@ -242,7 +254,7 @@
             // datetimeNL
             // 
             this.datetimeNL.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datetimeNL.Location = new System.Drawing.Point(167, 33);
+            this.datetimeNL.Location = new System.Drawing.Point(167, 20);
             this.datetimeNL.Name = "datetimeNL";
             this.datetimeNL.Size = new System.Drawing.Size(188, 26);
             this.datetimeNL.TabIndex = 2;
@@ -251,7 +263,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(46, 33);
+            this.label6.Location = new System.Drawing.Point(46, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 17);
             this.label6.TabIndex = 1;
@@ -262,7 +274,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(639, 33);
+            this.label5.Location = new System.Drawing.Point(639, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 17);
             this.label5.TabIndex = 0;
@@ -275,9 +287,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpTTDH.Controls.Add(this.dgvDH_HD);
             this.grpTTDH.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpTTDH.Location = new System.Drawing.Point(0, 233);
+            this.grpTTDH.Location = new System.Drawing.Point(0, 265);
             this.grpTTDH.Name = "grpTTDH";
-            this.grpTTDH.Size = new System.Drawing.Size(1040, 423);
+            this.grpTTDH.Size = new System.Drawing.Size(1040, 391);
             this.grpTTDH.TabIndex = 2;
             this.grpTTDH.TabStop = false;
             this.grpTTDH.Text = "Thông tin đồng hồ";
@@ -292,8 +304,13 @@
             this.dgvDH_HD.Location = new System.Drawing.Point(3, 22);
             this.dgvDH_HD.Name = "dgvDH_HD";
             this.dgvDH_HD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDH_HD.Size = new System.Drawing.Size(1034, 398);
+            this.dgvDH_HD.Size = new System.Drawing.Size(1034, 366);
             this.dgvDH_HD.TabIndex = 0;
+            // 
+            // selectColumn
+            // 
+            this.selectColumn.HeaderText = "Chọn đồng hồ";
+            this.selectColumn.Name = "selectColumn";
             // 
             // button1
             // 
@@ -314,10 +331,58 @@
             // 
             this.diaChiTableAdapter.ClearBeforeFill = true;
             // 
-            // selectColumn
+            // label9
             // 
-            this.selectColumn.HeaderText = "Chọn đồng hồ";
-            this.selectColumn.Name = "selectColumn";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(45, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 17);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Tiền";
+            // 
+            // txtTien
+            // 
+            this.txtTien.Location = new System.Drawing.Point(167, 50);
+            this.txtTien.Name = "txtTien";
+            this.txtTien.Size = new System.Drawing.Size(188, 26);
+            this.txtTien.TabIndex = 5;
+            // 
+            // txtLyDo
+            // 
+            this.txtLyDo.Location = new System.Drawing.Point(167, 80);
+            this.txtLyDo.Name = "txtLyDo";
+            this.txtLyDo.Size = new System.Drawing.Size(188, 26);
+            this.txtLyDo.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(45, 84);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 17);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Lý do";
+            // 
+            // txtMaNV
+            // 
+            this.txtMaNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaNV.Location = new System.Drawing.Point(753, 54);
+            this.txtMaNV.Name = "txtMaNV";
+            this.txtMaNV.Size = new System.Drawing.Size(245, 26);
+            this.txtMaNV.TabIndex = 9;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(639, 58);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Mã nhân viên";
             // 
             // frmThemHopDong
             // 
@@ -371,5 +436,11 @@
         private System.Windows.Forms.BindingSource diaChiBindingSource;
         private QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter diaChiTableAdapter;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selectColumn;
+        private System.Windows.Forms.TextBox txtMaNV;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtLyDo;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtTien;
+        private System.Windows.Forms.Label label9;
     }
 }

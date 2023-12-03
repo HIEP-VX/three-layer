@@ -110,8 +110,8 @@
             // 
             this.txtTinhtrang.FormattingEnabled = true;
             this.txtTinhtrang.Items.AddRange(new object[] {
-            "0-chưa nộp",
-            "1-đã nộp"});
+            "0-chưa thanh toán",
+            "1-đã thanh toán"});
             this.txtTinhtrang.Location = new System.Drawing.Point(91, 73);
             this.txtTinhtrang.Name = "txtTinhtrang";
             this.txtTinhtrang.Size = new System.Drawing.Size(114, 24);
@@ -251,6 +251,8 @@
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHoaDon.Size = new System.Drawing.Size(800, 282);
             this.dgvHoaDon.TabIndex = 4;
+            this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
+            this.dgvHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellContentClick);
             // 
             // timerXoa
             // 

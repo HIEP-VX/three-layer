@@ -92,6 +92,13 @@ namespace GUI
             cbPhuong.Text = khachHang.phuong.ToString();
             txtDC.Text = khachHang.diaChi.ToString();
             txtSoDT.Text = khachHang.soDT.ToString();
+            txtTinhTrang.Text = khachHang.tinhTrang.ToString();
+            txtTinhTrang.ReadOnly = true;
+        }
+
+        private void txtTinhTrang_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Mục này không được phép chỉnh sửa");
         }
     }
 }

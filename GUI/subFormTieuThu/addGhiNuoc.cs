@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,29 +39,27 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string query = "select makh from khachhang ";
+            string query = "select makh from khachhang where tinhTrang = 1";
             DataTable dataTable = AccessData.getData(query);
             
             using (SqlConnection conn = SqlConnectionData.connect())
             {
                 conn.Open();
                 string query1 = "INSERT INTO tieuThu (maKH, ThoiGianDau, ThoiGianCuoi, maNV) values (@maKH, @ThoiGianDau, @ThoiGianCuoi, @maNV)";
+                thoiGianGhiNuoc.thoiGianCuoi = dateThoiGianCuoi.Value;
                 string[] maKHArray = DataTableColumnToStringArray(dataTable, "MaKH");
                 for (int i = 0; i < maKHArray.Length; i++)
                 {
 
                     using (SqlCommand cmd = new SqlCommand(query1, conn))
                     {
-                        // Xóa parameters cũ nếu có
                         cmd.Parameters.Clear();
 
-                        // Thêm parameters mới
                         cmd.Parameters.AddWithValue("@maKH", dataTable.Rows[i]["MaKH"].ToString());
                         cmd.Parameters.AddWithValue("@ThoiGianDau", dateThoiGianDau.Value);
                         cmd.Parameters.AddWithValue("@ThoiGianCuoi", dateThoiGianCuoi.Value);
                         cmd.Parameters.AddWithValue("@maNV", txtMaNV.Text);
 
-                        // Thực thi câu lệnh SQL
                         cmd.ExecuteNonQuery();
 
                         string query2 = "UPDATE TIEUTHU SET CHISOCU = (SELECT CHISODAU FROM DONGHONUOC dhn, KHACHHANG kh where dhn.MADHN = kh.MADHN and kh.MAKH = @maKH) where maKH = @maKH";

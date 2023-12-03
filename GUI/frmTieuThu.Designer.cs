@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelTool = new System.Windows.Forms.Panel();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnChiaPhuong = new System.Windows.Forms.Button();
             this.grpChiSoNuoc = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMATT = new System.Windows.Forms.TextBox();
@@ -43,7 +44,7 @@
             this.panelGhiNuoc = new System.Windows.Forms.Panel();
             this.dgvGhiNuoc = new System.Windows.Forms.DataGridView();
             this.openFD = new System.Windows.Forms.OpenFileDialog();
-            this.timerGhiNuoc = new System.Windows.Forms.Timer(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panelTool.SuspendLayout();
             this.grpChiSoNuoc.SuspendLayout();
             this.panelGhiNuoc.SuspendLayout();
@@ -52,6 +53,9 @@
             // 
             // panelTool
             // 
+            this.panelTool.Controls.Add(this.comboBox1);
+            this.panelTool.Controls.Add(this.btnCapNhat);
+            this.panelTool.Controls.Add(this.btnChiaPhuong);
             this.panelTool.Controls.Add(this.grpChiSoNuoc);
             this.panelTool.Controls.Add(this.cbThang);
             this.panelTool.Controls.Add(this.btnSave);
@@ -64,6 +68,28 @@
             this.panelTool.Name = "panelTool";
             this.panelTool.Size = new System.Drawing.Size(800, 168);
             this.panelTool.TabIndex = 1;
+            // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhat.Location = new System.Drawing.Point(388, 3);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(75, 28);
+            this.btnCapNhat.TabIndex = 53;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+            // 
+            // btnChiaPhuong
+            // 
+            this.btnChiaPhuong.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChiaPhuong.Location = new System.Drawing.Point(294, 3);
+            this.btnChiaPhuong.Name = "btnChiaPhuong";
+            this.btnChiaPhuong.Size = new System.Drawing.Size(88, 28);
+            this.btnChiaPhuong.TabIndex = 52;
+            this.btnChiaPhuong.Text = "Theo phường";
+            this.btnChiaPhuong.UseVisualStyleBackColor = true;
+            this.btnChiaPhuong.Click += new System.EventHandler(this.btnChiaPhuong_Click);
             // 
             // grpChiSoNuoc
             // 
@@ -129,7 +155,7 @@
             // 
             this.cbThang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbThang.FormattingEnabled = true;
-            this.cbThang.Location = new System.Drawing.Point(30, 5);
+            this.cbThang.Location = new System.Drawing.Point(20, 5);
             this.cbThang.Name = "cbThang";
             this.cbThang.Size = new System.Drawing.Size(69, 21);
             this.cbThang.TabIndex = 50;
@@ -139,7 +165,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(298, 3);
+            this.btnSave.Location = new System.Drawing.Point(625, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 28);
             this.btnSave.TabIndex = 45;
@@ -150,7 +176,7 @@
             // btnThemExcel
             // 
             this.btnThemExcel.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemExcel.Location = new System.Drawing.Point(186, 3);
+            this.btnThemExcel.Location = new System.Drawing.Point(513, 5);
             this.btnThemExcel.Name = "btnThemExcel";
             this.btnThemExcel.Size = new System.Drawing.Size(106, 28);
             this.btnThemExcel.TabIndex = 44;
@@ -161,7 +187,7 @@
             // btnGhiNuoc
             // 
             this.btnGhiNuoc.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGhiNuoc.Location = new System.Drawing.Point(105, 3);
+            this.btnGhiNuoc.Location = new System.Drawing.Point(213, 3);
             this.btnGhiNuoc.Name = "btnGhiNuoc";
             this.btnGhiNuoc.Size = new System.Drawing.Size(75, 28);
             this.btnGhiNuoc.TabIndex = 43;
@@ -173,7 +199,7 @@
             // 
             this.panelGhiNuoc.Controls.Add(this.dgvGhiNuoc);
             this.panelGhiNuoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGhiNuoc.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelGhiNuoc.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelGhiNuoc.Location = new System.Drawing.Point(0, 168);
             this.panelGhiNuoc.Name = "panelGhiNuoc";
             this.panelGhiNuoc.Size = new System.Drawing.Size(800, 282);
@@ -186,19 +212,24 @@
             this.dgvGhiNuoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGhiNuoc.Location = new System.Drawing.Point(0, 0);
             this.dgvGhiNuoc.Name = "dgvGhiNuoc";
+            this.dgvGhiNuoc.ReadOnly = true;
             this.dgvGhiNuoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGhiNuoc.Size = new System.Drawing.Size(800, 282);
             this.dgvGhiNuoc.TabIndex = 0;
             this.dgvGhiNuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGhiNuoc_CellClick);
+            this.dgvGhiNuoc.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGhiNuoc_CellDoubleClick);
             // 
             // openFD
             // 
             this.openFD.FileName = "openFileDialog1";
             // 
-            // timerGhiNuoc
+            // comboBox1
             // 
-            this.timerGhiNuoc.Interval = 15;
-            this.timerGhiNuoc.Tick += new System.EventHandler(this.timerGhiNuoc_Tick);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(96, 5);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(107, 21);
+            this.comboBox1.TabIndex = 54;
             // 
             // frmTieuThu
             // 
@@ -231,9 +262,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtChiSoNuoc;
         private System.Windows.Forms.ComboBox cbThang;
-        private System.Windows.Forms.Timer timerGhiNuoc;
         private System.Windows.Forms.GroupBox grpChiSoNuoc;
         private System.Windows.Forms.TextBox txtMATT;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.Button btnChiaPhuong;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

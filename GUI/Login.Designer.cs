@@ -41,6 +41,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkShowPassword = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -85,6 +86,7 @@
             this.txtpassword.Location = new System.Drawing.Point(83, 237);
             this.txtpassword.Multiline = true;
             this.txtpassword.Name = "txtpassword";
+            this.txtpassword.PasswordChar = '*';
             this.txtpassword.Size = new System.Drawing.Size(265, 29);
             this.txtpassword.TabIndex = 5;
             // 
@@ -175,12 +177,29 @@
             this.label2.Text = "Thoát";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // checkShowPassword
+            // 
+            this.checkShowPassword.AutoSize = true;
+            this.checkShowPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkShowPassword.FlatAppearance.BorderSize = 0;
+            this.checkShowPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkShowPassword.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkShowPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(114)))), ((int)(((byte)(177)))));
+            this.checkShowPassword.Location = new System.Drawing.Point(294, 245);
+            this.checkShowPassword.Name = "checkShowPassword";
+            this.checkShowPassword.Size = new System.Drawing.Size(54, 22);
+            this.checkShowPassword.TabIndex = 15;
+            this.checkShowPassword.Text = "Hiện";
+            this.checkShowPassword.UseVisualStyleBackColor = true;
+            this.checkShowPassword.CheckedChanged += new System.EventHandler(this.checkShowPassword_CheckedChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(388, 421);
+            this.Controls.Add(this.checkShowPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -221,5 +240,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkShowPassword;
     }
 }

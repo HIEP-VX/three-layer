@@ -269,6 +269,7 @@
             this.dgvLKH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLKH.Location = new System.Drawing.Point(0, 0);
             this.dgvLKH.Name = "dgvLKH";
+            this.dgvLKH.ReadOnly = true;
             this.dgvLKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLKH.Size = new System.Drawing.Size(800, 282);
             this.dgvLKH.TabIndex = 1;

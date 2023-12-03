@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace GUI
 {
     public partial class frmPhieuNhanHang : Form
     {
+        private int index = -1;
         public frmPhieuNhanHang()
         {
             InitializeComponent();
@@ -57,6 +59,41 @@ namespace GUI
             {
                 reload();
             };
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(phieuNhanHang.maMH.ToString());
+            subUpdateChiTietMuaHang sb = new subUpdateChiTietMuaHang();
+            sb.ShowDialog();
+            
+
+        }
+
+        private void dgvPhieuNhanHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+            if (index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                object cellValue = dgvPhieuNhanHang.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                string ma;
+                if (cellValue != null && cellValue != DBNull.Value)
+                {
+                    ma = dgvPhieuNhanHang.Rows[index].Cells[0].Value.ToString();
+                    phieuNhanHang.maMH = int.Parse(ma);
+
+                }
+            }
+        }
+
+        private void dgvPhieuNhanHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

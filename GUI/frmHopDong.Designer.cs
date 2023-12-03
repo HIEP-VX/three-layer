@@ -34,6 +34,12 @@
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dateTimeNL = new System.Windows.Forms.DateTimePicker();
             this.btnHopTimKiem = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,12 +51,6 @@
             this.dgvHopDong = new System.Windows.Forms.DataGridView();
             this.timerHopD = new System.Windows.Forms.Timer(this.components);
             this.panelHopDong = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).BeginInit();
@@ -65,10 +65,10 @@
             this.panelTool.Controls.Add(this.btnTimKiem);
             this.panelTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTool.Location = new System.Drawing.Point(0, 0);
-            this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
-            this.panelTool.MinimumSize = new System.Drawing.Size(800, 29);
+            this.panelTool.MaximumSize = new System.Drawing.Size(1095, 168);
+            this.panelTool.MinimumSize = new System.Drawing.Size(1095, 29);
             this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(800, 168);
+            this.panelTool.Size = new System.Drawing.Size(1095, 168);
             this.panelTool.TabIndex = 0;
             // 
             // btnCapNhat
@@ -117,15 +117,68 @@
             this.groupBox1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 125);
+            this.groupBox1.Size = new System.Drawing.Size(1069, 125);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(754, 64);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(200, 24);
+            this.comboBox1.TabIndex = 40;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(754, 33);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(200, 23);
+            this.textBox2.TabIndex = 39;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(379, 64);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 23);
+            this.textBox1.TabIndex = 38;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(625, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 19);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Mã nhân viên";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(625, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 19);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Lý do thu";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(258, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 19);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Tiền làm HĐ";
+            // 
             // dateTimeNL
             // 
             this.dateTimeNL.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeNL.Location = new System.Drawing.Point(84, 51);
+            this.dateTimeNL.Location = new System.Drawing.Point(109, 64);
             this.dateTimeNL.Name = "dateTimeNL";
             this.dateTimeNL.Size = new System.Drawing.Size(109, 23);
             this.dateTimeNL.TabIndex = 34;
@@ -133,11 +186,11 @@
             // btnHopTimKiem
             // 
             this.btnHopTimKiem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHopTimKiem.Location = new System.Drawing.Point(695, 16);
+            this.btnHopTimKiem.Location = new System.Drawing.Point(988, 13);
             this.btnHopTimKiem.Name = "btnHopTimKiem";
             this.btnHopTimKiem.Size = new System.Drawing.Size(75, 103);
             this.btnHopTimKiem.TabIndex = 33;
-            this.btnHopTimKiem.Text = "TÌM";
+            this.btnHopTimKiem.Text = "THỰC\r\nHIỆN";
             this.btnHopTimKiem.UseVisualStyleBackColor = true;
             this.btnHopTimKiem.Click += new System.EventHandler(this.btnHopTimKiem_Click);
             // 
@@ -145,7 +198,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 22);
+            this.label2.Location = new System.Drawing.Point(30, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 19);
             this.label2.TabIndex = 31;
@@ -153,7 +206,7 @@
             // 
             // txtMa
             // 
-            this.txtMa.Location = new System.Drawing.Point(84, 20);
+            this.txtMa.Location = new System.Drawing.Point(109, 33);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(109, 23);
             this.txtMa.TabIndex = 32;
@@ -162,7 +215,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 53);
+            this.label3.Location = new System.Drawing.Point(30, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 19);
             this.label3.TabIndex = 27;
@@ -172,7 +225,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 84);
+            this.label4.Location = new System.Drawing.Point(258, 35);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 19);
             this.label4.TabIndex = 28;
@@ -180,10 +233,9 @@
             // 
             // txtNL
             // 
-            this.txtNL.Location = new System.Drawing.Point(84, 82);
-            this.txtNL.Multiline = true;
+            this.txtNL.Location = new System.Drawing.Point(379, 33);
             this.txtNL.Name = "txtNL";
-            this.txtNL.Size = new System.Drawing.Size(200, 43);
+            this.txtNL.Size = new System.Drawing.Size(200, 23);
             this.txtNL.TabIndex = 30;
             // 
             // btnTimKiem
@@ -204,8 +256,9 @@
             this.dgvHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHopDong.Location = new System.Drawing.Point(0, 0);
             this.dgvHopDong.Name = "dgvHopDong";
+            this.dgvHopDong.ReadOnly = true;
             this.dgvHopDong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHopDong.Size = new System.Drawing.Size(800, 346);
+            this.dgvHopDong.Size = new System.Drawing.Size(1093, 346);
             this.dgvHopDong.TabIndex = 1;
             // 
             // timerHopD
@@ -220,67 +273,14 @@
             this.panelHopDong.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelHopDong.Location = new System.Drawing.Point(0, 168);
             this.panelHopDong.Name = "panelHopDong";
-            this.panelHopDong.Size = new System.Drawing.Size(800, 346);
+            this.panelHopDong.Size = new System.Drawing.Size(1093, 346);
             this.panelHopDong.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(340, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 19);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Tiền làm HĐ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(340, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 19);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Lý do thu";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(340, 84);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 19);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "Mã nhân viên";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(469, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 23);
-            this.textBox1.TabIndex = 38;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(469, 51);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 23);
-            this.textBox2.TabIndex = 39;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(469, 82);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 24);
-            this.comboBox1.TabIndex = 40;
             // 
             // frmHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 514);
+            this.ClientSize = new System.Drawing.Size(1093, 514);
             this.Controls.Add(this.panelHopDong);
             this.Controls.Add(this.panelTool);
             this.Name = "frmHopDong";
