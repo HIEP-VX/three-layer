@@ -79,11 +79,6 @@ namespace GUI
             }
         }
 
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void SetLinearGradient(Button btn, string hexColor1, string hexColor2)
         {
             // Chuyển đổi mã màu hex thành đối tượng Color
@@ -109,6 +104,11 @@ namespace GUI
         private void addGhiNuoc_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

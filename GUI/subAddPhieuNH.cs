@@ -55,6 +55,13 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (txtNHACC.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập nhà cung cấp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNHACC.Focus();
+                return;
+            }
+
             using (SqlConnection conn = SqlConnectionData.connect())
             {
                 conn.Open();

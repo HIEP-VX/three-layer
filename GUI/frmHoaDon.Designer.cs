@@ -211,6 +211,7 @@
             this.button1.Text = "In hóa đơn";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCapNhat
             // 
@@ -252,7 +253,6 @@
             this.dgvHoaDon.Size = new System.Drawing.Size(800, 282);
             this.dgvHoaDon.TabIndex = 4;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
-            this.dgvHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellContentClick);
             // 
             // timerXoa
             // 

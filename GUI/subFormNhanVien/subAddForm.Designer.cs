@@ -28,29 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txttenNV = new System.Windows.Forms.TextBox();
             this.txtsoDT = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtChucVu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtQuyenHan = new System.Windows.Forms.ComboBox();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(223, 194);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(128, 33);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Thoát";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label1
             // 
@@ -87,9 +76,9 @@
             this.btnSubmit.FlatAppearance.BorderSize = 0;
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(62, 194);
+            this.btnSubmit.Location = new System.Drawing.Point(51, 194);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(128, 33);
+            this.btnSubmit.Size = new System.Drawing.Size(298, 33);
             this.btnSubmit.TabIndex = 5;
             this.btnSubmit.Text = "Thêm";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -111,13 +100,13 @@
             this.txtsoDT.Size = new System.Drawing.Size(231, 23);
             this.txtsoDT.TabIndex = 8;
             // 
-            // textBox1
+            // txtChucVu
             // 
-            this.textBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(144, 123);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 23);
-            this.textBox1.TabIndex = 10;
+            this.txtChucVu.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChucVu.Location = new System.Drawing.Point(144, 123);
+            this.txtChucVu.Name = "txtChucVu";
+            this.txtChucVu.Size = new System.Drawing.Size(231, 23);
+            this.txtChucVu.TabIndex = 10;
             // 
             // label2
             // 
@@ -129,14 +118,6 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Chức vụ";
             // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(144, 159);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(231, 23);
-            this.textBox2.TabIndex = 12;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -147,14 +128,44 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Quyền hạn";
             // 
+            // txtQuyenHan
+            // 
+            this.txtQuyenHan.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuyenHan.FormattingEnabled = true;
+            this.txtQuyenHan.Items.AddRange(new object[] {
+            "Quản lý",
+            "Nhân viên"});
+            this.txtQuyenHan.Location = new System.Drawing.Point(144, 159);
+            this.txtQuyenHan.Name = "txtQuyenHan";
+            this.txtQuyenHan.Size = new System.Drawing.Size(231, 24);
+            this.txtQuyenHan.TabIndex = 12;
+            this.txtQuyenHan.Validating += new System.ComponentModel.CancelEventHandler(this.txtQuyenHan_Validating);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.Firebrick;
+            this.btnThoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Location = new System.Drawing.Point(369, 0);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(39, 26);
+            this.btnThoat.TabIndex = 27;
+            this.btnThoat.Text = "X";
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // subAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 244);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(408, 244);
+            this.Controls.Add(this.btnThoat);
+            this.Controls.Add(this.txtQuyenHan);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtChucVu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtsoDT);
             this.Controls.Add(this.txttenNV);
@@ -162,7 +173,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "subAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -174,17 +184,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txttenNV;
         private System.Windows.Forms.TextBox txtsoDT;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtChucVu;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox txtQuyenHan;
+        private System.Windows.Forms.Button btnThoat;
     }
 }

@@ -45,6 +45,12 @@
             this.datetimeNS = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.grpTTHD = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtMaNV = new System.Windows.Forms.TextBox();
+            this.txtLyDo = new System.Windows.Forms.TextBox();
+            this.txtTien = new System.Windows.Forms.TextBox();
             this.txtNL = new System.Windows.Forms.TextBox();
             this.datetimeNL = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,12 +60,6 @@
             this.selectColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtTien = new System.Windows.Forms.TextBox();
-            this.txtLyDo = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtMaNV = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.grpTTKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).BeginInit();
@@ -243,6 +243,60 @@
             this.grpTTHD.TabStop = false;
             this.grpTTHD.Text = "Thông tin hợp đồng";
             // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(639, 58);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Mã nhân viên";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(45, 84);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 17);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Lý do";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(45, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 17);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Tiền";
+            // 
+            // txtMaNV
+            // 
+            this.txtMaNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaNV.Location = new System.Drawing.Point(753, 54);
+            this.txtMaNV.Name = "txtMaNV";
+            this.txtMaNV.ReadOnly = true;
+            this.txtMaNV.Size = new System.Drawing.Size(245, 26);
+            this.txtMaNV.TabIndex = 9;
+            // 
+            // txtLyDo
+            // 
+            this.txtLyDo.Location = new System.Drawing.Point(167, 80);
+            this.txtLyDo.Name = "txtLyDo";
+            this.txtLyDo.Size = new System.Drawing.Size(188, 26);
+            this.txtLyDo.TabIndex = 7;
+            // 
+            // txtTien
+            // 
+            this.txtTien.Location = new System.Drawing.Point(167, 50);
+            this.txtTien.Name = "txtTien";
+            this.txtTien.Size = new System.Drawing.Size(188, 26);
+            this.txtTien.TabIndex = 5;
+            // 
             // txtNL
             // 
             this.txtNL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -330,59 +384,6 @@
             // diaChiTableAdapter
             // 
             this.diaChiTableAdapter.ClearBeforeFill = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(45, 54);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 17);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Tiền";
-            // 
-            // txtTien
-            // 
-            this.txtTien.Location = new System.Drawing.Point(167, 50);
-            this.txtTien.Name = "txtTien";
-            this.txtTien.Size = new System.Drawing.Size(188, 26);
-            this.txtTien.TabIndex = 5;
-            // 
-            // txtLyDo
-            // 
-            this.txtLyDo.Location = new System.Drawing.Point(167, 80);
-            this.txtLyDo.Name = "txtLyDo";
-            this.txtLyDo.Size = new System.Drawing.Size(188, 26);
-            this.txtLyDo.TabIndex = 7;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(45, 84);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 17);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Lý do";
-            // 
-            // txtMaNV
-            // 
-            this.txtMaNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaNV.Location = new System.Drawing.Point(753, 54);
-            this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(245, 26);
-            this.txtMaNV.TabIndex = 9;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(639, 58);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(93, 17);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Mã nhân viên";
             // 
             // frmThemHopDong
             // 

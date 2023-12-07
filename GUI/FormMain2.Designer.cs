@@ -41,8 +41,8 @@
             this.button12 = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnCapNhatTaiKhoan = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnKhoiPhuc = new System.Windows.Forms.Button();
+            this.btnSaoLuu = new System.Windows.Forms.Button();
             this.btnHeThong = new System.Windows.Forms.Button();
             this.panelDanhMuc = new System.Windows.Forms.Panel();
             this.btnNhanVien = new System.Windows.Forms.Button();
@@ -157,16 +157,16 @@
             this.panelHeThong.Controls.Add(this.button12);
             this.panelHeThong.Controls.Add(this.btnDangXuat);
             this.panelHeThong.Controls.Add(this.btnCapNhatTaiKhoan);
-            this.panelHeThong.Controls.Add(this.button6);
-            this.panelHeThong.Controls.Add(this.button7);
+            this.panelHeThong.Controls.Add(this.btnKhoiPhuc);
+            this.panelHeThong.Controls.Add(this.btnSaoLuu);
             this.panelHeThong.Controls.Add(this.btnHeThong);
             this.panelHeThong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelHeThong.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeThong.Location = new System.Drawing.Point(0, 50);
+            this.panelHeThong.Location = new System.Drawing.Point(0, 380);
             this.panelHeThong.MaximumSize = new System.Drawing.Size(200, 250);
             this.panelHeThong.MinimumSize = new System.Drawing.Size(200, 50);
             this.panelHeThong.Name = "panelHeThong";
-            this.panelHeThong.Size = new System.Drawing.Size(200, 50);
+            this.panelHeThong.Size = new System.Drawing.Size(200, 250);
             this.panelHeThong.TabIndex = 3;
             // 
             // pictureBox2
@@ -228,35 +228,37 @@
             this.btnCapNhatTaiKhoan.UseVisualStyleBackColor = false;
             this.btnCapNhatTaiKhoan.Click += new System.EventHandler(this.btnCapNhatTaiKhoan_Click);
             // 
-            // button6
+            // btnKhoiPhuc
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.Control;
-            this.button6.Location = new System.Drawing.Point(0, 90);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(200, 40);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Khôi phục dữ liệu";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnKhoiPhuc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
+            this.btnKhoiPhuc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnKhoiPhuc.FlatAppearance.BorderSize = 0;
+            this.btnKhoiPhuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhoiPhuc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKhoiPhuc.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnKhoiPhuc.Location = new System.Drawing.Point(0, 90);
+            this.btnKhoiPhuc.Name = "btnKhoiPhuc";
+            this.btnKhoiPhuc.Size = new System.Drawing.Size(200, 40);
+            this.btnKhoiPhuc.TabIndex = 2;
+            this.btnKhoiPhuc.Text = "Khôi phục dữ liệu";
+            this.btnKhoiPhuc.UseVisualStyleBackColor = false;
+            this.btnKhoiPhuc.Click += new System.EventHandler(this.btnKhoiPhuc_Click);
             // 
-            // button7
+            // btnSaoLuu
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.Control;
-            this.button7.Location = new System.Drawing.Point(0, 50);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(200, 40);
-            this.button7.TabIndex = 1;
-            this.button7.Text = "Sao lưu dữ liệu";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnSaoLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(82)))), ((int)(((byte)(126)))));
+            this.btnSaoLuu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSaoLuu.FlatAppearance.BorderSize = 0;
+            this.btnSaoLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaoLuu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaoLuu.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSaoLuu.Location = new System.Drawing.Point(0, 50);
+            this.btnSaoLuu.Name = "btnSaoLuu";
+            this.btnSaoLuu.Size = new System.Drawing.Size(200, 40);
+            this.btnSaoLuu.TabIndex = 1;
+            this.btnSaoLuu.Text = "Sao lưu dữ liệu";
+            this.btnSaoLuu.UseVisualStyleBackColor = false;
+            this.btnSaoLuu.Click += new System.EventHandler(this.btnSaoLuu_Click);
             // 
             // btnHeThong
             // 
@@ -291,7 +293,7 @@
             this.panelDanhMuc.MaximumSize = new System.Drawing.Size(200, 380);
             this.panelDanhMuc.MinimumSize = new System.Drawing.Size(200, 50);
             this.panelDanhMuc.Name = "panelDanhMuc";
-            this.panelDanhMuc.Size = new System.Drawing.Size(200, 50);
+            this.panelDanhMuc.Size = new System.Drawing.Size(200, 380);
             this.panelDanhMuc.TabIndex = 2;
             // 
             // btnNhanVien
@@ -468,7 +470,7 @@
             this.btnHopDong1.TabIndex = 1;
             this.btnHopDong1.Text = "Hợp đồng";
             this.btnHopDong1.UseVisualStyleBackColor = false;
-            this.btnHopDong1.Click += new System.EventHandler(this.btnHopDong_Click);
+            this.btnHopDong1.Click += new System.EventHandler(this.btnHopDong1_Click);
             // 
             // btnDanhMuc
             // 
@@ -602,8 +604,8 @@
         private System.Windows.Forms.Button btnDanhMuc;
         private System.Windows.Forms.Panel panelHeThong;
         private System.Windows.Forms.Button btnCapNhatTaiKhoan;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnKhoiPhuc;
+        private System.Windows.Forms.Button btnSaoLuu;
         private System.Windows.Forms.Button btnHeThong;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;

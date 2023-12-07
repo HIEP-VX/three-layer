@@ -1,4 +1,5 @@
 ﻿using DAL;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.RefAndLookup;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,11 +42,8 @@ namespace GUI
                 foreach (DataGridViewColumn column in dgvNhanVien.Columns)
                 {
                     column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
-
-                dgvNhanVien.Columns[0].Width = 50;
-                dgvNhanVien.Columns[2].Width = 120;
-
             }
             catch (Exception ex)
             {
@@ -74,6 +72,8 @@ namespace GUI
             {
                 reload();
             };
+
+            reload();
         }
 
         private void btnXoa_Click_1(object sender, EventArgs e)
@@ -149,11 +149,12 @@ namespace GUI
                 return;
             }
 
-            string sql = "update NhanVien set TENNV = N'" + txttenNV.Text + "',soDT = '" + txtsoDT.Text + "' where maNV = " + txtMa.Text;
+            string sql = "update NhanVien set TENNV = N'" + txttenNV.Text + "',soDT = '" + txtsoDT.Text + "', chucVu = N'"+txtChucVu.Text + "', taiKhoan = N'"+ txtTaiKhoan.Text + "', matKhau = N'"+ txtMatKhau.Text + "', quyenHan = N'" + txtQuyenHan.Text +"' where maNV = " + txtMa.Text;
             try
             {
                 AccessData.execQuery(sql);
                 MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reload();
             }
             catch (Exception ex)
             {
@@ -249,6 +250,32 @@ namespace GUI
             using (Graphics g = Graphics.FromImage(btn.BackgroundImage))
             {
                 g.FillRectangle(linearGradientBrush, btn.ClientRectangle);
+            }
+        }
+
+        private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if (index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            txtMa.Text = dgvNhanVien.Rows[index].Cells[0].Value.ToString();
+            txttenNV.Text = dgvNhanVien.Rows[index].Cells[1].Value.ToString();
+            txtsoDT.Text = dgvNhanVien.Rows[index].Cells[2].Value.ToString();
+            txtChucVu.Text = dgvNhanVien.Rows[index].Cells[3].Value.ToString();
+            txtTaiKhoan.Text = dgvNhanVien.Rows[index].Cells[4].Value.ToString();
+            txtMatKhau.Text = dgvNhanVien.Rows[index].Cells[5].Value.ToString();
+            txtQuyenHan.Text = dgvNhanVien.Rows[index].Cells[6].Value.ToString();
+        }
+
+        private void txtQuyenHan_Validating(object sender, CancelEventArgs e)
+        {
+            if (!txtQuyenHan.Items.Contains(txtQuyenHan.Text))
+            {
+                e.Cancel = true;
+                MessageBox.Show("Vui lòng chọn đúng quyền hạn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

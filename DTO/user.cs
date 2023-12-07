@@ -14,6 +14,5 @@ namespace DTO
         public static string position { get; set; }    // chức vụ
         public static string account { get; set; }       // tai khoan
         public static string password { get; set; }      // mat khau
-        public static string welcome { get; set; }
     }
 }

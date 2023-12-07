@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,6 +83,34 @@ namespace GUI
 
         private void btnHopCapNhat_Click(object sender, EventArgs e)
         {
+            if (txtTen.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập họ tên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTen.Focus();
+                return;
+            }
+
+            if (txtSDT.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSDT.Focus();
+                return;
+            }
+
+            if (txtTaiKhoan.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tài khoản.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTaiKhoan.Focus();
+                return;
+            }
+
+            if (txtMatKhau.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMatKhau.Focus();
+                return;
+            }
+
             string query = "update NhanVien set tenNV = @tenNV, soDT = @soDT, taiKhoan = @taiKhoan, matKhau = @matKhau where maNV = " + user.id;
             using (SqlConnection conn = SqlConnectionData.connect())
             {
@@ -97,60 +126,6 @@ namespace GUI
                 {
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    /*string sqlQuery = "SELECT nv.maNV, nv.tenNV, nv.chucVu, nv.taiKhoan, nv.matKhau, nv.quyenHan FROM nhanvien nv WHERE nv.taiKhoan = @TaiKhoan AND nv.matKhau = @MatKhau";
-
-                    using (SqlCommand command = new SqlCommand(sqlQuery, conn))
-                    {
-                        // Thêm tham số vào câu lệnh SQL
-                        command.Parameters.AddWithValue("@TaiKhoan", txtTaiKhoan.Text);
-                        command.Parameters.AddWithValue("@MatKhau", txtMatKhau.Text);
-
-                        // Thực thi câu lệnh SQL và đọc giá trị
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                // Đọc giá trị tên nhân viên từ cột đầu tiên
-                                string maNhanVien = reader["maNV"].ToString();
-                                user.id = int.Parse(maNhanVien);
-
-                                // Đọc giá trị tên nhân viên từ cột đầu tiên
-                                string tenNhanVien = reader["tenNV"].ToString();
-                                user.user_name = tenNhanVien;
-
-                                // Đọc giá trị quyền hạn từ cột thứ hai
-                                string chucVu = reader["chucVu"].ToString();
-                                user.position = chucVu;
-
-                                // Đọc giá trị quyền hạn từ cột thứ ba
-                                string taiKhoan = reader["taiKhoan"].ToString();
-                                user.account = taiKhoan;
-
-                                // Đọc giá trị quyền hạn từ cột thứ bon
-                                string matKhau = reader["matKhau"].ToString();
-                                user.password = matKhau;
-
-                                // Đọc giá trị quyền hạn từ cột thứ nam
-                                string quyenHan = reader["quyenHan"].ToString();
-                                user.permission = quyenHan;
-                            }
-                        }
-                    }
-
-                    frmMain.welcomeText = "Chào mừng " + user.user_name;
-
-                    string query2 = "SELECT maNV, tenNV, soDT, chucVu, taiKhoan, matKhau from nhanvien where taiKhoan = N'" + user.account + "' and matKhau = N'" + user.password + "'";
-
-                    try
-                    {
-                        dgvCapNhat.DataSource = AccessData.getData(query2);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    }*/
                 }
                 catch (Exception ex)
                 {

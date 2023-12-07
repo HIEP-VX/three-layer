@@ -34,9 +34,9 @@
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMaNV = new System.Windows.Forms.TextBox();
+            this.txtLyDoThuTien = new System.Windows.Forms.TextBox();
+            this.txtTienLamHD = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -101,9 +101,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtMaNV);
+            this.groupBox1.Controls.Add(this.txtLyDoThuTien);
+            this.groupBox1.Controls.Add(this.txtTienLamHD);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label1);
@@ -122,28 +122,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
             // 
-            // comboBox1
+            // txtMaNV
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(754, 64);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 24);
-            this.comboBox1.TabIndex = 40;
+            this.txtMaNV.Location = new System.Drawing.Point(754, 64);
+            this.txtMaNV.Name = "txtMaNV";
+            this.txtMaNV.ReadOnly = true;
+            this.txtMaNV.Size = new System.Drawing.Size(200, 23);
+            this.txtMaNV.TabIndex = 40;
             // 
-            // textBox2
+            // txtLyDoThuTien
             // 
-            this.textBox2.Location = new System.Drawing.Point(754, 33);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 23);
-            this.textBox2.TabIndex = 39;
+            this.txtLyDoThuTien.Location = new System.Drawing.Point(754, 33);
+            this.txtLyDoThuTien.Multiline = true;
+            this.txtLyDoThuTien.Name = "txtLyDoThuTien";
+            this.txtLyDoThuTien.Size = new System.Drawing.Size(200, 23);
+            this.txtLyDoThuTien.TabIndex = 39;
             // 
-            // textBox1
+            // txtTienLamHD
             // 
-            this.textBox1.Location = new System.Drawing.Point(379, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 23);
-            this.textBox1.TabIndex = 38;
+            this.txtTienLamHD.Location = new System.Drawing.Point(379, 64);
+            this.txtTienLamHD.Name = "txtTienLamHD";
+            this.txtTienLamHD.Size = new System.Drawing.Size(200, 23);
+            this.txtTienLamHD.TabIndex = 38;
             // 
             // label6
             // 
@@ -260,6 +260,7 @@
             this.dgvHopDong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHopDong.Size = new System.Drawing.Size(1093, 346);
             this.dgvHopDong.TabIndex = 1;
+            this.dgvHopDong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHopDong_CellClick);
             // 
             // timerHopD
             // 
@@ -312,11 +313,11 @@
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Panel panelHopDong;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLyDoThuTien;
+        private System.Windows.Forms.TextBox txtTienLamHD;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMaNV;
     }
 }

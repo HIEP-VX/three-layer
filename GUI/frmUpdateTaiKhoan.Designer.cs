@@ -60,7 +60,7 @@
             this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
             this.panelTool.MinimumSize = new System.Drawing.Size(800, 30);
             this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(800, 30);
+            this.panelTool.Size = new System.Drawing.Size(800, 168);
             this.panelTool.TabIndex = 0;
             // 
             // groupBox1
@@ -118,14 +118,17 @@
             // 
             // btnHopCapNhat
             // 
+            this.btnHopCapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnHopCapNhat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHopCapNhat.FlatAppearance.BorderSize = 0;
+            this.btnHopCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHopCapNhat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHopCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnHopCapNhat.Image")));
             this.btnHopCapNhat.Location = new System.Drawing.Point(626, 55);
             this.btnHopCapNhat.Name = "btnHopCapNhat";
             this.btnHopCapNhat.Size = new System.Drawing.Size(56, 36);
             this.btnHopCapNhat.TabIndex = 33;
-            this.btnHopCapNhat.UseVisualStyleBackColor = true;
+            this.btnHopCapNhat.UseVisualStyleBackColor = false;
             this.btnHopCapNhat.Click += new System.EventHandler(this.btnHopCapNhat_Click);
             // 
             // label2
@@ -181,9 +184,9 @@
             this.panelDgvCapNhatTK.Controls.Add(this.dgvCapNhat);
             this.panelDgvCapNhatTK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDgvCapNhatTK.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDgvCapNhatTK.Location = new System.Drawing.Point(0, 30);
+            this.panelDgvCapNhatTK.Location = new System.Drawing.Point(0, 168);
             this.panelDgvCapNhatTK.Name = "panelDgvCapNhatTK";
-            this.panelDgvCapNhatTK.Size = new System.Drawing.Size(800, 420);
+            this.panelDgvCapNhatTK.Size = new System.Drawing.Size(800, 282);
             this.panelDgvCapNhatTK.TabIndex = 1;
             // 
             // dgvCapNhat
@@ -195,7 +198,7 @@
             this.dgvCapNhat.Name = "dgvCapNhat";
             this.dgvCapNhat.ReadOnly = true;
             this.dgvCapNhat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCapNhat.Size = new System.Drawing.Size(800, 420);
+            this.dgvCapNhat.Size = new System.Drawing.Size(800, 282);
             this.dgvCapNhat.TabIndex = 0;
             this.dgvCapNhat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCapNhat_CellClick);
             // 

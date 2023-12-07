@@ -30,12 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXuPhat));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnInHoaDon = new System.Windows.Forms.Button();
+            this.btnThanhToan = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTrangThai = new System.Windows.Forms.Label();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.txtMaHD2 = new System.Windows.Forms.TextBox();
             this.txtMaHD1 = new System.Windows.Forms.TextBox();
             this.txtTienPhat = new System.Windows.Forms.TextBox();
-            this.cbTinhTrang = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtMaXP = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,7 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCapNhat = new System.Windows.Forms.Button();
             this.dgvXuPhat = new System.Windows.Forms.DataGridView();
             this.panelXuPhat = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -56,8 +57,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnInHoaDon);
+            this.panel1.Controls.Add(this.btnThanhToan);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.btnCapNhat);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.MaximumSize = new System.Drawing.Size(800, 168);
@@ -66,13 +68,40 @@
             this.panel1.Size = new System.Drawing.Size(800, 168);
             this.panel1.TabIndex = 4;
             // 
+            // btnInHoaDon
+            // 
+            this.btnInHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInHoaDon.Image = ((System.Drawing.Image)(resources.GetObject("btnInHoaDon.Image")));
+            this.btnInHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInHoaDon.Location = new System.Drawing.Point(386, 3);
+            this.btnInHoaDon.Name = "btnInHoaDon";
+            this.btnInHoaDon.Size = new System.Drawing.Size(91, 28);
+            this.btnInHoaDon.TabIndex = 44;
+            this.btnInHoaDon.Text = "In hóa đơn";
+            this.btnInHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInHoaDon.UseVisualStyleBackColor = true;
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThanhToan.Image = ((System.Drawing.Image)(resources.GetObject("btnThanhToan.Image")));
+            this.btnThanhToan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThanhToan.Location = new System.Drawing.Point(296, 3);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(84, 28);
+            this.btnThanhToan.TabIndex = 43;
+            this.btnThanhToan.Text = "Nộp tiền";
+            this.btnThanhToan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblTrangThai);
             this.groupBox1.Controls.Add(this.txtMaNV);
             this.groupBox1.Controls.Add(this.txtMaHD2);
             this.groupBox1.Controls.Add(this.txtMaHD1);
             this.groupBox1.Controls.Add(this.txtTienPhat);
-            this.groupBox1.Controls.Add(this.cbTinhTrang);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.txtMaXP);
             this.groupBox1.Controls.Add(this.label7);
@@ -88,7 +117,16 @@
             this.groupBox1.Size = new System.Drawing.Size(776, 130);
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Hộp cập nhật";
+            this.groupBox1.Text = "Hộp thông tin";
+            // 
+            // lblTrangThai
+            // 
+            this.lblTrangThai.AutoSize = true;
+            this.lblTrangThai.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lblTrangThai.Location = new System.Drawing.Point(353, 93);
+            this.lblTrangThai.Name = "lblTrangThai";
+            this.lblTrangThai.Size = new System.Drawing.Size(0, 16);
+            this.lblTrangThai.TabIndex = 14;
             // 
             // txtMaNV
             // 
@@ -118,17 +156,6 @@
             this.txtTienPhat.Size = new System.Drawing.Size(100, 23);
             this.txtTienPhat.TabIndex = 10;
             // 
-            // cbTinhTrang
-            // 
-            this.cbTinhTrang.FormattingEnabled = true;
-            this.cbTinhTrang.Items.AddRange(new object[] {
-            "1-Cắt nước",
-            "2-Đang hoạt động"});
-            this.cbTinhTrang.Location = new System.Drawing.Point(324, 89);
-            this.cbTinhTrang.Name = "cbTinhTrang";
-            this.cbTinhTrang.Size = new System.Drawing.Size(158, 24);
-            this.cbTinhTrang.TabIndex = 9;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -147,7 +174,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(234, 93);
+            this.label7.Location = new System.Drawing.Point(254, 93);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 16);
             this.label7.TabIndex = 6;
@@ -207,20 +234,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã xử phạt";
             // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
-            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(358, 1);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
-            this.btnCapNhat.TabIndex = 41;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-            // 
             // dgvXuPhat
             // 
             this.dgvXuPhat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -267,13 +280,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvXuPhat;
-        private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtMaNV;
         private System.Windows.Forms.TextBox txtMaHD2;
         private System.Windows.Forms.TextBox txtMaHD1;
         private System.Windows.Forms.TextBox txtTienPhat;
-        private System.Windows.Forms.ComboBox cbTinhTrang;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txtMaXP;
         private System.Windows.Forms.Label label7;
@@ -284,5 +295,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelXuPhat;
+        private System.Windows.Forms.Button btnThanhToan;
+        private System.Windows.Forms.Label lblTrangThai;
+        private System.Windows.Forms.Button btnInHoaDon;
     }
 }

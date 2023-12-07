@@ -24,6 +24,13 @@ namespace GUI
             InitializeComponent();
         }
 
+        public int maHD { get; set; }
+        public DateTime ngayLamHD { get; set; }
+        public string noiLamHD { get; set; }
+        public string tienLamHD { get; set; }
+        public string lyDoThu { get; set; }
+        public int maNV { get; set; }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (txtMa.Text.Trim().Length == 0)
@@ -57,9 +64,20 @@ namespace GUI
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void subUpdateHopD_Load(object sender, EventArgs e)
+        {
+            txtMa.Focus();
+            txtMa.Text = maHD.ToString();
+            dateTimeNL.Text = ngayLamHD.ToString();
+            txtNL.Text = noiLamHD.ToString();
+            txtTienLamHD.Text = tienLamHD.ToString();
+            txtLyDoThu.Text = lyDoThu.ToString();
+            txtMaNV.Text = maNV.ToString();
         }
     }
 }

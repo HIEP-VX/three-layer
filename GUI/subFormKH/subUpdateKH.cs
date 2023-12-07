@@ -58,10 +58,11 @@ namespace GUI
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@tenKH", SqlDbType.NVarChar).Value = txtHT.Text;
-                cmd.Parameters.AddWithValue("@ngaySinh", SqlDbType.DateTime).Value = dateNS.Value;
-                cmd.Parameters.AddWithValue("@diaChi", SqlDbType.NVarChar).Value = txtDC.Text;
-                cmd.Parameters.AddWithValue("@soDT", SqlDbType.Char).Value = txtSoDT.Text;
+                cmd.Parameters.AddWithValue("@maKH", txtMa.Text);
+                cmd.Parameters.AddWithValue("@tenKH", txtHT.Text);
+                cmd.Parameters.AddWithValue("@ngaySinh", dateNS.Value);
+                cmd.Parameters.AddWithValue("@diaChi", txtDC.Text);
+                cmd.Parameters.AddWithValue("@soDT", txtSoDT.Text);
 
                 try
                 {

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnThoat = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.lblChiSo = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -37,27 +36,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(195, 156);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(101, 36);
-            this.btnThoat.TabIndex = 21;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnThem
             // 
             this.btnThem.FlatAppearance.BorderSize = 0;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(66, 156);
+            this.btnThem.Location = new System.Drawing.Point(60, 150);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(101, 36);
+            this.btnThem.Size = new System.Drawing.Size(245, 36);
             this.btnThem.TabIndex = 20;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -131,17 +120,33 @@
             this.label2.TabIndex = 27;
             this.label2.Text = "Mã nhân viên";
             // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.Firebrick;
+            this.btnThoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Location = new System.Drawing.Point(330, 0);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(39, 26);
+            this.btnThoat.TabIndex = 83;
+            this.btnThoat.Text = "X";
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // addGhiNuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 208);
+            this.ClientSize = new System.Drawing.Size(369, 198);
+            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.txtMaNV);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateThoiGianCuoi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateThoiGianDau);
-            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.lblChiSo);
             this.Controls.Add(this.lblTitle);
@@ -156,7 +161,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label lblChiSo;
         private System.Windows.Forms.Label lblTitle;
@@ -165,5 +169,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMaNV;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnThoat;
     }
 }

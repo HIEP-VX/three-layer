@@ -26,13 +26,6 @@ namespace GUI
             SetLinearGradient(btnSubmit, "#56d8e4", "#9f01ea");
         }
 
-        #region Event
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        #endregion
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (txttenNV.Text.Trim().Length == 0)
@@ -49,14 +42,30 @@ namespace GUI
                 return;
             }
 
-            string query = @"INSERT INTO NhanVien (tenNV, soDT) values (@tenNV, @soDT)";
+            if (txtChucVu.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập chức vụ cho nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtChucVu.Focus();
+                return;
+            }
+
+            if (txtQuyenHan.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập quyền hạn cho nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtQuyenHan.Focus();
+                return;
+            }
+
+            string query = @"INSERT INTO NhanVien (tenNV, soDT, chucVu, quyenHan) values (@tenNV, @soDT, @chucVu, @quyenHan)";
             using (SqlConnection conn = SqlConnectionData.connect())
             {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@tenNV", SqlDbType.NVarChar).Value = txttenNV.Text;
-                cmd.Parameters.AddWithValue("@soDT", SqlDbType.Char).Value = txtsoDT.Text;
+                cmd.Parameters.AddWithValue("@tenNV", txttenNV.Text);
+                cmd.Parameters.AddWithValue("@soDT", txtsoDT.Text);
+                cmd.Parameters.AddWithValue("@chucVu", txtChucVu.Text);
+                cmd.Parameters.AddWithValue("@quyenHan", txtQuyenHan.Text);
 
                 try
                 {
@@ -67,8 +76,8 @@ namespace GUI
                 {
                     MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                this.Close();
                 DataAdded?.Invoke();
+                this.Close();
             }
         }
 
@@ -96,6 +105,20 @@ namespace GUI
             using (Graphics g = Graphics.FromImage(btn.BackgroundImage))
             {
                 g.FillRectangle(linearGradientBrush, btn.ClientRectangle);
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtQuyenHan_Validating(object sender, CancelEventArgs e)
+        {
+            if (!txtQuyenHan.Items.Contains(txtQuyenHan.Text))
+            {
+                e.Cancel = true;
+                MessageBox.Show("Vui lòng chọn đúng quyền hạn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

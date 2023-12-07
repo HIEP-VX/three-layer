@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DevExpress.Xpo.DB.Helpers;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +38,7 @@ namespace GUI
         {
             this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
             this.refresh();
+            txtMaNV.Text = user.id.ToString();
             try
             {
                 string query = "SELECT maDHN, chiSoDau,\n" +

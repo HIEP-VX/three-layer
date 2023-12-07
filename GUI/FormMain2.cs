@@ -32,9 +32,35 @@ namespace GUI
 
         void phanQuyen()
         {
-            if (user.permission == "admin")
+            if (user.permission == "Nhân viên")
             {
-                //btnHopDong1.Enabled = false;
+                if(user.position == "Nhân viên làm hợp đồng")
+                {
+                    btnGhiNuoc.Enabled = false;
+                    btnHoaDon.Enabled = false;
+                    btnXuPhat.Enabled = false;
+                    btnKho.Enabled = false;
+                    btnNhanVien.Enabled = false;
+                    btnSaoLuu.Enabled = false;
+                    btnKhoiPhuc.Enabled = false;
+                }
+
+                if (user.position == "Nhân viên ghi nước")
+                {
+                    btnHopDong1.Enabled = false;
+                    btnKhachHang.Enabled = false;
+                    btnSaoLuu.Enabled = false;
+                    btnXuPhat.Enabled = false;
+                    btnNhanVien.Enabled = false;
+                    btnKho.Enabled = false;
+                    btnSaoLuu.Enabled = false;
+                    btnKhoiPhuc.Enabled = false;
+                }
+
+                if(user.position == "Nhân viên thu ngân")
+                {
+
+                }
             }
         }
 
@@ -229,11 +255,11 @@ namespace GUI
             panel_body.Controls.OfType<Form>().ToList().ForEach(c => c.Dispose());
             currentFormChild = null;
         }
-        private void btnHopDong_Click(object sender, EventArgs e)
+
+        private void btnHopDong1_Click(object sender, EventArgs e)
         {
             timerHopDong.Start();
         }
-
 
         private void btnThemHopDong_Click(object sender, EventArgs e)
         {
@@ -321,5 +347,14 @@ namespace GUI
             timerHopDong.Start();
         }
 
+        private void btnSaoLuu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnKhoiPhuc_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

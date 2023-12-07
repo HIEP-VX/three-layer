@@ -65,12 +65,12 @@ namespace GUI
 
             if (dt.Rows.Count > 0)
             {
+                MessageBox.Show("1");
                 int ma = Convert.ToInt32(dt.Rows[0]["maSP"]);
 
                 string query1 = "UPDATE chiTietMuaHang set soLuong = soLuong + @soLuong where maSP = " + ma +
-                                "UPDATE chiTietMuaHang set tien = tien + @tien where maSP = " + ma + "\n"+
-                                "UPDATE phieuNhanHang set tongTien = tongTien + (@tien * @soLuong) from phieuNhanHang join chiTietMuaHang ct on ct.maMH = phieuNhanHang.maMH";
-
+                              //  "UPDATE chiTietMuaHang set tien = tien + @tien where maSP = " + ma + "\n"+
+                                "UPDATE phieuNhanHang set tongTien = tongTien + (@tien * @soLuong) from phieuNhanHang join chiTietMuaHang ct on ct.maMH = phieuNhanHang.maMH where phieuNhanHang.maMH = phieuNhanHang.maMH";
                 using (SqlConnection conn = SqlConnectionData.connect())
                 {
                     conn.Open();
@@ -82,11 +82,8 @@ namespace GUI
                         {
                             using (SqlCommand cmd = new SqlCommand(query1, conn, transaction))
                             {
-                                cmd.Parameters.AddWithValue("@soLuong", txtSL.Text);
+                                cmd.Parameters.AddWithValue("@soLuong", int.Parse(txtSL.Text));
                                 cmd.Parameters.AddWithValue("@tien", txtTien.Text);
-                                cmd.Parameters.AddWithValue("@tenSP", txtTenSP.Text);
-                                cmd.Parameters.AddWithValue("@chiSoCongTo", txtChiSoCongTo.Text);
-                                cmd.Parameters.AddWithValue("@tenHangSX", txtHangSX.Text);
 
                                 cmd.ExecuteNonQuery();
                             }
@@ -96,7 +93,7 @@ namespace GUI
                         catch (Exception ex)
                         {
                             transaction.Rollback();
-                            MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Lỗi: " + ex.Message + "\nStack Trace:\n" + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     DataAdded?.Invoke();
@@ -114,6 +111,8 @@ namespace GUI
             }
             else
             {
+                MessageBox.Show("2");
+
                 string query = "DECLARE @Inserted_maCTMH INT,@Inserted_maSP INT,@Inserted_soLuong INT, @Inserted_tien MONEY, @Inserted_tenSP NVARCHAR(MAX), @Inserted_chiSoCongTo INT, @Inserted_tenHangSX NVARCHAR(MAX)\n" +
                             "INSERT INTO chiTietMuaHang (soLuong, tien) values (@soLuong, @tien)\n" +
 
@@ -218,6 +217,7 @@ namespace GUI
 
         private void subUpdateChiTietMuaHang_Load(object sender, EventArgs e)
         {
+            MessageBox.Show(phieuNhanHang.maMH.ToString());
             string query3 = "Select ldh.maSP, ldh.tenSP, ldh.tenHangSX, ldh.chiSoCongTo, ct.soLuong, ct.tien from loaiDongHo ldh\n" +
                                     "join chiTietMuaHang ct on ct.maSP = ldh.maSP\n" +
                                     "where ct.maMH = " + phieuNhanHang.maMH;

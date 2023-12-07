@@ -36,8 +36,8 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtQuyenHan = new System.Windows.Forms.ComboBox();
             this.btnHopCapNhat = new System.Windows.Forms.Button();
-            this.txtQuyenHan = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
             this.txtChucVu = new System.Windows.Forms.TextBox();
@@ -132,8 +132,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnHopCapNhat);
             this.groupBox1.Controls.Add(this.txtQuyenHan);
+            this.groupBox1.Controls.Add(this.btnHopCapNhat);
             this.groupBox1.Controls.Add(this.txtMatKhau);
             this.groupBox1.Controls.Add(this.txtTaiKhoan);
             this.groupBox1.Controls.Add(this.txtChucVu);
@@ -156,6 +156,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
             // 
+            // txtQuyenHan
+            // 
+            this.txtQuyenHan.FormattingEnabled = true;
+            this.txtQuyenHan.Items.AddRange(new object[] {
+            "Quản lý",
+            "Nhân viên"});
+            this.txtQuyenHan.Location = new System.Drawing.Point(766, 43);
+            this.txtQuyenHan.Name = "txtQuyenHan";
+            this.txtQuyenHan.Size = new System.Drawing.Size(128, 24);
+            this.txtQuyenHan.TabIndex = 43;
+            this.txtQuyenHan.Validating += new System.ComponentModel.CancelEventHandler(this.txtQuyenHan_Validating);
+            // 
             // btnHopCapNhat
             // 
             this.btnHopCapNhat.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -170,13 +182,6 @@
             this.btnHopCapNhat.Text = "CẬP NHẬT";
             this.btnHopCapNhat.UseVisualStyleBackColor = true;
             this.btnHopCapNhat.Click += new System.EventHandler(this.btnHopCapNhat_Click);
-            // 
-            // txtQuyenHan
-            // 
-            this.txtQuyenHan.Location = new System.Drawing.Point(766, 43);
-            this.txtQuyenHan.Name = "txtQuyenHan";
-            this.txtQuyenHan.Size = new System.Drawing.Size(128, 23);
-            this.txtQuyenHan.TabIndex = 41;
             // 
             // txtMatKhau
             // 
@@ -268,6 +273,7 @@
             // 
             this.txtMa.Location = new System.Drawing.Point(50, 16);
             this.txtMa.Name = "txtMa";
+            this.txtMa.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(85, 23);
             this.txtMa.TabIndex = 32;
             // 
@@ -314,7 +320,7 @@
             // 
             this.panelDgvNV.Controls.Add(this.dgvNhanVien);
             this.panelDgvNV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDgvNV.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelDgvNV.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelDgvNV.Location = new System.Drawing.Point(0, 168);
             this.panelDgvNV.Name = "panelDgvNV";
             this.panelDgvNV.Size = new System.Drawing.Size(1110, 282);
@@ -327,9 +333,11 @@
             this.dgvNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNhanVien.Location = new System.Drawing.Point(0, 0);
             this.dgvNhanVien.Name = "dgvNhanVien";
+            this.dgvNhanVien.ReadOnly = true;
             this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNhanVien.Size = new System.Drawing.Size(1110, 282);
             this.dgvNhanVien.TabIndex = 0;
+            this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
             // timerCapNhat
             // 
@@ -388,7 +396,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtQuyenHan;
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.TextBox txtChucVu;
@@ -397,5 +404,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnHopCapNhat;
         private System.Windows.Forms.Timer timerCapNhat;
+        private System.Windows.Forms.ComboBox txtQuyenHan;
     }
 }

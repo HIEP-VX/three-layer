@@ -14,6 +14,8 @@ namespace GUI
 {
     public partial class frmHopDong : Form
     {
+        private int index = -1; // Biến toàn cục để theo dõi dòng được chọn
+
         public frmHopDong()
         {
             InitializeComponent();
@@ -22,7 +24,7 @@ namespace GUI
         {
             try
             {
-                string query = "select * from HopDong";
+                string query = "select maHD, ngayLamHD, noiLamHD, FORMAT(CAST(tienLamHD AS DECIMAL(18, 0)), 'N0') AS tienLamHD, lyDoThuTien, maNV from HopDong";
                 dgvHopDong.DataSource = AccessData.getData(query);
                 
                 dgvHopDong.Columns[0].HeaderText = "Mã";
@@ -109,25 +111,63 @@ namespace GUI
 
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
-            subDelHopD sb = new subDelHopD();
-            sb.ShowDialog();
-
-            sb.DataAdded += () =>
+            if (index == -1)
             {
-                reload();
-            };
+                MessageBox.Show("Vui lòng chọn một hợp đồng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hợp đồng này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    string sql = "Delete from HopDong where maHD = '" + txtMa.Text + "'";
+                    try
+                    {
+                        AccessData.execQuery(sql);
+                        MessageBox.Show("Xóa thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void btnCapNhat_Click_1(object sender, EventArgs e)
         {
-            subUpdateHopD sb = new subUpdateHopD();
-            sb.ShowDialog();
-
-            sb.DataAdded += () =>
+            if (index < 0)
             {
-                reload();
-            };
+                MessageBox.Show("Vui lòng chọn một bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            subUpdateHopD sb = new subUpdateHopD();
+
+            sb.maHD = int.Parse(dgvHopDong.Rows[index].Cells[0].Value.ToString());
+            sb.ngayLamHD = Convert.ToDateTime(dgvHopDong.Rows[index].Cells[1].Value);
+            sb.noiLamHD = dgvHopDong.Rows[index].Cells[2].Value.ToString();
+            sb.tienLamHD = dgvHopDong.Rows[index].Cells[3].Value.ToString();
+            sb.lyDoThu = dgvHopDong.Rows[index].Cells[4].Value.ToString();
+            sb.maNV = int.Parse(dgvHopDong.Rows[index].Cells[5].Value.ToString());
+
+            sb.ShowDialog();
         }
 
+        private void dgvHopDong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+            if (index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            txtMa.Text = dgvHopDong.Rows[index].Cells[0].Value.ToString();
+            dateTimeNL.Value = Convert.ToDateTime(dgvHopDong.Rows[index].Cells[1].Value);
+            txtNL.Text = dgvHopDong.Rows[index].Cells[2].Value.ToString();
+            txtTienLamHD.Text = dgvHopDong.Rows[index].Cells[3].Value.ToString();
+            txtLyDoThuTien.Text = dgvHopDong.Rows[index].Cells[4].Value.ToString();
+            txtMaNV.Text = dgvHopDong.Rows[index].Cells[5].Value.ToString();
+        }
     }
 }

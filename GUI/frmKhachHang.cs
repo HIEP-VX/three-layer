@@ -82,6 +82,7 @@ namespace GUI
                 {
                     reload();
                 };
+                reload();
             }
         }
 
