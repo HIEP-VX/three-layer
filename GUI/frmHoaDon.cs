@@ -77,9 +77,8 @@ namespace GUI
 
         private void frmHoaDon_Load(object sender, EventArgs e)
         {
+            txtmaNV.Text = user.id.ToString();
             reload();
-            grpXoa.Visible = false;
-            grpCapNhat.Visible = false;
 
             for (int i = 0; i < dgvHoaDon.Rows.Count; i++)
             {
@@ -139,127 +138,43 @@ namespace GUI
             reload();
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            timerXoa.Start();
-            timerCapNhat.Stop();
-            grpXoa.Visible = true;
-            grpCapNhat.Visible = false;
-        }
-
-        private void timerXoa_Tick(object sender, EventArgs e)
-        {
-           
-            if (isCollapsed)
+            if (index == -1)
             {
-                panelTool.Height += 10;
-                if (panelTool.Size == panelTool.MaximumSize)
-                {
-                    timerXoa.Stop();
-                    isCollapsed = false;
-                }
+                MessageBox.Show("Vui lòng chọn một hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                panelTool.Height -= 10;
-                if (panelTool.Size == panelTool.MinimumSize)
+                string tinhTrang = dgvHoaDon.Rows[index].Cells[8].Value.ToString();
+                if (tinhTrang == "chưa thanh toán")
                 {
-                    timerXoa.Stop();
-                    isCollapsed = true;
+                    string query = "UPDATE hoadon SET maNV = @maNV, tinhTrang = 1 WHERE maHD = @maHD";
+                    using (SqlConnection conn = SqlConnectionData.connect())
+                    {
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@maHD", txtMaHD.Text);
+                        cmd.Parameters.AddWithValue("@maNV", txtmaNV.Text);
+
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            reload();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Lỗi: " + ex.Message + "\nStack Trace:\n" + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else if (tinhTrang == "đã thanh toán")
+                {
+                    MessageBox.Show("Khách hàng này đã thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-        }
-
-        private void btnHopTimKiem_Click(object sender, EventArgs e)
-        {
-            if (txtMa.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập mã hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMa.Focus();
-                return;
-            }
-
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hóa đơn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                string sql = "Delete from hoadon where maHD = '" + txtMa.Text + "'";
-                try
-                {
-                    AccessData.execQuery(sql);
-                    MessageBox.Show("Xóa thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            reload();
-        }
-
-        private void btnCN_Click(object sender, EventArgs e)
-        {
-            if (txtmaNV.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập mã nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtmaNV.Focus();
-                return;
-            }
-            if (txtMaHD.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập mã hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaHD.Focus();
-                return;
-            }
-
-            if (txtTinhtrang.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập tình trạng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTinhtrang.Focus();
-                return;
-            }
-
-            string selectedItem = txtTinhtrang.SelectedItem as string;   // Tách giá trị của ô trạng thái
-            string selectedValue = "";
-            string[] parts = selectedItem.Split('-');                    // Tách giá trị (trong trường hợp này, "1")
-            if (parts.Length == 2)
-                selectedValue = parts[0].Trim();                         // Sử dụng giá trị (trong trường hợp này, "1")
-
-            string query = "UPDATE hoadon SET maNV = @maNV, tinhTrang = @tinhTrang WHERE maHD = @maHD";
-            using (SqlConnection conn = SqlConnectionData.connect())
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@maHD", txtMaHD.Text);
-                cmd.Parameters.AddWithValue("@maNV", txtmaNV.Text);
-                cmd.Parameters.AddWithValue("@tinhTrang", selectedValue);
-
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            reload();
-        }
-
-        private void btnCapNhat_Click(object sender, EventArgs e)
-        {
-            grpCapNhat.Visible = true;
-            if (panelTool.Height == 168)
-            {
-                grpXoa.Visible = false;
-            }
-
-            if(panelTool.Height == 31)
-            {
-                grpXoa.Visible = false;
-                timerCapNhat.Start();
-            }
-            timerCapNhat.Start();
         }
 
         private void timerCapNhat_Tick(object sender, EventArgs e)
@@ -292,7 +207,6 @@ namespace GUI
                 MessageBox.Show("Vui lòng chọn một bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            txtMa.Text = dgvHoaDon.Rows[index].Cells[0].Value.ToString();
             txtMaHD.Text = dgvHoaDon.Rows[index].Cells[0].Value.ToString();
         }
 
@@ -323,6 +237,12 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             foreach (DataGridViewRow selectedRow in dgvHoaDon.SelectedRows)
             {
                 string maTT_TEMP = selectedRow.Cells["maTT"].Value.ToString();
@@ -388,6 +308,11 @@ namespace GUI
                 frmInHoaDon inHoaDonForm = new frmInHoaDon(invoiceData);
                 inHoaDonForm.Show();
             }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            timerCapNhat.Start();
         }
     }
 }

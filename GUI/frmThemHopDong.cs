@@ -22,31 +22,19 @@ namespace GUI
             InitializeComponent();
         }
 
-        public void refresh()
+        public void reload()
         {
-            txtHT.Text = "";
-            txtSODT.Text = "";
-            txtDC.Text = "";
-            cbPhuong.Text = "";
-            txtLKH.Text = "";
-            txtNL.Text = "";
-            datetimeNS.Value = DateTime.Now;
-            datetimeNL.Value = DateTime.Now;
-        }
+            txtHT.Text = txtSODT.Text = txtDC.Text = cbPhuong.Text = txtLKH.Text = txtNL.Text = "";
+            datetimeNS.Value = datetimeNL.Value = DateTime.Now;
 
-        private void frmThemHopDong_Load(object sender, EventArgs e)
-        {
-            this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
-            this.refresh();
-            txtMaNV.Text = user.id.ToString();
             try
             {
                 string query = "SELECT maDHN, chiSoDau,\n" +
-                               "CASE\n"+
-                               "WHEN tinhTrang = 0 THEN N'chưa sử dụng'\n"+
-                               "WHEN tinhTrang = 1 THEN N'đã sử dụng'\n"+
-                               "END AS tinhTrang\n"+
-                               "FROM DongHoNuoc\n"+
+                               "CASE\n" +
+                                   "WHEN tinhTrang = 0 THEN N'chưa sử dụng'\n" +
+                                   "WHEN tinhTrang = 1 THEN N'đã sử dụng'\n" +
+                               "END AS tinhTrang\n" +
+                               "FROM DongHoNuoc\n" +
                                "WHERE tinhTrang = 0;";
                 dgvDH_HD.DataSource = AccessData.getData(query);
 
@@ -68,6 +56,13 @@ namespace GUI
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void frmThemHopDong_Load(object sender, EventArgs e)
+        {
+            this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
+            txtMaNV.Text = user.id.ToString();
+            this.reload();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -132,36 +127,28 @@ namespace GUI
 
             bool atLeastOneChecked = false;
 
-
-            // Lấy mục được chọn
-            string selectedItem = txtLKH.SelectedItem as string;
+            string selectedItem = txtLKH.SelectedItem as string;  // Lấy mục được chọn
             string selectedValue = "";
 
-            // Tách giá trị (trong trường hợp này, "1")
-            string[] parts = selectedItem.Split('-');
+            string[] parts = selectedItem.Split('-');             // Tách giá trị (trong trường hợp này, "1")
             if (parts.Length == 2)
-                // Sử dụng giá trị (trong trường hợp này, "1")
-                selectedValue = parts[0].Trim();
-            
+                selectedValue = parts[0].Trim();                  // Sử dụng giá trị (trong trường hợp này, "1")
+
             foreach (DataGridViewRow row in dgvDH_HD.Rows)
             {
                 bool select1 = Convert.ToBoolean(row.Cells["selectColumn"].Value);
                 if (row.Cells[0].Value != null && select1)
                 {
                     query = "insert into HopDong (ngayLamHD, noiLamHD, tienLamHD, lyDoThuTien, maNV) values ('" + datetimeNL.Value + "',N'" + txtNL.Text + "'," + txtTien.Text + ",N'" + txtLyDo.Text + "'," + txtMaNV.Text + ")\n" +
-
                                      "DECLARE @hopDongID INT\nSET @hopDongID = SCOPE_IDENTITY();\n" +
-
                                      "insert into KhachHang(tenKH, ngaySinh,phuong, diaChi, soDT, maHD, maLKH, maDHN) values (N'" + txtHT.Text + "','" + datetimeNS.Value + "',N'" + cbPhuong.Text + "',N'" + txtDC.Text + "','" +  txtSODT.Text + "', @hopDongID," + selectedValue + "," + row.Cells[1].Value + ")"
                                     + "update DongHoNuoc set tinhTrang = 1 where maDHN =  " + row.Cells[1].Value;
              
-                    string query2 = "select * from DongHoNuoc where tinhTrang = 0";
                     try
                     {
                         AccessData.execQuery(query);
-                        dgvDH_HD.DataSource = AccessData.getData(query2);
                         MessageBox.Show("Thêm hợp đồng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        refresh();
+                        reload();
                     }
                     catch(Exception ex)
                     {
@@ -176,16 +163,12 @@ namespace GUI
                 MessageBox.Show("Thêm hợp đồng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Hãy chọn một đồng hồ cho khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            
         }
 
         private void button1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
                 button1.PerformClick();
-            }
         }
     }
 }

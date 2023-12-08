@@ -33,22 +33,39 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtMa.Text.Trim().Length == 0)
+            if (txtNL.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải nhập mã hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMa.Focus();
+                MessageBox.Show("Bạn phải nhập nơi làm hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNL.Focus();
                 return;
             }
 
-            string query = "update HopDong set ngayLamHD = @ngayLamHD, noiLamHD = @noiLamHD where maHD = @maHD";
+            if (txtTienLamHD.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tiền làm hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTienLamHD.Focus();
+                return;
+            }
+
+            if (txtLyDoThu.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập lý do thu tiền.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtLyDoThu.Focus();
+                return;
+            }
+
+            string query = "update HopDong set ngayLamHD = @ngayLamHD, noiLamHD = @noiLamHD, tienLamHD = @tienLamHD, lyDoThuTien = @lyDoThuTien, maNV = @maNV where maHD = @maHD";
             using (SqlConnection conn = SqlConnectionData.connect())
             {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@maHD", txtMa.Text);
-                cmd.Parameters.AddWithValue("@ngayLamHD", SqlDbType.DateTime).Value = dateTimeNL.Value;
-                cmd.Parameters.AddWithValue("@noiLamHD", SqlDbType.NVarChar).Value = txtNL.Text;
+                cmd.Parameters.AddWithValue("@ngayLamHD", dateTimeNL.Value);
+                cmd.Parameters.AddWithValue("@noiLamHD", txtNL.Text);
+                cmd.Parameters.AddWithValue("@tienLamHD", txtTienLamHD.Text);
+                cmd.Parameters.AddWithValue("@lyDoThuTien", txtLyDoThu.Text);
+                cmd.Parameters.AddWithValue("@maNV", txtMaNV.Text);
 
                 try
                 {

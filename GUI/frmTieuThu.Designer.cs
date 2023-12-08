@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelTool = new System.Windows.Forms.Panel();
+            this.btnXuatFile = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbThangTGD = new System.Windows.Forms.ComboBox();
             this.cbThangTGC = new System.Windows.Forms.ComboBox();
@@ -73,7 +74,7 @@
             this.dgvGhiNuoc = new System.Windows.Forms.DataGridView();
             this.openFD = new System.Windows.Forms.OpenFileDialog();
             this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
-            this.btnXuatFile = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
@@ -85,6 +86,7 @@
             // 
             // panelTool
             // 
+            this.panelTool.Controls.Add(this.btnXoa);
             this.panelTool.Controls.Add(this.btnXuatFile);
             this.panelTool.Controls.Add(this.groupBox1);
             this.panelTool.Controls.Add(this.btnCapNhat);
@@ -100,6 +102,17 @@
             this.panelTool.Name = "panelTool";
             this.panelTool.Size = new System.Drawing.Size(984, 168);
             this.panelTool.TabIndex = 1;
+            // 
+            // btnXuatFile
+            // 
+            this.btnXuatFile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatFile.Location = new System.Drawing.Point(430, 3);
+            this.btnXuatFile.Name = "btnXuatFile";
+            this.btnXuatFile.Size = new System.Drawing.Size(77, 28);
+            this.btnXuatFile.TabIndex = 54;
+            this.btnXuatFile.Text = "Xuất file";
+            this.btnXuatFile.UseVisualStyleBackColor = true;
+            this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
             // 
             // groupBox1
             // 
@@ -355,7 +368,7 @@
             // btnCapNhat
             // 
             this.btnCapNhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhat.Location = new System.Drawing.Point(290, 3);
+            this.btnCapNhat.Location = new System.Drawing.Point(231, 3);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(75, 28);
             this.btnCapNhat.TabIndex = 53;
@@ -366,7 +379,7 @@
             // btnChiaPhuong
             // 
             this.btnChiaPhuong.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChiaPhuong.Location = new System.Drawing.Point(196, 3);
+            this.btnChiaPhuong.Location = new System.Drawing.Point(137, 3);
             this.btnChiaPhuong.Name = "btnChiaPhuong";
             this.btnChiaPhuong.Size = new System.Drawing.Size(88, 28);
             this.btnChiaPhuong.TabIndex = 52;
@@ -437,7 +450,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(625, 5);
+            this.btnSave.Location = new System.Drawing.Point(625, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 28);
             this.btnSave.TabIndex = 45;
@@ -448,7 +461,7 @@
             // btnThemExcel
             // 
             this.btnThemExcel.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemExcel.Location = new System.Drawing.Point(513, 5);
+            this.btnThemExcel.Location = new System.Drawing.Point(513, 3);
             this.btnThemExcel.Name = "btnThemExcel";
             this.btnThemExcel.Size = new System.Drawing.Size(106, 28);
             this.btnThemExcel.TabIndex = 44;
@@ -459,7 +472,7 @@
             // btnGhiNuoc
             // 
             this.btnGhiNuoc.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGhiNuoc.Location = new System.Drawing.Point(115, 3);
+            this.btnGhiNuoc.Location = new System.Drawing.Point(56, 3);
             this.btnGhiNuoc.Name = "btnGhiNuoc";
             this.btnGhiNuoc.Size = new System.Drawing.Size(75, 28);
             this.btnGhiNuoc.TabIndex = 43;
@@ -499,16 +512,16 @@
             // 
             this.diaChiTableAdapter.ClearBeforeFill = true;
             // 
-            // btnXuatFile
+            // btnXoa
             // 
-            this.btnXuatFile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXuatFile.Location = new System.Drawing.Point(430, 5);
-            this.btnXuatFile.Name = "btnXuatFile";
-            this.btnXuatFile.Size = new System.Drawing.Size(77, 28);
-            this.btnXuatFile.TabIndex = 54;
-            this.btnXuatFile.Text = "Xuất file";
-            this.btnXuatFile.UseVisualStyleBackColor = true;
-            this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
+            this.btnXoa.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Location = new System.Drawing.Point(313, 3);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 28);
+            this.btnXoa.TabIndex = 55;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // frmTieuThu
             // 
@@ -579,5 +592,6 @@
         private System.Windows.Forms.ComboBox cbThangTGD;
         private System.Windows.Forms.ComboBox cbThangTGC;
         private System.Windows.Forms.Button btnXuatFile;
+        private System.Windows.Forms.Button btnXoa;
     }
 }

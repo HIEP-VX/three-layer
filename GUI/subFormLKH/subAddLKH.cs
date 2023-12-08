@@ -29,10 +29,6 @@ namespace GUI
             
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -47,6 +43,27 @@ namespace GUI
             {
                 MessageBox.Show("Bạn phải nhập giá bậc 1.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtgiaBac1.Focus();
+                return;
+            }
+
+            if (txtGiaBac2.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập giá bậc 2.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtGiaBac2.Focus();
+                return;
+            }
+
+            if (txtGiaBac3.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập giá bậc 3.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtGiaBac3.Focus();
+                return;
+            }
+
+            if (txtGiaBac4.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập giá bậc 4.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtGiaBac4.Focus();
                 return;
             }
 
@@ -108,6 +125,11 @@ namespace GUI
             {
                 g.FillRectangle(linearGradientBrush, btn.ClientRectangle);
             }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

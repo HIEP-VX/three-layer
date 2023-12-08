@@ -632,8 +632,6 @@ namespace GUI
 
         private void btnXuatFile_Click(object sender, EventArgs e)
         {
-
-
             DataTable dataTable = new DataTable();
 
             DataColumn col1 = new DataColumn("ID_TT");
@@ -668,6 +666,32 @@ namespace GUI
             }
 
             ExportFile(dataTable, "Danh sach", "Danh sách ghi nước");
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (index == -1)
+            {
+                MessageBox.Show("Vui lòng chọn bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa tiêu thụ này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    string sql = "Delete from tieuThu where maTT = '" + txtMATT.Text + "'";
+                    try
+                    {
+                        AccessData.execQuery(sql);
+                        MessageBox.Show("Xóa thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        reload();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }
