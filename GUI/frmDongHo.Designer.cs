@@ -247,7 +247,7 @@
             // 
             this.panelDgvDH.Controls.Add(this.dgvDongho);
             this.panelDgvDH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDgvDH.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelDgvDH.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelDgvDH.Location = new System.Drawing.Point(0, 168);
             this.panelDgvDH.Name = "panelDgvDH";
             this.panelDgvDH.Size = new System.Drawing.Size(800, 282);

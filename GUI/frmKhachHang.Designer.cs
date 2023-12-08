@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKhachHang));
             this.panelTool = new System.Windows.Forms.Panel();
+            this.btnXuatFile = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbThang = new System.Windows.Forms.ComboBox();
@@ -62,9 +63,8 @@
             this.timerTimKiem = new System.Windows.Forms.Timer(this.components);
             this.panelDgvKH = new System.Windows.Forms.Panel();
             this.dgvKH = new System.Windows.Forms.DataGridView();
-            this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnXuatFile = new System.Windows.Forms.Button();
+            this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
@@ -86,6 +86,18 @@
             this.panelTool.Name = "panelTool";
             this.panelTool.Size = new System.Drawing.Size(800, 168);
             this.panelTool.TabIndex = 0;
+            // 
+            // btnXuatFile
+            // 
+            this.btnXuatFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXuatFile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatFile.Location = new System.Drawing.Point(434, 3);
+            this.btnXuatFile.Name = "btnXuatFile";
+            this.btnXuatFile.Size = new System.Drawing.Size(77, 28);
+            this.btnXuatFile.TabIndex = 55;
+            this.btnXuatFile.Text = "Xuất file";
+            this.btnXuatFile.UseVisualStyleBackColor = true;
+            this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
             // 
             // button1
             // 
@@ -385,10 +397,6 @@
             this.dgvKH.TabIndex = 45;
             this.dgvKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKH_CellClick);
             // 
-            // diaChiTableAdapter
-            // 
-            this.diaChiTableAdapter.ClearBeforeFill = true;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -397,17 +405,9 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 40;
             // 
-            // btnXuatFile
+            // diaChiTableAdapter
             // 
-            this.btnXuatFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXuatFile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXuatFile.Location = new System.Drawing.Point(434, 3);
-            this.btnXuatFile.Name = "btnXuatFile";
-            this.btnXuatFile.Size = new System.Drawing.Size(77, 28);
-            this.btnXuatFile.TabIndex = 55;
-            this.btnXuatFile.Text = "Xuất file";
-            this.btnXuatFile.UseVisualStyleBackColor = true;
-            this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
+            this.diaChiTableAdapter.ClearBeforeFill = true;
             // 
             // frmKhachHang
             // 

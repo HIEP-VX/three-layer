@@ -52,10 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="hoaDonNhanHang.cs" />
     <Compile Include="hoaDonThuTien.cs" />
     <Compile Include="khachHang.cs" />
     <Compile Include="loaiDongHo.cs" />
     <Compile Include="phieuNhanHang.cs" />
+    <Compile Include="PhieuNhapKho.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="thoiGianGhiNuoc.cs" />
     <Compile Include="user.cs" />

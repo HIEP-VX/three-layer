@@ -57,12 +57,12 @@ namespace GUI
 
         private void hoaDonNhanHangToolStrip_Click(object sender, EventArgs e)
         {
-
+            OpenFormChild(new frmHoaDonMH());
         }
 
         private void phiếuNhapKhoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OpenFormChild(new frmPhieuNhapKho());
         }
 
         private void loạiĐồngHồToolStripMenuItem_Click(object sender, EventArgs e)

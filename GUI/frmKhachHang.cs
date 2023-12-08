@@ -102,7 +102,7 @@ namespace GUI
                                "WHEN tinhTrang = 2 THEN N'cắt nước'\n" +
                                "WHEN tinhTrang = 3 THEN N'dừng hoạt động'\n" +
                                "END AS tinhTrang\n" +
-                               "from KhachHang where 1=1 ";
+                               "from KhachHang where 1 = 1 ";
 
             if (!string.IsNullOrEmpty(txtMa.Text))
                 query += $" AND maKH =" + txtMa.Text;

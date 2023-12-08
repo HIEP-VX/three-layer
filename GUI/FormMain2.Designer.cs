@@ -162,11 +162,11 @@
             this.panelHeThong.Controls.Add(this.btnHeThong);
             this.panelHeThong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelHeThong.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeThong.Location = new System.Drawing.Point(0, 380);
+            this.panelHeThong.Location = new System.Drawing.Point(0, 50);
             this.panelHeThong.MaximumSize = new System.Drawing.Size(200, 250);
             this.panelHeThong.MinimumSize = new System.Drawing.Size(200, 50);
             this.panelHeThong.Name = "panelHeThong";
-            this.panelHeThong.Size = new System.Drawing.Size(200, 250);
+            this.panelHeThong.Size = new System.Drawing.Size(200, 50);
             this.panelHeThong.TabIndex = 3;
             // 
             // pictureBox2
@@ -293,7 +293,7 @@
             this.panelDanhMuc.MaximumSize = new System.Drawing.Size(200, 380);
             this.panelDanhMuc.MinimumSize = new System.Drawing.Size(200, 50);
             this.panelDanhMuc.Name = "panelDanhMuc";
-            this.panelDanhMuc.Size = new System.Drawing.Size(200, 380);
+            this.panelDanhMuc.Size = new System.Drawing.Size(200, 50);
             this.panelDanhMuc.TabIndex = 2;
             // 
             // btnNhanVien

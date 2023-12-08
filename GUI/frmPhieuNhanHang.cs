@@ -1,9 +1,11 @@
 ﻿using DAL;
+using DevExpress.Xpo.DB.Helpers;
 using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -64,8 +66,27 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            subUpdateChiTietMuaHang sb = new subUpdateChiTietMuaHang();
-            sb.ShowDialog();
+            if (index == -1)
+            {
+                MessageBox.Show("Vui lòng chọn bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DataTable dt = new DataTable();
+                string sql = "select * FROM hoaDonNhanHang where maMH = " + phieuNhanHang.maMH + "and tinhTrang = 1";
+                dt = AccessData.getData(sql);
+                if (dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("Phiếu mua hàng này đã được thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    subUpdateChiTietMuaHang sb = new subUpdateChiTietMuaHang();
+                    sb.ShowDialog();
+                    reload();
+                }
+            }
         }
 
         private void dgvPhieuNhanHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -87,6 +108,45 @@ namespace GUI
 
                 }
             }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (index == -1)
+            {
+                MessageBox.Show("Vui lòng chọn bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa phiếu mua hàng này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    string sql = "delete phieuNhanHang where maMH = @maMH";
+
+                    using (SqlConnection conn = SqlConnectionData.connect())
+                    {
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@maMH", phieuNhanHang.maMH);
+
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            reload();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

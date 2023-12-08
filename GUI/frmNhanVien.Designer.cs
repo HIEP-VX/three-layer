@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhanVien));
             this.panelTool = new System.Windows.Forms.Panel();
+            this.btnXuatFile = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@
             // 
             // panelTool
             // 
+            this.panelTool.Controls.Add(this.btnXuatFile);
             this.panelTool.Controls.Add(this.btnTimKiem);
             this.panelTool.Controls.Add(this.btnCapNhat);
             this.panelTool.Controls.Add(this.btnXoa);
@@ -77,10 +79,21 @@
             this.panelTool.Size = new System.Drawing.Size(1115, 168);
             this.panelTool.TabIndex = 0;
             // 
+            // btnXuatFile
+            // 
+            this.btnXuatFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatFile.Location = new System.Drawing.Point(510, 3);
+            this.btnXuatFile.Name = "btnXuatFile";
+            this.btnXuatFile.Size = new System.Drawing.Size(75, 28);
+            this.btnXuatFile.TabIndex = 42;
+            this.btnXuatFile.Text = "Xuất file";
+            this.btnXuatFile.UseVisualStyleBackColor = true;
+            this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
+            // 
             // btnTimKiem
             // 
             this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(577, 3);
+            this.btnTimKiem.Location = new System.Drawing.Point(401, 3);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
             this.btnTimKiem.TabIndex = 41;
@@ -93,7 +106,7 @@
             this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
             this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(422, 3);
+            this.btnCapNhat.Location = new System.Drawing.Point(285, 3);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
             this.btnCapNhat.TabIndex = 40;
@@ -107,7 +120,7 @@
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(282, 3);
+            this.btnXoa.Location = new System.Drawing.Point(186, 3);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(69, 28);
             this.btnXoa.TabIndex = 39;
@@ -121,7 +134,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(147, 3);
+            this.btnAdd.Location = new System.Drawing.Point(90, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(69, 28);
             this.btnAdd.TabIndex = 38;
@@ -405,5 +418,6 @@
         private System.Windows.Forms.Button btnHopCapNhat;
         private System.Windows.Forms.Timer timerCapNhat;
         private System.Windows.Forms.ComboBox txtQuyenHan;
+        private System.Windows.Forms.Button btnXuatFile;
     }
 }

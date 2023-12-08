@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panelPhieuNhanHang = new System.Windows.Forms.Panel();
@@ -46,7 +45,6 @@
             // 
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnTimKiem);
-            this.panel1.Controls.Add(this.btnCapNhat);
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -54,7 +52,7 @@
             this.panel1.MaximumSize = new System.Drawing.Size(800, 168);
             this.panel1.MinimumSize = new System.Drawing.Size(800, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 32);
+            this.panel1.Size = new System.Drawing.Size(800, 168);
             this.panel1.TabIndex = 0;
             // 
             // button1
@@ -74,25 +72,13 @@
             // btnTimKiem
             // 
             this.btnTimKiem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(578, 2);
+            this.btnTimKiem.Location = new System.Drawing.Point(458, 4);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
             this.btnTimKiem.TabIndex = 41;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
-            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(445, 2);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
-            this.btnCapNhat.TabIndex = 40;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnXoa
             // 
@@ -106,6 +92,7 @@
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnAdd
             // 
@@ -126,9 +113,9 @@
             this.panelPhieuNhanHang.Controls.Add(this.dgvPhieuNhanHang);
             this.panelPhieuNhanHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPhieuNhanHang.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPhieuNhanHang.Location = new System.Drawing.Point(0, 32);
+            this.panelPhieuNhanHang.Location = new System.Drawing.Point(0, 168);
             this.panelPhieuNhanHang.Name = "panelPhieuNhanHang";
-            this.panelPhieuNhanHang.Size = new System.Drawing.Size(800, 418);
+            this.panelPhieuNhanHang.Size = new System.Drawing.Size(800, 282);
             this.panelPhieuNhanHang.TabIndex = 1;
             // 
             // dgvPhieuNhanHang
@@ -140,7 +127,7 @@
             this.dgvPhieuNhanHang.Name = "dgvPhieuNhanHang";
             this.dgvPhieuNhanHang.ReadOnly = true;
             this.dgvPhieuNhanHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPhieuNhanHang.Size = new System.Drawing.Size(800, 418);
+            this.dgvPhieuNhanHang.Size = new System.Drawing.Size(800, 282);
             this.dgvPhieuNhanHang.TabIndex = 0;
             this.dgvPhieuNhanHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuNhanHang_CellClick);
             // 
@@ -165,7 +152,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panelPhieuNhanHang;

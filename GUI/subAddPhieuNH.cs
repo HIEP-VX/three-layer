@@ -70,6 +70,7 @@ namespace GUI
                     string query = "DECLARE @Inserted_maMH INT\n" +
                            "INSERT INTO phieuNhanHang (nhaCC, ngayMua, maNV) values (@nhaCC, @ngayMua, @maNV)\n" +
                            "SET @Inserted_maMH = SCOPE_IDENTITY();\n" +
+                           "INSERT INTO hoaDonNhanHang (maMH) values (@Inserted_maMH)\n" +
                            "SELECT @Inserted_maMH AS 'maMH'";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
