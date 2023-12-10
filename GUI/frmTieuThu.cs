@@ -31,8 +31,8 @@ namespace GUI
         public frmTieuThu()
         {
             InitializeComponent();
-            SetLinearGradient(btnLuuChiSo, "#56d8e4", "#9f01ea");
-            SetLinearGradient(btnTimKiem, "#56d8e4", "#9f01ea");
+            setLinear.SetLinearGradient(btnLuuChiSo, "#56d8e4", "#9f01ea");
+            setLinear.SetLinearGradient(btnTimKiem, "#56d8e4", "#9f01ea");
             LoadRecords();
         }
 
@@ -60,6 +60,7 @@ namespace GUI
 
         private void reload()
         {
+            dgvGhiNuoc.RowTemplate.Height = 26;
             try
             {
                 /*DateTime currentDate = DateTime.Now;
@@ -80,7 +81,7 @@ namespace GUI
                 dgvGhiNuoc.Columns[8].HeaderText = "Tên khách hàng";
                 dgvGhiNuoc.Columns[9].HeaderText = "Đường";
                 dgvGhiNuoc.Columns[10].HeaderText = "Phường";
-                dgvGhiNuoc.Columns[11].HeaderText = "Tên nhân viên";
+                dgvGhiNuoc.Columns[11].HeaderText = "Nhân viên ghi nước";
 
                 foreach (DataGridViewColumn column in dgvGhiNuoc.Columns)
                 {
@@ -96,6 +97,7 @@ namespace GUI
 
         private void reload2()
         {
+            dgvGhiNuoc.RowTemplate.Height = 26;
             try
             {
                 /*DateTime currentDate = DateTime.Now;
@@ -122,7 +124,7 @@ namespace GUI
                 dgvGhiNuoc.Columns[8].HeaderText = "Tên khách hàng";
                 dgvGhiNuoc.Columns[9].HeaderText = "Đường";
                 dgvGhiNuoc.Columns[10].HeaderText = "Phường";
-                dgvGhiNuoc.Columns[11].HeaderText = "Tên nhân viên";
+                dgvGhiNuoc.Columns[11].HeaderText = "Nhân viên ghi nước";
 
                 foreach (DataGridViewColumn column in dgvGhiNuoc.Columns)
                 {
@@ -138,7 +140,6 @@ namespace GUI
 
         private void frmGhiNuoc_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet4.diaChi' table. You can move, or remove it, as needed.
             this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
             for (int i = 1; i <= 12; i++)
                 cbThangTGD.Items.Add(i);
@@ -171,130 +172,53 @@ namespace GUI
 
         public void ExportFile(DataTable dataTable, string sheetName, string title)
         {
-            //Tạo các đối tượng Excel
-
             Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
-
             Microsoft.Office.Interop.Excel.Workbooks oBooks;
-
             Microsoft.Office.Interop.Excel.Sheets oSheets;
-
             Microsoft.Office.Interop.Excel.Workbook oBook;
-
             Microsoft.Office.Interop.Excel.Worksheet oSheet;
-
-            //Tạo mới một Excel WorkBook 
-
             oExcel.Visible = true;
-
             oExcel.DisplayAlerts = false;
-
             oExcel.Application.SheetsInNewWorkbook = 1;
-
             oBooks = oExcel.Workbooks;
-
             oBook = (Microsoft.Office.Interop.Excel.Workbook)(oExcel.Workbooks.Add(Type.Missing));
-
             oSheets = oBook.Worksheets;
-
             oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(1);
-
             oSheet.Name = sheetName;
-
-            // Tạo phần Tiêu đề
             Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "G1");
-
             head.MergeCells = true;
-
             head.Value2 = title;
-
             head.Font.Bold = true;
-
             head.Font.Name = "Times New Roman";
-
             head.Font.Size = "20";
-
             head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
             Microsoft.Office.Interop.Excel.Range cl1 = oSheet.get_Range("A3", "A3");
-
             cl1.Value2 = "Mã tiêu thụ";
-
             cl1.ColumnWidth = 14;
-
             Microsoft.Office.Interop.Excel.Range cl2 = oSheet.get_Range("B3", "B3");
-
             cl2.Value2 = "Mã khách hàng";
-
             cl2.ColumnWidth = 14;
-
             Microsoft.Office.Interop.Excel.Range cl3 = oSheet.get_Range("C3", "C3");
-
             cl3.Value2 = "Họ tên";
             cl3.ColumnWidth = 25.0;
-
             Microsoft.Office.Interop.Excel.Range cl4 = oSheet.get_Range("D3", "D3");
-
             cl4.Value2 = "Đường";
-
             cl4.ColumnWidth = 30;
-
             Microsoft.Office.Interop.Excel.Range cl5 = oSheet.get_Range("E3", "E3");
-
             cl5.Value2 = "Phường";
-
             cl5.ColumnWidth = 18;
-
             Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F3", "F3");
-
             cl6.Value2 = "Chỉ số cũ";
-
             cl6.ColumnWidth = 13.5;
-
             Microsoft.Office.Interop.Excel.Range cl7 = oSheet.get_Range("G3", "G3");
-
             cl7.Value2 = "Chỉ số mới";
-
             cl7.ColumnWidth = 13.5;
-            /*
-            Microsoft.Office.Interop.Excel.Range cl8 = oSheet.get_Range("H3", "H3");
-
-            cl8.Value2 = "Trình độ học vấn";
-
-            cl8.ColumnWidth = 14.5;
-
-            Microsoft.Office.Interop.Excel.Range cl9 = oSheet.get_Range("I3", "I3");
-
-            cl9.Value2 = "Mã bộ phận";
-
-            cl9.ColumnWidth = 10.5;
-
-            Microsoft.Office.Interop.Excel.Range c20 = oSheet.get_Range("J3", "J3");
-
-            c20.Value2 = "Mã chức vụ";
-
-            c20.ColumnWidth = 12.5;
-            */
             Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", "G3");
-
             rowHead.Font.Bold = true;
-
-            // Kẻ viền
-
             rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
-
-            // Thiết lập màu nền
-
             rowHead.Interior.ColorIndex = 6;
-
             rowHead.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
-            // Tạo mảng theo datatable
-
             object[,] arr = new object[dataTable.Rows.Count, dataTable.Columns.Count];
-
-            //Chuyển dữ liệu từ DataTable vào mảng đối tượng
-
             for (int row = 0; row < dataTable.Rows.Count; row++)
             {
                 DataRow dataRow = dataTable.Rows[row];
@@ -304,44 +228,15 @@ namespace GUI
                     arr[row, col] = dataRow[col];
                 }
             }
-
-            //Thiết lập vùng điền dữ liệu
-
             int rowStart = 4;
-
             int columnStart = 1;
-
             int rowEnd = rowStart + dataTable.Rows.Count - 2;
-
             int columnEnd = dataTable.Columns.Count;
-
-            // Ô bắt đầu điền dữ liệu
-
             Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, columnStart];
-
-            // Ô kết thúc điền dữ liệu
-
             Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnEnd];
-
-            // Lấy về vùng điền dữ liệu
-
             Microsoft.Office.Interop.Excel.Range range = oSheet.get_Range(c1, c2);
-
-            //Điền dữ liệu vào vùng đã thiết lập
-
             range.Value2 = arr;
-
-            // Kẻ viền
-
             range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
-
-            // Căn giữa cột mã nhân viên
-
-            //Microsoft.Office.Interop.Excel.Range c3 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnStart];
-
-            //Microsoft.Office.Interop.Excel.Range c4 = oSheet.get_Range(c1, c3);
-
-            //Căn giữa cả bảng 
             oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
         }
 
@@ -351,6 +246,7 @@ namespace GUI
             {
                 using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(filePath)))
                 {
+                    
                     ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets["Danh sach"];
 
                     if(worksheet != null)
@@ -385,6 +281,44 @@ namespace GUI
                     {
                         MessageBox.Show("worksheet");
                     }
+                    /*
+                    // Lấy danh sách tên các phường
+                    List<string> phuongList = GetPhuongListFromDatabase();
+
+                    foreach (var phuong in phuongList)
+                    {
+                        // Kiểm tra xem sheet có tồn tại trong file Excel hay không
+                        ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets[phuong];
+
+                        if (worksheet != null)
+                        {
+                            // Duyệt từng dòng trong sheet
+                            for (int row = 4; row <= worksheet.Dimension.End.Row; row++)
+                            {
+                                // Lấy giá trị cột đầu tiên trong file Excel
+                                string conditionValueExcel = worksheet.Cells[row, 1].Text;
+
+                                // Tìm dòng tương ứng trong DataGridView
+                                DataGridViewRow existingRow = dgvGhiNuoc.Rows
+                                    .Cast<DataGridViewRow>()
+                                    .FirstOrDefault(r => r.Cells[0].Value?.ToString() == conditionValueExcel);
+
+                                // Nếu tìm thấy dòng tương ứng, thêm dữ liệu vào 2 cột trống
+                                if (existingRow != null)
+                                {
+                                    // Lấy giá trị từ cột 7 trong file Excel
+                                    object valueToAdd = worksheet.Cells[row, 7].Value;
+
+                                    // Kiểm tra nếu giá trị không rỗng
+                                    if (valueToAdd != null)
+                                    {
+                                        // Thêm giá trị vào cột 4 trong DataGridView
+                                        existingRow.Cells[4].Value = valueToAdd;
+                                    }
+                                }
+                            }
+                        }
+                    }*/
                 }
             }
             catch (Exception ex)
@@ -416,7 +350,7 @@ namespace GUI
                     // Kiểm tra xem dòng có thay đổi không
                     if (row.Cells[4].Value != null && !string.IsNullOrEmpty(row.Cells[4].Value.ToString()))
                     {
-                        int maTT = Convert.ToInt32(row.Cells[0].Value);
+                        int maTT = int.Parse(row.Cells[0].Value.ToString());
                         int chiSoCu = int.Parse(row.Cells[3].Value.ToString());
                         int chiSoMoi = int.Parse(row.Cells[4].Value.ToString());
 
@@ -424,6 +358,7 @@ namespace GUI
                     }
                 }
                 MessageBox.Show("Dữ liệu đã được cập nhật vào cơ sở dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reload();
             }
             catch (Exception ex)
             {
@@ -434,6 +369,7 @@ namespace GUI
         private void UpdateDataInDatabase(int maTT, int chiSoCu, int chiSoMoi)
         {
             string sql = "update tieuthu set chiSoMoi = @chiSoMoi where maTT = @maTT\n" +
+                         "update donghonuoc set chiSoDau = @chiSoMoi where maDHN = (select madhn from khachhang kh , tieuthu tt where maTT = @maTT and tt.maKH = kh.maKH)"+
                          "Update tieuthu set luongNuoc = @chisomoi - @chiSoCu where maTT = @maTT";
 
             using (SqlConnection connection = SqlConnectionData.connect())
@@ -447,7 +383,6 @@ namespace GUI
                     command.ExecuteNonQuery();
                 }
             }
-            reload();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -474,28 +409,6 @@ namespace GUI
             }
 
             txtMATT.Text = dgvGhiNuoc.Rows[index].Cells[0].Value.ToString();
-        }
-
-        private void SetLinearGradient(Button btn, string hexColor1, string hexColor2)
-        {
-            // Chuyển đổi mã màu hex thành đối tượng Color
-            Color color1 = ColorTranslator.FromHtml(hexColor1);
-            Color color2 = ColorTranslator.FromHtml(hexColor2);
-
-            // Tạo đối tượng LinearGradientBrush
-            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(
-                btn.ClientRectangle,
-                color1,
-                color2,
-                LinearGradientMode.Horizontal); // Có thể thay đổi hướng dải màu tại đây
-
-            // Thiết lập màu nền của Panel là dải màu linear
-            btn.BackColor = Color.Transparent; // Đặt màu nền trong suốt để thấy rõ dải màu
-            btn.BackgroundImage = new Bitmap(btn.Width, btn.Height);
-            using (Graphics g = Graphics.FromImage(btn.BackgroundImage))
-            {
-                g.FillRectangle(linearGradientBrush, btn.ClientRectangle);
-            }
         }
 
         private void btnChiaPhuong_Click(object sender, EventArgs e)
@@ -548,9 +461,7 @@ namespace GUI
                 return;
             }
             else
-            {
                 grpChiSoNuoc.Enabled = true;
-            }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -558,80 +469,53 @@ namespace GUI
             string query = $"Select maTT, tt.maNV, tt.maKH, chiSoCu, chiSoMoi , luongNuoc ,  ThoiGianDau, ThoiGianCuoi,kh.tenKH, kh.diaChi, kh.phuong, nv.tenNV from tieuthu tt join khachhang kh on kh.maKH = tt.maKH join nhanvien nv on nv.maNV = tt.maNV where 1=1";
 
             if (!string.IsNullOrEmpty(textMAtt.Text))
-            {
                 query += $" AND maTT =" + textMAtt.Text;
-            }
 
             if (!string.IsNullOrEmpty(txtMaKH.Text))
-            {
                 query += $" AND tt.maKH =" + txtMaKH.Text;
-            }
 
             if (!string.IsNullOrEmpty(txtCSCu.Text))
-            {
                 query += $" AND chiSoCu =" + txtCSCu.Text;
-            }
 
             if (!string.IsNullOrEmpty(txtCSMoi.Text))
-            {
                 query += $" AND chiSoMoi =" + txtCSMoi.Text;
-            }
 
             if (!string.IsNullOrEmpty(txtLuongNuoc.Text))
-            {
                 query += $" AND luongNuoc =" + txtLuongNuoc.Text;
-            }
 
             if (!string.IsNullOrEmpty(txtNgayTGD.Text))
-            {
                 query += $" AND day(thoiGianDau) =" + txtNgayTGD.Text;
-            }
 
             if (!string.IsNullOrEmpty(cbThangTGD.Text))
-            {
                 query += $" AND month(thoiGianDau) =" + cbThangTGD.Text;
-            }
 
             if (!string.IsNullOrEmpty(txtNamTGD.Text))
-            {
                 query += $" AND year(thoiGianDau) =" + txtNamTGD.Text;
-            }
 
             if (!string.IsNullOrEmpty(txtNgayTGC.Text))
-            {
                 query += $" AND day(ThoiGianCuoi) = " + txtNgayTGC.Text;
-            }
 
             if (!string.IsNullOrEmpty(cbThangTGC.Text))
-            {
                 query += $" AND month(ThoiGianCuoi) = " + cbThangTGC.Text;
-            }
 
             if (!string.IsNullOrEmpty(txtNamTGC.Text))
-            {
                 query += $" AND month(ThoiGianCuoi) = " + txtNamTGC.Text;
-            }
 
             if (!string.IsNullOrEmpty(txtDuong.Text))
-            {
                 query += $" AND kh.diaChi like N'%" + txtDuong.Text + "%'";
-            }
 
             if (!string.IsNullOrEmpty(comboBoxPhuong.Text))
-            {
                 query += $" AND kh.Phuong like N'%" + comboBoxPhuong.Text + "%'";
-            }
 
             if (!string.IsNullOrEmpty(txtTenKH.Text))
-            {
                 query += $" AND kh.tenKH like N'%" + txtTenKH.Text + "%'";
-            }
 
             dgvGhiNuoc.DataSource = AccessData.getData(query);
         }
 
         private void btnXuatFile_Click(object sender, EventArgs e)
         {
+            /*
             DataTable dataTable = new DataTable();
 
             DataColumn col1 = new DataColumn("ID_TT");
@@ -666,6 +550,137 @@ namespace GUI
             }
 
             ExportFile(dataTable, "Danh sach", "Danh sách ghi nước");
+            */
+            /*
+            Dictionary<string, DataTable> dataSheets = new Dictionary<string, DataTable>();
+
+            // Thêm các DataTable vào Dictionary
+            DataTable dataTable1 = new DataTable();
+            DataColumn col1 = new DataColumn("ID_TT_1");
+            DataColumn col2 = new DataColumn("ID_KH_1");
+            DataColumn col3 = new DataColumn("Name_1");
+            DataColumn col4 = new DataColumn("Round_1");
+            DataColumn col5 = new DataColumn("Ward_1");
+            DataColumn col6 = new DataColumn("oldIndex_1");
+            DataColumn col7 = new DataColumn("newIndex_1");
+
+            dataTable1.Columns.Add(col1);
+            dataTable1.Columns.Add(col2);
+            dataTable1.Columns.Add(col3);
+            dataTable1.Columns.Add(col4);
+            dataTable1.Columns.Add(col5);
+            dataTable1.Columns.Add(col6);
+            dataTable1.Columns.Add(col7);
+
+            foreach (DataGridViewRow dtgvRow in dgvGhiNuoc.Rows)
+            {
+                DataRow dtrow = dataTable1.NewRow();
+
+                dtrow[0] = dtgvRow.Cells[0].Value;
+                dtrow[1] = dtgvRow.Cells[2].Value;
+                dtrow[2] = dtgvRow.Cells[8].Value;
+                dtrow[3] = dtgvRow.Cells[9].Value;
+                dtrow[4] = dtgvRow.Cells[10].Value;
+                dtrow[5] = dtgvRow.Cells[3].Value;
+                dtrow[6] = dtgvRow.Cells[4].Value;
+
+                dataTable1.Rows.Add(dtrow);
+            }
+
+            DataTable dataTable2 = new DataTable();
+            DataColumn col1_2 = new DataColumn("ID_TT_2");
+            DataColumn col2_2 = new DataColumn("ID_KH_2");
+            DataColumn col3_2 = new DataColumn("Name_2");
+            DataColumn col4_2 = new DataColumn("Round_2");
+            DataColumn col5_2 = new DataColumn("Ward_2");
+            DataColumn col6_2 = new DataColumn("oldIndex_2");
+            DataColumn col7_2 = new DataColumn("newIndex_2");
+
+            dataTable2.Columns.Add(col1_2);
+            dataTable2.Columns.Add(col2_2);
+            dataTable2.Columns.Add(col3_2);
+            dataTable2.Columns.Add(col4_2);
+            dataTable2.Columns.Add(col5_2);
+            dataTable2.Columns.Add(col6_2);
+            dataTable2.Columns.Add(col7_2);
+
+            foreach (DataGridViewRow dtgvRow in dgvGhiNuoc.Rows)
+            {
+                DataRow dtrow = dataTable2.NewRow();
+
+                dtrow[0] = dtgvRow.Cells[0].Value;
+                dtrow[1] = dtgvRow.Cells[2].Value;
+                dtrow[2] = dtgvRow.Cells[8].Value;
+                dtrow[3] = dtgvRow.Cells[9].Value;
+                dtrow[4] = dtgvRow.Cells[10].Value;
+                dtrow[5] = dtgvRow.Cells[3].Value;
+                dtrow[6] = dtgvRow.Cells[4].Value;
+
+                dataTable2.Rows.Add(dtrow);
+            }
+
+            dataSheets.Add("Sheet1", dataTable1);
+            dataSheets.Add("Sheet2", dataTable2);
+
+            ExportMultipleSheets(dataSheets);*/
+            
+            // Lấy tên cột chứa thông tin về phường trong DataGridView (giả sử cột thứ 5, chỉnh lại nếu cần)
+            int columnIndexPhuong = 10;
+            Dictionary<string, DataTable> dataSheets = new Dictionary<string, DataTable>();
+
+            for (int rowIndex = 0; rowIndex < dgvGhiNuoc.Rows.Count; rowIndex++)
+            {
+                DataGridViewRow dtgvRow = dgvGhiNuoc.Rows[rowIndex];
+
+                // Lấy tên phường từ cột phù hợp
+                string phuong = dtgvRow.Cells[columnIndexPhuong].Value?.ToString();
+                if (dtgvRow.IsNewRow) continue;
+
+                // Kiểm tra dòng mới và tên phường không rỗng
+                if (!dtgvRow.IsNewRow && !string.IsNullOrEmpty(phuong))
+                {
+                    // Kiểm tra xem phường đã tồn tại trong Dictionary chưa
+                    if (!dataSheets.ContainsKey(phuong))
+                    {
+                        // Nếu chưa có, thêm phường vào Dictionary với DataTable mới
+                        dataSheets[phuong] = new DataTable();
+                        // ... Thêm các cột cho DataTable nếu cần
+
+                        DataColumn col1 = new DataColumn("ID_TT_1");
+                        DataColumn col2 = new DataColumn("ID_KH_1");
+                        DataColumn col3 = new DataColumn("Name_1");
+                        DataColumn col4 = new DataColumn("Round_1");
+                        DataColumn col5 = new DataColumn("Ward_1");
+                        DataColumn col6 = new DataColumn("oldIndex_1");
+                        DataColumn col7 = new DataColumn("newIndex_1");
+
+                        dataSheets[phuong].Columns.Add(col1);
+                        dataSheets[phuong].Columns.Add(col2);
+                        dataSheets[phuong].Columns.Add(col3);
+                        dataSheets[phuong].Columns.Add(col4);
+                        dataSheets[phuong].Columns.Add(col5);
+                        dataSheets[phuong].Columns.Add(col6);
+                        dataSheets[phuong].Columns.Add(col7);
+                    }
+
+                    // Thêm dữ liệu từ dòng vào DataTable của phường
+                    DataRow dtrow = dataSheets[phuong].NewRow();
+                    // ... Thêm dữ liệu từ dòng vào dtrow
+                    dtrow[0] = dtgvRow.Cells[0].Value;
+                    dtrow[1] = dtgvRow.Cells[2].Value;
+                    dtrow[2] = dtgvRow.Cells[8].Value;
+                    dtrow[3] = dtgvRow.Cells[9].Value;
+                    dtrow[4] = dtgvRow.Cells[10].Value;
+                    dtrow[5] = dtgvRow.Cells[3].Value;
+                    dtrow[6] = dtgvRow.Cells[4].Value;
+
+                    dataSheets[phuong].Rows.Add(dtrow);
+                }
+            }
+
+            // Gọi hàm xuất file với các sheet tương ứng với từng phường
+            ExportMultipleSheets(dataSheets);
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -692,6 +707,167 @@ namespace GUI
                     }
                 }
             }
+        }
+
+        public void ExportMultipleSheets(Dictionary<string, DataTable> dataSheets)
+        {
+            /*
+            try
+            {
+                Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbooks oBooks;
+                Microsoft.Office.Interop.Excel.Sheets oSheets;
+                Microsoft.Office.Interop.Excel.Workbook oBook;
+                oExcel.Visible = true;
+                oExcel.DisplayAlerts = false;
+                oExcel.Application.SheetsInNewWorkbook = dataSheets.Count;
+
+                oBooks = oExcel.Workbooks;
+                oBook = (Microsoft.Office.Interop.Excel.Workbook)(oExcel.Workbooks.Add(Type.Missing));
+                oSheets = oBook.Worksheets;
+
+                int sheetIndex = 1;
+                foreach (var dataSheet in dataSheets)
+                {
+                    string sheetName = dataSheet.Key;
+                    DataTable dataTable = dataSheet.Value;
+
+                    Microsoft.Office.Interop.Excel.Worksheet oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(sheetIndex);
+                    oSheet.Name = sheetName;
+
+                    // Thêm dữ liệu vào sheet
+                    AddDataToSheet(oSheet, dataTable);
+
+                    sheetIndex++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi xuất file Excel: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+            try
+            {
+                Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbooks oBooks;
+                Microsoft.Office.Interop.Excel.Sheets oSheets;
+                Microsoft.Office.Interop.Excel.Workbook oBook;
+                oExcel.Visible = true;
+                oExcel.DisplayAlerts = false;
+                oExcel.Application.SheetsInNewWorkbook = dataSheets.Count;
+
+                oBooks = oExcel.Workbooks;
+                oBook = (Microsoft.Office.Interop.Excel.Workbook)(oExcel.Workbooks.Add(Type.Missing));
+                oSheets = oBook.Worksheets;
+
+                // Lấy danh sách các phường từ bảng Phuong
+                List<string> phuongList = GetPhuongListFromDatabase();
+
+                int sheetIndex = 1;
+                for (int i = 0; i < phuongList.Count; i++)
+                {
+                    string phuong = phuongList[i];
+
+                    // Kiểm tra xem có dữ liệu cho phường này hay không
+                    if (dataSheets.ContainsKey(phuong))
+                    {
+                        Microsoft.Office.Interop.Excel.Worksheet oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(sheetIndex);
+                        oSheet.Name = phuong;
+
+                        // Thêm dữ liệu vào sheet tương ứng
+                        AddDataToSheet(oSheet, dataSheets[phuong]);
+
+                        sheetIndex++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi xuất file Excel: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private List<string> GetPhuongListFromDatabase()
+        {
+            List<string> phuongList = new List<string>();
+
+            // Thực hiện truy vấn lấy danh sách các phường từ bảng Phuong
+            string query = "SELECT phuong FROM diaChi"; // Sửa query để phản ánh cấu trúc bảng của bạn
+
+            using (SqlConnection connection = SqlConnectionData.connect())
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string phuong = reader["phuong"].ToString();
+                        phuongList.Add(phuong);
+                    }
+
+                    connection.Close();
+                }
+            }
+
+            return phuongList;
+        }
+
+        private void AddDataToSheet(Microsoft.Office.Interop.Excel.Worksheet oSheet, DataTable dataTable)
+        {
+            Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "G1");
+            head.MergeCells = true;
+          //  head.Value2 = title;
+            head.Font.Bold = true;
+            head.Font.Name = "Times New Roman";
+            head.Font.Size = "20";
+            head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            Microsoft.Office.Interop.Excel.Range cl1 = oSheet.get_Range("A3", "A3");
+            cl1.Value2 = "Mã tiêu thụ";
+            cl1.ColumnWidth = 14;
+            Microsoft.Office.Interop.Excel.Range cl2 = oSheet.get_Range("B3", "B3");
+            cl2.Value2 = "Mã khách hàng";
+            cl2.ColumnWidth = 14;
+            Microsoft.Office.Interop.Excel.Range cl3 = oSheet.get_Range("C3", "C3");
+            cl3.Value2 = "Họ tên";
+            cl3.ColumnWidth = 25.0;
+            Microsoft.Office.Interop.Excel.Range cl4 = oSheet.get_Range("D3", "D3");
+            cl4.Value2 = "Đường";
+            cl4.ColumnWidth = 30;
+            Microsoft.Office.Interop.Excel.Range cl5 = oSheet.get_Range("E3", "E3");
+            cl5.Value2 = "Phường";
+            cl5.ColumnWidth = 18;
+            Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F3", "F3");
+            cl6.Value2 = "Chỉ số cũ";
+            cl6.ColumnWidth = 13.5;
+            Microsoft.Office.Interop.Excel.Range cl7 = oSheet.get_Range("G3", "G3");
+            cl7.Value2 = "Chỉ số mới";
+            cl7.ColumnWidth = 13.5;
+            Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", "G3");
+            rowHead.Font.Bold = true;
+            rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+            rowHead.Interior.ColorIndex = 6;
+            rowHead.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            object[,] arr = new object[dataTable.Rows.Count, dataTable.Columns.Count];
+            for (int row = 0; row < dataTable.Rows.Count; row++)
+            {
+                DataRow dataRow = dataTable.Rows[row];
+
+                for (int col = 0; col < dataTable.Columns.Count; col++)
+                {
+                    arr[row, col] = dataRow[col];
+                }
+            }
+            int rowStart = 4;
+            int columnStart = 1;
+            int rowEnd = rowStart + dataTable.Rows.Count - 2;
+            int columnEnd = dataTable.Columns.Count;
+            Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, columnStart];
+            Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnEnd];
+            Microsoft.Office.Interop.Excel.Range range = oSheet.get_Range(c1, c2);
+            range.Value2 = arr;
+            range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+            oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
         }
     }
 }

@@ -70,20 +70,23 @@
             this.panelTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTool.Location = new System.Drawing.Point(0, 0);
             this.panelTool.MaximumSize = new System.Drawing.Size(1095, 168);
-            this.panelTool.MinimumSize = new System.Drawing.Size(1095, 29);
+            this.panelTool.MinimumSize = new System.Drawing.Size(1095, 34);
             this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(1095, 168);
+            this.panelTool.Size = new System.Drawing.Size(1095, 34);
             this.panelTool.TabIndex = 0;
             // 
             // btnXuatFile
             // 
             this.btnXuatFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnXuatFile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXuatFile.Location = new System.Drawing.Point(322, 2);
+            this.btnXuatFile.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatFile.Image")));
+            this.btnXuatFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXuatFile.Location = new System.Drawing.Point(321, 3);
             this.btnXuatFile.Name = "btnXuatFile";
-            this.btnXuatFile.Size = new System.Drawing.Size(77, 28);
+            this.btnXuatFile.Size = new System.Drawing.Size(81, 28);
             this.btnXuatFile.TabIndex = 55;
             this.btnXuatFile.Text = "Xuất file";
+            this.btnXuatFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXuatFile.UseVisualStyleBackColor = true;
             this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
             // 
@@ -93,7 +96,7 @@
             this.btnCapNhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
             this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(108, 2);
+            this.btnCapNhat.Location = new System.Drawing.Point(107, 3);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
             this.btnCapNhat.TabIndex = 39;
@@ -108,9 +111,9 @@
             this.btnXoa.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(12, 2);
+            this.btnXoa.Location = new System.Drawing.Point(27, 3);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(69, 28);
+            this.btnXoa.Size = new System.Drawing.Size(59, 28);
             this.btnXoa.TabIndex = 38;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -219,7 +222,9 @@
             // btnHopTimKiem
             // 
             this.btnHopTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHopTimKiem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHopTimKiem.FlatAppearance.BorderSize = 0;
+            this.btnHopTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHopTimKiem.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHopTimKiem.Location = new System.Drawing.Point(988, 13);
             this.btnHopTimKiem.Name = "btnHopTimKiem";
             this.btnHopTimKiem.Size = new System.Drawing.Size(75, 103);
@@ -276,11 +281,14 @@
             // 
             this.btnTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTimKiem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(221, 2);
+            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(212, 3);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
+            this.btnTimKiem.Size = new System.Drawing.Size(88, 28);
             this.btnTimKiem.TabIndex = 7;
             this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
@@ -293,7 +301,7 @@
             this.dgvHopDong.Name = "dgvHopDong";
             this.dgvHopDong.ReadOnly = true;
             this.dgvHopDong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHopDong.Size = new System.Drawing.Size(1093, 346);
+            this.dgvHopDong.Size = new System.Drawing.Size(1093, 480);
             this.dgvHopDong.TabIndex = 1;
             this.dgvHopDong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHopDong_CellClick);
             // 
@@ -307,9 +315,9 @@
             this.panelHopDong.Controls.Add(this.dgvHopDong);
             this.panelHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHopDong.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelHopDong.Location = new System.Drawing.Point(0, 168);
+            this.panelHopDong.Location = new System.Drawing.Point(0, 34);
             this.panelHopDong.Name = "panelHopDong";
-            this.panelHopDong.Size = new System.Drawing.Size(1093, 346);
+            this.panelHopDong.Size = new System.Drawing.Size(1093, 480);
             this.panelHopDong.TabIndex = 1;
             // 
             // frmHopDong

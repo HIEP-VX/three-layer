@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +20,13 @@ namespace GUI
         public frmLKH()
         {
             InitializeComponent();
+            setLinear.SetLinearGradient(btnHopTimKiem, "#56d8e4", "#9f01ea");
+            setLinear.SetLinearGradient(btnHopCapNhat, "#56d8e4", "#9f01ea");
         }
 
         private void reload()
         {
+            dgvLKH.RowTemplate.Height = 26;
             try
             {
                 string query = "select maLKH, tenLoai, FORMAT(CAST(giaBac1 AS DECIMAL(18, 0)), 'N0') AS gb1 , FORMAT(CAST(giaBac2 AS DECIMAL(18, 0)), 'N0') AS gb2, FORMAT(CAST(giaBac3 AS DECIMAL(18, 0)), 'N0') AS gb3, FORMAT(CAST(giaBac4 AS DECIMAL(18, 0)), 'N0') AS gb4 from loaiKhachHang";

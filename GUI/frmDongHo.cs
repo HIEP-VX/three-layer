@@ -21,6 +21,7 @@ namespace GUI
 
         private void reload()
         {
+            dgvDongho.RowTemplate.Height = 26;
             try
             {
                 string query = "SELECT maDHN as 'Mã',maPhieu as 'Mã phiếu', chiSoDau as 'Chỉ số đầu',\n" +

@@ -52,7 +52,7 @@ namespace GUI
                 return;
             }
 
-            string sql = "update KhachHang set tenKH = @tenKH, ngaySinh = @ngaySinh, diaChi = @diaChi, soDT = @soDT where maKH = @maKH";
+            string sql = "update KhachHang set tenKH = @tenKH, ngaySinh = @ngaySinh, diaChi = @diaChi,phuong = @phuong, soDT = @soDT where maKH = @maKH";
             using (SqlConnection conn = SqlConnectionData.connect())
             {
                 conn.Open();
@@ -63,6 +63,7 @@ namespace GUI
                 cmd.Parameters.AddWithValue("@ngaySinh", dateNS.Value);
                 cmd.Parameters.AddWithValue("@diaChi", txtDC.Text);
                 cmd.Parameters.AddWithValue("@soDT", txtSoDT.Text);
+                cmd.Parameters.AddWithValue("@phuong", cbPhuong.Text);
 
                 try
                 {

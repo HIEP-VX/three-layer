@@ -24,6 +24,7 @@ namespace GUI
 
         public void reload()
         {
+            dgvDH_HD.RowTemplate.Height = 26;
             txtHT.Text = txtSODT.Text = txtDC.Text = cbPhuong.Text = txtLKH.Text = txtNL.Text = "";
             datetimeNS.Value = datetimeNL.Value = DateTime.Now;
 
@@ -38,7 +39,7 @@ namespace GUI
                                "WHERE tinhTrang = 0;";
                 dgvDH_HD.DataSource = AccessData.getData(query);
 
-                dgvDH_HD.Columns[1].HeaderText = "Mã";
+                dgvDH_HD.Columns[1].HeaderText = "Mã đồng hồ";
                 dgvDH_HD.Columns[2].HeaderText = "Chỉ số đầu";
                 dgvDH_HD.Columns[3].HeaderText = "Tình trạng";
 
@@ -169,6 +170,38 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
                 button1.PerformClick();
+        }
+
+        private void txtDC_TextChanged(object sender, EventArgs e)
+        {
+            // Biểu thức chính quy để kiểm tra có chữ 'phường', cùng với dấu ',' trước nó
+            string pattern = @",?\s*\bphường\b";
+            Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
+
+            // Kiểm tra xem có khớp với biểu thức chính quy không
+            Match match = regex.Match(txtDC.Text);
+
+            if (match.Success)
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số nhà và tên đường của khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Nếu có, giữ lại phần đường trước từ 'phường' và dấu ',' nếu có
+                string duong = txtDC.Text.Substring(0, match.Index).Trim();
+                txtDC.Text = duong;
+            }
+        }
+
+        private void txtSODT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+
+            if (txtSODT.Text.Length >= 11 && !char.IsControl(e.KeyChar))
+                e.Handled = true;        }
+
+        private void txtTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

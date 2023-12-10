@@ -22,6 +22,7 @@ namespace GUI
 
         private void reload()
         {
+            dgvLoaiDongHo.RowTemplate.Height = 26;
             try
             {
                 string query = "select * from loaiDongHo";

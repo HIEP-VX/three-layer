@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +21,12 @@ namespace GUI
         public frmKhachHang()
         {
             InitializeComponent();
+            setLinear.SetLinearGradient(btnHopTimKiem, "#56d8e4", "#9f01ea");
         }
 
         private void reload()
         {
+            dgvKH.RowTemplate.Height = 26;
             try
             {
                 string query = "select maKH, tenKH, ngaySinh, phuong, diaChi, soDT, maHD, maLKH, maDHN,\n"+
@@ -390,13 +393,6 @@ namespace GUI
 
             range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
 
-            // Căn giữa cột mã nhân viên
-
-            //Microsoft.Office.Interop.Excel.Range c3 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnStart];
-
-            //Microsoft.Office.Interop.Excel.Range c4 = oSheet.get_Range(c1, c3);
-
-            //Căn giữa cả bảng 
             oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
         }
 

@@ -34,11 +34,11 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txttenNV = new System.Windows.Forms.TextBox();
             this.txtsoDT = new System.Windows.Forms.TextBox();
-            this.txtChucVu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtQuyenHan = new System.Windows.Forms.ComboBox();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.txtChucVu = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -100,14 +100,6 @@
             this.txtsoDT.Size = new System.Drawing.Size(231, 23);
             this.txtsoDT.TabIndex = 8;
             // 
-            // txtChucVu
-            // 
-            this.txtChucVu.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChucVu.Location = new System.Drawing.Point(144, 123);
-            this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.Size = new System.Drawing.Size(231, 23);
-            this.txtChucVu.TabIndex = 10;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -157,15 +149,29 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // txtChucVu
+            // 
+            this.txtChucVu.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChucVu.FormattingEnabled = true;
+            this.txtChucVu.Items.AddRange(new object[] {
+            "Quản lý",
+            "Nhân viên làm hợp đồng",
+            "Nhân viên ghi nước",
+            "Nhân viên kho"});
+            this.txtChucVu.Location = new System.Drawing.Point(144, 123);
+            this.txtChucVu.Name = "txtChucVu";
+            this.txtChucVu.Size = new System.Drawing.Size(231, 24);
+            this.txtChucVu.TabIndex = 28;
+            // 
             // subAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 244);
+            this.Controls.Add(this.txtChucVu);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.txtQuyenHan);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtChucVu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtsoDT);
             this.Controls.Add(this.txttenNV);
@@ -190,10 +196,10 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txttenNV;
         private System.Windows.Forms.TextBox txtsoDT;
-        private System.Windows.Forms.TextBox txtChucVu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox txtQuyenHan;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.ComboBox txtChucVu;
     }
 }

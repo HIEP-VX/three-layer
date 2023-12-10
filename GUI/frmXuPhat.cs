@@ -24,6 +24,7 @@ namespace GUI
 
         private void reload()
         {
+            dgvXuPhat.RowTemplate.Height = 26;
             txtMaNV.Text = user.id.ToString();
             string query = "select maXP, thoiGian, FORMAT(CAST(TienPhat AS DECIMAL(18, 0)), 'N0') AS TienPhat, maHD1, maHD2, maNV,\n" +
                 "CASE\n" +

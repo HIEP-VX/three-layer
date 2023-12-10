@@ -50,9 +50,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.MaximumSize = new System.Drawing.Size(800, 168);
-            this.panel1.MinimumSize = new System.Drawing.Size(800, 32);
+            this.panel1.MinimumSize = new System.Drawing.Size(800, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 168);
+            this.panel1.Size = new System.Drawing.Size(800, 34);
             this.panel1.TabIndex = 0;
             // 
             // button1
@@ -113,9 +113,9 @@
             this.panelPhieuNhanHang.Controls.Add(this.dgvPhieuNhanHang);
             this.panelPhieuNhanHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPhieuNhanHang.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPhieuNhanHang.Location = new System.Drawing.Point(0, 168);
+            this.panelPhieuNhanHang.Location = new System.Drawing.Point(0, 34);
             this.panelPhieuNhanHang.Name = "panelPhieuNhanHang";
-            this.panelPhieuNhanHang.Size = new System.Drawing.Size(800, 282);
+            this.panelPhieuNhanHang.Size = new System.Drawing.Size(800, 416);
             this.panelPhieuNhanHang.TabIndex = 1;
             // 
             // dgvPhieuNhanHang
@@ -127,7 +127,7 @@
             this.dgvPhieuNhanHang.Name = "dgvPhieuNhanHang";
             this.dgvPhieuNhanHang.ReadOnly = true;
             this.dgvPhieuNhanHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPhieuNhanHang.Size = new System.Drawing.Size(800, 282);
+            this.dgvPhieuNhanHang.Size = new System.Drawing.Size(800, 416);
             this.dgvPhieuNhanHang.TabIndex = 0;
             this.dgvPhieuNhanHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuNhanHang_CellClick);
             // 

@@ -20,6 +20,7 @@ namespace GUI
         public frmUpdateTaiKhoan()
         {
             InitializeComponent();
+            setLinear.SetLinearGradient(btnHopCapNhat, "#56d8e4", "#9f01ea");
         }
 
         private void frmUpdateTaiKhoan_Load(object sender, EventArgs e)

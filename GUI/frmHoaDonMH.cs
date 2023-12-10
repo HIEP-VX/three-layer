@@ -24,6 +24,7 @@ namespace GUI
 
         private void reload()
         {
+            dgvHDMH.RowTemplate.Height = 26;
             try
             {
                 string sql = "select maHD_NH, maMH, maNV,\n"+

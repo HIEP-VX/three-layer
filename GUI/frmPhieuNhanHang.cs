@@ -24,6 +24,7 @@ namespace GUI
 
         private void reload()
         {
+            dgvPhieuNhanHang.RowTemplate.Height = 26;
             try
             {
                 string query = "select maMH, nhaCC, ngayMua, FORMAT(CAST(tongTien AS DECIMAL(18, 0)), 'N0') AS tongTien, maNV from phieuNhanHang";

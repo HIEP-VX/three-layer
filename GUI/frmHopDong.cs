@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,12 @@ namespace GUI
         public frmHopDong()
         {
             InitializeComponent();
+            setLinear.SetLinearGradient(btnHopTimKiem, "#56d8e4", "#9f01ea");
         }
+
         private void reload()
         {
+            dgvHopDong.RowTemplate.Height = 26;
             try
             {
                 string query = "select maHD, ngayLamHD, noiLamHD, FORMAT(CAST(tienLamHD AS DECIMAL(18, 0)), 'N0') AS tienLamHD, lyDoThuTien, maNV from HopDong";
@@ -50,7 +54,6 @@ namespace GUI
         private void frmHopDong_Load(object sender, EventArgs e)
         {
             this.Refresh();
-            // Khi load form , item này sẽ hiển thị kích thước theo kích thước nhỏ nhất đã được cài đặt
             panelTool.Size = panelTool.MinimumSize;
             for (int i = 1; i <= 12; i++)
                 cbThang.Items.Add(i);
@@ -189,8 +192,6 @@ namespace GUI
 
         public void ExportFile(DataTable dataTable, string sheetName, string title)
         {
-            //Tạo các đối tượng Excel
-
             Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
 
             Microsoft.Office.Interop.Excel.Workbooks oBooks;
@@ -200,8 +201,6 @@ namespace GUI
             Microsoft.Office.Interop.Excel.Workbook oBook;
 
             Microsoft.Office.Interop.Excel.Worksheet oSheet;
-
-            //Tạo mới một Excel WorkBook 
 
             oExcel.Visible = true;
 
@@ -268,44 +267,17 @@ namespace GUI
             cl6.Value2 = "Mã nhân viên";
 
             cl6.ColumnWidth = 13;
-            /*
-            Microsoft.Office.Interop.Excel.Range cl8 = oSheet.get_Range("H3", "H3");
-
-            cl8.Value2 = "Trình độ học vấn";
-
-            cl8.ColumnWidth = 14.5;
-
-            Microsoft.Office.Interop.Excel.Range cl9 = oSheet.get_Range("I3", "I3");
-
-            cl9.Value2 = "Mã bộ phận";
-
-            cl9.ColumnWidth = 10.5;
-
-            Microsoft.Office.Interop.Excel.Range c20 = oSheet.get_Range("J3", "J3");
-
-            c20.Value2 = "Mã chức vụ";
-
-            c20.ColumnWidth = 12.5;
-            */
             Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", "F3");
 
             rowHead.Font.Bold = true;
 
-            // Kẻ viền
-
             rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
-
-            // Thiết lập màu nền
 
             rowHead.Interior.ColorIndex = 6;
 
             rowHead.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-            // Tạo mảng theo datatable
-
             object[,] arr = new object[dataTable.Rows.Count, dataTable.Columns.Count];
-
-            //Chuyển dữ liệu từ DataTable vào mảng đối tượng
 
             for (int row = 0; row < dataTable.Rows.Count; row++)
             {
@@ -317,8 +289,6 @@ namespace GUI
                 }
             }
 
-            //Thiết lập vùng điền dữ liệu
-
             int rowStart = 4;
 
             int columnStart = 1;
@@ -327,33 +297,16 @@ namespace GUI
 
             int columnEnd = dataTable.Columns.Count;
 
-            // Ô bắt đầu điền dữ liệu
-
             Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, columnStart];
-
-            // Ô kết thúc điền dữ liệu
 
             Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnEnd];
 
-            // Lấy về vùng điền dữ liệu
-
             Microsoft.Office.Interop.Excel.Range range = oSheet.get_Range(c1, c2);
-
-            //Điền dữ liệu vào vùng đã thiết lập
 
             range.Value2 = arr;
 
-            // Kẻ viền
-
             range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
 
-            // Căn giữa cột mã nhân viên
-
-            //Microsoft.Office.Interop.Excel.Range c3 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnStart];
-
-            //Microsoft.Office.Interop.Excel.Range c4 = oSheet.get_Range(c1, c3);
-
-            //Căn giữa cả bảng 
             oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
         }
 
@@ -388,7 +341,6 @@ namespace GUI
 
                 dataTable.Rows.Add(dtrow);
             }
-
             ExportFile(dataTable, "Danh sach", "Danh sách hợp đồng");
         }
     }

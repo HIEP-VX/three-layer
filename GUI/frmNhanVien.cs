@@ -26,6 +26,7 @@ namespace GUI
         }
         private void reload()
         {
+            dgvNhanVien.RowTemplate.Height = 26;
             try
             {
                 string query = "select * from NhanVien";

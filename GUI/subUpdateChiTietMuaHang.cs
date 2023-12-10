@@ -195,6 +195,7 @@ namespace GUI
 
         private void reload()
         {
+            dgvSP.RowTemplate.Height = 26;
             try
             {
                 string query3 = "Select ct.maChiTiet, ldh.maSP, ldh.tenSP, ldh.tenHangSX, ldh.chiSoCongTo, ct.soLuong, FORMAT(CAST(ct.tien AS DECIMAL(18, 0)), 'N0') AS tien from loaiDongHo ldh\n" +

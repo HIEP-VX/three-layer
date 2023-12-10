@@ -36,6 +36,7 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnHopCapNhat = new System.Windows.Forms.Button();
             this.txtGiaBac4 = new System.Windows.Forms.TextBox();
             this.txtGiaBac3 = new System.Windows.Forms.TextBox();
             this.txtGiaBac2 = new System.Windows.Forms.TextBox();
@@ -52,7 +53,6 @@
             this.dgvLKH = new System.Windows.Forms.DataGridView();
             this.timerLKH = new System.Windows.Forms.Timer(this.components);
             this.panelDgvLKH = new System.Windows.Forms.Panel();
-            this.btnHopCapNhat = new System.Windows.Forms.Button();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLKH)).BeginInit();
@@ -69,7 +69,7 @@
             this.panelTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTool.Location = new System.Drawing.Point(0, 0);
             this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
-            this.panelTool.MinimumSize = new System.Drawing.Size(800, 29);
+            this.panelTool.MinimumSize = new System.Drawing.Size(800, 34);
             this.panelTool.Name = "panelTool";
             this.panelTool.Size = new System.Drawing.Size(800, 168);
             this.panelTool.TabIndex = 0;
@@ -78,11 +78,14 @@
             // 
             this.btnTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(552, 2);
+            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(382, 3);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
+            this.btnTimKiem.Size = new System.Drawing.Size(84, 28);
             this.btnTimKiem.TabIndex = 41;
             this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click_1);
             // 
@@ -92,7 +95,7 @@
             this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
             this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(397, 2);
+            this.btnCapNhat.Location = new System.Drawing.Point(252, 3);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
             this.btnCapNhat.TabIndex = 40;
@@ -107,7 +110,7 @@
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(257, 2);
+            this.btnXoa.Location = new System.Drawing.Point(137, 3);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(69, 28);
             this.btnXoa.TabIndex = 39;
@@ -122,7 +125,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(122, 2);
+            this.btnAdd.Location = new System.Drawing.Point(22, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(69, 28);
             this.btnAdd.TabIndex = 38;
@@ -148,12 +151,26 @@
             this.groupBox1.Controls.Add(this.txtGiaBac1);
             this.groupBox1.Controls.Add(this.txtLoai);
             this.groupBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(58, 32);
+            this.groupBox1.Location = new System.Drawing.Point(58, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(689, 129);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
+            // 
+            // btnHopCapNhat
+            // 
+            this.btnHopCapNhat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHopCapNhat.FlatAppearance.BorderSize = 0;
+            this.btnHopCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHopCapNhat.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHopCapNhat.Location = new System.Drawing.Point(571, 73);
+            this.btnHopCapNhat.Name = "btnHopCapNhat";
+            this.btnHopCapNhat.Size = new System.Drawing.Size(112, 39);
+            this.btnHopCapNhat.TabIndex = 40;
+            this.btnHopCapNhat.Text = "CẬP NHẬT";
+            this.btnHopCapNhat.UseVisualStyleBackColor = true;
+            this.btnHopCapNhat.Click += new System.EventHandler(this.btnHopCapNhat_Click);
             // 
             // txtGiaBac4
             // 
@@ -179,36 +196,38 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(309, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 19);
+            this.label1.Size = new System.Drawing.Size(69, 18);
             this.label1.TabIndex = 36;
             this.label1.Text = "Giá bậc 2";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(309, 58);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 19);
+            this.label5.Size = new System.Drawing.Size(69, 18);
             this.label5.TabIndex = 34;
             this.label5.Text = "Giá bậc 3";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(309, 88);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 19);
+            this.label6.Size = new System.Drawing.Size(70, 18);
             this.label6.TabIndex = 35;
             this.label6.Text = "Giá bậc 4";
             // 
             // btnHopTimKiem
             // 
             this.btnHopTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHopTimKiem.FlatAppearance.BorderSize = 0;
+            this.btnHopTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHopTimKiem.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHopTimKiem.Location = new System.Drawing.Point(571, 28);
             this.btnHopTimKiem.Name = "btnHopTimKiem";
@@ -221,10 +240,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(22, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 19);
+            this.label2.Size = new System.Drawing.Size(28, 18);
             this.label2.TabIndex = 31;
             this.label2.Text = "Mã";
             // 
@@ -238,20 +257,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(22, 58);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 19);
+            this.label3.Size = new System.Drawing.Size(37, 18);
             this.label3.TabIndex = 27;
             this.label3.Text = "Loại";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(22, 88);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 19);
+            this.label4.Size = new System.Drawing.Size(66, 18);
             this.label4.TabIndex = 28;
             this.label4.Text = "Giá bậc 1";
             // 
@@ -296,18 +315,6 @@
             this.panelDgvLKH.Name = "panelDgvLKH";
             this.panelDgvLKH.Size = new System.Drawing.Size(800, 282);
             this.panelDgvLKH.TabIndex = 1;
-            // 
-            // btnHopCapNhat
-            // 
-            this.btnHopCapNhat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHopCapNhat.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHopCapNhat.Location = new System.Drawing.Point(571, 73);
-            this.btnHopCapNhat.Name = "btnHopCapNhat";
-            this.btnHopCapNhat.Size = new System.Drawing.Size(112, 39);
-            this.btnHopCapNhat.TabIndex = 40;
-            this.btnHopCapNhat.Text = "CẬP NHẬT";
-            this.btnHopCapNhat.UseVisualStyleBackColor = true;
-            this.btnHopCapNhat.Click += new System.EventHandler(this.btnHopCapNhat_Click);
             // 
             // frmLKH
             // 

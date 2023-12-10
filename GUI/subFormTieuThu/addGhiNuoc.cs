@@ -23,7 +23,7 @@ namespace GUI
         public addGhiNuoc(frmTieuThu fTT)
         {
             InitializeComponent();
-            SetLinearGradient(btnThem, "#56d8e4", "#9f01ea");
+            setLinear.SetLinearGradient(btnThem, "#56d8e4", "#9f01ea");
             this.fTT = fTT;
         }
         static string[] DataTableColumnToStringArray(DataTable dataTable, string columnName)
@@ -37,32 +37,68 @@ namespace GUI
             return dataArray;
         }
 
+        // Định nghĩa một Tuple để lưu trữ hai giá trị
+        public class MyData
+        {
+            public string MaKH { get; set; }
+            public string MaNV { get; set; }
+        }
+
+        // Hàm để chuyển dữ liệu từ DataTable thành một danh sách của Tuple
+        static List<MyData> DataTableToTupleList(DataTable dataTable)
+        {
+            List<MyData> dataList = new List<MyData>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                dataList.Add(new MyData
+                {
+                    MaKH = row["MaKH"].ToString(),
+                    MaNV = row["MaNV"].ToString()
+                });
+            }
+            return dataList;
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string query = "select makh from khachhang where tinhTrang = 1";
+            //select makh from khachhang where tinhTrang = 1
+            string query = "select makh, dc.maNV from khachhang join diaChi dc on dc.phuong = KhachHang.phuong where tinhTrang = 1";
             DataTable dataTable = AccessData.getData(query);
+
+            string sql = "select diaChi.maNV from diaChi join khachhang kh on kh.phuong = diaChi.phuong";
             
             using (SqlConnection conn = SqlConnectionData.connect())
             {
                 conn.Open();
-                string query1 = "INSERT INTO tieuThu (maKH, ThoiGianDau, ThoiGianCuoi, maNV) values (@maKH, @ThoiGianDau, @ThoiGianCuoi, @maNV)";
+                int maTT = 0;
+                string query1 = "declare @maTT INT\n"+
+                                "INSERT INTO tieuThu (maKH, ThoiGianDau, ThoiGianCuoi, maNV) values (@maKH, @ThoiGianDau, @ThoiGianCuoi, @maNV)\n"+
+                                "SET @maTT = SCOPE_IDENTITY()\n"+
+                                "select @maTT as 'maTT'";
                 thoiGianGhiNuoc.thoiGianCuoi = dateThoiGianCuoi.Value;
-                string[] maKHArray = DataTableColumnToStringArray(dataTable, "MaKH");
-                for (int i = 0; i < maKHArray.Length; i++)
+                List<MyData> myDataList = DataTableToTupleList(dataTable);
+                //string[] maKHArray = DataTableColumnToStringArray(dataTable, "MaKH");
+               //string[] maNVArray = DataTableColumnToStringArray(dataTable, "MaNV");
+                for (int i = 0; i < myDataList.Count; i++)
                 {
 
                     using (SqlCommand cmd = new SqlCommand(query1, conn))
                     {
                         cmd.Parameters.Clear();
 
-                        cmd.Parameters.AddWithValue("@maKH", dataTable.Rows[i]["MaKH"].ToString());
+                        //dataTable.Rows[i]["MaKH"].ToString()
+                        cmd.Parameters.AddWithValue("@maKH", myDataList[i].MaKH);
                         cmd.Parameters.AddWithValue("@ThoiGianDau", dateThoiGianDau.Value);
                         cmd.Parameters.AddWithValue("@ThoiGianCuoi", dateThoiGianCuoi.Value);
-                        cmd.Parameters.AddWithValue("@maNV", txtMaNV.Text);
+                        cmd.Parameters.AddWithValue("@maNV", myDataList[i].MaNV);
 
-                        cmd.ExecuteNonQuery();
-
-                        string query2 = "UPDATE TIEUTHU SET CHISOCU = (SELECT CHISODAU FROM DONGHONUOC dhn, KHACHHANG kh where dhn.MADHN = kh.MADHN and kh.MAKH = @maKH) where maKH = @maKH";
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                                maTT = int.Parse(reader["maTT"].ToString());
+                        }
+                        string query2 = "UPDATE TIEUTHU SET CHISOCU = (SELECT CHISODAU FROM DONGHONUOC dhn, KHACHHANG kh where dhn.MADHN = kh.MADHN and kh.MAKH = @maKH) where maKH = @maKH and maTT = " + maTT;
 
                         using (SqlCommand cmd1 = new SqlCommand(query2, conn))
                         {
@@ -71,33 +107,10 @@ namespace GUI
                         }
                     }
                 }
-
                 MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 DataAdded?.Invoke();
                 fTT.HandleAddButton();
-            }
-        }
-
-        private void SetLinearGradient(Button btn, string hexColor1, string hexColor2)
-        {
-            // Chuyển đổi mã màu hex thành đối tượng Color
-            Color color1 = ColorTranslator.FromHtml(hexColor1);
-            Color color2 = ColorTranslator.FromHtml(hexColor2);
-
-            // Tạo đối tượng LinearGradientBrush
-            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(
-                btn.ClientRectangle,
-                color1,
-                color2,
-                LinearGradientMode.Horizontal); // Có thể thay đổi hướng dải màu tại đây
-
-            // Thiết lập màu nền của Panel là dải màu linear
-            btn.BackColor = Color.Transparent; // Đặt màu nền trong suốt để thấy rõ dải màu
-            btn.BackgroundImage = new Bitmap(btn.Width, btn.Height);
-            using (Graphics g = Graphics.FromImage(btn.BackgroundImage))
-            {
-                g.FillRectangle(linearGradientBrush, btn.ClientRectangle);
             }
         }
 

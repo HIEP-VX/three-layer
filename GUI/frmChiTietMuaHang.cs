@@ -20,6 +20,7 @@ namespace GUI
 
         private void reload()
         {
+            dgvChiTietMuaHang.RowTemplate.Height = 26;
             try
             {
                 string query = "select maChiTiet, maSP, maMH, soLuong, FORMAT(CAST(tien AS DECIMAL(18, 0)), 'N0') AS tienFormatted from chiTietMuaHang";
