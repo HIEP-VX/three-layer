@@ -26,7 +26,6 @@ namespace GUI
         private BindingSource bindingSource;
         bool isCollapsed = true;
         private int index = -1;
-        bool nutDaDuocNhan = false;
 
         public frmTieuThu()
         {
@@ -63,10 +62,6 @@ namespace GUI
             dgvGhiNuoc.RowTemplate.Height = 26;
             try
             {
-                /*DateTime currentDate = DateTime.Now;
-                int currentMonth = currentDate.Month;
-                int currentYear = currentDate.Year;*/
-                //where month(tt.thoiGianCuoi) = month(getdate()) - 1"
                 string query = $"Select maTT, tt.maNV, tt.maKH, chiSoCu, chiSoMoi , luongNuoc ,  ThoiGianDau, ThoiGianCuoi,kh.tenKH, kh.diaChi, kh.phuong, nv.tenNV from tieuthu tt join khachhang kh on kh.maKH = tt.maKH join nhanvien nv on nv.maNV = tt.maNV ";
                 dgvGhiNuoc.DataSource = AccessData.getData(query);
 
@@ -100,13 +95,6 @@ namespace GUI
             dgvGhiNuoc.RowTemplate.Height = 26;
             try
             {
-                /*DateTime currentDate = DateTime.Now;
-                int currentMonth = currentDate.Month;
-                int currentYear = currentDate.Year;*/
-
-                // if (thoiGianGhiNuoc.thoiGianCuoi == null)
-                //   return;
-
                 DateTime thoiGianCuoi = thoiGianGhiNuoc.thoiGianCuoi;
                 string formattedDateTime = thoiGianCuoi.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -147,15 +135,12 @@ namespace GUI
                 cbThangTGC.Items.Add(i);
             reload();
 
-            btnChiaPhuong.Enabled = false;
             comboBoxPhuong.Text = "";
             btnSave.Enabled = false;
         }
 
         private void btnGhiNuoc_Click(object sender, EventArgs e)
         {
-            nutDaDuocNhan = true;
-            btnChiaPhuong.Enabled = true;
             addGhiNuoc sb = new addGhiNuoc(this);
             sb.ShowDialog();
             sb.DataAdded += () =>
@@ -247,7 +232,7 @@ namespace GUI
                 using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(filePath)))
                 {
                     
-                    ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets["Danh sach"];
+                    /*ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets["Danh sach"];
 
                     if(worksheet != null)
                     {
@@ -280,8 +265,8 @@ namespace GUI
                     else
                     {
                         MessageBox.Show("worksheet");
-                    }
-                    /*
+                    }*/
+                    
                     // Lấy danh sách tên các phường
                     List<string> phuongList = GetPhuongListFromDatabase();
 
@@ -318,7 +303,7 @@ namespace GUI
                                 }
                             }
                         }
-                    }*/
+                    }
                 }
             }
             catch (Exception ex)
@@ -387,6 +372,12 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (txtChiSoNuoc.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập chỉ số nước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtChiSoNuoc.Focus();
+                return;
+            }
             string query = "update tieuthu set chiSoMoi = " + txtChiSoNuoc.Text +"where maTT = " + txtMATT.Text;
             AccessData.execQuery(query);
 
@@ -409,21 +400,6 @@ namespace GUI
             }
 
             txtMATT.Text = dgvGhiNuoc.Rows[index].Cells[0].Value.ToString();
-        }
-
-        private void btnChiaPhuong_Click(object sender, EventArgs e)
-        {
-            if (nutDaDuocNhan)
-            {
-                string query = $"Select maTT, tt.maNV, tt.maKH, chiSoCu, chiSoMoi , luongNuoc ,  ThoiGianDau, ThoiGianCuoi,kh.tenKH, kh.diaChi, kh.phuong, nv.tenNV from tieuthu tt join khachhang kh on kh.maKH = tt.maKH join nhanvien nv on nv.maNV = tt.maNV where thoiGianCuoi = '" + thoiGianGhiNuoc.thoiGianCuoi + "' \norder by kh.phuong";
-                dgvGhiNuoc.DataSource = AccessData.getData(query);
-                grpChiSoNuoc.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("Bạn cần ghi nước trước.");
-            }
-            
         }
 
         private void dgvGhiNuoc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -515,126 +491,17 @@ namespace GUI
 
         private void btnXuatFile_Click(object sender, EventArgs e)
         {
-            /*
-            DataTable dataTable = new DataTable();
-
-            DataColumn col1 = new DataColumn("ID_TT");
-            DataColumn col2 = new DataColumn("ID_KH");
-            DataColumn col3 = new DataColumn("Name");
-            DataColumn col4 = new DataColumn("Round");
-            DataColumn col5 = new DataColumn("Ward");
-            DataColumn col6 = new DataColumn("oldIndex");
-            DataColumn col7 = new DataColumn("newIndex");
-
-            dataTable.Columns.Add(col1);
-            dataTable.Columns.Add(col2);
-            dataTable.Columns.Add(col3);
-            dataTable.Columns.Add(col4);
-            dataTable.Columns.Add(col5);
-            dataTable.Columns.Add(col6);
-            dataTable.Columns.Add(col7);
-
-            foreach (DataGridViewRow dtgvRow in dgvGhiNuoc.Rows)
-            {
-                DataRow dtrow = dataTable.NewRow();
-
-                dtrow[0] = dtgvRow.Cells[0].Value;
-                dtrow[1] = dtgvRow.Cells[2].Value;
-                dtrow[2] = dtgvRow.Cells[8].Value;
-                dtrow[3] = dtgvRow.Cells[9].Value;
-                dtrow[4] = dtgvRow.Cells[10].Value;
-                dtrow[5] = dtgvRow.Cells[3].Value;
-                dtrow[6] = dtgvRow.Cells[4].Value;
-
-                dataTable.Rows.Add(dtrow);
-            }
-
-            ExportFile(dataTable, "Danh sach", "Danh sách ghi nước");
-            */
-            /*
-            Dictionary<string, DataTable> dataSheets = new Dictionary<string, DataTable>();
-
-            // Thêm các DataTable vào Dictionary
-            DataTable dataTable1 = new DataTable();
-            DataColumn col1 = new DataColumn("ID_TT_1");
-            DataColumn col2 = new DataColumn("ID_KH_1");
-            DataColumn col3 = new DataColumn("Name_1");
-            DataColumn col4 = new DataColumn("Round_1");
-            DataColumn col5 = new DataColumn("Ward_1");
-            DataColumn col6 = new DataColumn("oldIndex_1");
-            DataColumn col7 = new DataColumn("newIndex_1");
-
-            dataTable1.Columns.Add(col1);
-            dataTable1.Columns.Add(col2);
-            dataTable1.Columns.Add(col3);
-            dataTable1.Columns.Add(col4);
-            dataTable1.Columns.Add(col5);
-            dataTable1.Columns.Add(col6);
-            dataTable1.Columns.Add(col7);
-
-            foreach (DataGridViewRow dtgvRow in dgvGhiNuoc.Rows)
-            {
-                DataRow dtrow = dataTable1.NewRow();
-
-                dtrow[0] = dtgvRow.Cells[0].Value;
-                dtrow[1] = dtgvRow.Cells[2].Value;
-                dtrow[2] = dtgvRow.Cells[8].Value;
-                dtrow[3] = dtgvRow.Cells[9].Value;
-                dtrow[4] = dtgvRow.Cells[10].Value;
-                dtrow[5] = dtgvRow.Cells[3].Value;
-                dtrow[6] = dtgvRow.Cells[4].Value;
-
-                dataTable1.Rows.Add(dtrow);
-            }
-
-            DataTable dataTable2 = new DataTable();
-            DataColumn col1_2 = new DataColumn("ID_TT_2");
-            DataColumn col2_2 = new DataColumn("ID_KH_2");
-            DataColumn col3_2 = new DataColumn("Name_2");
-            DataColumn col4_2 = new DataColumn("Round_2");
-            DataColumn col5_2 = new DataColumn("Ward_2");
-            DataColumn col6_2 = new DataColumn("oldIndex_2");
-            DataColumn col7_2 = new DataColumn("newIndex_2");
-
-            dataTable2.Columns.Add(col1_2);
-            dataTable2.Columns.Add(col2_2);
-            dataTable2.Columns.Add(col3_2);
-            dataTable2.Columns.Add(col4_2);
-            dataTable2.Columns.Add(col5_2);
-            dataTable2.Columns.Add(col6_2);
-            dataTable2.Columns.Add(col7_2);
-
-            foreach (DataGridViewRow dtgvRow in dgvGhiNuoc.Rows)
-            {
-                DataRow dtrow = dataTable2.NewRow();
-
-                dtrow[0] = dtgvRow.Cells[0].Value;
-                dtrow[1] = dtgvRow.Cells[2].Value;
-                dtrow[2] = dtgvRow.Cells[8].Value;
-                dtrow[3] = dtgvRow.Cells[9].Value;
-                dtrow[4] = dtgvRow.Cells[10].Value;
-                dtrow[5] = dtgvRow.Cells[3].Value;
-                dtrow[6] = dtgvRow.Cells[4].Value;
-
-                dataTable2.Rows.Add(dtrow);
-            }
-
-            dataSheets.Add("Sheet1", dataTable1);
-            dataSheets.Add("Sheet2", dataTable2);
-
-            ExportMultipleSheets(dataSheets);*/
-            
             // Lấy tên cột chứa thông tin về phường trong DataGridView (giả sử cột thứ 5, chỉnh lại nếu cần)
             int columnIndexPhuong = 10;
             Dictionary<string, DataTable> dataSheets = new Dictionary<string, DataTable>();
-
+            MessageBox.Show(dgvGhiNuoc.Rows.Count.ToString());
             for (int rowIndex = 0; rowIndex < dgvGhiNuoc.Rows.Count; rowIndex++)
             {
                 DataGridViewRow dtgvRow = dgvGhiNuoc.Rows[rowIndex];
 
                 // Lấy tên phường từ cột phù hợp
                 string phuong = dtgvRow.Cells[columnIndexPhuong].Value?.ToString();
-                if (dtgvRow.IsNewRow) continue;
+                //if (dtgvRow.IsNewRow) continue;
 
                 // Kiểm tra dòng mới và tên phường không rỗng
                 if (!dtgvRow.IsNewRow && !string.IsNullOrEmpty(phuong))
@@ -642,9 +509,8 @@ namespace GUI
                     // Kiểm tra xem phường đã tồn tại trong Dictionary chưa
                     if (!dataSheets.ContainsKey(phuong))
                     {
-                        // Nếu chưa có, thêm phường vào Dictionary với DataTable mới
+                        MessageBox.Show(phuong);
                         dataSheets[phuong] = new DataTable();
-                        // ... Thêm các cột cho DataTable nếu cần
 
                         DataColumn col1 = new DataColumn("ID_TT_1");
                         DataColumn col2 = new DataColumn("ID_KH_1");
@@ -663,9 +529,7 @@ namespace GUI
                         dataSheets[phuong].Columns.Add(col7);
                     }
 
-                    // Thêm dữ liệu từ dòng vào DataTable của phường
                     DataRow dtrow = dataSheets[phuong].NewRow();
-                    // ... Thêm dữ liệu từ dòng vào dtrow
                     dtrow[0] = dtgvRow.Cells[0].Value;
                     dtrow[1] = dtgvRow.Cells[2].Value;
                     dtrow[2] = dtgvRow.Cells[8].Value;
@@ -677,10 +541,8 @@ namespace GUI
                     dataSheets[phuong].Rows.Add(dtrow);
                 }
             }
-
             // Gọi hàm xuất file với các sheet tương ứng với từng phường
             ExportMultipleSheets(dataSheets);
-            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -711,40 +573,6 @@ namespace GUI
 
         public void ExportMultipleSheets(Dictionary<string, DataTable> dataSheets)
         {
-            /*
-            try
-            {
-                Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel.Workbooks oBooks;
-                Microsoft.Office.Interop.Excel.Sheets oSheets;
-                Microsoft.Office.Interop.Excel.Workbook oBook;
-                oExcel.Visible = true;
-                oExcel.DisplayAlerts = false;
-                oExcel.Application.SheetsInNewWorkbook = dataSheets.Count;
-
-                oBooks = oExcel.Workbooks;
-                oBook = (Microsoft.Office.Interop.Excel.Workbook)(oExcel.Workbooks.Add(Type.Missing));
-                oSheets = oBook.Worksheets;
-
-                int sheetIndex = 1;
-                foreach (var dataSheet in dataSheets)
-                {
-                    string sheetName = dataSheet.Key;
-                    DataTable dataTable = dataSheet.Value;
-
-                    Microsoft.Office.Interop.Excel.Worksheet oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(sheetIndex);
-                    oSheet.Name = sheetName;
-
-                    // Thêm dữ liệu vào sheet
-                    AddDataToSheet(oSheet, dataTable);
-
-                    sheetIndex++;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi xuất file Excel: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
             try
             {
                 Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
@@ -774,7 +602,7 @@ namespace GUI
                         oSheet.Name = phuong;
 
                         // Thêm dữ liệu vào sheet tương ứng
-                        AddDataToSheet(oSheet, dataSheets[phuong]);
+                        AddDataToSheet(oSheet, dataSheets[phuong], "danh sách ghi nước");
 
                         sheetIndex++;
                     }
@@ -790,8 +618,7 @@ namespace GUI
         {
             List<string> phuongList = new List<string>();
 
-            // Thực hiện truy vấn lấy danh sách các phường từ bảng Phuong
-            string query = "SELECT phuong FROM diaChi"; // Sửa query để phản ánh cấu trúc bảng của bạn
+            string query = "SELECT phuong FROM diaChi"; 
 
             using (SqlConnection connection = SqlConnectionData.connect())
             {
@@ -809,15 +636,14 @@ namespace GUI
                     connection.Close();
                 }
             }
-
             return phuongList;
         }
 
-        private void AddDataToSheet(Microsoft.Office.Interop.Excel.Worksheet oSheet, DataTable dataTable)
+        private void AddDataToSheet(Microsoft.Office.Interop.Excel.Worksheet oSheet, DataTable dataTable, string title)
         {
             Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "G1");
             head.MergeCells = true;
-          //  head.Value2 = title;
+            head.Value2 = title;
             head.Font.Bold = true;
             head.Font.Name = "Times New Roman";
             head.Font.Size = "20";
@@ -860,7 +686,8 @@ namespace GUI
             }
             int rowStart = 4;
             int columnStart = 1;
-            int rowEnd = rowStart + dataTable.Rows.Count - 2;
+            int rowEnd = rowStart + dataTable.Rows.Count - 1;
+            Console.WriteLine(rowEnd);
             int columnEnd = dataTable.Columns.Count;
             Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, columnStart];
             Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnEnd];

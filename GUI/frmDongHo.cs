@@ -24,13 +24,30 @@ namespace GUI
             dgvDongho.RowTemplate.Height = 26;
             try
             {
-                string query = "SELECT maDHN as 'Mã',maPhieu as 'Mã phiếu', chiSoDau as 'Chỉ số đầu',\n" +
+                string query = "SELECT maDHN,dhn.maPhieu,ldh.tenSP, ldh.chiSoCongTo, chiSoDau,\n" +
                                "CASE\n" +
-                               "WHEN tinhTrang = 0 THEN N'chưa sử dụng'\n" +
-                               "WHEN tinhTrang = 1 THEN N'đã sử dụng'\n" +
-                               "END AS 'Tình trạng'\n" +
-                               "FROM DongHoNuoc\n";
+                               "WHEN dhn.tinhTrang = 0 THEN N'chưa sử dụng'\n" +
+                               "WHEN dhn.tinhTrang = 1 THEN N'đã sử dụng'\n" +
+                               "END AS tinhTrang, soNamDung\n" +
+                               "FROM DongHoNuoc dhn join phieuNhapKho pnk on pnk.maPhieu = dhn.maPhieu\n" +
+                               "join hoaDonNhanHang hdnh on hdnh.maHD_NH = pnk.maHD_NH\n" +
+                               "join chiTietMuaHang ct on ct.maMH = hdnh.maMH\n"+
+                               "join loaidongho ldh on ldh.maSP = ct.maSP";
                 dgvDongho.DataSource = AccessData.getData(query);
+
+                dgvDongho.Columns[0].HeaderText = "Mã đồng hồ";
+                dgvDongho.Columns[1].HeaderText = "Mã phiếu";
+                dgvDongho.Columns[2].HeaderText = "Tên sản phẩm";
+                dgvDongho.Columns[3].HeaderText = "Số công tơ";
+                dgvDongho.Columns[4].HeaderText = "Chỉ số đầu";
+                dgvDongho.Columns[5].HeaderText = "Tình trạng";
+                dgvDongho.Columns[6].HeaderText = "Số năm dùng";
+
+                foreach (DataGridViewColumn column in dgvDongho.Columns)
+                {
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
             }
             catch (Exception ex)
             {

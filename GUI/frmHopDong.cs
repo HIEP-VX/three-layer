@@ -135,6 +135,7 @@ namespace GUI
                     {
                         AccessData.execQuery(sql);
                         MessageBox.Show("Xóa thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        reload();
                     }
                     catch (Exception ex)
                     {

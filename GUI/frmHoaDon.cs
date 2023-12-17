@@ -26,6 +26,7 @@ namespace GUI
         public frmHoaDon()
         {
             InitializeComponent();
+            setLinear.SetLinearGradient(btnCN, "#56d8e4", "#9f01ea");
         }
 
         private void reload()
@@ -261,71 +262,158 @@ namespace GUI
                 MessageBox.Show("Vui lòng chọn một hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            string checkTT = dgvHoaDon.Rows[index].Cells[8].Value.ToString();
 
-            foreach (DataGridViewRow selectedRow in dgvHoaDon.SelectedRows)
+            if (checkTT == "chưa thanh toán")
             {
-                string maTT_TEMP = selectedRow.Cells["maTT"].Value.ToString();
-
-                string sql = "select tt.thoiGianDau, tt.thoiGianCuoi, kh.maKH, kh.tenKH, month(tt.thoiGianCuoi) as thangHD, year(tt.thoiGianCuoi) as namHD,kh.soDT, kh.diaChi, kh.phuong, tt.chiSoCu, tt.chiSoMoi, tt.luongNuoc, FORMAT(CAST(hd.tienNuoc AS DECIMAL(18, 0)), 'N0') AS tienNuoc, FORMAT(CAST(hd.tongTien AS DECIMAL(18, 0)), 'N0') AS tongTien, FORMAT(CAST(hd.thue AS DECIMAL(18, 0)), 'N0') AS thue, kh.maDHN, lkh.tenLoai, kh.ngaySinh\n" +
-                             "from tieuThu tt join khachhang kh on kh.maKH = tt.maKH join hoadon hd on hd.maTT = tt.maTT join loaikhachhang lkh on lkh.maLKH = kh.maLKH where tt.maTT = " + maTT_TEMP;
-                string thoiGianDau = "",thoiGianCuoi = "", maKH = "", tenKH = "", thangHD = "", namHD = "", soDT = "", duong = "", phuong = "", chiSoCu = "", chiSoMoi = "", luongTieuThu = "";
-                
-                string tongTien = "", tienNuoc = "", thue = "", maDHN = "", tenLoai = "", ngaySinh = "";
-                using (SqlConnection connection = SqlConnectionData.connect())
+                foreach (DataGridViewRow selectedRow in dgvHoaDon.SelectedRows)
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    string maTT_TEMP = selectedRow.Cells["maTT"].Value.ToString();
+
+                    string sql = "select tt.maNV, tt.thoiGianDau, CAST(tt.thoiGianCuoi as DATE) as thoiGianCuoi, kh.maKH, kh.tenKH, month(tt.thoiGianCuoi) as thangHD, year(tt.thoiGianCuoi) as namHD,kh.soDT, kh.diaChi, kh.phuong, tt.chiSoCu, tt.chiSoMoi, tt.luongNuoc, FORMAT(CAST(hd.tienNuoc AS DECIMAL(18, 0)), 'N0') AS tienNuoc, FORMAT(CAST(hd.tongTien AS DECIMAL(18, 0)), 'N0') AS tongTien, FORMAT(CAST(hd.thue AS DECIMAL(18, 0)), 'N0') AS thue, kh.maDHN, lkh.tenLoai, kh.ngaySinh\n" +
+                                 "from tieuThu tt join khachhang kh on kh.maKH = tt.maKH join hoadon hd on hd.maTT = tt.maTT join loaikhachhang lkh on lkh.maLKH = kh.maLKH where tt.maTT = " + maTT_TEMP;
+                    string maNV = "",thoiGianDau = "", thoiGianCuoi = "", maKH = "", tenKH = "", thangHD = "", namHD = "", soDT = "", duong = "", phuong = "", chiSoCu = "", chiSoMoi = "", luongTieuThu = "";
+                    DateTime thoiGianDau1;
+                    DateTime thoiGianCuoi1;
+                    DateTime ngaySinh1;
+                    string tongTien = "", tienNuoc = "", thue = "", maDHN = "", tenLoai = "", ngaySinh = "";
+                    using (SqlConnection connection = SqlConnectionData.connect())
                     {
-                        if (reader.Read())
+                        connection.Open();
+                        SqlCommand command = new SqlCommand(sql, connection);
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            thoiGianDau = reader["thoiGianDau"].ToString();
-                            thoiGianCuoi = reader["thoiGianCuoi"].ToString();
-                            maKH = reader["maKH"].ToString();
-                            tenKH = reader["tenKH"].ToString();
-                            thangHD = reader["thangHD"].ToString();
-                            namHD = reader["namHD"].ToString();
-                            soDT = reader["soDT"].ToString();
-                            duong = reader["diaChi"].ToString();
-                            phuong = reader["phuong"].ToString();
-                            chiSoCu = reader["chiSoCu"].ToString();
-                            chiSoMoi = reader["chiSoMoi"].ToString();
-                            luongTieuThu = reader["luongNuoc"].ToString();
-                            tienNuoc = reader["tienNuoc"].ToString();
-                            tongTien = reader["tongTien"].ToString();
-                            thue = reader["thue"].ToString();
-                            maDHN = reader["maDHN"].ToString();
-                            tenLoai = reader["tenLoai"].ToString();
-                            ngaySinh = reader["ngaySinh"].ToString();
+                            if (reader.Read())
+                            {
+                                thoiGianDau1 = Convert.ToDateTime(reader["thoiGianDau"].ToString());
+                                thoiGianDau = thoiGianDau1.ToShortDateString();
+                                thoiGianCuoi1 = Convert.ToDateTime(reader["thoiGianCuoi"].ToString());
+                                thoiGianCuoi = thoiGianCuoi1.ToShortDateString();
+                                maKH = reader["maKH"].ToString();
+                                tenKH = reader["tenKH"].ToString();
+                                thangHD = reader["thangHD"].ToString();
+                                namHD = reader["namHD"].ToString();
+                                soDT = reader["soDT"].ToString();
+                                duong = reader["diaChi"].ToString();
+                                phuong = reader["phuong"].ToString();
+                                chiSoCu = reader["chiSoCu"].ToString();
+                                chiSoMoi = reader["chiSoMoi"].ToString();
+                                luongTieuThu = reader["luongNuoc"].ToString();
+                                tienNuoc = reader["tienNuoc"].ToString();
+                                tongTien = reader["tongTien"].ToString();
+                                thue = reader["thue"].ToString();
+                                maDHN = reader["maDHN"].ToString();
+                                tenLoai = reader["tenLoai"].ToString();
+                                ngaySinh1 = Convert.ToDateTime(reader["ngaySinh"].ToString());
+                                ngaySinh = ngaySinh1.ToShortDateString();
+                                maNV = reader["maNV"].ToString();
+                            }
                         }
                     }
-                }
-                InvoiceData invoiceData = new InvoiceData
-                {
-                    maHD = selectedRow.Cells["maHD"].Value.ToString(),
-                    maTT = maTT_TEMP,
-                    thoiGianDau = thoiGianDau,
-                    thoiGianCuoi = thoiGianCuoi,
-                    maKH = maKH,
-                    tenKH = tenKH,
-                    thangHD = thangHD,
-                    namHD = namHD,
-                    soDT = soDT,
-                    Duong = duong,
-                    Phuong = phuong,
-                    chiSoCu = chiSoCu,
-                    chiSoMoi = chiSoMoi,
-                    luongTieuThu = luongTieuThu,
-                    tienNuoc = tienNuoc,
-                    tongTien = tongTien,
-                    thue = thue,
-                    maDHN = maDHN,
-                    tenLoai = tenLoai,
-                    ngaySinh = ngaySinh,
-                };
 
-                frmInHoaDon inHoaDonForm = new frmInHoaDon(invoiceData);
-                inHoaDonForm.Show();
+                    // Kiểm tra xem có ô dữ liệu nào bị null không
+                    if (string.IsNullOrEmpty(maNV) || string.IsNullOrEmpty(luongTieuThu) || string.IsNullOrEmpty(tienNuoc) || string.IsNullOrEmpty(thue) || string.IsNullOrEmpty(tongTien))
+                    {
+                        MessageBox.Show("Không thể tạo hóa đơn do bị thiếu dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    InvoiceData invoiceData = new InvoiceData
+                    {
+                        maHD = selectedRow.Cells["maHD"].Value.ToString(),
+                        maTT = maTT_TEMP,
+                        thoiGianDau = thoiGianDau,
+                        thoiGianCuoi = thoiGianCuoi,
+                        maKH = maKH,
+                        tenKH = tenKH,
+                        thangHD = thangHD,
+                        namHD = namHD,
+                        soDT = soDT,
+                        Duong = duong,
+                        Phuong = phuong,
+                        chiSoCu = chiSoCu,
+                        chiSoMoi = chiSoMoi,
+                        luongTieuThu = luongTieuThu,
+                        tienNuoc = tienNuoc,
+                        tongTien = tongTien,
+                        thue = thue,
+                        maDHN = maDHN,
+                        tenLoai = tenLoai,
+                        ngaySinh = ngaySinh,
+                    };
+
+                    frmInHoaDon inHoaDonForm = new frmInHoaDon(invoiceData);
+                    inHoaDonForm.ShowDialog();
+                }
+            }
+            else if(checkTT == "đã thanh toán")
+            {
+                foreach (DataGridViewRow selectedRow in dgvHoaDon.SelectedRows)
+                {
+                    string maTT_TEMP = selectedRow.Cells["maTT"].Value.ToString();
+
+                    string sql = "select tt.maNV, tt.thoiGianDau, tt.thoiGianCuoi, kh.maKH, kh.tenKH, month(tt.thoiGianCuoi) as thangHD, year(tt.thoiGianCuoi) as namHD,kh.soDT, kh.diaChi, kh.phuong, tt.chiSoCu, tt.chiSoMoi, tt.luongNuoc, FORMAT(CAST(hd.tienNuoc AS DECIMAL(18, 0)), 'N0') AS tienNuoc, FORMAT(CAST(hd.tongTien AS DECIMAL(18, 0)), 'N0') AS tongTien, FORMAT(CAST(hd.thue AS DECIMAL(18, 0)), 'N0') AS thue, kh.maDHN, lkh.tenLoai, kh.ngaySinh\n" +
+                                 "from tieuThu tt join khachhang kh on kh.maKH = tt.maKH join hoadon hd on hd.maTT = tt.maTT join loaikhachhang lkh on lkh.maLKH = kh.maLKH where tt.maTT = " + maTT_TEMP;
+                    string thoiGianDau = "", thoiGianCuoi = "", maKH = "", tenKH = "", thangHD = "", namHD = "", duong = "", phuong = "", luongTieuThu = "";
+                    DateTime thoiGianDau1;
+                    DateTime thoiGianCuoi1;
+                    string tongTien = "", tienNuoc = "", thue = "", maDHN = "";
+                    using (SqlConnection connection = SqlConnectionData.connect())
+                    {
+                        connection.Open();
+                        SqlCommand command = new SqlCommand(sql, connection);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                thoiGianDau1 = Convert.ToDateTime(reader["thoiGianDau"].ToString());
+                                thoiGianDau = thoiGianDau1.ToShortDateString();
+                                thoiGianCuoi1 = Convert.ToDateTime(reader["thoiGianCuoi"].ToString());
+                                thoiGianCuoi = thoiGianCuoi1.ToShortDateString();
+                                maKH = reader["maKH"].ToString();
+                                tenKH = reader["tenKH"].ToString();
+                                thangHD = reader["thangHD"].ToString();
+                                namHD = reader["namHD"].ToString();
+                                duong = reader["diaChi"].ToString();
+                                phuong = reader["phuong"].ToString();
+                                luongTieuThu = reader["luongNuoc"].ToString();
+                                tienNuoc = reader["tienNuoc"].ToString();
+                                tongTien = reader["tongTien"].ToString();
+                                thue = reader["thue"].ToString();
+                                maDHN = reader["maDHN"].ToString();
+                            }
+                        }
+                    }
+
+                    // Kiểm tra xem có ô dữ liệu nào bị null không
+                    if ( string.IsNullOrEmpty(luongTieuThu) || string.IsNullOrEmpty(tienNuoc) || string.IsNullOrEmpty(thue) || string.IsNullOrEmpty(tongTien))
+                    {
+                        MessageBox.Show("Không thể tạo hóa đơn do bị thiếu dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    InvoiceData invoiceData = new InvoiceData
+                    {
+                        maHD = selectedRow.Cells["maHD"].Value.ToString(),
+                        maTT = maTT_TEMP,
+                        thoiGianDau = thoiGianDau,
+                        thoiGianCuoi = thoiGianCuoi,
+                        maKH = maKH,
+                        tenKH = tenKH,
+                        thangHD = thangHD,
+                        namHD = namHD,
+                        Duong = duong,
+                        Phuong = phuong,
+                        luongTieuThu = luongTieuThu,
+                        tienNuoc = tienNuoc,
+                        tongTien = tongTien,
+                        thue = thue,
+                        maDHN = maDHN,
+                    };
+
+                    frmInHoaDonLienLuu inHoaDonFormLienLuu = new frmInHoaDonLienLuu(invoiceData);
+                    inHoaDonFormLienLuu.ShowDialog();
+                }
             }
         }
 

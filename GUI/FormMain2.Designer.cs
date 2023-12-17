@@ -44,6 +44,9 @@
             this.btnKhoiPhuc = new System.Windows.Forms.Button();
             this.btnSaoLuu = new System.Windows.Forms.Button();
             this.btnHeThong = new System.Windows.Forms.Button();
+            this.panelThongKe = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.panelDanhMuc = new System.Windows.Forms.Panel();
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.btnKho = new System.Windows.Forms.Button();
@@ -71,6 +74,8 @@
             this.panelMain.SuspendLayout();
             this.panelHeThong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelThongKe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelDanhMuc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pitureDanhMuc)).BeginInit();
             this.panelHopDong.SuspendLayout();
@@ -141,6 +146,7 @@
             // 
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(83)))));
             this.panelMain.Controls.Add(this.panelHeThong);
+            this.panelMain.Controls.Add(this.panelThongKe);
             this.panelMain.Controls.Add(this.panelDanhMuc);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMain.Location = new System.Drawing.Point(0, 38);
@@ -162,7 +168,7 @@
             this.panelHeThong.Controls.Add(this.btnHeThong);
             this.panelHeThong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelHeThong.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeThong.Location = new System.Drawing.Point(0, 50);
+            this.panelHeThong.Location = new System.Drawing.Point(0, 100);
             this.panelHeThong.MaximumSize = new System.Drawing.Size(200, 250);
             this.panelHeThong.MinimumSize = new System.Drawing.Size(200, 50);
             this.panelHeThong.Name = "panelHeThong";
@@ -274,6 +280,48 @@
             this.btnHeThong.Text = "Hệ thống";
             this.btnHeThong.UseVisualStyleBackColor = true;
             this.btnHeThong.Click += new System.EventHandler(this.btnHeThong_Click);
+            // 
+            // panelThongKe
+            // 
+            this.panelThongKe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(83)))));
+            this.panelThongKe.Controls.Add(this.pictureBox3);
+            this.panelThongKe.Controls.Add(this.button6);
+            this.panelThongKe.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panelThongKe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelThongKe.Location = new System.Drawing.Point(0, 50);
+            this.panelThongKe.MaximumSize = new System.Drawing.Size(200, 50);
+            this.panelThongKe.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panelThongKe.Name = "panelThongKe";
+            this.panelThongKe.Size = new System.Drawing.Size(200, 50);
+            this.panelThongKe.TabIndex = 4;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.Control;
+            this.button6.Location = new System.Drawing.Point(0, 0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(200, 50);
+            this.button6.TabIndex = 0;
+            this.button6.Text = "Thống kê doanh thu";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // panelDanhMuc
             // 
@@ -585,6 +633,8 @@
             this.panelMain.ResumeLayout(false);
             this.panelHeThong.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelThongKe.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelDanhMuc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pitureDanhMuc)).EndInit();
             this.panelHopDong.ResumeLayout(false);
@@ -628,8 +678,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pitureDanhMuc;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelWelcome;
         private System.Windows.Forms.Button btnKho;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelThongKe;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button button6;
     }
 }

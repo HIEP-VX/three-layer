@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(subUpdateChiTietMuaHang));
             this.lblTitle = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txtTien = new System.Windows.Forms.TextBox();
@@ -37,7 +38,6 @@
             this.txtTenSP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtHangSX = new System.Windows.Forms.TextBox();
-            this.txtChiSoCongTo = new System.Windows.Forms.TextBox();
             this.lblChiSo = new System.Windows.Forms.Label();
             this.lblHang = new System.Windows.Forms.Label();
             this.dgvSP = new System.Windows.Forms.DataGridView();
@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaCT = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtChiSoCongTo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSP)).BeginInit();
             this.panelUpdateCTMH.SuspendLayout();
             this.SuspendLayout();
@@ -68,11 +69,14 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(271, 183);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(271, 178);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 34);
+            this.button1.Size = new System.Drawing.Size(78, 34);
             this.button1.TabIndex = 78;
             this.button1.Text = "Thêm";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -138,14 +142,6 @@
             this.txtHangSX.Size = new System.Drawing.Size(225, 23);
             this.txtHangSX.TabIndex = 71;
             // 
-            // txtChiSoCongTo
-            // 
-            this.txtChiSoCongTo.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChiSoCongTo.Location = new System.Drawing.Point(174, 106);
-            this.txtChiSoCongTo.Name = "txtChiSoCongTo";
-            this.txtChiSoCongTo.Size = new System.Drawing.Size(225, 23);
-            this.txtChiSoCongTo.TabIndex = 70;
-            // 
             // lblChiSo
             // 
             this.lblChiSo.AutoSize = true;
@@ -182,11 +178,14 @@
             // btnCapNhat
             // 
             this.btnCapNhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhat.Location = new System.Drawing.Point(406, 183);
+            this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
+            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCapNhat.Location = new System.Drawing.Point(406, 178);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(106, 34);
+            this.btnCapNhat.Size = new System.Drawing.Size(91, 34);
             this.btnCapNhat.TabIndex = 81;
             this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click_1);
             // 
@@ -195,11 +194,14 @@
             this.btnXoa.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(541, 183);
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(541, 178);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(106, 34);
+            this.btnXoa.Size = new System.Drawing.Size(64, 34);
             this.btnXoa.TabIndex = 80;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
@@ -266,11 +268,28 @@
             this.label2.TabIndex = 86;
             this.label2.Text = "Mã chi tiết";
             // 
+            // txtChiSoCongTo
+            // 
+            this.txtChiSoCongTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtChiSoCongTo.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChiSoCongTo.FormattingEnabled = true;
+            this.txtChiSoCongTo.Items.AddRange(new object[] {
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.txtChiSoCongTo.Location = new System.Drawing.Point(174, 106);
+            this.txtChiSoCongTo.Name = "txtChiSoCongTo";
+            this.txtChiSoCongTo.Size = new System.Drawing.Size(225, 24);
+            this.txtChiSoCongTo.TabIndex = 88;
+            // 
             // subUpdateChiTietMuaHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 446);
+            this.Controls.Add(this.txtChiSoCongTo);
             this.Controls.Add(this.txtMaCT);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtMaSP);
@@ -286,7 +305,6 @@
             this.Controls.Add(this.txtTenSP);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtHangSX);
-            this.Controls.Add(this.txtChiSoCongTo);
             this.Controls.Add(this.lblChiSo);
             this.Controls.Add(this.lblHang);
             this.Controls.Add(this.lblTitle);
@@ -315,7 +333,6 @@
         private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtHangSX;
-        private System.Windows.Forms.TextBox txtChiSoCongTo;
         private System.Windows.Forms.Label lblChiSo;
         private System.Windows.Forms.Label lblHang;
         private System.Windows.Forms.DataGridView dgvSP;
@@ -327,5 +344,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMaCT;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox txtChiSoCongTo;
     }
 }

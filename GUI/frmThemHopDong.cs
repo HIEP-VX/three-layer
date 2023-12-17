@@ -24,28 +24,36 @@ namespace GUI
 
         public void reload()
         {
-            dgvDH_HD.RowTemplate.Height = 26;
             txtHT.Text = txtSODT.Text = txtDC.Text = cbPhuong.Text = txtLKH.Text = txtNL.Text = "";
             datetimeNS.Value = datetimeNL.Value = DateTime.Now;
+            dgvDH_HD.RowTemplate.Height = 26;
 
             try
             {
-                string query = "SELECT maDHN, chiSoDau,\n" +
+                string query = "SELECT maDHN,ldh.tenSP, ldh.chiSoCongTo, chiSoDau,\n" +
                                "CASE\n" +
-                                   "WHEN tinhTrang = 0 THEN N'chưa sử dụng'\n" +
-                                   "WHEN tinhTrang = 1 THEN N'đã sử dụng'\n" +
+                               "WHEN dhn.tinhTrang = 0 THEN N'chưa sử dụng'\n" +
+                               "WHEN dhn.tinhTrang = 1 THEN N'đã sử dụng'\n" +
                                "END AS tinhTrang\n" +
-                               "FROM DongHoNuoc\n" +
-                               "WHERE tinhTrang = 0;";
+                               "FROM DongHoNuoc dhn join phieuNhapKho pnk on pnk.maPhieu = dhn.maPhieu\n" +
+                               "join hoaDonNhanHang hdnh on hdnh.maHD_NH = pnk.maHD_NH\n" +
+                               "join chiTietMuaHang ct on ct.maMH = hdnh.maMH\n" +
+                               "join loaidongho ldh on ldh.maSP = ct.maSP\n"+
+                               "where dhn.tinhTrang = 0";
+                
                 dgvDH_HD.DataSource = AccessData.getData(query);
 
                 dgvDH_HD.Columns[1].HeaderText = "Mã đồng hồ";
-                dgvDH_HD.Columns[2].HeaderText = "Chỉ số đầu";
-                dgvDH_HD.Columns[3].HeaderText = "Tình trạng";
+                dgvDH_HD.Columns[2].HeaderText = "Tên sản phẩm";
+                dgvDH_HD.Columns[3].HeaderText = "Số công tơ";
+                dgvDH_HD.Columns[4].HeaderText = "Chỉ số đầu";
+                dgvDH_HD.Columns[5].HeaderText = "Tình trạng";
 
                 dgvDH_HD.Columns[1].ReadOnly = true;
                 dgvDH_HD.Columns[2].ReadOnly = true;
                 dgvDH_HD.Columns[3].ReadOnly = true;
+                dgvDH_HD.Columns[4].ReadOnly = true;
+                dgvDH_HD.Columns[5].ReadOnly = true;
 
                 foreach (DataGridViewColumn column in dgvDH_HD.Columns)
                 {
@@ -148,7 +156,6 @@ namespace GUI
                     try
                     {
                         AccessData.execQuery(query);
-                        MessageBox.Show("Thêm hợp đồng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reload();
                     }
                     catch(Exception ex)
@@ -175,7 +182,7 @@ namespace GUI
         private void txtDC_TextChanged(object sender, EventArgs e)
         {
             // Biểu thức chính quy để kiểm tra có chữ 'phường', cùng với dấu ',' trước nó
-            string pattern = @",?\s*\bphường\b";
+            string pattern = @",.*$";
             Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
 
             // Kiểm tra xem có khớp với biểu thức chính quy không
@@ -184,8 +191,13 @@ namespace GUI
             if (match.Success)
             {
                 MessageBox.Show("Vui lòng chỉ nhập số nhà và tên đường của khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 // Nếu có, giữ lại phần đường trước từ 'phường' và dấu ',' nếu có
                 string duong = txtDC.Text.Substring(0, match.Index).Trim();
+
+                // Xóa tất cả các chuỗi từ dấu phẩy (,)
+                duong = duong.Replace(",", "");
+
                 txtDC.Text = duong;
             }
         }
@@ -202,6 +214,96 @@ namespace GUI
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
+        }
+        
+        private void txtLKH_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = txtLKH.SelectedIndex;
+
+            if (selectedIndex == 0 || selectedIndex == 1)
+            {
+                dgvDH_HD.RowTemplate.Height = 26;
+
+                try
+                {
+                    string query = "SELECT maDHN,ldh.tenSP, ldh.chiSoCongTo, chiSoDau,\n" +
+                                   "CASE\n" +
+                                   "WHEN dhn.tinhTrang = 0 THEN N'chưa sử dụng'\n" +
+                                   "WHEN dhn.tinhTrang = 1 THEN N'đã sử dụng'\n" +
+                                   "END AS tinhTrang\n" +
+                                   "FROM DongHoNuoc dhn join phieuNhapKho pnk on pnk.maPhieu = dhn.maPhieu\n" +
+                                   "join hoaDonNhanHang hdnh on hdnh.maHD_NH = pnk.maHD_NH\n" +
+                                   "join chiTietMuaHang ct on ct.maMH = hdnh.maMH\n" +
+                                   "join loaidongho ldh on ldh.maSP = ct.maSP\n" +
+                                   "where ldh.chiSoCongTo in (select chiSoCongTo from loaiDongHo where chiSoCongTo < 7) and dhn.tinhTrang = 0";
+
+                    dgvDH_HD.DataSource = AccessData.getData(query);
+
+                    dgvDH_HD.Columns[1].HeaderText = "Mã đồng hồ";
+                    dgvDH_HD.Columns[2].HeaderText = "Tên sản phẩm";
+                    dgvDH_HD.Columns[3].HeaderText = "Số công tơ";
+                    dgvDH_HD.Columns[4].HeaderText = "Chỉ số đầu";
+                    dgvDH_HD.Columns[5].HeaderText = "Tình trạng";
+
+                    dgvDH_HD.Columns[1].ReadOnly = true;
+                    dgvDH_HD.Columns[2].ReadOnly = true;
+                    dgvDH_HD.Columns[3].ReadOnly = true;
+                    dgvDH_HD.Columns[4].ReadOnly = true;
+                    dgvDH_HD.Columns[5].ReadOnly = true;
+
+                    foreach (DataGridViewColumn column in dgvDH_HD.Columns)
+                    {
+                        column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else if (selectedIndex == 2 || selectedIndex == 3 || selectedIndex == 4)
+            {
+                dgvDH_HD.RowTemplate.Height = 26;
+
+                try
+                {
+                    string query = "SELECT maDHN,ldh.tenSP, ldh.chiSoCongTo, chiSoDau,\n" +
+                                   "CASE\n" +
+                                   "WHEN dhn.tinhTrang = 0 THEN N'chưa sử dụng'\n" +
+                                   "WHEN dhn.tinhTrang = 1 THEN N'đã sử dụng'\n" +
+                                   "END AS tinhTrang\n" +
+                                   "FROM DongHoNuoc dhn join phieuNhapKho pnk on pnk.maPhieu = dhn.maPhieu\n" +
+                                   "join hoaDonNhanHang hdnh on hdnh.maHD_NH = pnk.maHD_NH\n" +
+                                   "join chiTietMuaHang ct on ct.maMH = hdnh.maMH\n" +
+                                   "join loaidongho ldh on ldh.maSP = ct.maSP\n" +
+                                   "where ldh.chiSoCongTo in (select chiSoCongTo from loaiDongHo where chiSoCongTo > 6 and chiSoCongTo < 9) and dhn.tinhTrang = 0";
+
+                    dgvDH_HD.DataSource = AccessData.getData(query);
+
+                    dgvDH_HD.Columns[1].HeaderText = "Mã đồng hồ";
+                    dgvDH_HD.Columns[2].HeaderText = "Tên sản phẩm";
+                    dgvDH_HD.Columns[3].HeaderText = "Số công tơ";
+                    dgvDH_HD.Columns[4].HeaderText = "Chỉ số đầu";
+                    dgvDH_HD.Columns[5].HeaderText = "Tình trạng";
+
+                    dgvDH_HD.Columns[1].ReadOnly = true;
+                    dgvDH_HD.Columns[2].ReadOnly = true;
+                    dgvDH_HD.Columns[3].ReadOnly = true;
+                    dgvDH_HD.Columns[4].ReadOnly = true;
+                    dgvDH_HD.Columns[5].ReadOnly = true;
+
+                    foreach (DataGridViewColumn column in dgvDH_HD.Columns)
+                    {
+                        column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

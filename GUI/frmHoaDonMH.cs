@@ -47,83 +47,93 @@ namespace GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            
             if (index == -1)
             {
                 MessageBox.Show("Vui lòng chọn bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                DialogResult result = MessageBox.Show("Kiểm tra thông tin" + "\nMã hóa đơn: " + txtMaHD.Text + "\nMã mua hàng: " + txtMaMH.Text +"\nBạn có chắc chắn muốn thanh toán hóa đơn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                string tinhTrang1 = dgvHDMH.Rows[index].Cells[3].Value.ToString();
+                if(tinhTrang1 == "chưa thanh toán")
                 {
-                    string sql = "update hoaDonNhanHang set tinhTrang = 1, maNV = " + user.id + " where maHD_NH = @maHD_NH\n" +
-                                 "declare @Inserted_maPhieu INT\n" +
-                                 "insert into phieuNhapKho (maHD_NH) values (@maHD_NH)\n" +
-                                 "set @Inserted_maPhieu = SCOPE_IDENTITY()\n"+
-                                 "select @Inserted_maPhieu";
-                    string sql4 = "select maMH, tinhTrang from hoaDonNhanHang where maHD_NH = @maHD_NH\n";
-
-                    using (SqlConnection conn = SqlConnectionData.connect())
+                    DialogResult result = MessageBox.Show("Kiểm tra thông tin" + "\nMã hóa đơn: " + txtMaHD.Text + "\nMã mua hàng: " + txtMaMH.Text + "\nBạn có chắc chắn muốn thanh toán hóa đơn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand(sql, conn);
-                        cmd.Parameters.AddWithValue("@maHD_NH", txtMaHD.Text);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        string sql = "update hoaDonNhanHang set tinhTrang = 1, maNV = " + user.id + " where maHD_NH = @maHD_NH\n" +
+                                     "declare @Inserted_maPhieu INT\n" +
+                                     "insert into phieuNhapKho (maHD_NH) values (@maHD_NH)\n" +
+                                     "set @Inserted_maPhieu = SCOPE_IDENTITY()\n" +
+                                     "select @Inserted_maPhieu";
+                        string sql4 = "select maMH, tinhTrang from hoaDonNhanHang where maHD_NH = @maHD_NH\n";
+
+                        using (SqlConnection conn = SqlConnectionData.connect())
                         {
-                            if (reader.Read())
-                            {
-                                string maPhieu = reader[0].ToString();
-                                PhieuNhapKho.maPhieu = int.Parse(maPhieu);
-                            }
-                        }
-                        try
-                        {
-                            SqlCommand cmd3 = new SqlCommand(sql4, conn);
-                            cmd3.Parameters.AddWithValue("@maHD_NH", txtMaHD.Text);
-                            using (SqlDataReader reader = cmd3.ExecuteReader())
+                            conn.Open();
+                            SqlCommand cmd = new SqlCommand(sql, conn);
+                            cmd.Parameters.AddWithValue("@maHD_NH", txtMaHD.Text);
+                            using (SqlDataReader reader = cmd.ExecuteReader())
                             {
                                 if (reader.Read())
                                 {
-                                    string maMH = reader["maMH"].ToString();
-                                    hoaDonNhanHang.maMH = int.Parse(maMH);
-
-                                    string tinhTrang = reader["tinhTrang"].ToString();
-                                    hoaDonNhanHang.tinhTrang = int.Parse(tinhTrang);
+                                    string maPhieu = reader[0].ToString();
+                                    PhieuNhapKho.maPhieu = int.Parse(maPhieu);
                                 }
                             }
-
-                            int soLuong = 0;
-                            string sql2 = "select soLuong from chiTietMuaHang ct join hoaDonNhanHang hd on hd.maMH = ct.maMH join phieuNhapKho pn on pn.maHD_NH = hd.maHD_NH where pn.maPhieu = " + PhieuNhapKho.maPhieu;
-
-                            SqlCommand cmd1 = new SqlCommand(sql2, conn);
                             try
                             {
-                                using (SqlDataReader reader = cmd1.ExecuteReader())
+                                SqlCommand cmd3 = new SqlCommand(sql4, conn);
+                                cmd3.Parameters.AddWithValue("@maHD_NH", txtMaHD.Text);
+                                using (SqlDataReader reader = cmd3.ExecuteReader())
                                 {
                                     if (reader.Read())
-                                        soLuong = int.Parse(reader["soLuong"].ToString());
+                                    {
+                                        string maMH = reader["maMH"].ToString();
+                                        hoaDonNhanHang.maMH = int.Parse(maMH);
+
+                                        string tinhTrang = reader["tinhTrang"].ToString();
+                                        hoaDonNhanHang.tinhTrang = int.Parse(tinhTrang);
+                                    }
                                 }
-                                string sql3 = "insert into DongHoNuoc (maPhieu) values(" + PhieuNhapKho.maPhieu + ")";
 
-                                SqlCommand cmd2 = new SqlCommand(sql3, conn);
+                                int soLuong = 0;
+                                string sql2 = "select soLuong from chiTietMuaHang ct join hoaDonNhanHang hd on hd.maMH = ct.maMH join phieuNhapKho pn on pn.maHD_NH = hd.maHD_NH where pn.maPhieu = " + PhieuNhapKho.maPhieu;
 
-                                for (int i = 0; i < soLuong; i++)
-                                    cmd2.ExecuteNonQuery();
+                                SqlCommand cmd1 = new SqlCommand(sql2, conn);
+                                try
+                                {
+                                    using (SqlDataReader reader = cmd1.ExecuteReader())
+                                    {
+                                        if (reader.Read())
+                                            soLuong = int.Parse(reader["soLuong"].ToString());
+                                    }
+                                    string sql3 = "insert into DongHoNuoc (maPhieu) values(" + PhieuNhapKho.maPhieu + ")";
+
+                                    SqlCommand cmd2 = new SqlCommand(sql3, conn);
+
+                                    for (int i = 0; i < soLuong; i++)
+                                        cmd2.ExecuteNonQuery();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+
+                                MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                reload();
                             }
                             catch (Exception ex)
                             {
+                                MessageBox.Show("Lỗi: " + ex.Message + "\nStack Trace:\n" + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-
-                            MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            reload();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Lỗi: " + ex.Message + "\nStack Trace:\n" + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                }
+                else if(tinhTrang1 == "đã thanh toán")
+                {
+                    MessageBox.Show("Hóa đơn này đã được thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
             }
         }

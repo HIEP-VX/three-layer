@@ -137,6 +137,7 @@
             this.txtLKH.Name = "txtLKH";
             this.txtLKH.Size = new System.Drawing.Size(196, 27);
             this.txtLKH.TabIndex = 9;
+            this.txtLKH.SelectedValueChanged += new System.EventHandler(this.txtLKH_SelectedValueChanged);
             // 
             // label7
             // 

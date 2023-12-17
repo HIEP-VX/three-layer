@@ -27,14 +27,15 @@ namespace GUI
             dgvPhieuNhanHang.RowTemplate.Height = 26;
             try
             {
-                string query = "select maMH, nhaCC, ngayMua, FORMAT(CAST(tongTien AS DECIMAL(18, 0)), 'N0') AS tongTien, maNV from phieuNhanHang";
+                string query = "select maMH, nhaCC, ngayMua, FORMAT(CAST(tongTien AS DECIMAL(18, 0)), 'N0') AS tongTien, nv.tenNV, phieuNhanHang.maNV from phieuNhanHang join nhanvien nv on nv.maNV = phieuNhanHang.maNV";
                 dgvPhieuNhanHang.DataSource = AccessData.getData(query);
 
                 dgvPhieuNhanHang.Columns[0].HeaderText = "Mã mua hàng";
                 dgvPhieuNhanHang.Columns[1].HeaderText = "Nhà cung cấp";
                 dgvPhieuNhanHang.Columns[2].HeaderText = "Ngày mua";
                 dgvPhieuNhanHang.Columns[3].HeaderText = "Tổng tiền";
-                dgvPhieuNhanHang.Columns[4].HeaderText = "Mã nhân viên";
+                dgvPhieuNhanHang.Columns[4].HeaderText = "Nhân viên mua hàng";
+                dgvPhieuNhanHang.Columns[5].HeaderText = "Mã nhân viên";
 
                 foreach (DataGridViewColumn column in dgvPhieuNhanHang.Columns)
                 {
@@ -69,24 +70,13 @@ namespace GUI
         {
             if (index == -1)
             {
-                MessageBox.Show("Vui lòng chọn bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn một phiếu mua hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                DataTable dt = new DataTable();
-                string sql = "select * FROM hoaDonNhanHang where maMH = " + phieuNhanHang.maMH + "and tinhTrang = 1";
-                dt = AccessData.getData(sql);
-                if (dt.Rows.Count > 0)
-                {
-                    MessageBox.Show("Phiếu mua hàng này đã được thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-                else
-                {
-                    subUpdateChiTietMuaHang sb = new subUpdateChiTietMuaHang();
-                    sb.ShowDialog();
-                    reload();
-                }
+                subUpdateChiTietMuaHang sb = new subUpdateChiTietMuaHang();
+                sb.ShowDialog();
+                reload();
             }
         }
 
@@ -95,7 +85,7 @@ namespace GUI
             index = e.RowIndex;
             if (index < 0)
             {
-                MessageBox.Show("Vui lòng chọn một bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn một phiếu mua hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -115,7 +105,7 @@ namespace GUI
         {
             if (index == -1)
             {
-                MessageBox.Show("Vui lòng chọn bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn một phiếu mua hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

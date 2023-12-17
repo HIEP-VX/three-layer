@@ -64,9 +64,9 @@
             this.panelTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTool.Location = new System.Drawing.Point(0, 0);
             this.panelTool.MaximumSize = new System.Drawing.Size(800, 168);
-            this.panelTool.MinimumSize = new System.Drawing.Size(800, 29);
+            this.panelTool.MinimumSize = new System.Drawing.Size(800, 34);
             this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(800, 168);
+            this.panelTool.Size = new System.Drawing.Size(800, 34);
             this.panelTool.TabIndex = 0;
             // 
             // groupBox1
@@ -175,11 +175,14 @@
             // btnTimKiem
             // 
             this.btnTimKiem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(479, 2);
+            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(478, 2);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
+            this.btnTimKiem.Size = new System.Drawing.Size(87, 28);
             this.btnTimKiem.TabIndex = 37;
             this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
@@ -188,7 +191,7 @@
             this.btnCapNhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
             this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(324, 2);
+            this.btnCapNhat.Location = new System.Drawing.Point(325, 2);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
             this.btnCapNhat.TabIndex = 36;
@@ -202,7 +205,7 @@
             this.btnXoa.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(184, 2);
+            this.btnXoa.Location = new System.Drawing.Point(187, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(69, 28);
             this.btnXoa.TabIndex = 35;
@@ -235,7 +238,7 @@
             this.dgvDongho.Name = "dgvDongho";
             this.dgvDongho.ReadOnly = true;
             this.dgvDongho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDongho.Size = new System.Drawing.Size(800, 282);
+            this.dgvDongho.Size = new System.Drawing.Size(800, 416);
             this.dgvDongho.TabIndex = 1;
             // 
             // timerTimKiem
@@ -248,9 +251,9 @@
             this.panelDgvDH.Controls.Add(this.dgvDongho);
             this.panelDgvDH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDgvDH.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDgvDH.Location = new System.Drawing.Point(0, 168);
+            this.panelDgvDH.Location = new System.Drawing.Point(0, 34);
             this.panelDgvDH.Name = "panelDgvDH";
-            this.panelDgvDH.Size = new System.Drawing.Size(800, 282);
+            this.panelDgvDH.Size = new System.Drawing.Size(800, 416);
             this.panelDgvDH.TabIndex = 1;
             // 
             // frmDongHo

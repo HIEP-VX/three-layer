@@ -72,7 +72,7 @@
             this.panelTool.MaximumSize = new System.Drawing.Size(1095, 168);
             this.panelTool.MinimumSize = new System.Drawing.Size(1095, 34);
             this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(1095, 34);
+            this.panelTool.Size = new System.Drawing.Size(1095, 168);
             this.panelTool.TabIndex = 0;
             // 
             // btnXuatFile
@@ -301,7 +301,7 @@
             this.dgvHopDong.Name = "dgvHopDong";
             this.dgvHopDong.ReadOnly = true;
             this.dgvHopDong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHopDong.Size = new System.Drawing.Size(1093, 480);
+            this.dgvHopDong.Size = new System.Drawing.Size(1093, 346);
             this.dgvHopDong.TabIndex = 1;
             this.dgvHopDong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHopDong_CellClick);
             // 
@@ -315,9 +315,9 @@
             this.panelHopDong.Controls.Add(this.dgvHopDong);
             this.panelHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHopDong.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelHopDong.Location = new System.Drawing.Point(0, 34);
+            this.panelHopDong.Location = new System.Drawing.Point(0, 168);
             this.panelHopDong.Name = "panelHopDong";
-            this.panelHopDong.Size = new System.Drawing.Size(1093, 480);
+            this.panelHopDong.Size = new System.Drawing.Size(1093, 346);
             this.panelHopDong.TabIndex = 1;
             // 
             // frmHopDong

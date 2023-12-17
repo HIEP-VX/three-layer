@@ -62,7 +62,6 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            //select makh from khachhang where tinhTrang = 1
             string query = "select makh, dc.maNV from khachhang join diaChi dc on dc.phuong = KhachHang.phuong where tinhTrang = 1";
             DataTable dataTable = AccessData.getData(query);
 

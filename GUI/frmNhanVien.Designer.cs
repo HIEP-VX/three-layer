@@ -74,39 +74,45 @@
             this.panelTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTool.Location = new System.Drawing.Point(0, 0);
             this.panelTool.MaximumSize = new System.Drawing.Size(1115, 168);
-            this.panelTool.MinimumSize = new System.Drawing.Size(1115, 29);
+            this.panelTool.MinimumSize = new System.Drawing.Size(1115, 34);
             this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(1115, 168);
+            this.panelTool.Size = new System.Drawing.Size(1115, 34);
             this.panelTool.TabIndex = 0;
             // 
             // btnXuatFile
             // 
-            this.btnXuatFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatFile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatFile.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatFile.Image")));
+            this.btnXuatFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnXuatFile.Location = new System.Drawing.Point(510, 3);
             this.btnXuatFile.Name = "btnXuatFile";
-            this.btnXuatFile.Size = new System.Drawing.Size(75, 28);
+            this.btnXuatFile.Size = new System.Drawing.Size(78, 28);
             this.btnXuatFile.TabIndex = 42;
             this.btnXuatFile.Text = "Xuất file";
+            this.btnXuatFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXuatFile.UseVisualStyleBackColor = true;
             this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(401, 3);
+            this.btnTimKiem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(396, 3);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
+            this.btnTimKiem.Size = new System.Drawing.Size(86, 28);
             this.btnTimKiem.TabIndex = 41;
             this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click_1);
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.Image")));
             this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(285, 3);
+            this.btnCapNhat.Location = new System.Drawing.Point(284, 3);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(84, 28);
             this.btnCapNhat.TabIndex = 40;
@@ -117,10 +123,10 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(186, 3);
+            this.btnXoa.Location = new System.Drawing.Point(187, 3);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(69, 28);
             this.btnXoa.TabIndex = 39;
@@ -131,7 +137,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.Location = new System.Drawing.Point(90, 3);
@@ -162,9 +168,9 @@
             this.groupBox1.Controls.Add(this.txtsoDT);
             this.groupBox1.Controls.Add(this.txttenNV);
             this.groupBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 30);
+            this.groupBox1.Location = new System.Drawing.Point(12, 39);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1098, 129);
+            this.groupBox1.Size = new System.Drawing.Size(1098, 120);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hộp tìm kiếm";
@@ -264,7 +270,7 @@
             this.btnHopTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHopTimKiem.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHopTimKiem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnHopTimKiem.Location = new System.Drawing.Point(949, 86);
+            this.btnHopTimKiem.Location = new System.Drawing.Point(949, 79);
             this.btnHopTimKiem.Name = "btnHopTimKiem";
             this.btnHopTimKiem.Size = new System.Drawing.Size(137, 37);
             this.btnHopTimKiem.TabIndex = 33;
@@ -334,9 +340,9 @@
             this.panelDgvNV.Controls.Add(this.dgvNhanVien);
             this.panelDgvNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDgvNV.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDgvNV.Location = new System.Drawing.Point(0, 168);
+            this.panelDgvNV.Location = new System.Drawing.Point(0, 34);
             this.panelDgvNV.Name = "panelDgvNV";
-            this.panelDgvNV.Size = new System.Drawing.Size(1110, 282);
+            this.panelDgvNV.Size = new System.Drawing.Size(1110, 416);
             this.panelDgvNV.TabIndex = 1;
             // 
             // dgvNhanVien
@@ -348,7 +354,7 @@
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.ReadOnly = true;
             this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNhanVien.Size = new System.Drawing.Size(1110, 282);
+            this.dgvNhanVien.Size = new System.Drawing.Size(1110, 416);
             this.dgvNhanVien.TabIndex = 0;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 

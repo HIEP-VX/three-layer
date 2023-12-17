@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXuPhat));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnInHoaDon = new System.Windows.Forms.Button();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvXuPhat = new System.Windows.Forms.DataGridView();
             this.panelXuPhat = new System.Windows.Forms.Panel();
+            this.btnInHoaDon = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXuPhat)).BeginInit();
@@ -67,19 +67,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 168);
             this.panel1.TabIndex = 4;
-            // 
-            // btnInHoaDon
-            // 
-            this.btnInHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInHoaDon.Image = ((System.Drawing.Image)(resources.GetObject("btnInHoaDon.Image")));
-            this.btnInHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInHoaDon.Location = new System.Drawing.Point(386, 3);
-            this.btnInHoaDon.Name = "btnInHoaDon";
-            this.btnInHoaDon.Size = new System.Drawing.Size(91, 28);
-            this.btnInHoaDon.TabIndex = 44;
-            this.btnInHoaDon.Text = "In hóa đơn";
-            this.btnInHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInHoaDon.UseVisualStyleBackColor = true;
             // 
             // btnThanhToan
             // 
@@ -256,6 +243,20 @@
             this.panelXuPhat.Name = "panelXuPhat";
             this.panelXuPhat.Size = new System.Drawing.Size(800, 282);
             this.panelXuPhat.TabIndex = 5;
+            // 
+            // btnInHoaDon
+            // 
+            this.btnInHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInHoaDon.Image = ((System.Drawing.Image)(resources.GetObject("btnInHoaDon.Image")));
+            this.btnInHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInHoaDon.Location = new System.Drawing.Point(386, 3);
+            this.btnInHoaDon.Name = "btnInHoaDon";
+            this.btnInHoaDon.Size = new System.Drawing.Size(95, 28);
+            this.btnInHoaDon.TabIndex = 44;
+            this.btnInHoaDon.Text = "In hóa đơn";
+            this.btnInHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInHoaDon.UseVisualStyleBackColor = true;
+            this.btnInHoaDon.Click += new System.EventHandler(this.btnInHoaDon_Click);
             // 
             // frmXuPhat
             // 

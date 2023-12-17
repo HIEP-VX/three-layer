@@ -20,6 +20,7 @@ namespace GUI
 
         bool isCollapsed = true;
         bool isCollapsed2 = true;
+        bool isCollapsed3 = true;
         bool homeExpand = true;
         bool hopDongExpand = true;
 
@@ -355,6 +356,29 @@ namespace GUI
         private void btnKhoiPhuc_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if(isCollapsed)
+                isCollapsed = false;
+            if(isCollapsed2)
+                isCollapsed2 = false;
+
+            timer1.Start();
+            timer2.Start();
+
+            if (panelMain.Width == 53)
+                homeTimer.Start();
+            OpenFormChild(new frmQuanLyDoanhThu());
+            lblTitle.Text = button6.Text;
+            hopDongExpand = false;
+            timerHopDong.Start();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            button6.PerformClick();
         }
     }
 }

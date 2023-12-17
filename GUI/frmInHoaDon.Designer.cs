@@ -43,7 +43,7 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(750, 574);
+            this.reportViewer1.Size = new System.Drawing.Size(750, 588);
             this.reportViewer1.TabIndex = 0;
             // 
             // btnThoat
@@ -89,14 +89,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(750, 574);
+            this.panel2.Size = new System.Drawing.Size(750, 588);
             this.panel2.TabIndex = 85;
             // 
             // frmInHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 609);
+            this.ClientSize = new System.Drawing.Size(750, 623);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
