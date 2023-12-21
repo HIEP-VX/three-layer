@@ -32,6 +32,16 @@ namespace GUI
                 // select maPhieu, maHD_NH, phieuNhapKho.maNV, nv.tenNV from phieuNhapKho join nhanVien nv on nv.maNV = phieuNhapKho.maNV
                 string sql = "select * from phieuNhapKho";
                 dgvPhieuNhapKho.DataSource = AccessData.getData(sql);
+
+                dgvPhieuNhapKho.Columns[0].HeaderText = "Mã phiếu";
+                dgvPhieuNhapKho.Columns[1].HeaderText = "Mã hóa đơn nhận hàng";
+                dgvPhieuNhapKho.Columns[2].HeaderText = "Mã nhân viên";
+
+                foreach (DataGridViewColumn column in dgvPhieuNhapKho.Columns)
+                {
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
                 using (SqlConnection conn = SqlConnectionData.connect())
                 {
                     conn.Open();
@@ -67,6 +77,16 @@ namespace GUI
             {
                 string sql = "select maPhieu, maHD_NH, phieuNhapKho.maNV, nv.tenNV from phieuNhapKho join nhanVien nv on nv.maNV = phieuNhapKho.maNV";
                 dgvPhieuNhapKho.DataSource = AccessData.getData(sql);
+                dgvPhieuNhapKho.Columns[0].HeaderText = "Mã phiếu";
+                dgvPhieuNhapKho.Columns[1].HeaderText = "Mã hóa đơn nhận hàng";
+                dgvPhieuNhapKho.Columns[2].HeaderText = "Mã nhân viên";
+                dgvPhieuNhapKho.Columns[3].HeaderText = "Tên nhân viên";
+
+                foreach (DataGridViewColumn column in dgvPhieuNhapKho.Columns)
+                {
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
                 using (SqlConnection conn = SqlConnectionData.connect())
                 {
                     conn.Open();

@@ -52,30 +52,34 @@ namespace GUI
                 return;
             }
 
-            string sql = "update KhachHang set tenKH = @tenKH, ngaySinh = @ngaySinh, diaChi = @diaChi,phuong = @phuong, soDT = @soDT where maKH = @maKH";
-            using (SqlConnection conn = SqlConnectionData.connect())
+            DialogResult result = MessageBox.Show("Bạn đã chắc chắn thông tin vừa nhập chưa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@maKH", txtMa.Text);
-                cmd.Parameters.AddWithValue("@tenKH", txtHT.Text);
-                cmd.Parameters.AddWithValue("@ngaySinh", dateNS.Value);
-                cmd.Parameters.AddWithValue("@diaChi", txtDC.Text);
-                cmd.Parameters.AddWithValue("@soDT", txtSoDT.Text);
-                cmd.Parameters.AddWithValue("@phuong", cbPhuong.Text);
-
-                try
+                string sql = "update KhachHang set tenKH = @tenKH, ngaySinh = @ngaySinh, diaChi = @diaChi,phuong = @phuong, soDT = @soDT where maKH = @maKH";
+                using (SqlConnection conn = SqlConnectionData.connect())
                 {
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@maKH", txtMa.Text);
+                    cmd.Parameters.AddWithValue("@tenKH", txtHT.Text);
+                    cmd.Parameters.AddWithValue("@ngaySinh", dateNS.Value);
+                    cmd.Parameters.AddWithValue("@diaChi", txtDC.Text);
+                    cmd.Parameters.AddWithValue("@soDT", txtSoDT.Text);
+                    cmd.Parameters.AddWithValue("@phuong", cbPhuong.Text);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    this.Close();
+                    DataAdded?.Invoke();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                this.Close();
-                DataAdded?.Invoke();
             }
         }
 
@@ -87,7 +91,6 @@ namespace GUI
         private void subUpdateKH_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'quanLyCungCapNuocSachDataSet4.diaChi' table. You can move, or remove it, as needed.
-            this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
             txtMa.Text = khachHang.maKH.ToString();
             txtHT.Text = khachHang.tenKH.ToString();
             dateNS.Value = khachHang.ngaySinh;

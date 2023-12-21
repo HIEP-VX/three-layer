@@ -162,11 +162,14 @@
             // btnXuatFile
             // 
             this.btnXuatFile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatFile.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatFile.Image")));
+            this.btnXuatFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnXuatFile.Location = new System.Drawing.Point(363, 2);
             this.btnXuatFile.Name = "btnXuatFile";
-            this.btnXuatFile.Size = new System.Drawing.Size(75, 28);
+            this.btnXuatFile.Size = new System.Drawing.Size(84, 28);
             this.btnXuatFile.TabIndex = 42;
             this.btnXuatFile.Text = "Xuất file";
+            this.btnXuatFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXuatFile.UseVisualStyleBackColor = true;
             this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
             // 

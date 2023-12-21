@@ -28,7 +28,7 @@ namespace GUI
             dgvHopDong.RowTemplate.Height = 26;
             try
             {
-                string query = "select maHD, ngayLamHD, noiLamHD, FORMAT(CAST(tienLamHD AS DECIMAL(18, 0)), 'N0') AS tienLamHD, lyDoThuTien, maNV from HopDong";
+                string query = "select maHD, ngayLamHD, noiLamHD, FORMAT(CAST(tienLamHD AS DECIMAL(18, 0)), 'N0') AS tienLamHD, lyDoThuTien,nv.tenNV, HopDong.maNV from HopDong join nhanvien nv on nv.maNV = HopDong.maNV";
                 dgvHopDong.DataSource = AccessData.getData(query);
                 
                 dgvHopDong.Columns[0].HeaderText = "Mã";
@@ -36,7 +36,8 @@ namespace GUI
                 dgvHopDong.Columns[2].HeaderText = "Nơi lập";
                 dgvHopDong.Columns[3].HeaderText = "Tiền làm hợp đồng";
                 dgvHopDong.Columns[4].HeaderText = "Lý do thu";
-                dgvHopDong.Columns[5].HeaderText = "Mã nhân viên";
+                dgvHopDong.Columns[5].HeaderText = "Nhân viên làm hợp đồng";
+                dgvHopDong.Columns[6].HeaderText = "Mã NV";
 
 
                 foreach (DataGridViewColumn column in dgvHopDong.Columns)
@@ -124,6 +125,7 @@ namespace GUI
             if (index == -1)
             {
                 MessageBox.Show("Vui lòng chọn một hợp đồng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
             else
             {
@@ -160,7 +162,7 @@ namespace GUI
             sb.noiLamHD = dgvHopDong.Rows[index].Cells[2].Value.ToString();
             sb.tienLamHD = dgvHopDong.Rows[index].Cells[3].Value.ToString();
             sb.lyDoThu = dgvHopDong.Rows[index].Cells[4].Value.ToString();
-            sb.maNV = int.Parse(dgvHopDong.Rows[index].Cells[5].Value.ToString());
+            sb.maNV = int.Parse(dgvHopDong.Rows[index].Cells[6].Value.ToString());
 
             sb.ShowDialog();
             reload();
@@ -188,7 +190,7 @@ namespace GUI
             txtNL.Text = dgvHopDong.Rows[index].Cells[2].Value.ToString();
             txtTienLamHD.Text = dgvHopDong.Rows[index].Cells[3].Value.ToString();
             txtLyDoThuTien.Text = dgvHopDong.Rows[index].Cells[4].Value.ToString();
-            txtMaNV.Text = dgvHopDong.Rows[index].Cells[5].Value.ToString();
+            txtMaNV.Text = dgvHopDong.Rows[index].Cells[6].Value.ToString();
         }
 
         public void ExportFile(DataTable dataTable, string sheetName, string title)

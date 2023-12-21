@@ -69,7 +69,6 @@ namespace GUI
 
         private void frmThemHopDong_Load(object sender, EventArgs e)
         {
-            this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
             txtMaNV.Text = user.id.ToString();
             this.reload();
         }
@@ -190,7 +189,7 @@ namespace GUI
 
             if (match.Success)
             {
-                MessageBox.Show("Vui lòng chỉ nhập số nhà và tên đường của khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chỉ nhập số nhà, phố và tên đường của khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Nếu có, giữ lại phần đường trước từ 'phường' và dấu ',' nếu có
                 string duong = txtDC.Text.Substring(0, match.Index).Trim();

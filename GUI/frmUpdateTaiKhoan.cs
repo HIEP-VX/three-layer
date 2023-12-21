@@ -27,11 +27,24 @@ namespace GUI
         {
             this.Refresh();
             string query = "SELECT maNV, tenNV, soDT, chucVu, taiKhoan, matKhau from nhanvien where taiKhoan = N'" + user.account + "' and matKhau = N'" + user.password + "'";
-            
+
             try
             {
                 dgvCapNhat.DataSource = AccessData.getData(query);
-            }catch(Exception ex)
+                dgvCapNhat.Columns[0].HeaderText = "Mã";
+                dgvCapNhat.Columns[1].HeaderText = "Họ và tên";
+                dgvCapNhat.Columns[2].HeaderText = "Số điện thoại";
+                dgvCapNhat.Columns[3].HeaderText = "Chức vụ";
+                dgvCapNhat.Columns[4].HeaderText = "Tài khoản";
+                dgvCapNhat.Columns[5].HeaderText = "Mật khẩu";
+
+                foreach (DataGridViewColumn column in dgvCapNhat.Columns)
+                {
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 

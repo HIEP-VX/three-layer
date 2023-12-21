@@ -41,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaHD = new System.Windows.Forms.TextBox();
             this.btnThanhToan = new System.Windows.Forms.Button();
-            this.btnTimKiem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHDMH = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -54,7 +53,6 @@
             // 
             this.panel1.Controls.Add(this.grpCapNhat);
             this.panel1.Controls.Add(this.btnThanhToan);
-            this.panel1.Controls.Add(this.btnTimKiem);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.MaximumSize = new System.Drawing.Size(800, 168);
@@ -75,9 +73,9 @@
             this.grpCapNhat.Controls.Add(this.label1);
             this.grpCapNhat.Controls.Add(this.txtMaHD);
             this.grpCapNhat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCapNhat.Location = new System.Drawing.Point(169, 34);
+            this.grpCapNhat.Location = new System.Drawing.Point(81, 34);
             this.grpCapNhat.Name = "grpCapNhat";
-            this.grpCapNhat.Size = new System.Drawing.Size(487, 131);
+            this.grpCapNhat.Size = new System.Drawing.Size(616, 131);
             this.grpCapNhat.TabIndex = 44;
             this.grpCapNhat.TabStop = false;
             this.grpCapNhat.Text = "Hộp tìm kiếm";
@@ -88,7 +86,7 @@
             this.txtTinhTrang.Items.AddRange(new object[] {
             "0 - chưa thanh toán",
             "1 - đã thanh toán"});
-            this.txtTinhTrang.Location = new System.Drawing.Point(304, 62);
+            this.txtTinhTrang.Location = new System.Drawing.Point(349, 58);
             this.txtTinhTrang.Name = "txtTinhTrang";
             this.txtTinhTrang.Size = new System.Drawing.Size(156, 24);
             this.txtTinhTrang.TabIndex = 79;
@@ -97,7 +95,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 62);
+            this.label2.Location = new System.Drawing.Point(33, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 16);
             this.label2.TabIndex = 45;
@@ -105,7 +103,7 @@
             // 
             // txtMaMH
             // 
-            this.txtMaMH.Location = new System.Drawing.Point(100, 59);
+            this.txtMaMH.Location = new System.Drawing.Point(118, 55);
             this.txtMaMH.Name = "txtMaMH";
             this.txtMaMH.Size = new System.Drawing.Size(82, 23);
             this.txtMaMH.TabIndex = 46;
@@ -114,7 +112,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(219, 34);
+            this.label5.Location = new System.Drawing.Point(264, 30);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 16);
             this.label5.TabIndex = 43;
@@ -122,7 +120,7 @@
             // 
             // txtmaNV
             // 
-            this.txtmaNV.Location = new System.Drawing.Point(304, 31);
+            this.txtmaNV.Location = new System.Drawing.Point(349, 27);
             this.txtmaNV.Name = "txtmaNV";
             this.txtmaNV.Size = new System.Drawing.Size(82, 23);
             this.txtmaNV.TabIndex = 44;
@@ -131,7 +129,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(222, 66);
+            this.label4.Location = new System.Drawing.Point(267, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 16);
             this.label4.TabIndex = 41;
@@ -139,19 +137,22 @@
             // 
             // btnCN
             // 
-            this.btnCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCN.Image = ((System.Drawing.Image)(resources.GetObject("btnCN.Image")));
-            this.btnCN.Location = new System.Drawing.Point(170, 88);
+            this.btnCN.FlatAppearance.BorderSize = 0;
+            this.btnCN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCN.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCN.Location = new System.Drawing.Point(180, 88);
             this.btnCN.Name = "btnCN";
-            this.btnCN.Size = new System.Drawing.Size(82, 35);
+            this.btnCN.Size = new System.Drawing.Size(172, 35);
             this.btnCN.TabIndex = 40;
+            this.btnCN.Text = "THỰC HIỆN";
             this.btnCN.UseVisualStyleBackColor = true;
+            this.btnCN.Click += new System.EventHandler(this.btnCN_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 34);
+            this.label1.Location = new System.Drawing.Point(33, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 31;
@@ -159,7 +160,7 @@
             // 
             // txtMaHD
             // 
-            this.txtMaHD.Location = new System.Drawing.Point(100, 31);
+            this.txtMaHD.Location = new System.Drawing.Point(118, 27);
             this.txtMaHD.Name = "txtMaHD";
             this.txtMaHD.Size = new System.Drawing.Size(82, 23);
             this.txtMaHD.TabIndex = 32;
@@ -167,23 +168,16 @@
             // btnThanhToan
             // 
             this.btnThanhToan.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThanhToan.Image = ((System.Drawing.Image)(resources.GetObject("btnThanhToan.Image")));
+            this.btnThanhToan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThanhToan.Location = new System.Drawing.Point(9, 7);
             this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(90, 28);
+            this.btnThanhToan.Size = new System.Drawing.Size(100, 28);
             this.btnThanhToan.TabIndex = 43;
             this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThanhToan.UseVisualStyleBackColor = true;
             this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(363, 2);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
-            this.btnTimKiem.TabIndex = 42;
-            this.btnTimKiem.Text = "Tìm kiếm";
-            this.btnTimKiem.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -202,6 +196,7 @@
             this.dgvHDMH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHDMH.Location = new System.Drawing.Point(0, 0);
             this.dgvHDMH.Name = "dgvHDMH";
+            this.dgvHDMH.ReadOnly = true;
             this.dgvHDMH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHDMH.Size = new System.Drawing.Size(801, 282);
             this.dgvHDMH.TabIndex = 0;
@@ -229,7 +224,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvHDMH;
         private System.Windows.Forms.Button btnThanhToan;

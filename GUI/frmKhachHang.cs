@@ -29,7 +29,7 @@ namespace GUI
             dgvKH.RowTemplate.Height = 26;
             try
             {
-                string query = "select maKH, tenKH, ngaySinh, phuong, diaChi, soDT, maHD, maLKH, maDHN,\n"+
+                string query = "select maKH, tenKH, ngaySinh, diaChi, phuong, soDT, maHD, maLKH, maDHN,\n"+
                                "CASE\n"+
                                "WHEN tinhTrang = 1 THEN N'đang hoạt động'\n" +
                                "WHEN tinhTrang = 2 THEN N'cắt nước'\n" +
@@ -41,8 +41,8 @@ namespace GUI
                 dgvKH.Columns[0].HeaderText = "Mã";
                 dgvKH.Columns[1].HeaderText = "Họ và tên";
                 dgvKH.Columns[2].HeaderText = "Ngày sinh";
-                dgvKH.Columns[3].HeaderText = "Phường";
-                dgvKH.Columns[4].HeaderText = "Địa chỉ";
+                dgvKH.Columns[3].HeaderText = "Đường";
+                dgvKH.Columns[4].HeaderText = "Phường";
                 dgvKH.Columns[5].HeaderText = "Số điện thoại";
                 dgvKH.Columns[6].HeaderText = "Mã hợp đồng";
                 dgvKH.Columns[7].HeaderText = "Mã LKH";
@@ -64,7 +64,6 @@ namespace GUI
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
-            this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
             this.Refresh();
             panelTool.Size = panelTool.MinimumSize;
             dateTimePicker1.Visible = false;
@@ -99,7 +98,7 @@ namespace GUI
 
         private void btnHopTimKiem_Click(object sender, EventArgs e)
         {
-            string query = "select maKH, tenKH, ngaySinh, phuong, diaChi, soDT, maHD, maLKH, maDHN,\n" +
+            string query = "select maKH, tenKH, ngaySinh, diaChi, phuong, soDT, maHD, maLKH, maDHN,\n" +
                                "CASE\n" +
                                "WHEN tinhTrang = 1 THEN N'đang hoạt động'\n" +
                                "WHEN tinhTrang = 2 THEN N'cắt nước'\n" +
@@ -199,11 +198,11 @@ namespace GUI
                     dateTimePicker1.Value = Convert.ToDateTime(dgvKH.Rows[index].Cells[2].Value);
                     khachHang.ngaySinh = dateTimePicker1.Value;
 
-                    cbPhuong.Text = dgvKH.Rows[index].Cells[3].Value.ToString();
-                    khachHang.phuong = cbPhuong.Text;
-
-                    txtDC.Text = dgvKH.Rows[index].Cells[4].Value.ToString();
+                    txtDC.Text = dgvKH.Rows[index].Cells[3].Value.ToString();
                     khachHang.diaChi = txtDC.Text;
+
+                    cbPhuong.Text = dgvKH.Rows[index].Cells[4].Value.ToString();
+                    khachHang.phuong = cbPhuong.Text;
 
                     txtSDT.Text = dgvKH.Rows[index].Cells[5].Value.ToString();
                     khachHang.soDT = txtSDT.Text;

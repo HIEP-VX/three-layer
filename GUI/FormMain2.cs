@@ -60,7 +60,9 @@ namespace GUI
 
                 if(user.position == "Nhân viên thu ngân")
                 {
-
+                    btnHopDong1.Enabled = false;
+                    btnSaoLuu.Enabled = false;
+                    btnKhoiPhuc.Enabled = false;
                 }
             }
         }

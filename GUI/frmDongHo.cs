@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace GUI
 {
     public partial class frmDongHo : Form
     {
+        private int index = -1;
         public frmDongHo()
         {
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace GUI
                 dgvDongho.Columns[1].HeaderText = "Mã phiếu";
                 dgvDongho.Columns[2].HeaderText = "Tên sản phẩm";
                 dgvDongho.Columns[3].HeaderText = "Số công tơ";
-                dgvDongho.Columns[4].HeaderText = "Chỉ số đầu";
+                dgvDongho.Columns[4].HeaderText = "Chỉ hiện tại";
                 dgvDongho.Columns[5].HeaderText = "Tình trạng";
                 dgvDongho.Columns[6].HeaderText = "Số năm dùng";
 
@@ -62,38 +64,30 @@ namespace GUI
             reload();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            subAddDongHo sb = new subAddDongHo();
-
-            sb.ShowDialog();
-
-            sb.DataAdded += () =>
-            {
-                reload();
-            };
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            subDelDongHo sb = new subDelDongHo();
-            sb.ShowDialog();
-
-            sb.DataAdded += () =>
+            if (index == -1)
             {
-                reload();
-            };
-        }
-
-        private void btnCapNhat_Click(object sender, EventArgs e)
-        {
-            subUpdateDongHo sb = new subUpdateDongHo();
-            sb.ShowDialog();
-
-            sb.DataAdded += () =>
+                MessageBox.Show("Vui lòng chọn một đồng hồ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
             {
-                reload();
-            };
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa đồng hồ này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    string sql = "Delete from DongHoNuoc where maDHN = '" + txtMa.Text + "'";
+                    try
+                    {
+                        AccessData.execQuery(sql);
+                        MessageBox.Show("Xóa thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -151,5 +145,33 @@ namespace GUI
             }
         }
 
+        private void dgvDongho_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+            if (index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một đồng hồ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                object cellValue = dgvDongho.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                if (cellValue != null && cellValue != DBNull.Value)
+                {
+                    txtMa.Text = dgvDongho.Rows[index].Cells[0].Value.ToString();
+
+                    txtMaPhieu.Text = dgvDongho.Rows[index].Cells[1].Value.ToString();
+
+                    txtChiSoDau.Text = dgvDongho.Rows[index].Cells[4].Value.ToString();
+
+                    cbTinhTrang.Text = dgvDongho.Rows[index].Cells[5].Value.ToString();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một bản ghi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }

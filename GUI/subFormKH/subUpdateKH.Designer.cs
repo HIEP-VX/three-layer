@@ -45,14 +45,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbPhuong = new System.Windows.Forms.ComboBox();
             this.diaChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyCungCapNuocSachDataSet4 = new GUI.QuanLyCungCapNuocSachDataSet4();
-            this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
-            this.quanLyCungCapNuocSachDataSet41 = new GUI.QuanLyCungCapNuocSachDataSet4();
             this.label8 = new System.Windows.Forms.Label();
             this.txtTinhTrang = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet41)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -92,7 +87,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 181);
+            this.label5.Location = new System.Drawing.Point(19, 149);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 16);
@@ -149,7 +144,7 @@
             // txtDC
             // 
             this.txtDC.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDC.Location = new System.Drawing.Point(122, 181);
+            this.txtDC.Location = new System.Drawing.Point(122, 146);
             this.txtDC.Margin = new System.Windows.Forms.Padding(4);
             this.txtDC.Name = "txtDC";
             this.txtDC.Size = new System.Drawing.Size(237, 23);
@@ -199,7 +194,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(19, 148);
+            this.label7.Location = new System.Drawing.Point(19, 182);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 16);
@@ -208,10 +203,31 @@
             // 
             // cbPhuong
             // 
-            this.cbPhuong.DataSource = this.diaChiBindingSource;
-            this.cbPhuong.DisplayMember = "phuong";
             this.cbPhuong.FormattingEnabled = true;
-            this.cbPhuong.Location = new System.Drawing.Point(122, 148);
+            this.cbPhuong.Items.AddRange(new object[] {
+            "Bà Triệu",
+            "Cửa Bắc",
+            "Cửa Nam",
+            "Hạ Long",
+            "Lộc Hạ",
+            "Lộc Vượng",
+            "Năng Tĩnh",
+            "Ngô Quyền",
+            "Nguyễn Du",
+            "Trần Quang Khải",
+            "Trần Tế Xương",
+            "Trường Thi",
+            "Văn Miếu",
+            "Vị Hoàng",
+            "Vị Xuyên",
+            "Phan Đình Phùng",
+            "Quang Trung",
+            "Thống Nhất",
+            "Trần Đăng Ninh",
+            "Trần Hưng Đạo",
+            "Lộc Hòa",
+            "Mỹ Xá"});
+            this.cbPhuong.Location = new System.Drawing.Point(122, 179);
             this.cbPhuong.Name = "cbPhuong";
             this.cbPhuong.Size = new System.Drawing.Size(237, 24);
             this.cbPhuong.TabIndex = 17;
@@ -219,21 +235,6 @@
             // diaChiBindingSource
             // 
             this.diaChiBindingSource.DataMember = "diaChi";
-            this.diaChiBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet4;
-            // 
-            // quanLyCungCapNuocSachDataSet4
-            // 
-            this.quanLyCungCapNuocSachDataSet4.DataSetName = "QuanLyCungCapNuocSachDataSet4";
-            this.quanLyCungCapNuocSachDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // diaChiTableAdapter
-            // 
-            this.diaChiTableAdapter.ClearBeforeFill = true;
-            // 
-            // quanLyCungCapNuocSachDataSet41
-            // 
-            this.quanLyCungCapNuocSachDataSet41.DataSetName = "QuanLyCungCapNuocSachDataSet4";
-            this.quanLyCungCapNuocSachDataSet41.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label8
             // 
@@ -286,8 +287,6 @@
             this.Text = "subDelKhachHang";
             this.Load += new System.EventHandler(this.subUpdateKH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet41)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,10 +309,7 @@
         private System.Windows.Forms.TextBox txtMa;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbPhuong;
-        private QuanLyCungCapNuocSachDataSet4 quanLyCungCapNuocSachDataSet4;
         private System.Windows.Forms.BindingSource diaChiBindingSource;
-        private QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter diaChiTableAdapter;
-        private QuanLyCungCapNuocSachDataSet4 quanLyCungCapNuocSachDataSet41;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtTinhTrang;
     }

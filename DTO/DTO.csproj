@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dongHo.cs" />
     <Compile Include="hoaDonNhanHang.cs" />
     <Compile Include="hoaDonThuTien.cs" />
     <Compile Include="khachHang.cs" />

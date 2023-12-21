@@ -265,11 +265,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyCungCapNuocSachDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCungCapNuocSachDataSet4.xsd</DependentUpon>
-    </Compile>
     <Compile Include="subAddPhieuNH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,18 +276,6 @@
     </Compile>
     <Compile Include="subFormKH\subUpdateKH.Designer.cs">
       <DependentUpon>subUpdateKH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="subFormDongHo\subAddDongHo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="subFormDongHo\subAddDongHo.Designer.cs">
-      <DependentUpon>subAddDongHo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="subFormDongHo\subDelDongHo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="subFormDongHo\subDelDongHo.Designer.cs">
-      <DependentUpon>subDelDongHo.cs</DependentUpon>
     </Compile>
     <Compile Include="subFormLKH\subAddLKH.cs">
       <SubType>Form</SubType>
@@ -311,12 +294,6 @@
     </Compile>
     <Compile Include="subFormHopDong\subUpdateHopD.Designer.cs">
       <DependentUpon>subUpdateHopD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="subFormDongHo\subUpdateDongHo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="subFormDongHo\subUpdateDongHo.Designer.cs">
-      <DependentUpon>subUpdateDongHo.cs</DependentUpon>
     </Compile>
     <Compile Include="subUpdateChiTietMuaHang.cs">
       <SubType>Form</SubType>
@@ -425,12 +402,6 @@
     <EmbeddedResource Include="subFormKH\subUpdateKH.resx">
       <DependentUpon>subUpdateKH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="subFormDongHo\subAddDongHo.resx">
-      <DependentUpon>subAddDongHo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="subFormDongHo\subDelDongHo.resx">
-      <DependentUpon>subDelDongHo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="subFormLKH\subAddLKH.resx">
       <DependentUpon>subAddLKH.cs</DependentUpon>
     </EmbeddedResource>
@@ -439,9 +410,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="subFormHopDong\subUpdateHopD.resx">
       <DependentUpon>subUpdateHopD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="subFormDongHo\subUpdateDongHo.resx">
-      <DependentUpon>subUpdateDongHo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="subUpdateChiTietMuaHang.resx">
       <DependentUpon>subUpdateChiTietMuaHang.cs</DependentUpon>
@@ -461,17 +429,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QuanLyCungCapNuocSachDataSet4.xsc">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyCungCapNuocSachDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyCungCapNuocSachDataSet4.xss">
-      <DependentUpon>QuanLyCungCapNuocSachDataSet4.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

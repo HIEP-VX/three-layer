@@ -17,6 +17,7 @@ namespace GUI
     public partial class frmPhieuNhanHang : Form
     {
         private int index = -1;
+        bool isCollapsed = true;
         public frmPhieuNhanHang()
         {
             InitializeComponent();
@@ -24,6 +25,8 @@ namespace GUI
 
         private void reload()
         {
+            for (int i = 1; i <= 12; i++)
+                txtThang.Items.Add(i);
             dgvPhieuNhanHang.RowTemplate.Height = 26;
             try
             {
@@ -52,6 +55,7 @@ namespace GUI
         private void frmPhieuNhanHang_Load(object sender, EventArgs e)
         {
             this.Refresh();
+            setLinear.SetLinearGradient(btnHopTimKiem, "#56d8e4", "#9f01ea");
             this.reload();
         }
 
@@ -137,7 +141,54 @@ namespace GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            timer1.Start();
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                panelTool.Height += 10;
+                if (panelTool.Size == panelTool.MaximumSize)
+                {
+                    timer1.Stop();
+                    isCollapsed = false;
+                }
+            }
+            else
+            {
+                panelTool.Height -= 10;
+                if (panelTool.Size == panelTool.MinimumSize)
+                {
+                    timer1.Stop();
+                    isCollapsed = true;
+                }
+            }
+        }
+
+        private void btnHopTimKiem_Click(object sender, EventArgs e)
+        {
+            string query = "select maMH, nhaCC, ngayMua, FORMAT(CAST(tongTien AS DECIMAL(18, 0)), 'N0') AS tongTien, phieuNhanHang.maNV from phieuNhanHang where 1 = 1 ";
+
+            if (!string.IsNullOrEmpty(txtMaMH.Text))
+                query += $" AND maMH =" + txtMaMH.Text;
+
+            if (!string.IsNullOrEmpty(txtMaNV.Text))
+                query += $" AND maNV =" + txtMaNV.Text;
+
+            if (!string.IsNullOrEmpty(txtNgay.Text))
+                query += $" AND day(ngayMua) =" + txtNgay.Text;
+
+            if (!string.IsNullOrEmpty(txtThang.Text))
+                query += $" AND month(ngayMua) =" + txtThang.Text;
+
+            if (!string.IsNullOrEmpty(txtNam.Text))
+                query += $" AND year(ngayMua) =" + txtNam.Text;
+
+            if (!string.IsNullOrEmpty(txtNCC.Text))
+                query += $" AND nhaCC like N'%" + txtNCC.Text + "%'";
+
+            dgvPhieuNhanHang.DataSource = AccessData.getData(query);
         }
     }
 }

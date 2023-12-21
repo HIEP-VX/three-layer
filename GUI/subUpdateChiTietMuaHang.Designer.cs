@@ -50,6 +50,7 @@
             this.txtMaCT = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtChiSoCongTo = new System.Windows.Forms.ComboBox();
+            this.lblMaMH = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSP)).BeginInit();
             this.panelUpdateCTMH.SuspendLayout();
             this.SuspendLayout();
@@ -94,9 +95,9 @@
             this.label7.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(462, 105);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 18);
+            this.label7.Size = new System.Drawing.Size(58, 18);
             this.label7.TabIndex = 76;
-            this.label7.Text = "Tiền";
+            this.label7.Text = "Đơn giá";
             // 
             // txtSL
             // 
@@ -284,11 +285,21 @@
             this.txtChiSoCongTo.Size = new System.Drawing.Size(225, 24);
             this.txtChiSoCongTo.TabIndex = 88;
             // 
+            // lblMaMH
+            // 
+            this.lblMaMH.AutoSize = true;
+            this.lblMaMH.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaMH.Location = new System.Drawing.Point(31, 18);
+            this.lblMaMH.Name = "lblMaMH";
+            this.lblMaMH.Size = new System.Drawing.Size(0, 16);
+            this.lblMaMH.TabIndex = 89;
+            // 
             // subUpdateChiTietMuaHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 446);
+            this.Controls.Add(this.lblMaMH);
             this.Controls.Add(this.txtChiSoCongTo);
             this.Controls.Add(this.txtMaCT);
             this.Controls.Add(this.label2);
@@ -345,5 +356,6 @@
         private System.Windows.Forms.TextBox txtMaCT;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox txtChiSoCongTo;
+        private System.Windows.Forms.Label lblMaMH;
     }
 }

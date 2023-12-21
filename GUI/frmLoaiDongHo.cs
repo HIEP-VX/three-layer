@@ -25,8 +25,20 @@ namespace GUI
             dgvLoaiDongHo.RowTemplate.Height = 26;
             try
             {
-                string query = "select * from loaiDongHo";
+                string query = "select maSP, tenSP, chiSoCongTo, tenHangSX from loaiDongHo";
                 dgvLoaiDongHo.DataSource = AccessData.getData(query);
+
+                dgvLoaiDongHo.Columns[0].HeaderText = "Mã sản phẩm";
+                dgvLoaiDongHo.Columns[1].HeaderText = "Tên sản phẩm";
+                dgvLoaiDongHo.Columns[2].HeaderText = "Chỉ số công tơ";
+                dgvLoaiDongHo.Columns[3].HeaderText = "Hãng sản xuất";
+
+
+                foreach (DataGridViewColumn column in dgvLoaiDongHo.Columns)
+                {
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
             }
             catch (Exception ex)
             {

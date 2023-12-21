@@ -13,6 +13,7 @@ namespace GUI
 {
     public partial class frmChiTietMuaHang : Form
     {
+        private int index = -1;
         public frmChiTietMuaHang()
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace GUI
                 foreach (DataGridViewColumn column in dgvChiTietMuaHang.Columns)
                 {
                     column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
             }
             catch (Exception ex)
@@ -46,6 +48,7 @@ namespace GUI
         private void frmChiTietMuaHang_Load(object sender, EventArgs e)
         {
             reload();
+            setLinear.SetLinearGradient(btnTimKiem, "#56d8e4", "#9f01ea");
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -53,7 +56,7 @@ namespace GUI
             string query = $"select maChiTiet, maSP, maMH, soLuong, FORMAT(CAST(tien AS DECIMAL(18, 0)), 'N0') AS tienFormatted from chiTietMuaHang where 1=1 ";
 
             if (!string.IsNullOrEmpty(txtMaCT.Text))
-                query += $" AND maCT =" + txtMaCT.Text;
+                query += $" AND maChiTiet =" + txtMaCT.Text;
 
             if (!string.IsNullOrEmpty(txtMaSP.Text))
                 query += $" AND maSP =" + txtMaSP.Text;
@@ -239,6 +242,21 @@ namespace GUI
             }
 
             ExportFile(dataTable, "Danh sach", "Danh sách chi tiết mua hàng");
+        }
+
+        private void dgvChiTietMuaHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+            if(index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một chi tiết mua hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            txtMaCT.Text = dgvChiTietMuaHang.Rows[index].Cells[0].Value.ToString();
+            txtMaSP.Text = dgvChiTietMuaHang.Rows[index].Cells[1].Value.ToString();
+            txtmaMH.Text = dgvChiTietMuaHang.Rows[index].Cells[2].Value.ToString();
+            txtSL.Text = dgvChiTietMuaHang.Rows[index].Cells[3].Value.ToString();
+            txtTien.Text = dgvChiTietMuaHang.Rows[index].Cells[4].Value.ToString();
         }
     }
 }

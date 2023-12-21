@@ -76,7 +76,7 @@ namespace GUI
                 dgvGhiNuoc.Columns[8].HeaderText = "Tên khách hàng";
                 dgvGhiNuoc.Columns[9].HeaderText = "Đường";
                 dgvGhiNuoc.Columns[10].HeaderText = "Phường";
-                dgvGhiNuoc.Columns[11].HeaderText = "Nhân viên ghi nước";
+                dgvGhiNuoc.Columns[11].HeaderText = "Nhân viên lập danh sách";
 
                 foreach (DataGridViewColumn column in dgvGhiNuoc.Columns)
                 {
@@ -128,7 +128,6 @@ namespace GUI
 
         private void frmGhiNuoc_Load(object sender, EventArgs e)
         {
-            this.diaChiTableAdapter.Fill(this.quanLyCungCapNuocSachDataSet4.diaChi);
             for (int i = 1; i <= 12; i++)
                 cbThangTGD.Items.Add(i);
             for (int i = 1; i <= 12; i++)
@@ -494,7 +493,6 @@ namespace GUI
             // Lấy tên cột chứa thông tin về phường trong DataGridView (giả sử cột thứ 5, chỉnh lại nếu cần)
             int columnIndexPhuong = 10;
             Dictionary<string, DataTable> dataSheets = new Dictionary<string, DataTable>();
-            MessageBox.Show(dgvGhiNuoc.Rows.Count.ToString());
             for (int rowIndex = 0; rowIndex < dgvGhiNuoc.Rows.Count; rowIndex++)
             {
                 DataGridViewRow dtgvRow = dgvGhiNuoc.Rows[rowIndex];
@@ -509,7 +507,6 @@ namespace GUI
                     // Kiểm tra xem phường đã tồn tại trong Dictionary chưa
                     if (!dataSheets.ContainsKey(phuong))
                     {
-                        MessageBox.Show(phuong);
                         dataSheets[phuong] = new DataTable();
 
                         DataColumn col1 = new DataColumn("ID_TT_1");
@@ -618,7 +615,7 @@ namespace GUI
         {
             List<string> phuongList = new List<string>();
 
-            string query = "SELECT phuong FROM diaChi"; 
+            string query = "select distinct phuong from khachhang"; 
 
             using (SqlConnection connection = SqlConnectionData.connect())
             {

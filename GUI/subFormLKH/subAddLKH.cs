@@ -47,61 +47,53 @@ namespace GUI
 
             if (txtGiaBac2.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải nhập giá bậc 2.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn phải nhập giá bậc 2.\nNếu không có giá bậc 2, hãy nhập 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtGiaBac2.Focus();
                 return;
             }
 
             if (txtGiaBac3.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải nhập giá bậc 3.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn phải nhập giá bậc 3.\nNếu không có giá bậc 3, hãy nhập 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtGiaBac3.Focus();
                 return;
             }
 
             if (txtGiaBac4.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải nhập giá bậc 4.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng nhập giá bậc 4.\nNếu không có giá bậc 4, hãy nhập '0'", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtGiaBac4.Focus();
                 return;
             }
 
-            string query = "INSERT INTO loaiKhachHang (tenLoai, giaBac1, giaBac2, giaBac3, giaBac4) values (@tenLoai, @giaBac1, @giaBac2, @giaBac3, @giaBac4)";
-            using (SqlConnection conn = SqlConnectionData.connect())
+            DialogResult result = MessageBox.Show("Bạn đã chắc chắn thông tin vừa nhập chưa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@tenLoai", SqlDbType.NVarChar).Value = txtTenLoai.Text;
-                cmd.Parameters.AddWithValue("@giaBac1", txtgiaBac1.Text);
-                cmd.Parameters.AddWithValue("@giaBac2", txtGiaBac2.Text);
-                cmd.Parameters.AddWithValue("@giaBac3", txtGiaBac3.Text);
-                cmd.Parameters.AddWithValue("@giaBac4", txtGiaBac4.Text);
-
-                try
+                string query = "INSERT INTO loaiKhachHang (tenLoai, giaBac1, giaBac2, giaBac3, giaBac4) values (@tenLoai, @giaBac1, @giaBac2, @giaBac3, @giaBac4)";
+                using (SqlConnection conn = SqlConnectionData.connect())
                 {
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                this.Close();
-                DataAdded?.Invoke();
-            }
+                    conn.Open();
 
-            try
-            {
-                AccessData.execQuery(query);
-                MessageBox.Show("Thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@tenLoai", SqlDbType.NVarChar).Value = txtTenLoai.Text;
+                    cmd.Parameters.AddWithValue("@giaBac1", txtgiaBac1.Text);
+                    cmd.Parameters.AddWithValue("@giaBac2", txtGiaBac2.Text);
+                    cmd.Parameters.AddWithValue("@giaBac3", txtGiaBac3.Text);
+                    cmd.Parameters.AddWithValue("@giaBac4", txtGiaBac4.Text);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    this.Close();
+                    DataAdded?.Invoke();
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.Close();
-            DataAdded?.Invoke();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

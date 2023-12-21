@@ -76,7 +76,7 @@
             this.panelTool.MaximumSize = new System.Drawing.Size(1115, 168);
             this.panelTool.MinimumSize = new System.Drawing.Size(1115, 34);
             this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(1115, 34);
+            this.panelTool.Size = new System.Drawing.Size(1115, 168);
             this.panelTool.TabIndex = 0;
             // 
             // btnXuatFile
@@ -340,9 +340,9 @@
             this.panelDgvNV.Controls.Add(this.dgvNhanVien);
             this.panelDgvNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDgvNV.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDgvNV.Location = new System.Drawing.Point(0, 34);
+            this.panelDgvNV.Location = new System.Drawing.Point(0, 168);
             this.panelDgvNV.Name = "panelDgvNV";
-            this.panelDgvNV.Size = new System.Drawing.Size(1110, 416);
+            this.panelDgvNV.Size = new System.Drawing.Size(1110, 282);
             this.panelDgvNV.TabIndex = 1;
             // 
             // dgvNhanVien
@@ -354,7 +354,7 @@
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.ReadOnly = true;
             this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNhanVien.Size = new System.Drawing.Size(1110, 416);
+            this.dgvNhanVien.Size = new System.Drawing.Size(1110, 282);
             this.dgvNhanVien.TabIndex = 0;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 

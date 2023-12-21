@@ -43,6 +43,7 @@ namespace GUI
         private void frmHoaDonMH_Load(object sender, EventArgs e)
         {
             reload();
+            setLinear.SetLinearGradient(btnCN, "#56d8e4", "#9f01ea");
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
@@ -151,6 +152,43 @@ namespace GUI
             txtMaMH.Text = dgvHDMH.Rows[index].Cells[1].Value.ToString();
             txtmaNV.Text = dgvHDMH.Rows[index].Cells[2].Value.ToString();
             txtTinhTrang.Text = dgvHDMH.Rows[index].Cells[3].Value.ToString();
+        }
+
+        private void btnCN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectedItem = txtTinhTrang.SelectedItem as string;
+                string selectedValue = "";
+
+                string[] parts = selectedItem.Split('-');
+                if (parts.Length == 2)
+                    selectedValue = parts[0].Trim();
+
+                string query = "select maHD_NH, maMH, maNV,\n" +
+                             "CASE\n" +
+                             "WHEN tinhTrang = 0 THEN N'chưa thanh toán'\n" +
+                             "WHEN tinhTrang = 1 THEN N'đã thanh toán'\n" +
+                             "END AS tinhTrang\n" +
+                             "from hoaDonNhanHang where 1 = 1 ";
+                if (!string.IsNullOrEmpty(txtMaHD.Text))
+                    query += $" AND maHD_NH =" + txtMaHD.Text;
+
+                if (!string.IsNullOrEmpty(txtMaMH.Text))
+                    query += $" AND maMH =" + txtMaMH.Text;
+
+                if (!string.IsNullOrEmpty(txtmaNV.Text))
+                    query += $" AND maNV = " + txtmaNV.Text;
+
+                if (!string.IsNullOrEmpty(txtTinhTrang.Text))
+                    query += $" AND tinhTrang = " + int.Parse(selectedValue);
+
+                dgvHDMH.DataSource = AccessData.getData(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message + "\nStack Trace:\n" + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

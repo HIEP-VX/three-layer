@@ -62,10 +62,10 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string query = "select makh, dc.maNV from khachhang join diaChi dc on dc.phuong = KhachHang.phuong where tinhTrang = 1";
+            string query = "select makh from khachhang where tinhTrang = 1";
             DataTable dataTable = AccessData.getData(query);
 
-            string sql = "select diaChi.maNV from diaChi join khachhang kh on kh.phuong = diaChi.phuong";
+           // string sql = "select diaChi.maNV from diaChi join khachhang kh on kh.phuong = diaChi.phuong";
             
             using (SqlConnection conn = SqlConnectionData.connect())
             {
@@ -76,21 +76,20 @@ namespace GUI
                                 "SET @maTT = SCOPE_IDENTITY()\n"+
                                 "select @maTT as 'maTT'";
                 thoiGianGhiNuoc.thoiGianCuoi = dateThoiGianCuoi.Value;
-                List<MyData> myDataList = DataTableToTupleList(dataTable);
-                //string[] maKHArray = DataTableColumnToStringArray(dataTable, "MaKH");
+               // List<MyData> myDataList = DataTableToTupleList(dataTable);
+                string[] maKHArray = DataTableColumnToStringArray(dataTable, "MaKH");
                //string[] maNVArray = DataTableColumnToStringArray(dataTable, "MaNV");
-                for (int i = 0; i < myDataList.Count; i++)
+                for (int i = 0; i < maKHArray.Length; i++)
                 {
 
                     using (SqlCommand cmd = new SqlCommand(query1, conn))
                     {
                         cmd.Parameters.Clear();
 
-                        //dataTable.Rows[i]["MaKH"].ToString()
-                        cmd.Parameters.AddWithValue("@maKH", myDataList[i].MaKH);
+                        cmd.Parameters.AddWithValue("@maKH", dataTable.Rows[i]["MaKH"].ToString());
                         cmd.Parameters.AddWithValue("@ThoiGianDau", dateThoiGianDau.Value);
                         cmd.Parameters.AddWithValue("@ThoiGianCuoi", dateThoiGianCuoi.Value);
-                        cmd.Parameters.AddWithValue("@maNV", myDataList[i].MaNV);
+                        cmd.Parameters.AddWithValue("@maNV", user.id);
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {

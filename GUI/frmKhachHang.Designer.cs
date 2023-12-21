@@ -41,8 +41,6 @@
             this.txtNam = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cbPhuong = new System.Windows.Forms.ComboBox();
-            this.diaChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyCungCapNuocSachDataSet4 = new GUI.QuanLyCungCapNuocSachDataSet4();
             this.txtLKH = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtDH = new System.Windows.Forms.TextBox();
@@ -60,15 +58,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txttenKH = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
+            this.diaChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.timerTimKiem = new System.Windows.Forms.Timer(this.components);
             this.panelDgvKH = new System.Windows.Forms.Panel();
             this.dgvKH = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).BeginInit();
             this.panelDgvKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).BeginInit();
             this.SuspendLayout();
@@ -201,23 +198,34 @@
             // 
             // cbPhuong
             // 
-            this.cbPhuong.DataSource = this.diaChiBindingSource;
-            this.cbPhuong.DisplayMember = "phuong";
             this.cbPhuong.FormattingEnabled = true;
+            this.cbPhuong.Items.AddRange(new object[] {
+            "Bà Triệu",
+            "Cửa Bắc",
+            "Cửa Nam",
+            "Hạ Long",
+            "Lộc Hạ",
+            "Lộc Vượng",
+            "Năng Tĩnh",
+            "Ngô Quyền",
+            "Nguyễn Du",
+            "Trần Quang Khải",
+            "Trần Tế Xương",
+            "Trường Thi",
+            "Văn Miếu",
+            "Vị Hoàng",
+            "Vị Xuyên",
+            "Phan Đình Phùng",
+            "Quang Trung",
+            "Thống Nhất",
+            "Trần Đăng Ninh",
+            "Trần Hưng Đạo",
+            "Lộc Hòa",
+            "Mỹ Xá"});
             this.cbPhuong.Location = new System.Drawing.Point(590, 55);
             this.cbPhuong.Name = "cbPhuong";
             this.cbPhuong.Size = new System.Drawing.Size(251, 24);
             this.cbPhuong.TabIndex = 45;
-            // 
-            // diaChiBindingSource
-            // 
-            this.diaChiBindingSource.DataMember = "diaChi";
-            this.diaChiBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet4;
-            // 
-            // quanLyCungCapNuocSachDataSet4
-            // 
-            this.quanLyCungCapNuocSachDataSet4.DataSetName = "QuanLyCungCapNuocSachDataSet4";
-            this.quanLyCungCapNuocSachDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtLKH
             // 
@@ -376,6 +384,10 @@
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
+            // diaChiBindingSource
+            // 
+            this.diaChiBindingSource.DataMember = "diaChi";
+            // 
             // timerTimKiem
             // 
             this.timerTimKiem.Interval = 20;
@@ -413,10 +425,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 40;
             // 
-            // diaChiTableAdapter
-            // 
-            this.diaChiTableAdapter.ClearBeforeFill = true;
-            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,7 +439,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).EndInit();
             this.panelDgvKH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).EndInit();
             this.ResumeLayout(false);
@@ -465,9 +472,7 @@
         private System.Windows.Forms.DataGridView dgvKH;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbPhuong;
-        private QuanLyCungCapNuocSachDataSet4 quanLyCungCapNuocSachDataSet4;
         private System.Windows.Forms.BindingSource diaChiBindingSource;
-        private QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter diaChiTableAdapter;
         private System.Windows.Forms.TextBox txtTinhTrang;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbThang;

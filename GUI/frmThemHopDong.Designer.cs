@@ -33,7 +33,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cbPhuong = new System.Windows.Forms.ComboBox();
             this.diaChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyCungCapNuocSachDataSet4 = new GUI.QuanLyCungCapNuocSachDataSet4();
             this.txtLKH = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtSODT = new System.Windows.Forms.TextBox();
@@ -59,10 +58,8 @@
             this.dgvDH_HD = new System.Windows.Forms.DataGridView();
             this.selectColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
-            this.diaChiTableAdapter = new GUI.QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter();
             this.grpTTKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).BeginInit();
             this.grpTTHD.SuspendLayout();
             this.grpTTDH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDH_HD)).BeginInit();
@@ -103,10 +100,31 @@
             // 
             // cbPhuong
             // 
-            this.cbPhuong.DataSource = this.diaChiBindingSource;
-            this.cbPhuong.DisplayMember = "phuong";
             this.cbPhuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPhuong.FormattingEnabled = true;
+            this.cbPhuong.Items.AddRange(new object[] {
+            "Bà Triệu",
+            "Cửa Bắc",
+            "Cửa Nam",
+            "Hạ Long",
+            "Lộc Hạ",
+            "Lộc Vượng",
+            "Năng Tĩnh",
+            "Ngô Quyền",
+            "Nguyễn Du",
+            "Trần Quang Khải",
+            "Trần Tế Xương",
+            "Trường Thi",
+            "Văn Miếu",
+            "Vị Hoàng",
+            "Vị Xuyên",
+            "Phan Đình Phùng",
+            "Quang Trung",
+            "Thống Nhất",
+            "Trần Đăng Ninh",
+            "Trần Hưng Đạo",
+            "Lộc Hòa",
+            "Mỹ Xá"});
             this.cbPhuong.Location = new System.Drawing.Point(519, 76);
             this.cbPhuong.Name = "cbPhuong";
             this.cbPhuong.Size = new System.Drawing.Size(155, 27);
@@ -115,12 +133,9 @@
             // diaChiBindingSource
             // 
             this.diaChiBindingSource.DataMember = "diaChi";
-            this.diaChiBindingSource.DataSource = this.quanLyCungCapNuocSachDataSet4;
             // 
             // quanLyCungCapNuocSachDataSet4
             // 
-            this.quanLyCungCapNuocSachDataSet4.DataSetName = "QuanLyCungCapNuocSachDataSet4";
-            this.quanLyCungCapNuocSachDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtLKH
             // 
@@ -385,7 +400,6 @@
             // 
             // diaChiTableAdapter
             // 
-            this.diaChiTableAdapter.ClearBeforeFill = true;
             // 
             // frmThemHopDong
             // 
@@ -402,7 +416,6 @@
             this.grpTTKH.ResumeLayout(false);
             this.grpTTKH.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyCungCapNuocSachDataSet4)).EndInit();
             this.grpTTHD.ResumeLayout(false);
             this.grpTTHD.PerformLayout();
             this.grpTTDH.ResumeLayout(false);
@@ -435,9 +448,7 @@
         private System.Windows.Forms.ComboBox txtLKH;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbPhuong;
-        private QuanLyCungCapNuocSachDataSet4 quanLyCungCapNuocSachDataSet4;
         private System.Windows.Forms.BindingSource diaChiBindingSource;
-        private QuanLyCungCapNuocSachDataSet4TableAdapters.diaChiTableAdapter diaChiTableAdapter;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selectColumn;
         private System.Windows.Forms.TextBox txtMaNV;
         private System.Windows.Forms.Label label11;
