@@ -135,12 +135,6 @@
     <Compile Include="frmQuanLyDoanhThu.Designer.cs">
       <DependentUpon>frmQuanLyDoanhThu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQuanLyPhuong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmQuanLyPhuong.Designer.cs">
-      <DependentUpon>frmQuanLyPhuong.cs</DependentUpon>
-    </Compile>
     <Compile Include="setLinear.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="subFormTieuThu\showDetailTieuThu.cs">
@@ -324,9 +318,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyDoanhThu.resx">
       <DependentUpon>frmQuanLyDoanhThu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmQuanLyPhuong.resx">
-      <DependentUpon>frmQuanLyPhuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reportBill.rdlc" />
     <EmbeddedResource Include="reportBillLienLuu.rdlc" />

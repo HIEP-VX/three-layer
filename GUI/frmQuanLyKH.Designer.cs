@@ -32,7 +32,6 @@
             this.thôngTinKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loạiKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBodyQuanLyKH = new System.Windows.Forms.Panel();
-            this.phườngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,8 +39,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinKháchHàngToolStripMenuItem,
-            this.loạiKháchHàngToolStripMenuItem,
-            this.phườngToolStripMenuItem});
+            this.loạiKháchHàngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -72,14 +70,6 @@
             this.panelBodyQuanLyKH.Size = new System.Drawing.Size(800, 426);
             this.panelBodyQuanLyKH.TabIndex = 1;
             // 
-            // phườngToolStripMenuItem
-            // 
-            this.phườngToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phườngToolStripMenuItem.Name = "phườngToolStripMenuItem";
-            this.phườngToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.phườngToolStripMenuItem.Text = "Phường";
-            this.phườngToolStripMenuItem.Click += new System.EventHandler(this.phườngToolStripMenuItem_Click);
-            // 
             // frmQuanLyKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +94,5 @@
         private System.Windows.Forms.ToolStripMenuItem thôngTinKháchHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loạiKháchHàngToolStripMenuItem;
         private System.Windows.Forms.Panel panelBodyQuanLyKH;
-        private System.Windows.Forms.ToolStripMenuItem phườngToolStripMenuItem;
     }
 }

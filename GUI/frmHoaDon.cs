@@ -20,6 +20,7 @@ namespace GUI
     {
         bool isCollapsed = true;
         bool isCollapsed1 = true;
+        bool isSelected = false;
 
         private int index = -1;
 
@@ -78,7 +79,7 @@ namespace GUI
 
         private void frmHoaDon_Load(object sender, EventArgs e)
         {
-            txtTinhTrang.SelectedIndex = 0;
+            cbTinhTrang.Text = "";
             for (int i = 1; i <= 12; i++)
                 cbThang.Items.Add(i);
             reload();
@@ -227,7 +228,7 @@ namespace GUI
             txtNgay.Text = ngay.ToString();
             cbThang.Text = thang.ToString();
             txtNam.Text = nam.ToString();
-            txtTinhTrang.Text = dgvHoaDon.Rows[index].Cells[8].Value.ToString();
+            cbTinhTrang.Text = dgvHoaDon.Rows[index].Cells[8].Value.ToString();
         }
 
         public class InvoiceData
@@ -426,12 +427,15 @@ namespace GUI
         {
             try
             {
-                string selectedItem = txtTinhTrang.SelectedItem as string;
                 string selectedValue = "";
+                if(isSelected == true)
+                {
+                    string selectedItem = cbTinhTrang.SelectedItem as string;
 
-                string[] parts = selectedItem.Split('-');
-                if (parts.Length == 2)
-                    selectedValue = parts[0].Trim();
+                    string[] parts = selectedItem.Split('-');
+                    if (parts.Length == 2)
+                        selectedValue = parts[0].Trim();
+                }
 
                 string query = $"Select maHD, maTT, maNV, luongNuoc, FORMAT(CAST(tienNuoc AS DECIMAL(18, 0)), 'N0') AS tienNuoc, FORMAT(CAST(thue AS DECIMAL(18, 0)), 'N0') AS tienThue, FORMAT(CAST(tongTien AS DECIMAL(18, 0)), 'N0') AS tongTien, thoiGian, \n" +
                                  "CASE\n" +
@@ -467,7 +471,7 @@ namespace GUI
                 if (!string.IsNullOrEmpty(txtNam.Text))
                     query += $" AND year(thoiGian) =" + txtNam.Text;
                 
-                if (!string.IsNullOrEmpty(txtTinhTrang.Text))
+                if (!string.IsNullOrEmpty(cbTinhTrang.Text))
                     query += $" AND tinhTrang = " + int.Parse(selectedValue);
 
                 dgvHoaDon.DataSource = AccessData.getData(query);
@@ -689,6 +693,11 @@ namespace GUI
             }
 
             ExportFile(dataTable, "Danh sach", "Danh sách hóa đơn");
+        }
+
+        private void cbTinhTrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            isSelected = true;
         }
     }
 }

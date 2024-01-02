@@ -17,6 +17,7 @@ namespace GUI
     public partial class frmKhachHang : Form
     {
         bool isCollapsed = true;
+        bool isSelected = false;
         private int index = -1; // Biến toàn cục để theo dõi dòng được chọn
         public frmKhachHang()
         {
@@ -98,6 +99,15 @@ namespace GUI
 
         private void btnHopTimKiem_Click(object sender, EventArgs e)
         {
+            string selectedValue = "";
+            if (isSelected == true)
+            {
+                string selectedItem = txtTinhTrang.SelectedItem as string;
+
+                string[] parts = selectedItem.Split('-');
+                if (parts.Length == 2)
+                    selectedValue = parts[0].Trim();
+            }
             string query = "select maKH, tenKH, ngaySinh, diaChi, phuong, soDT, maHD, maLKH, maDHN,\n" +
                                "CASE\n" +
                                "WHEN tinhTrang = 1 THEN N'đang hoạt động'\n" +
@@ -140,7 +150,7 @@ namespace GUI
                 query += $" AND maDHN =" + txtDH.Text;
 
             if (!string.IsNullOrEmpty(txtTinhTrang.Text))
-                query += $" AND tinhTrang like N'%" + txtTinhTrang.Text + "%'";
+                query += $" AND tinhTrang = " + int.Parse(selectedValue);
 
             dgvKH.DataSource = AccessData.getData(query);
         }
@@ -440,6 +450,11 @@ namespace GUI
             }
 
             ExportFile(dataTable, "Danh sach", "Danh sách khách hàng");
+        }
+
+        private void txtTinhTrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            isSelected = true;
         }
     }
 }

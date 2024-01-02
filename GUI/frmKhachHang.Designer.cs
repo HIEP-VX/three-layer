@@ -35,7 +35,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbThang = new System.Windows.Forms.ComboBox();
-            this.txtTinhTrang = new System.Windows.Forms.TextBox();
             this.txtNgay = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtNam = new System.Windows.Forms.TextBox();
@@ -63,6 +62,7 @@
             this.panelDgvKH = new System.Windows.Forms.Panel();
             this.dgvKH = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtTinhTrang = new System.Windows.Forms.ComboBox();
             this.panelTool.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaChiBindingSource)).BeginInit();
@@ -116,8 +116,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbThang);
             this.groupBox1.Controls.Add(this.txtTinhTrang);
+            this.groupBox1.Controls.Add(this.cbThang);
             this.groupBox1.Controls.Add(this.txtNgay);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtNam);
@@ -154,13 +154,6 @@
             this.cbThang.Name = "cbThang";
             this.cbThang.Size = new System.Drawing.Size(52, 24);
             this.cbThang.TabIndex = 78;
-            // 
-            // txtTinhTrang
-            // 
-            this.txtTinhTrang.Location = new System.Drawing.Point(590, 84);
-            this.txtTinhTrang.Name = "txtTinhTrang";
-            this.txtTinhTrang.Size = new System.Drawing.Size(251, 23);
-            this.txtTinhTrang.TabIndex = 48;
             // 
             // txtNgay
             // 
@@ -425,6 +418,21 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 40;
             // 
+            // txtTinhTrang
+            // 
+            this.txtTinhTrang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtTinhTrang.FormattingEnabled = true;
+            this.txtTinhTrang.Items.AddRange(new object[] {
+            "1 - đang hoạt động",
+            "2 - cắt nước",
+            "3 - dừng hoạt động"});
+            this.txtTinhTrang.Location = new System.Drawing.Point(590, 83);
+            this.txtTinhTrang.Name = "txtTinhTrang";
+            this.txtTinhTrang.Size = new System.Drawing.Size(251, 24);
+            this.txtTinhTrang.TabIndex = 79;
+            this.txtTinhTrang.SelectedIndexChanged += new System.EventHandler(this.txtTinhTrang_SelectedIndexChanged);
+            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,12 +481,12 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbPhuong;
         private System.Windows.Forms.BindingSource diaChiBindingSource;
-        private System.Windows.Forms.TextBox txtTinhTrang;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbThang;
         private System.Windows.Forms.TextBox txtNgay;
         private System.Windows.Forms.TextBox txtNam;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnXuatFile;
+        private System.Windows.Forms.ComboBox txtTinhTrang;
     }
 }

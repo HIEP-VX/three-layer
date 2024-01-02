@@ -50,10 +50,5 @@ namespace GUI
         {
             OpenFormChild(new frmLKH());
         }
-
-        private void phườngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFormChild(new frmQuanLyPhuong());
-        }
     }
 }

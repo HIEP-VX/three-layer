@@ -34,7 +34,7 @@
             this.btnXuatFile = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.grpCapNhat = new System.Windows.Forms.GroupBox();
-            this.txtTinhTrang = new System.Windows.Forms.ComboBox();
+            this.cbTinhTrang = new System.Windows.Forms.ComboBox();
             this.cbThang = new System.Windows.Forms.ComboBox();
             this.txtNgay = new System.Windows.Forms.TextBox();
             this.txtNam = new System.Windows.Forms.TextBox();
@@ -111,7 +111,7 @@
             // 
             // grpCapNhat
             // 
-            this.grpCapNhat.Controls.Add(this.txtTinhTrang);
+            this.grpCapNhat.Controls.Add(this.cbTinhTrang);
             this.grpCapNhat.Controls.Add(this.cbThang);
             this.grpCapNhat.Controls.Add(this.txtNgay);
             this.grpCapNhat.Controls.Add(this.txtNam);
@@ -140,16 +140,19 @@
             this.grpCapNhat.TabStop = false;
             this.grpCapNhat.Text = "Hộp tìm kiếm";
             // 
-            // txtTinhTrang
+            // cbTinhTrang
             // 
-            this.txtTinhTrang.FormattingEnabled = true;
-            this.txtTinhTrang.Items.AddRange(new object[] {
+            this.cbTinhTrang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTinhTrang.FormattingEnabled = true;
+            this.cbTinhTrang.Items.AddRange(new object[] {
             "0 - chưa thanh toán",
             "1 - đã thanh toán"});
-            this.txtTinhTrang.Location = new System.Drawing.Point(519, 86);
-            this.txtTinhTrang.Name = "txtTinhTrang";
-            this.txtTinhTrang.Size = new System.Drawing.Size(156, 24);
-            this.txtTinhTrang.TabIndex = 79;
+            this.cbTinhTrang.Location = new System.Drawing.Point(519, 87);
+            this.cbTinhTrang.Name = "cbTinhTrang";
+            this.cbTinhTrang.Size = new System.Drawing.Size(156, 24);
+            this.cbTinhTrang.TabIndex = 79;
+            this.cbTinhTrang.SelectedIndexChanged += new System.EventHandler(this.cbTinhTrang_SelectedIndexChanged);
             // 
             // cbThang
             // 
@@ -430,7 +433,7 @@
         private System.Windows.Forms.ComboBox cbThang;
         private System.Windows.Forms.TextBox txtNgay;
         private System.Windows.Forms.TextBox txtNam;
-        private System.Windows.Forms.ComboBox txtTinhTrang;
         private System.Windows.Forms.Button btnXuatFile;
+        private System.Windows.Forms.ComboBox cbTinhTrang;
     }
 }

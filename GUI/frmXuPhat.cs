@@ -262,7 +262,7 @@ namespace GUI
                     string sql = "DECLARE @TienPhat MONEY, @tongTienHD1 MONEY, @tongTienHD2 MONEY, @tongTien2HD MONEY, @soNgay INT;\n" +
                                  "SELECT TOP 1 @tongTienHD1 = hoadon.tongTien FROM xuphat INNER JOIN hoadon ON hoadon.maHD = xuphat.maHD1 WHERE maXP = " + maXP_TEMP +
                                  "SELECT TOP 1 @tongTienHD2 = hoadon.tongTien FROM xuphat INNER JOIN hoadon ON hoadon.maHD = xuphat.maHD2 WHERE maXP = " + maXP_TEMP +
-                                 "SELECT @soNgay = ABS(DATEDIFF(day, subquery.thoiGianCuoi, GETDATE())) FROM ( SELECT tt.thoiGianCuoi FROM HoaDon hd\n" +
+                                 "SELECT @soNgay = ABS(DATEDIFF(day, subquery.thoiGian1,subquery.thoiGian2)) FROM ( SELECT hd.thoiGian as thoiGian1, xp.thoiGian as thoiGian2 FROM HoaDon hd\n" +
                                  "JOIN xuphat xp ON xp.maHD2 = hd.maHD\n" +
                                  "JOIN tieuthu tt ON tt.maTT = hd.maTT\n" +
                                  "WHERE xp.maXP = " + maXP_TEMP + ") AS subquery;\n" +
